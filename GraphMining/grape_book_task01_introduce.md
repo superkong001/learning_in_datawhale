@@ -2,6 +2,7 @@
 > https://datawhalechina.github.io/grape-book/#/
 
 小世界网络效应：
+
 <img width="305" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/39d5db1a-9389-48ae-bac6-7120e4ba5e70">
 
 网络演变过程：首先在一个N个节点的初始规则网络中，每个节点都会和其k个最近的邻居建立链接，接着让该网络中的一些节点按一定的概率P切断链接，随后再链接到其它未链接的节点，随着概率P的不断增大，网络逐渐会从规则网络(P=0)转变成小世界网络，直至转变成随机网络(P=1)。
