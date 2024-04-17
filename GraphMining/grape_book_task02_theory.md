@@ -44,7 +44,7 @@ num_edges = G.number_of_edges()
 num_nodes = G.number_of_nodes()
 avg_degree = average_degree(num_edges, num_nodes)
 print("Average degree of karate club network is {}".format(avg_degree))
-```bash
+```
 
 <img width="797" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/6620791e-2d45-4feb-bacf-0e93b0c62b27">
 
