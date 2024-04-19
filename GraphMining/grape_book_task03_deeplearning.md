@@ -75,7 +75,7 @@ Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法�
 
 卷积：卷积是当把一个函数“翻转”并移位x时，测量f和g之间的重叠。
 
-图像卷积:
+## 图像卷积:
 
 <img width="426" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/60cca0d6-c050-4517-beec-eb4a5e534c1a">
 
@@ -83,7 +83,7 @@ Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法�
 
 <img width="516" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/4e56adcb-070e-433e-b9f6-0c2a8fe53f3b">
 
-填充（padding）：
+## 填充（padding）：
 
 <img width="430" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f79967e1-cf22-4873-ab8a-e3e10f11831e">
 
@@ -93,7 +93,7 @@ Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法�
 
 卷积神经网络中卷积核的高度和宽度通常为奇数，例如1、3、5或7。选择奇数的好处是，保持空间维度的同时，我们可以在顶部和底部填充相同数量的行，在左侧和右侧填充相同数量的列。
 
-步幅（stride）：每次滑动元素的数量。
+## 步幅（stride）：每次滑动元素的数量。
 
 <img width="421" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/b4598fb8-7bec-4d57-8dc5-3c13d492c159">
 
@@ -101,11 +101,11 @@ Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法�
 
 <img width="445" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/7c916e76-6cd1-42f3-8591-3f9bd0862dad">
 
-感受野（receptive field）：指在前向传播期间可能影响计算的所有元素（来自所有先前层），即：神经网络中神经元“看到的”输入区域。
+## 感受野（receptive field）：指在前向传播期间可能影响计算的所有元素（来自所有先前层），即：神经网络中神经元“看到的”输入区域。
 
 <img width="310" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/e9d52f08-1088-4f1f-ac7f-f44f738e291b">
 
-池化（pooling）：固定形状窗口遍历的每个位置计算一个输出。目的是降低卷积层对位置的敏感性、降低对空间降采样表示的敏感性。
+## 池化（pooling）：固定形状窗口遍历的每个位置计算一个输出。目的是降低卷积层对位置的敏感性、降低对空间降采样表示的敏感性。
 
 最后一层的神经元应该对整个输入的全局敏感。通过逐渐聚合信息，生成越来越粗糙的映射，最终实现学习全局表示的目标，同时将卷积图层的所有优势保留在中间层。
 
