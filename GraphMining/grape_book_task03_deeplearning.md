@@ -2,6 +2,8 @@
 
 ## 多层感知机
 
+多层感知机包含输入层，隐藏层和输出层，它们由多层神经元组成， 每一层与它的上一层相连。
+
 <img width="434" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/1bfc8ef8-d461-4010-9e04-3890a79aeb6f">
 
 <img width="646" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f8ac639a-4cc4-48af-8bd6-7b8e7739e407">
