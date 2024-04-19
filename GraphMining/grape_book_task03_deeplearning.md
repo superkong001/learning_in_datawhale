@@ -57,5 +57,65 @@ Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法�
 
 <img width="361" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/0d107c47-ec92-43d0-98f7-890f200499df">
 
+# 卷积神经网络
+
+卷积神经网络是包含卷积层的一类特殊的神经网络。在深度学习中，图像处理的区域检测对象被称为卷积核（convolution kernel）或者滤波器（filter）。
+
+卷积神经网络具有的特性：
+> 平移不变性（translation invariance）：不管检测对象出现在图像中的哪个位置，神经网络的前面几层应该对相同的图像区域具有相似的反应，即为“平移不变性”。图像的平移不变性使我们以相同的方式处理局部图像，而不在乎它的位置。
+
+> 局部性（locality）：神经网络的前面几层应该只探索输入图像中的局部区域，而不过度在意图像中相隔较远区域的关系，这就是“局部性”原则。最终，可以聚合这些局部特征，以在整个图像级别进行预测。局部性意味着计算相应的隐藏表示只需一小部分局部图像像素。
+
+<img width="443" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/b8636f56-6571-4989-bb58-309fe05e60dc">
+
+卷积：卷积是当把一个函数“翻转”并移位x时，测量f和g之间的重叠。
+
+图像卷积:
+
+<img width="426" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/60cca0d6-c050-4517-beec-eb4a5e534c1a">
+
+<img width="516" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/4e56adcb-070e-433e-b9f6-0c2a8fe53f3b">
+
+填充（padding）：
+
+<img width="430" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f79967e1-cf22-4873-ab8a-e3e10f11831e">
+
+<img width="548" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c87bc72e-8f5f-4486-ad4b-5f1f87c58a52">
+
+卷积神经网络中卷积核的高度和宽度通常为奇数，例如1、3、5或7。选择奇数的好处是，保持空间维度的同时，我们可以在顶部和底部填充相同数量的行，在左侧和右侧填充相同数量的列。
+
+步幅（stride）：每次滑动元素的数量。
+
+<img width="421" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/b4598fb8-7bec-4d57-8dc5-3c13d492c159">
+
+<img width="445" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/7c916e76-6cd1-42f3-8591-3f9bd0862dad">
+
+感受野（receptive field）：指在前向传播期间可能影响计算的所有元素（来自所有先前层），即：神经网络中神经元“看到的”输入区域。
+
+<img width="310" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/e9d52f08-1088-4f1f-ac7f-f44f738e291b">
+
+池化（pooling）：固定形状窗口遍历的每个位置计算一个输出。目的是降低卷积层对位置的敏感性、降低对空间降采样表示的敏感性。
+
+最后一层的神经元应该对整个输入的全局敏感。通过逐渐聚合信息，生成越来越粗糙的映射，最终实现学习全局表示的目标，同时将卷积图层的所有优势保留在中间层。
+
+此外，当检测较底层的特征时，通常希望这些特征保持某种程度上的平移不变性。而在现实中，随着拍摄角度的移动，任何物体几乎不可能发生在同一像素上。即使用三脚架拍摄一个静止的物体，由于快门的移动而引起的相机振动，可能会使所有物体左右移动一个像素（除了高端相机配备了特殊功能来解决这个问题）。
+
+> 最大池化层（maximum pooling）
+> 平均池化层（average pooling）
+
+<img width="243" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d773661e-f60a-45db-826f-0bcd0aaeba06">
+
+# 循环神经网络
+
+循环神经网络（Recurrent Neural Network，RNN）是一种在序列数据上进行建模的神经网络模型。与传统的前馈神经网络不同，循环神经网络具有循环连接，可以将前面的信息传递到后面的步骤中，从而捕捉到序列数据中的时序关系。
+
+循环神经网络架构：
+
+<img width="645" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/693e3fce-996e-4da2-b486-b951794db364">
+
+由于在当前时间步中，隐状态使用的定义与前一个时间步中使用的定义相同，因此这种计算是循环的（recurrent）。于是基于循环计算的隐状态神经网络被命名为循环神经网络（recurrent neural network）。 在循环神经网络中执行计算的层称为循环层（recurrent layer）。即使在不同的时间步，循环神经网络也总是使用这些模型参数。 因此，循环神经网络的参数开销不会随着时间步的增加而增加。
+
+循环神经网络的经典变体包括长短期记忆网络（Long Short-Term Memory，LSTM）和门控循环单元（Gated Recurrent Unit，GRU）。这些变体通过引入门控机制来解决传统循环神经网络中的梯度消失和梯度爆炸问题，从而改善了模型的长期依赖建模能力。在进行反向传播的时候，使用通过时间反向传播（Backpropagation Through Time, BPTT）。它通过将时间展开的 RNN 视为深度前馈神经网络，并在每个时间步骤上应用标准的反向传播算法来更新模型的权重。
+
 
 
