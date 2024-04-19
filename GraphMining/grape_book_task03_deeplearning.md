@@ -18,6 +18,8 @@
 
 > 随机梯度下降算法
 
+<img width="446" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/cdede783-2ebc-4944-ac3b-2f9c6547b6ab">
+
 > Adam 算法
 
 Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法，结合了动量法和 RMSProp 算法的优点。
@@ -77,11 +79,15 @@ Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法�
 
 <img width="426" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/60cca0d6-c050-4517-beec-eb4a5e534c1a">
 
+输出大小计算：
+
 <img width="516" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/4e56adcb-070e-433e-b9f6-0c2a8fe53f3b">
 
 填充（padding）：
 
 <img width="430" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f79967e1-cf22-4873-ab8a-e3e10f11831e">
+
+输出大小计算：
 
 <img width="548" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c87bc72e-8f5f-4486-ad4b-5f1f87c58a52">
 
@@ -90,6 +96,8 @@ Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法�
 步幅（stride）：每次滑动元素的数量。
 
 <img width="421" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/b4598fb8-7bec-4d57-8dc5-3c13d492c159">
+
+输出大小计算：
 
 <img width="445" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/7c916e76-6cd1-42f3-8591-3f9bd0862dad">
 
