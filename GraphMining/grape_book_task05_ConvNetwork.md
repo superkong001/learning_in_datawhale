@@ -104,7 +104,8 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 图卷积神经网络（Graph Convolutional Network, GCN）对切比雪夫网络进行了简化，只取 0 阶和 1 阶：
 
-<img width="607" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/202ee46e-2012-4713-a65a-7c5f2afeddbb">
+<img width="537" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/74230623-4084-49b0-85ee-bb97848ad32d">
+
 
 
 # 空间域图卷积神经网络
