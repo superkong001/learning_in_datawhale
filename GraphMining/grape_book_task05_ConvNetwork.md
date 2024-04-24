@@ -46,6 +46,8 @@
 
 <img width="473" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/04e52407-35e8-438d-a129-7875451132a9">
 
+<img width="530" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/8a4d39db-bac5-4592-8749-088fe0547dcf">
+
 <img width="638" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fd04353d-fc24-481e-b18b-14e53acd9b31">
 
 U 是正交矩阵，意味着其列向量是标准正交基，即：
