@@ -97,16 +97,14 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 切比雪夫网络 ，采用切比雪夫多项式替代了谱卷积神经网络的卷积核，有效的解决了上述的问题。
 
-<img width="629" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/6e2f7b52-11f5-447e-bcc5-54437e8991a3">
+
 
 
 ## 图卷积神经网络
 
 图卷积神经网络（Graph Convolutional Network, GCN）对切比雪夫网络进行了简化，只取 0 阶和 1 阶：
 
-<img width="242" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f55598a4-16b6-42f0-b505-fd0ccea59ed8">
-
-<img width="607" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3e37405d-f740-477e-a561-ab8b9cdf33cf">
+<img width="607" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/202ee46e-2012-4713-a65a-7c5f2afeddbb">
 
 
 # 空间域图卷积神经网络
