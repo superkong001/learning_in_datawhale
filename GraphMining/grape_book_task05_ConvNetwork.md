@@ -36,6 +36,8 @@
 
 <img width="640" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/bdd6be69-c2de-409d-9585-e0c16ce2732d">
 
+<img width="482" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/af0b0885-9882-4799-a90b-7ce4ac738d2d">
+
 傅里叶变换只能将周期函数表示为正弦函数与余弦函数的叠加，拉普拉斯变换是加强版的傅里叶变换，追加了对无限增长的函数的表示方法。
 
 ### 图傅里叶变换
