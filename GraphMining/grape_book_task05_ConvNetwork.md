@@ -62,6 +62,8 @@
 
 <img width="473" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/04e52407-35e8-438d-a129-7875451132a9">
 
+傅里叶变换将信号投影到一组正余弦基函数上，而这里的转换则是将信号投影到了图拉普拉斯矩阵的特征向量上。在傅里叶变换中，信号在正余弦基函数上的投影给出了它的频域表示，而在图信号处理中，信号在特征向量上的投影给出了它在特征向量空间中的表示。
+
 <img width="530" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/8a4d39db-bac5-4592-8749-088fe0547dcf">
 
 <img width="638" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fd04353d-fc24-481e-b18b-14e53acd9b31">
