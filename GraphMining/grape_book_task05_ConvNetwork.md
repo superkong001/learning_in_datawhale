@@ -34,6 +34,8 @@
 
 <img width="531" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/4fe77d73-8f9e-4abf-b472-85bca9465784">
 
+<img width="476" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f4967f98-cd83-4f0c-be1a-10798aa6d4c0">
+
 1. 拉普拉斯矩阵是半正定矩阵；
   
 2. 特征值中0出现的次数就是图连通区域的个数；
@@ -50,9 +52,16 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 <img width="174" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2cf7de3d-648f-4c03-80ba-ffc3fca2460a">
 
-原始数据 𝑥 在特征向量基底（basis，是一组向量，，通过这组向量可以表达空间内所有的点）下的表示，指的是将数据 𝑥 从它原来的坐标系（通常是标准正交基底）转换到由特征向量构成的新的坐标系下的表示。
+原始数据 𝑥 在特征向量基底（basis，是一组向量，通过这组向量可以表达空间内所有的点）下的表示，指的是将数据 𝑥 从它原来的坐标系（通常是标准正交基底）转换到由特征向量构成的新的坐标系下的表示。即：原始信号𝑥变换到一个新的坐标系，这个新坐标系是由矩阵 𝐿 的特征向量构成。
 
+特征向量基底（eigenvector basis）是一组特殊的基底，其中每个基底向量都是矩阵的特征向量。特征向量是满足下列等式的非零向量：
+<img width="56" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d120aa35-e993-4dd4-a3f1-7a5a0e178596">
 
+其中 𝐴 是一个矩阵，𝜆 是对应的特征值，𝑣 是特征向量。将数据在特征向量基底下表达时，实际上是在测量数据在每个特征方向上的分量或坐标。特征向量基底的选择通常是基于矩阵的谱分解或奇异值分解，这些特征向量具有捕捉数据方差最大方向的性质，也就是说，数据在这些方向上有最大的扩散或变化。
+
+## 图卷积
+
+先将图进行傅里叶变化，在谱域完成卷积操作，然后再将频域信号转换回原域。
 
 
 
