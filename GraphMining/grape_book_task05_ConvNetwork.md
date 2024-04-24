@@ -105,6 +105,8 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 <img width="537" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/74230623-4084-49b0-85ee-bb97848ad32d">
 
+<img width="234" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/ee678d80-7c24-40b5-9e4e-de462a2077fd">
+
 <img width="606" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/03290d34-be6d-4b4e-b96f-76cfe2c0654a">
 
 # 空间域图卷积神经网络
