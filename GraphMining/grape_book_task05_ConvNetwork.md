@@ -97,8 +97,7 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 切比雪夫网络 ，采用切比雪夫多项式替代了谱卷积神经网络的卷积核，有效的解决了上述的问题。
 
-
-
+<img width="630" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3a2e9b35-b005-4774-8b68-b0e3b8976514">
 
 ## 图卷积神经网络
 
@@ -106,7 +105,7 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 <img width="537" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/74230623-4084-49b0-85ee-bb97848ad32d">
 
-
+<img width="606" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/03290d34-be6d-4b4e-b96f-76cfe2c0654a">
 
 # 空间域图卷积神经网络
 
