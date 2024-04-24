@@ -123,7 +123,31 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 这个时候，如果认为 W 也包含自身节点的操作的话，就可以得到和谱域 GCN 完全一样的公式了。这里，分开表达他们是为了强调，一定要对邻居和自身节点都做信息变换和聚合。
 
+## 空域图卷积的统一范式和 GraphSAGE
 
+### 图卷积的统一范式
 
+从空域图卷积神经网络必须做的两件事情出发，可以得到一个统一范式的图卷积网络。
 
+> 对节点的信息进行转换（Message Transformation）
+
+> 对节点信息进行聚合 （Message Aggregation）
+
+<img width="630" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/b70d9cf6-1167-4601-914e-696924771d8b">
+
+根据图注意力网络（Graph Attention Network, GAT）。可以看出来 GCN 在进行聚合的时候是没有考虑边的权重的而当作 1 进行简单的加和。GAT 的目的就是通过网络来学习边的权重，然后把学到的权重用于聚合。具体地，将边两端得节点送入一个网络，学习输出得到这条边得权重。
+
+### GraphSAGE （Sample aggregate for Graph）
+
+它从两个方面对传统的 GCN 做了改进：
+
+1. 在训练时，采样方式将 GCN 的全图采样优化到部分以节点为中心的邻居抽样，这使得大规模图数据的分布式训练成为可能，并且使得网络可以学习没有见过的节点，这也使得 GraphSAGE 可以做 Inductive Learning。
+2. GraphSAGE 研究了若干种邻居聚合的方式，及其 AGG 聚合函数可以使用
+> 平均
+> Max Pooling
+> LSTM
+
+在 GraphSAGE 之前的 GCN 模型中，都是采用的全图的训练方式，也就是说每一轮的迭代都要对全图的节点进行更新，当图的规模很大时，这种训练方式无疑是很耗时甚至无法更新的。mini-batch 的训练时深度学习一个非常重要的特点，那么能否将 mini-batch 的思想用到 GraphSAGE 中呢，GraphSAGE 提出了一个解决方案。它的流程大致分为3步：
+
+<img width="627" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c5a9f792-f155-43e4-9cad-5d8fbb10f7e7">
 
