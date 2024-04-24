@@ -83,8 +83,24 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 <img width="548" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fd84c6b8-bbcd-4535-8527-4f7fbce7f36c">
 
+## 谱卷积神经网络
 
+<img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a97def9d-81e5-45bc-a6ae-bb7b32f9a9ad">
 
+σ 表示非线性激活函数。
 
+## 切比雪夫网络(ChebyNet)
+
+谱卷积神经网络基于全图的傅里叶卷积来实现图的卷积，其缺点非常明显，难以从卷积形式中保证节点的信息更新由其邻居节点贡献，因此无法保证局部性。另外，谱卷积神经网络的计算复杂度比较大，难以扩展到大型图网络结构中。
+
+切比雪夫网络 ，采用切比雪夫多项式替代了谱卷积神经网络的卷积核，有效的解决了上述的问题。
+
+<img width="632" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f9d4da61-07f5-4e37-8355-cc02caa81b63">
+
+## 图卷积神经网络
+
+图卷积神经网络（Graph Convolutional Network, GCN）对切比雪夫网络进行了简化，只取 0 阶和 1 阶：
+
+<img width="604" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c51c69fe-ce41-40a4-85b1-521078736aeb">
 
 
