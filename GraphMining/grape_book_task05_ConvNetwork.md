@@ -81,6 +81,10 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 先将图进行傅里叶变化，在谱域完成卷积操作，然后再将频域信号转换回原域。
 
+<img width="548" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fd84c6b8-bbcd-4535-8527-4f7fbce7f36c">
+
+
+
 
 
 
