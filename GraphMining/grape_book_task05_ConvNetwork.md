@@ -141,7 +141,7 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 通过这种方式，GCN能够在保持图结构信息的同时学习节点特征的有效表示。
 
-<img width="471" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/556d25ce-671b-4528-bbb7-12befb145ead">
+<img width="641" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/556d25ce-671b-4528-bbb7-12befb145ead">
 
 这个时候，如果认为 W 也包含自身节点的操作的话，就可以得到和谱域 GCN 完全一样的公式了。这里，分开表达他们是为了强调，一定要对邻居和自身节点都做信息变换和聚合。
 
