@@ -121,7 +121,7 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 <img width="635" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/48ad1162-96cc-4baa-8e1c-5b98ac55d7d1">
 
-<img width="635" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a2264d2c-b96c-4e32-bade-5f7345c7871b">
+<img width="435" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a2264d2c-b96c-4e32-bade-5f7345c7871b">
 
 这个时候，如果认为 W 也包含自身节点的操作的话，就可以得到和谱域 GCN 完全一样的公式了。这里，分开表达他们是为了强调，一定要对邻居和自身节点都做信息变换和聚合。
 
