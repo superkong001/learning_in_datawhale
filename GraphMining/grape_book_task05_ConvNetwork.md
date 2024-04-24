@@ -46,6 +46,8 @@
 
 图傅里叶变换就像传统的傅里叶变换将一个波信号分解成它的组成频率一样，图傅里叶变换在图结构数据进行操作，揭示嵌入其中的信号的频率。
 
+拉普拉斯算子和拉普拉斯矩阵： > https://zhuanlan.zhihu.com/p/67336297/
+
 <img width="531" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/4fe77d73-8f9e-4abf-b472-85bca9465784">
 
 <img width="476" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f4967f98-cd83-4f0c-be1a-10798aa6d4c0">
