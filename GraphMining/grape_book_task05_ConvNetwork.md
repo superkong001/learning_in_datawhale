@@ -175,6 +175,7 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 拓展参考：
 随机游走的艺术-图嵌入表示学习【斯坦福CS224W图机器学习】：
+
 https://www.bilibili.com/video/BV1AP4y1r7Pz/?from_spmid=main.my-history.0.0&plat_id=411&share_from=season&share_medium=android&share_plat=android&share_session_id=238f193d-3639-4a6e-8fde-85b2ea18516b&share_source=WEIXIN&share_tag=s_i&spmid=united.player-video-detail.0.0&timestamp=1713947803&unique_k=a70gqJA
 
 《深入浅出图神经网络：GNN原理解析》配套代码：https://github.com/FighterLYL/GraphNeuralNetwork
