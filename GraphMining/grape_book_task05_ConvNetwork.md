@@ -105,4 +105,23 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 <img width="604" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c51c69fe-ce41-40a4-85b1-521078736aeb">
 
+# 空间域图卷积神经网络
+
+空域卷积是从邻居节点信息聚合的角度出发，更加注重节点的局域环境。
+
+## 图卷积神经网络的空域理解
+
+从邻居节点信息聚合的角度出发。图卷积神经网络，应该做的如下两件事情:
+
+> 对节点的信息进行转换（Message Transformation）
+
+> 对节点信息进行聚合 （Message Aggregation）
+
+<img width="635" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/48ad1162-96cc-4baa-8e1c-5b98ac55d7d1">
+
+这个时候，如果认为 W 也包含自身节点的操作的话，就可以得到和谱域 GCN 完全一样的公式了。这里，分开表达他们是为了强调，一定要对邻居和自身节点都做信息变换和聚合。
+
+
+
+
 
