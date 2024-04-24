@@ -123,7 +123,7 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 <img width="435" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a2264d2c-b96c-4e32-bade-5f7345c7871b">
 
-面的等式可以矩阵化处理，用于计算整个图的一层表示。考虑到度矩阵 𝐷 和邻接矩阵 𝐴，公式可以改写成：
+上面的等式可以矩阵化处理，用于计算整个图的一层表示。考虑到度矩阵 𝐷 和邻接矩阵 𝐴，公式可以改写成：
 
 <img width="439" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/76f86307-cc6a-48a8-a9bc-124778319b0b">
 
