@@ -125,7 +125,7 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 
 上面的等式可以矩阵化处理，用于计算整个图的一层表示。考虑到度矩阵 𝐷 和邻接矩阵 𝐴，公式可以改写成：
 
-<img width="439" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/76f86307-cc6a-48a8-a9bc-124778319b0b">
+<img width="639" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/76f86307-cc6a-48a8-a9bc-124778319b0b">
 
 通过这种方式，GCN能够在保持图结构信息的同时学习节点特征的有效表示。
 
