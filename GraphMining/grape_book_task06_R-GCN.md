@@ -46,4 +46,24 @@ Schlichtkrull 等人于 2017 年底提出了关系图卷积神经网络。
 
 <img width="641" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/1b7afa84-8533-452a-872f-d121491b24b1">
 
+如果边是有向的，边的方向也可以作为一种关系类型。如：
 
+<img width="308" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/335062ce-81d3-4b82-aee2-e4db600ad0cf">
+
+1. 对相同关系的边聚合（蓝色）邻居节点得到 d 维向量。
+2. 针对每种类型的边（入边、出边和自环）单独进行权重的学习，生成的（绿色）嵌入向量以归一化求和的形式累积，并通过激活函数（如 ReLU ）向前传播。
+
+这里每个节点的更新可以与整个图中的共享参数并行计算。
+
+<img width="322" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/902c224d-e74a-4287-84b5-1a89278242ae">
+
+<img width="517" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/9290c55d-ae0d-4902-b9d4-454ca9dbd04e">
+
+
+## 可学习参数正则化
+
+R-GCN 提出了两种方案减少模型的参数：基底分解（Basis Decomposition）和 块对角矩阵分解（Block Diagonal Decomposition）
+
+### 基底分解（Basis Decomposition）
+
+### 块对角矩阵分解（Block Diagonal Decomposition）
