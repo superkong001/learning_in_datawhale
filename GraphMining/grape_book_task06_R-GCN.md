@@ -59,6 +59,7 @@ Schlichtkrull 等人于 2017 年底提出了关系图卷积神经网络。
 
 <img width="517" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/9290c55d-ae0d-4902-b9d4-454ca9dbd04e">
 
+模型容易边过拟合。
 
 ## 可学习参数正则化
 
