@@ -67,4 +67,9 @@ R-GCN 提出了两种方案减少模型的参数：基底分解（Basis Decompos
 
 ### 基底分解（Basis Decomposition）
 
+<img width="637" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/25772de5-7d19-4961-b5e8-9c7b317045b1">
+
 ### 块对角矩阵分解（Block Diagonal Decomposition）
+
+<img width="637" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f19e155c-0410-47d9-87b7-91cd045f17e0">
+
