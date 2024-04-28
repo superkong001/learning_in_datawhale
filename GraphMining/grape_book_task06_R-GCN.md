@@ -73,3 +73,10 @@ R-GCN 提出了两种方案减少模型的参数：基底分解（Basis Decompos
 
 <img width="637" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f19e155c-0410-47d9-87b7-91cd045f17e0">
 
+参考代码：
+
+原论文中 R-GCN 被应用于知识图谱补全里的链路预测和实体分类任务，关系图卷积网络 - DGL文档
+
+> https://docs.dgl.ai/en/latest/tutorials/models/1_gnn/4_rgcn.html
+
+> https://github.com/thiviyanT/torch-rgcn
