@@ -33,7 +33,18 @@ GAT 的提出则解决了 GCN 的缺点，GAT 核心就是对于每个顶点都�
 将注意力机制从同质图扩展到节点和边有不同类型的异质图。异质图注意力网络包含：
 
 （a）节点级注意力：目的是学习节点与基于元路径的邻居节点之间的重要性。
+
 （b）语义级注意力：目的是学习不同元路径的重要性。
+
 （c）通过接 MLP 输出节点 i 的预测 <img width="13" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/68f77096-2513-4cf2-a5b5-c9d52f4a40d7">。
+
+<img width="418" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/b2970461-6b5d-4ec0-8844-c762df7d1a50">
+
+下图更加详细的表述了节点即和语义级注意力的特征聚合：
+
+<img width="395" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/6f939b29-38a3-4b6e-bd37-08536494a67e">
+
+<img width="632" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/69745b6a-f498-4bea-826a-04f192874a04">
+
 
 
