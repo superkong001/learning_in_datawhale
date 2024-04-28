@@ -8,6 +8,19 @@
 
 <img width="646" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f8ac639a-4cc4-48af-8bd6-7b8e7739e407">
 
+ReLU: 
+优点：解决了梯度消失的问题；计算成本低，函数比较简单。
+
+缺点：会产生Dead Neurons，因此当x<0的时候梯度就变为0，这些神经元就变得无效，这些神经元在后面的训练过程就不会更新。
+
+> LeakyReLU
+
+<img width="398" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/7167996d-58b3-49d9-bbc5-8f1a483db3a0">
+
+优点：是ReLU函数的一个变体，解决了ReLU函数存在的问题，α的默认往往是非常小的，比如0.01，这样就保证了Dead Neurons的问题
+
+缺点：由于它具有线性特性，不能用于复杂的分类问题。
+
 ## 输出层与损失函数
 
 <img width="629" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a8be190a-7f42-4c4b-9b53-c8b747c49f89">
