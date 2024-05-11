@@ -1,3 +1,114 @@
+# word2vec
+
+## 基础知识
+
+<img width="245" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c72ee92e-9209-4ea7-99f1-5feb93182a4c">
+
+前向神经网络语言模型 Feedforward Neural Net Language Model(NNLM)
+
+<img width="413" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/88e74b15-60ea-458d-b3d4-cb05b4e8f063">
+
+## skip-gram
+
+<img width="406" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c46d29da-3e51-432d-a69e-dba762cd039a">
+
+<img width="269" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2b2f0e97-a0b5-459d-9060-8f04c03eaa3c">
+
+Skip-gram目标函数:
+
+<img width="357" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fb9e4522-9af6-4492-ba4a-c1b807d89dc8">
+
+## CBow
+
+<img width="369" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/e0811b97-8095-486d-b8c6-f8f1ebe46322">
+
+<img width="431" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/5ee2a76b-6078-48e4-bedb-89793e8eb8c5">
+
+## 层次softmax（Hierarchical Softmax）
+
+构建Huffman树:
+
+<img width="331" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/792880f3-08ef-4b5f-8e40-e20a0480655d">
+
+构建层次softmax:
+
+<img width="338" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/e0a43a8f-3274-4da2-a9d7-285df47385aa">
+
+<img width="410" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/b305b0cc-1866-4d22-a633-0f28e36f69bc">
+
+<img width="320" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/8bfcd8f3-86bc-4093-9039-7c364e383535">
+
+<img width="401" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/23eed1b4-cb41-424d-80f9-f75dc24e5193">
+
+## Negative Sampling
+
+舍弃多分类，提升速度
+
+<img width="390" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c32d2638-3d76-4604-88f9-734784cf9b4b">
+
+<img width="374" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2ec1024d-34ba-4467-8d28-a248ca96d9ad">
+
+### CBOW Negative Sampling:
+
+<img width="357" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/48cb24fe-eb3e-4405-8a12-9a042c87fdd2">
+
+### Subsampling of Frequent Words
+
+自然语言处理共识：文档或者数据集中出现频率高的词往往携带信息较少，比如the，is，a，and，而出现频率低的词往往携带信息多。
+
+<img width="246" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/28be545a-4461-4a74-8889-9ce45b8ef2d7">
+
+重采样的原因:
+
+> 想更多地训练重要的词对，比如训练“France”和“Paris”之间的关系比训练“France”和“the”之间的关系要有用。
+
+> 高频词很快就训练好了，而低频次需要更多的轮次。
+
+重采样方法:
+
+<img width="303" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/00c746c8-5f6b-4163-952b-ff8190258758">
+
+重采样的分析:
+
+<img width="299" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/352d03c7-d992-40d2-a58f-4254979ef098">
+
+## 模型复杂度
+
+O=ExTxQ
+
+> O是训练复杂度training complexity
+
+> E是训练迭代次数number of the training epochs
+
+> T是数据集大小number of the words in the training set
+
+> Q是模型计算复杂度model computational complexity
+
+### Bengio A neural probabilistic language model(2003)
+
+<img width="356" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/99a1dae0-7b13-44ef-bd44-f37728265108">
+
+### 循环神经网络语言模型.(RNNLM)
+
+<img width="389" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a625145a-95c3-4528-ab14-3967e02625b9">
+
+### Hierarchical复杂度
+
+<img width="308" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/45761971-714b-468e-8cde-51d48632c719">
+
+### Negative Sampling复杂度
+
+<img width="312" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/db48c86b-7224-454c-b773-128a3464517f">
+
+### CBOW复杂度
+
+<img width="232" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/5c985c42-af5a-487e-ab38-6f04013915b1">
+
+### 模型复杂度对比
+
+<img width="416" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/b4db4063-eae8-47df-b9ed-0f111d295724">
+
+
 #  节点表示学习
 
 节点嵌入的目标是对节点进行编码，使得嵌入空间中的相似性（例如点积）近似于原始网络中的相似性，
