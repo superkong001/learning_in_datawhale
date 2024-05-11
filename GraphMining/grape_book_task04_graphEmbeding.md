@@ -2,6 +2,10 @@
 
 ## 基础知识
 
+<img width="949" alt="Image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3e4e0275-dfd3-43c9-a1c6-42784020341d">
+
+<img width="863" alt="Image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/5bdf8de6-ff69-40f9-8772-e76e39645d0b">
+
 <img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c72ee92e-9209-4ea7-99f1-5feb93182a4c">
 
 前向神经网络语言模型 Feedforward Neural Net Language Model(NNLM)
