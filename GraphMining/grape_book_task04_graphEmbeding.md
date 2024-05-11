@@ -10,7 +10,11 @@
 
 前向神经网络语言模型 Feedforward Neural Net Language Model(NNLM)
 
+<img width="1044" alt="Image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c2b99838-9ed6-4c2f-b23c-4d2500f7d86c">
+
 <img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/88e74b15-60ea-458d-b3d4-cb05b4e8f063">
+
+<img width="654" alt="Image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2ce0ee0f-fe40-4d8c-ac8f-c2a7f1fb14b9">
 
 ## skip-gram
 
