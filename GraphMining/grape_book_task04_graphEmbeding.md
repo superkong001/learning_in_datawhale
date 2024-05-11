@@ -1,4 +1,4 @@
-# word2vec
+<img width="610" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/ae22aff9-14e9-4311-be3d-a058e672dcc9"># word2vec
 
 ## 基础知识
 
@@ -17,53 +17,54 @@
 
 ## skip-gram
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c46d29da-3e51-432d-a69e-dba762cd039a">
+<img width="818" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/1640d6e3-4d96-46ed-b45f-f9bf8abf43ec">
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2b2f0e97-a0b5-459d-9060-8f04c03eaa3c">
+<img width="539" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/99a4c321-d916-4bf5-a8c9-44e89537cc93">
 
 Skip-gram目标函数:
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fb9e4522-9af6-4492-ba4a-c1b807d89dc8">
+<img width="703" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/6087c591-f1e5-44b8-ae13-ad7815d307ee">
 
 ## CBow
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/e0811b97-8095-486d-b8c6-f8f1ebe46322">
+<img width="728" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/059fdea4-9246-4bdb-829a-c213f85ecf9f">
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/5ee2a76b-6078-48e4-bedb-89793e8eb8c5">
+<img width="854" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/158ea501-de7c-408f-88b8-3bfff92b376b">
+
 
 ## 层次softmax（Hierarchical Softmax）
 
 构建Huffman树:
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/792880f3-08ef-4b5f-8e40-e20a0480655d">
+<img width="662" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/5c27460f-e10b-4c9a-8bb2-39dc26a22526">
 
 构建层次softmax:
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/e0a43a8f-3274-4da2-a9d7-285df47385aa">
+<img width="683" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/ad736c67-eea2-4da0-abd5-7e1380961ca4">
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/b305b0cc-1866-4d22-a633-0f28e36f69bc">
+<img width="812" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/1fc04639-37a5-4609-8761-cc5f00dac37f">
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/8bfcd8f3-86bc-4093-9039-7c364e383535">
+<img width="646" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/435bdf35-b686-4950-b098-deedd984c6ce">
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/23eed1b4-cb41-424d-80f9-f75dc24e5193">
+<img width="811" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/363c4b95-5302-4d34-b453-6d6a83ef238f">
 
 ## Negative Sampling
 
 舍弃多分类，提升速度
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c32d2638-3d76-4604-88f9-734784cf9b4b">
+<img width="773" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f23584bb-40c7-4b5c-a717-3e59c332758e">
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2ec1024d-34ba-4467-8d28-a248ca96d9ad">
+<img width="803" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/deb00370-59f6-491c-ad25-7782a07b2bdb">
 
 ### CBOW Negative Sampling:
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/48cb24fe-eb3e-4405-8a12-9a042c87fdd2">
+<img width="713" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/81b9572a-588e-427d-9862-eeca84a08e37">
 
 ### Subsampling of Frequent Words
 
 自然语言处理共识：文档或者数据集中出现频率高的词往往携带信息较少，比如the，is，a，and，而出现频率低的词往往携带信息多。
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/28be545a-4461-4a74-8889-9ce45b8ef2d7">
+<img width="488" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/669cfaa5-ebcc-43e3-b492-e60350929016">
 
 重采样的原因:
 
@@ -73,11 +74,12 @@ Skip-gram目标函数:
 
 重采样方法:
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/00c746c8-5f6b-4163-952b-ff8190258758">
+<img width="610" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/6912caf1-2fde-4941-91a5-4ac4ad384fdf">
 
 重采样的分析:
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/352d03c7-d992-40d2-a58f-4254979ef098">
+<img width="596" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/9502a703-286d-4c4c-94a1-33779c1f2188">
+
 
 ## 模型复杂度
 
@@ -93,28 +95,27 @@ O=ExTxQ
 
 ### Bengio A neural probabilistic language model(2003)
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/99a1dae0-7b13-44ef-bd44-f37728265108">
+<img width="714" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/1245ab88-d01c-49c5-85e2-871676da873d">
 
 ### 循环神经网络语言模型.(RNNLM)
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a625145a-95c3-4528-ab14-3967e02625b9">
+<img width="771" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/717c71c1-ccc4-47ec-b4ae-016aafb30964">
 
 ### Hierarchical复杂度
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/45761971-714b-468e-8cde-51d48632c719">
+<img width="610" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2cc3237b-827d-4470-94ad-0a9d2a23591d">
 
 ### Negative Sampling复杂度
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/db48c86b-7224-454c-b773-128a3464517f">
+<img width="626" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/76036ed3-667d-4d00-93d2-b7e1603fc142">
 
 ### CBOW复杂度
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/5c985c42-af5a-487e-ab38-6f04013915b1">
+<img width="470" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d8d74ae7-8a6f-41b5-9add-31e08f51241a">
 
 ### 模型复杂度对比
 
-<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/b4db4063-eae8-47df-b9ed-0f111d295724">
-
+<img width="829" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/126a1234-fcb7-473d-9763-2793577c0a49">
 
 #  节点表示学习
 
