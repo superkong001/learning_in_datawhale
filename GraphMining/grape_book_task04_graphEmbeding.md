@@ -2,7 +2,7 @@
 
 ## 基础知识
 
-<img width="345" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c72ee92e-9209-4ea7-99f1-5feb93182a4c">
+<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c72ee92e-9209-4ea7-99f1-5feb93182a4c">
 
 前向神经网络语言模型 Feedforward Neural Net Language Model(NNLM)
 
@@ -10,9 +10,9 @@
 
 ## skip-gram
 
-<img width="406" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c46d29da-3e51-432d-a69e-dba762cd039a">
+<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c46d29da-3e51-432d-a69e-dba762cd039a">
 
-<img width="345" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2b2f0e97-a0b5-459d-9060-8f04c03eaa3c">
+<img width="523" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2b2f0e97-a0b5-459d-9060-8f04c03eaa3c">
 
 Skip-gram目标函数:
 
