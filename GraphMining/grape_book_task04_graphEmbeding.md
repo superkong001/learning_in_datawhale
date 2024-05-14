@@ -161,11 +161,14 @@ BFS 可以给出邻域的局部微观视图，而 DFS 提供邻域的全局宏�
 
 Node2Vec 算法：
 
-> 计算随机游走概率。
+- 计算随机游走概率。Alias Sampling （https://keithschwarz.com/darts-dice-coins）
 
-> 模拟 r 个从节点 u 开始长度为 l 的随机游走。
+https://www.bilibili.com/video/av798804262
 
-> 使用随机梯度下降优化 node2vec 目标。
+https://www.cnblogs.com/Lee-yl/p/12749070.html
+
+- 模拟 r 个从节点 u 开始长度为 l 的随机游走。
+- 使用随机梯度下降优化 node2vec 目标。
 
 # 图表示学习
 
