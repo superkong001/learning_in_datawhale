@@ -1,4 +1,5 @@
-https://github.com/datawhalechina/tiny-universe
+- https://github.com/datawhalechina/tiny-universe
+- https://github.com/huggingface/transformers/blob/main/src/transformers/models/qwen2/modeling_qwen2.py
 
 # Qwen整体介绍
 
