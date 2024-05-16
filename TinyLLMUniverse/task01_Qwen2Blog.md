@@ -301,6 +301,8 @@ def __init__(self, config: Qwen2Config, layer_idx: Optional[int] = None):
 
 <img width="667" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2061d0a9-fbe5-414e-bbd5-19602a2bbe57">
 
+![b6fceb434fbc46d94b0cf3683ff4ea4a_GQA](https://github.com/superkong001/learning_in_datawhale/assets/37318654/43f9acf2-389a-439c-afcf-103567b03389)
+
 - 首先将hidden_states送入Linear中得到query、key与value。
 - 使用旋转位置嵌入操作rotary_emb，使用了旋转位置嵌入的余弦和正弦部分，将他们与query和key相乘，并将结果相加，从而实现旋转位置嵌入的效果。
 - 将key_states和value_states重复group次，再执行dot attn操作。
