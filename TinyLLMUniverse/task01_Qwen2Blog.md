@@ -428,7 +428,7 @@ class Qwen2MLP(nn.Module):
         return self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
 ```
 
-# Qwen2RMSNorm, 均方根归一化
+# Qwen2RMSNorm, 根均方归一化
 
 ![7d54bafe8e22779a9b9b169b66fe2cea_RMSNorm_formulation](https://github.com/superkong001/learning_in_datawhale/assets/37318654/42f21607-de36-407c-a8d7-75adbacedf3c)
 
