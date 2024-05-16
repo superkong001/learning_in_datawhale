@@ -12,11 +12,18 @@ Qwen的架构：
 - attention_mask是用来看见左边、右边，双向等等来设定。
 - 各类下游任务，Casual,seqcls等，基本都是基础模型model后面接对应的Linear层，还有损失函数不一样。
 
-拉取huggingface上代码到当前目录
+```bash
+# 拉取huggingface上代码到当前目录
 git clone https://github.com/huggingface/transformers.git 
 
+# 安装依赖包
 pip install huggingface_hub
 pip install transformers
+```
+
+# Qwen2Config
+
+
 
 
 
