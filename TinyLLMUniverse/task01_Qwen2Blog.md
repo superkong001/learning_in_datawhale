@@ -446,7 +446,7 @@ class Qwen2RMSNorm(nn.Module):
     def forward(self, hidden_states):
         input_dtype = hidden_states.dtype
         hidden_states = hidden_states.to(torch.float32)
-        # .pow(2).mean(-1, keepdim=True)表示对最后一个维度平方并取均值
+        # .pow(2).mean(-1, keepdim=True)表示对每个元素求平方，然后计算张量在最后一个维度（由 -1 指定）上的平均值（每一行的平均值）并保持维度
         variance = hidden_states.pow(2).mean(-1, keepdim=True)
         # rsqrt表示开根的导数
         hidden_states = hidden_states * torch.rsqrt(variance + self.variance_epsilon)
