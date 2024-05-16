@@ -453,6 +453,8 @@ class Qwen2RMSNorm(nn.Module):
         return self.weight * hidden_states.to(input_dtype)
 ```
 
+<img width="530" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a3664578-23ad-46b8-9f6e-d0e43f04e9bb">
+
 
 
 
