@@ -293,7 +293,7 @@ def __init__(self, config: Qwen2Config, layer_idx: Optional[int] = None):
         )
 ```
 
-## forward, 
+## forward, q&k&v proj(nn.Linear) + reshape + rotary_pos_emb  +k&v expand(GQA) + q*kT/hd_d^0.5 + attn_weights加上attention_mask + (softmax + dropout + values_states相乘) + reshape + o_proj
 
 <img width="672" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c05cdca1-aed1-43b8-ada4-7801fb135bc1">
 
@@ -310,6 +310,152 @@ def __init__(self, config: Qwen2Config, layer_idx: Optional[int] = None):
 ![b6fceb434fbc46d94b0cf3683ff4ea4a_GQA](https://github.com/superkong001/learning_in_datawhale/assets/37318654/43f9acf2-389a-439c-afcf-103567b03389)
 
 主旨:GQA和MQA不需要在推理的过程存储那么多的kv cache, 那么kv cache占用的显存就变小，那么我们LLM serving可以处理的请求数量就更多
+
+解析：
+
+1) 初始张量
+
+```bash
+输入：tensor[4, 30](shape:[batch, seq_len]) , headers=32
+input_ids = torch.randint(0, qwen2config.vocab_size, (4, 30))
+embedding后: tensor[4, 30, 2048](shape:[batch, seq_len, dim]) 
+
+
+.view(bsz, q_len, self.num_heads, self.head_dim)后: tensor[4, 30, 32, 64](shape:[batch, seq_len, head, head_dim]) 
+.transpose(1, 2)后: tensor[4, 32, 30, 64](shape:[batch, head, seq_len, head_dim]) #每一头的hidden_dim=2048/32=64
+分别输入到q、k、v
+```
+
+```bash
+# GQA(grouped-query)情况:
+import torch
+
+## shape:(batch, seq_len, head, head_dim)
+query = torch.randn(10, 128, 8, 128)
+key = torch.randn(10, 128, 2, 128)
+value = torch.randn(10, 128, 2, 128)
+
+## 在此设置组数为4
+groups = query.shape[-2] // key.shape[-2]
+
+# key和value都要比query小group倍，但是为在后续做矩阵乘法时方便，我们需要先把key和value的head重复到和query相同的维度。方便后续计算。
+# 定义输入x， n_rep是需要重复的次数，在这里一般是组数，输入shape:(batch, head, seq_len, head_dim)
+def repeat_kv(hidden_states: torch.Tensor, n_rep: int) -> torch.Tensor:
+
+    batch, num_key_value_heads, slen, head_dim = hidden_states.shape
+    # dont need repeat here means multi head attention
+    if n_rep == 1:
+        return hidden_states
+    # first we expand x to (bs, seq_len, head, group, head_dim)
+    hidden_states = hidden_states[:, :, None, :, :].expand(batch, num_key_value_heads, n_rep, slen, head_dim)
+    # reshape make head -> head * group
+    return hidden_states.reshape(batch, num_key_value_heads * n_rep, slen, head_dim)
+```
+
+2) pos_emb, Qwen2RotaryEmbedding + apply_rotary_pos_emb
+
+位置编码的含义是对每一个token的每一个dim赋予不同的位置信息。 公式定义:
+
+![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/58f0f9f6-4d7b-4762-b4b5-826af5259975)
+
+概念：通过旋转编码，使得每个token既有相对位置信息，又有绝对位置信息。
+
+- 既能以自注意力矩阵偏置的形式作用于,直接反映两个token的相对位置信息，又能拆解到向量和上，通过直接编码token的绝对位置实现。
+- RoPE本质是实现对特征向量的旋转操作，如果以二维特征向量举例，对于相邻两个token来说，其对应同一个,其定义为:
+
+![bcfcb5136238da2cca5641a70169cc23_ROPE2](https://github.com/superkong001/learning_in_datawhale/assets/37318654/3e698be4-2a31-43cf-af96-6e50a8b859cd)
+
+可得，其本质就是: $q_{t}$, $k_{s}$ 旋转后的结果，就是 $q_{t}$, $k_{s}$乘上cos再加上 $q_{t}$, $k_{s}$翻转维度并取反一维后乘上sin。
+- 对于高纬向量，由于奇、复数维度两两交错实现较为复杂，则现在可简化为将特征维度一切二，如下图所示，在实现过程中对前后各半进行的操作即为rotate_half操作：
+
+![b9732c2d7d6e7e265bfd933fb481cc9b_ROPE3](https://github.com/superkong001/learning_in_datawhale/assets/37318654/2204dd5d-2fae-4455-9fb0-600c17c3aa11)
+
+```bash
+# Copied from transformers.models.mistral.modeling_mistral.MistralRotaryEmbedding with Mistral->Qwen2
+class Qwen2RotaryEmbedding(nn.Module):
+    def __init__(self, dim, max_position_embeddings=2048, base=10000, device=None):
+        super().__init__()
+
+        self.dim = dim
+        self.max_position_embeddings = max_position_embeddings
+        self.base = base
+        inv_freq = 1.0 / (self.base ** (torch.arange(0, self.dim, 2, dtype=torch.int64).float().to(device) / self.dim))
+        self.register_buffer("inv_freq", inv_freq, persistent=False)
+
+        # Build here to make `torch.jit.trace` work.
+        self._set_cos_sin_cache(
+            seq_len=max_position_embeddings, device=self.inv_freq.device, dtype=torch.get_default_dtype()
+        )
+
+    def _set_cos_sin_cache(self, seq_len, device, dtype):
+        self.max_seq_len_cached = seq_len
+        t = torch.arange(self.max_seq_len_cached, device=device, dtype=torch.int64).type_as(self.inv_freq)
+
+        freqs = torch.outer(t, self.inv_freq)
+        # Different from paper, but it uses a different permutation in order to obtain the same calculation
+        emb = torch.cat((freqs, freqs), dim=-1)
+        self.register_buffer("cos_cached", emb.cos().to(dtype), persistent=False)
+        self.register_buffer("sin_cached", emb.sin().to(dtype), persistent=False)
+
+    def forward(self, x, seq_len=None):
+        # x: [bs, num_attention_heads, seq_len, head_size]
+        if seq_len > self.max_seq_len_cached:
+            self._set_cos_sin_cache(seq_len=seq_len, device=x.device, dtype=x.dtype)
+
+        return (
+            self.cos_cached[:seq_len].to(dtype=x.dtype),
+            self.sin_cached[:seq_len].to(dtype=x.dtype),
+        )
+```
+
+首先要先生成角度: $$ \theta = \left(\frac{1}{10000^{2n/d}}\right) $$
+
+其中，n表示维度数，其取值范围为[0, 1, ..., d/2-1]
+
+```bash
+# Copied from transformers.models.mistral.modeling_mistral.apply_rotary_pos_emb
+def apply_rotary_pos_emb(q, k, cos, sin, position_ids, unsqueeze_dim=1):
+    """Applies Rotary Position Embedding to the query and key tensors.
+
+    Args:
+        q (`torch.Tensor`): The query tensor.
+        k (`torch.Tensor`): The key tensor.
+        cos (`torch.Tensor`): The cosine part of the rotary embedding.
+        sin (`torch.Tensor`): The sine part of the rotary embedding.
+        position_ids (`torch.Tensor`):
+            The position indices of the tokens corresponding to the query and key tensors. For example, this can be
+            used to pass offsetted position ids when working with a KV-cache.
+        unsqueeze_dim (`int`, *optional*, defaults to 1):
+            The 'unsqueeze_dim' argument specifies the dimension along which to unsqueeze cos[position_ids] and
+            sin[position_ids] so that they can be properly broadcasted to the dimensions of q and k. For example, note
+            that cos[position_ids] and sin[position_ids] have the shape [batch_size, seq_len, head_dim]. Then, if q and
+            k have the shape [batch_size, heads, seq_len, head_dim], then setting unsqueeze_dim=1 makes
+            cos[position_ids] and sin[position_ids] broadcastable to the shapes of q and k. Similarly, if q and k have
+            the shape [batch_size, seq_len, heads, head_dim], then set unsqueeze_dim=2.
+    Returns:
+        `tuple(torch.Tensor)` comprising of the query and key tensors rotated using the Rotary Position Embedding.
+    """
+    cos = cos[position_ids].unsqueeze(unsqueeze_dim)
+    sin = sin[position_ids].unsqueeze(unsqueeze_dim)
+    q_embed = (q * cos) + (rotate_half(q) * sin)
+    k_embed = (k * cos) + (rotate_half(k) * sin)
+    return q_embed, k_embed
+```
+
+4) 矩阵乘法得到score与output 后面就是真正的kqv相乘了
+
+```bash
+#(bs, head, seq_len, head_dim)
+query = query.transpose(1, 2)
+key = repeat_kv(key, 4).transpose(1, 2)
+value = repeat_kv(value, 4).transpose(1, 2)
+scores = torch.matmul(query, key.transpose(2, 3)) / math.sqrt(head_dim)
+scores = torch.nn.functional.softmax(scores, dim=-1)
+
+out = torch.matmul(scores, value)
+#上一步转置了，还得转回去
+out = out.transpose(1, 2)
+```
 
 ```bash
     def forward(
@@ -339,7 +485,7 @@ def __init__(self, config: Qwen2Config, layer_idx: Optional[int] = None):
         key_states = key_states.view(bsz, q_len, self.num_key_value_heads, self.head_dim).transpose(1, 2)
         value_states = value_states.view(bsz, q_len, self.num_key_value_heads, self.head_dim).transpose(1, 2)
 
-        kv_seq_len = key_states.shape[-2]
+        kv_seq_len = key_states.shape[-2] # = q_len
         if past_key_value is not None:
             if self.layer_idx is None:
                 raise ValueError(
@@ -356,7 +502,7 @@ def __init__(self, config: Qwen2Config, layer_idx: Optional[int] = None):
             cache_kwargs = {"sin": sin, "cos": cos}  # Specific to RoPE models
             key_states, value_states = past_key_value.update(key_states, value_states, self.layer_idx, cache_kwargs)
 
-        # 先将key_states和value_states重复了num_key_value_groups次
+        # 先将key_states和value_states重复了num_key_value_groups次（GQA）
         # repeat k/v heads if n_kv_heads < n_heads
         key_states = repeat_kv(key_states, self.num_key_value_groups)
         value_states = repeat_kv(value_states, self.num_key_value_groups)
