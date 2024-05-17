@@ -354,6 +354,8 @@ def repeat_kv(hidden_states: torch.Tensor, n_rep: int) -> torch.Tensor:
 
 2) pos_emb, Qwen2RotaryEmbedding + apply_rotary_pos_emb
 
+### Qwen2RotaryEmbedding
+
 位置编码的含义是对每一个token的每一个dim赋予不同的位置信息。 公式定义:
 
 ![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/58f0f9f6-4d7b-4762-b4b5-826af5259975)
@@ -411,6 +413,8 @@ class Qwen2RotaryEmbedding(nn.Module):
 首先要先生成角度: $$ \theta = \left(\frac{1}{10000^{2n/d}}\right) $$
 
 其中，n表示维度数，其取值范围为[0, 1, ..., d/2-1]
+
+### apply_rotary_pos_emb
 
 ```bash
 # Copied from transformers.models.mistral.modeling_mistral.apply_rotary_pos_emb
