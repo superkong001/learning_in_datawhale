@@ -410,7 +410,7 @@ class Qwen2RotaryEmbedding(nn.Module):
         )
 ```
 
-首先要先生成角度: $$ \theta = \left(\frac{1}{10000^{2n/d}}\right) $$
+首先要先生成角度: $$\theta = \left(\frac{1}{10000^{2n/d}}\right)$$
 
 其中，n表示维度数，其取值范围为[0, 1, ..., d/2-1]
 
