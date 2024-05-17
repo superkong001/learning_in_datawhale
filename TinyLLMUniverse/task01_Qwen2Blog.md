@@ -330,12 +330,12 @@ embedding后: tensor[4, 30, 2048](shape:[batch, seq_len, dim])
 # GQA(grouped-query)情况:
 import torch
 
-## shape:(batch, seq_len, head, head_dim)
+# shape:(batch, seq_len, head, head_dim)
 query = torch.randn(10, 128, 8, 128)
 key = torch.randn(10, 128, 2, 128)
 value = torch.randn(10, 128, 2, 128)
 
-## 在此设置组数为4
+## 在此设置组数为8/2=4
 groups = query.shape[-2] // key.shape[-2]
 
 # key和value都要比query小group倍，但是为在后续做矩阵乘法时方便，我们需要先把key和value的head重复到和query相同的维度。方便后续计算。
@@ -460,10 +460,14 @@ def apply_rotary_pos_emb(q, k, cos, sin, position_ids, unsqueeze_dim=1):
 4) 矩阵乘法得到score与output 后面就是真正的kqv相乘了
 
 ```bash
-#(bs, head, seq_len, head_dim)
+# GQA(grouped-query)情况:
+# shape:(batch, head, seq_len, head_dim)
 query = query.transpose(1, 2)
+# 输入shape:(batch, head, seq_len, head_dim) => shape:(batch, head * n_rep, seq_len, head_dim)
 key = repeat_kv(key, 4).transpose(1, 2)
 value = repeat_kv(value, 4).transpose(1, 2)
+
+# $$q*k^T/head_dim^0.5$$
 scores = torch.matmul(query, key.transpose(2, 3)) / math.sqrt(head_dim)
 scores = torch.nn.functional.softmax(scores, dim=-1)
 
