@@ -414,6 +414,10 @@ class Qwen2RotaryEmbedding(nn.Module):
 
 其中，n表示维度数，其取值范围为[0, 1, ..., d/2-1]
 
+然后将上述生成角度与每一个位置乘积，区分一个seq中各个词：其实等价于:
+$$\theta = \left(\frac{i}{10000^{2n/d}}\right)$$  
+其中: `i`为行数。
+
 ### apply_rotary_pos_emb
 
 ```bash
