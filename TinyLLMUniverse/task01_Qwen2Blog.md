@@ -433,6 +433,7 @@ e) 进行旋转嵌入。
 ### apply_rotary_pos_emb
 
 ```bash
+# cos.shape(head, head_dim), sin.shape(head, head_dim)
 # Copied from transformers.models.mistral.modeling_mistral.apply_rotary_pos_emb
 def apply_rotary_pos_emb(q, k, cos, sin, position_ids, unsqueeze_dim=1):
     """Applies Rotary Position Embedding to the query and key tensors.
