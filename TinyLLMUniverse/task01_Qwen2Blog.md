@@ -352,6 +352,11 @@ def repeat_kv(hidden_states: torch.Tensor, n_rep: int) -> torch.Tensor:
     return hidden_states.reshape(batch, num_key_value_heads * n_rep, slen, head_dim)
 ```
 
+tips: 为什么要用expand之后再reshape而不能直接用tensor自带的repeat?
+
+- expand 方法用于对张量进行扩展，但不实际分配新的内存。它返回的张量与原始张量共享相同的数据
+- repeat 方法通过实际复制数据来扩展张量。它返回的新张量不与原始张量共享数据，扩展后的张量占用了更多的内存。
+
 2) pos_emb, Qwen2RotaryEmbedding + apply_rotary_pos_emb
 
 ### Qwen2RotaryEmbedding
@@ -368,7 +373,7 @@ def repeat_kv(hidden_states: torch.Tensor, n_rep: int) -> torch.Tensor:
 ![bcfcb5136238da2cca5641a70169cc23_ROPE2](https://github.com/superkong001/learning_in_datawhale/assets/37318654/3e698be4-2a31-43cf-af96-6e50a8b859cd)
 
 可得，其本质就是: $q_{t}$, $k_{s}$ 旋转后的结果，就是 $q_{t}$, $k_{s}$乘上cos再加上 $q_{t}$, $k_{s}$翻转维度并取反一维后乘上sin。
-- 对于高纬向量，由于奇、复数维度两两交错实现较为复杂，则现在可简化为将特征维度一切二，如下图所示，在实现过程中对前后各半进行的操作即为rotate_half操作：
+- 对于高纬向量，由于奇、偶数维度两两交错实现较为复杂，则现在可简化为将特征维度一切二，如下图所示，在实现过程中对前后各半进行的操作即为rotate_half操作：
 
 ![b9732c2d7d6e7e265bfd933fb481cc9b_ROPE3](https://github.com/superkong001/learning_in_datawhale/assets/37318654/2204dd5d-2fae-4455-9fb0-600c17c3aa11)
 
@@ -461,18 +466,19 @@ def apply_rotary_pos_emb(q, k, cos, sin, position_ids, unsqueeze_dim=1):
 
 ```bash
 # GQA(grouped-query)情况:
-# shape:(batch, head, seq_len, head_dim)
+# 初始shape:(batch, seq_len, head, head_dim) => shape:(batch, head, seq_len, head_dim)
 query = query.transpose(1, 2)
-# 输入shape:(batch, head, seq_len, head_dim) => shape:(batch, head * n_rep, seq_len, head_dim)
+# 输入shape:(batch, seq_len, head, head_dim) => shape:(batch, head * n_rep, seq_len, head_dim)
 key = repeat_kv(key, 4).transpose(1, 2)
 value = repeat_kv(value, 4).transpose(1, 2)
 
-# $$q*k^T/head_dim^0.5$$
-scores = torch.matmul(query, key.transpose(2, 3)) / math.sqrt(head_dim)
+# q*kT/head_dim^0.5 
+scores = torch.matmul(query, key.transpose(2, 3)) / math.sqrt(head_dim) # shape:(batch, head, seq_len, kv_seq_len)
 scores = torch.nn.functional.softmax(scores, dim=-1)
 
+# (batch, head, seq_len, kv_seq_len)*(batch, head, seq_len, head_dim)=(batch, head, seq_len, head_dim)
 out = torch.matmul(scores, value)
-#上一步转置了，还得转回去
+#上一步转置了，还得转回去(batch, seq_len, head, head_dim)
 out = out.transpose(1, 2)
 ```
 
