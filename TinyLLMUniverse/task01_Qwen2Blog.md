@@ -410,13 +410,20 @@ class Qwen2RotaryEmbedding(nn.Module):
         )
 ```
 
-首先要先生成角度: $$\theta = \left(\frac{1}{10000^{2n/d}}\right)$$
+a) 生成角度: $$\theta = \left(\frac{1}{10000^{2n/d}}\right)$$
 
 其中，n表示维度数，其取值范围为[0, 1, ..., d/2-1]
 
-然后将上述生成角度与每一个位置乘积，区分一个seq中各个词：其实等价于:
+b) 将上述生成角度与每一个位置乘积，区分一个seq中各个词：其实等价于:
 $$\theta = \left(\frac{i}{10000^{2n/d}}\right)$$  
 其中: `i`为行数。
+
+c) emb将二者cat起来，得到dim维度，每dim/2一循环。
+
+d) 在取出位置编码信息cos与sin的时候，就是将seq的部分切出来，原先设置的1024是最大pos编码，每次用的时候只取当下seq_len的即可.之前求得外积，是为了保证seq里面得每一个词都能有不同的1024个位置编码。
+
+e) 进行旋转嵌入。
+
 
 ### apply_rotary_pos_emb
 
