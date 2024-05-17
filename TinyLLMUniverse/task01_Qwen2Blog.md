@@ -461,6 +461,8 @@ out = torch.matmul(scores, value)
 out = out.transpose(1, 2)
 ```
 
+完整代码：
+
 ```bash
     def forward(
         self,
