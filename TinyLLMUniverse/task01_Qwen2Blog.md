@@ -382,11 +382,16 @@ tips: 为什么要用expand之后再reshape而不能直接用tensor自带的repe
 class Qwen2RotaryEmbedding(nn.Module):
     def __init__(self, dim, max_position_embeddings=2048, base=10000, device=None):
         super().__init__()
-
-        self.dim = dim
-        self.max_position_embeddings = max_position_embeddings
-        self.base = base
+        # 定义初始值
+        self.dim = dim # 旋转嵌入的维度
+        self.max_position_embeddings = max_position_embeddings # 最大的位置索引，用于定义最大的序列长度
+        self.base = base # 默认10000，计算频率的基数，通常用于调节位置编码的周期性
+        # 定义旋转角θn=10000^(−2n/d)，其中n表示维度数，其取值范围为[0, 1, ..., d/2-1]
+        # 如：2/64=0.0312，10000^0.0312=1.3335，1/1.3335=7.4989e-01
+        # torch.arange(0, self.dim, 2, dtype=torch.int64)生成从0开始到self.dim（但不包括self.dim），步长为2的序列。
         inv_freq = 1.0 / (self.base ** (torch.arange(0, self.dim, 2, dtype=torch.int64).float().to(device) / self.dim))
+
+        # 注册缓冲区（buffer）. 第一个参数"inv_freq"缓冲区名字，第二个参数 (inv_freq)缓冲区的实际数据，第三个参数 (persistent=False)不保存这个缓冲区
         self.register_buffer("inv_freq", inv_freq, persistent=False)
 
         # Build here to make `torch.jit.trace` work.
@@ -394,21 +399,28 @@ class Qwen2RotaryEmbedding(nn.Module):
             seq_len=max_position_embeddings, device=self.inv_freq.device, dtype=torch.get_default_dtype()
         )
 
+    # 为seq里面的每个token形成独一无二的旋转角嵌入(外积)
     def _set_cos_sin_cache(self, seq_len, device, dtype):
         self.max_seq_len_cached = seq_len
         t = torch.arange(self.max_seq_len_cached, device=device, dtype=torch.int64).type_as(self.inv_freq)
 
+        # 将前面生成角度(inv_freq)与每一个位置乘积，区分一个seq中各个词
+        # torch.outer表示两个向量外积，即第一个向量逐个元素与第二个向量相乘得到每个结果单独保存为一行。最终形状为(1024,32)
         freqs = torch.outer(t, self.inv_freq)
+        # 生成角度信息(利用注册机制生成self.cos_cached与sin_cached)
         # Different from paper, but it uses a different permutation in order to obtain the same calculation
+        # emb将二者cat起来(列方向拼接)，得到dim维度，每dim/2一循环
         emb = torch.cat((freqs, freqs), dim=-1)
         self.register_buffer("cos_cached", emb.cos().to(dtype), persistent=False)
         self.register_buffer("sin_cached", emb.sin().to(dtype), persistent=False)
 
     def forward(self, x, seq_len=None):
-        # x: [bs, num_attention_heads, seq_len, head_size]
+        # x: [batch_size, num_attention_heads, seq_len, head_size]
         if seq_len > self.max_seq_len_cached:
             self._set_cos_sin_cache(seq_len=seq_len, device=x.device, dtype=x.dtype)
 
+        # 在取出位置编码信息cos与sin的时候，就是将seq的部分切出来，原先设置的1024是最大pos编码，每次用的时候只取当下seq_len的即可，
+        # 之前求得外积，是为了保证seq里面得每一个词都能有不同的1024个位置编码。
         return (
             self.cos_cached[:seq_len].to(dtype=x.dtype),
             self.sin_cached[:seq_len].to(dtype=x.dtype),
@@ -429,6 +441,25 @@ d) 在取出位置编码信息cos与sin的时候，就是将seq的部分切出�
 
 e) 进行旋转嵌入。
 
+```bash
+# 后半部分和前半部分进行了交换，并且将后半部分的符号取反。
+def rotate_half(x):
+    """Rotates half the hidden dims of the input."""
+    x1 = x[..., : x.shape[-1] // 2]
+    x2 = x[..., x.shape[-1] // 2 :]
+    return torch.cat((-x2, x1), dim=-1)
+
+def apply_rotary_pos_emb(q, k, cos, sin, position_ids, unsqueeze_dim=1):
+    """Applies Rotary Position Embedding to the query and key tensors.
+
+    query and key tensors rotated using the Rotary Position Embedding.
+    """
+    cos = cos[position_ids].unsqueeze(unsqueeze_dim)
+    sin = sin[position_ids].unsqueeze(unsqueeze_dim)
+    q_embed = (q * cos) + (rotate_half(q) * sin)
+    k_embed = (k * cos) + (rotate_half(k) * sin)
+    return q_embed, k_embed
+```
 
 ### apply_rotary_pos_emb
 
