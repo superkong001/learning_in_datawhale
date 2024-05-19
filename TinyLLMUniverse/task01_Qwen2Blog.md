@@ -373,7 +373,7 @@ Transformer采用的是静态的正弦和余弦波函数的组合，主要提供
 
 这里 𝑝𝑜𝑠 是词在序列中的位置，𝑖 是位置向量中的维度索引，𝑑 是位置向量的维度（通常与模型的隐藏层维度相同，例如512）。这个公式中的 $${10000^{2n/d}}$$ 是一个缩放因子，它随 𝑖 的增大而增大，这样对于不同的 𝑖，正弦和余弦函数的波长会随之增长。这种设计使得模型能够在每个维度捕捉到不同频率的位置信息。
 
-引入旋转矩阵的位置编码: 位置编码的含义是对每一个token的每一个dim赋予不同的位置信息。 公式定义:
+旋转位置编码（RoPE）：引入旋转矩阵的位置编码，位置编码的含义是对每一个token的每一个dim赋予不同的位置信息。 公式定义:
 
 ![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/58f0f9f6-4d7b-4762-b4b5-826af5259975)
 
@@ -455,10 +455,13 @@ d) 在取出位置编码信息cos与sin的时候，就是将seq的部分切出�
 
 e) 进行旋转嵌入。
 
+# 将 𝑞 视为复数，其中实部和虚部分别是 𝑞 向量的两个分量。 $$(𝑒^𝑖𝜃)$$ 是由 cos⁡(𝜃)+𝑖sin⁡(𝜃) 表示的单位复数
+# 复数乘法可以表示为两个复数相乘。如果你把一个复数 𝑎+𝑏𝑖 与另一个复数 𝑐+𝑑𝑖 相乘，结果是 𝑎𝑐−𝑏𝑑+(𝑎𝑑+𝑏𝑐)𝑖。
 ```bash
 # 后半部分和前半部分进行了交换，并且将后半部分的符号取反。
 def rotate_half(x):
     """Rotates half the hidden dims of the input."""
+    # x1 被定义为张量 x 最后一个维度的前半部分。
     x1 = x[..., : x.shape[-1] // 2]
     x2 = x[..., x.shape[-1] // 2 :]
     return torch.cat((-x2, x1), dim=-1)
@@ -468,6 +471,8 @@ def apply_rotary_pos_emb(q, k, cos, sin, position_ids, unsqueeze_dim=1):
 
     query and key tensors rotated using the Rotary Position Embedding.
     """
+    # unsqueeze(-1)  # 负1表示，在最后一维上添加一个维度
+    # 使得维度与查询和键张量匹配，从而可以执行元素级乘法（广播）。
     cos = cos[position_ids].unsqueeze(unsqueeze_dim)
     sin = sin[position_ids].unsqueeze(unsqueeze_dim)
     q_embed = (q * cos) + (rotate_half(q) * sin)
