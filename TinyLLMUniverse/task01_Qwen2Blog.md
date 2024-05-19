@@ -367,11 +367,13 @@ tips: 为什么要用expand之后再reshape而不能直接用tensor自带的repe
 - 循环神经网络（RNN）在处理序列信息上会有更好的效果，其依靠循环结构，将序列信息逐步传递，这其中就引入了单词的位置和顺序信息。但随着序列长度的增加，RNN 会慢慢忘记早前的信息，这就导致了长期依赖问题。除此之外，循环结构也使得 RNN 无法并行计算，这使得 RNN 的训练速度十分缓慢。
 - Transformer：由于 Transformer 不包含任何循环结构，各个单词在 Transformer 中都同时经过 Decoder-Encoder 的变换，这就导致了 Transformer 无法捕获单词的位置信息。
 
+Transformer采用的是静态的正弦和余弦波函数的组合，主要提供绝对位置信息:
+
 <img width="533" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3ee73abe-a686-429e-8491-fa6dc46d9f5d">
 
 这里 𝑝𝑜𝑠 是词在序列中的位置，𝑖 是位置向量中的维度索引，𝑑 是位置向量的维度（通常与模型的隐藏层维度相同，例如512）。这个公式中的 $${10000^{2n/d}}$$ 是一个缩放因子，它随 𝑖 的增大而增大，这样对于不同的 𝑖，正弦和余弦函数的波长会随之增长。这种设计使得模型能够在每个维度捕捉到不同频率的位置信息。
 
-位置编码的含义是对每一个token的每一个dim赋予不同的位置信息。 公式定义
+引入旋转矩阵的位置编码: 位置编码的含义是对每一个token的每一个dim赋予不同的位置信息。 公式定义:
 
 ![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/58f0f9f6-4d7b-4762-b4b5-826af5259975)
 
@@ -415,11 +417,13 @@ class Qwen2RotaryEmbedding(nn.Module):
         t = torch.arange(self.max_seq_len_cached, device=device, dtype=torch.int64).type_as(self.inv_freq)
 
         # 将前面生成角度(inv_freq)与每一个位置乘积，区分一个seq中各个词
-        # torch.outer表示两个向量外积，即第一个向量逐个元素与第二个向量相乘得到每个结果单独保存为一行。最终形状为(1024,32)
+        # torch.outer表示两个向量外积，即第一个向量逐个元素与第二个向量相乘得到每个结果单独保存为一行。
+        #  t 的长度为 L（代表序列长度）且 inv_freq 的长度为 D/2（假设 dim=D），那么 freqs 的形状是 L x (D/2)。最终形状为(1024,32)
         freqs = torch.outer(t, self.inv_freq)
         # 生成角度信息(利用注册机制生成self.cos_cached与sin_cached)
         # Different from paper, but it uses a different permutation in order to obtain the same calculation
-        # emb将二者cat起来(列方向拼接)，得到dim维度，每dim/2一循环
+        # emb将二者cat起来(列方向拼接)，得到dim维度，每dim/2一循环。为一个形状为 L x D (1024, 64)的矩阵，其中 L 是序列长度，D 是编码的完整维度。
+        # 通过拼接两份 freqs，可以确保对于每个位置索引 i，有足够的频率值来同时计算其正弦和余弦。
         emb = torch.cat((freqs, freqs), dim=-1)
         self.register_buffer("cos_cached", emb.cos().to(dtype), persistent=False)
         self.register_buffer("sin_cached", emb.sin().to(dtype), persistent=False)
