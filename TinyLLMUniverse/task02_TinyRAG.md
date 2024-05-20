@@ -14,21 +14,7 @@
 
 检索增强生成技术（Retrieval-Augmented Generation，RAG）：RAG 通过在语言模型生成答案之前，先从广泛的文档数据库中检索相关信息，然后利用这些信息来引导生成过程，极大地提升了内容的准确性和相关性。RAG 有效地缓解了幻觉问题，提高了知识更新的速度，并增强了内容生成的可追溯性，使得大型语言模型在实际应用中变得更加实用和可信。
 
-```bash
-
-# 获取源代码
-git clone https://github.com/datawhalechina/tiny-universe.git
-# 安装环境依赖 
-pip install -r requirements
-
-# 或者直接用docker
-镜像地址：https://www.codewithgpu.com/i/datawhalechina/tiny-universe/tiny-universe-tiny-rag
-```
-
-向量数据库软件：llama-index 或者 QAnything (有道的)
-
-
-RAG的基本结构有哪些呢？
+RAG的基本结构：
 
 - 要有一个向量化模块，用来将文档片段向量化。
 - 要有一个文档加载和切分的模块，用来加载文档并切分成文档片段。
@@ -45,5 +31,32 @@ RAG的基本结构有哪些呢？
 - 生成：以检索到的上下文为条件，生成问题的回答。
 
 ![16d74b949a9268e765ebe7b2810a1461_RAG](https://github.com/superkong001/learning_in_datawhale/assets/37318654/cc4ad35c-4963-47b8-88e2-b584e3232899)
+
+```bash
+# 获取源代码
+git clone https://github.com/datawhalechina/tiny-universe.git
+# 安装环境依赖 
+pip install -r requirements
+
+# 或者直接用docker
+镜像地址：https://www.codewithgpu.com/i/datawhalechina/tiny-universe/tiny-universe-tiny-rag
+```
+
+# 向量化
+
+
+# 文档加载和切分
+
+
+# 数据库 && 向量检索
+
+向量数据库软件：llama-index 或者 QAnything (有道的)
+
+# 大模型模块
+
+# LLM RAG Demo
+
+
+
 
 
