@@ -336,6 +336,8 @@ vectordb.persist()
 
 # 大模型模块
 
+或者用ollama试试？
+
 构建一个大模型基类
 
 ```python
