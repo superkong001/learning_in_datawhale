@@ -36,7 +36,7 @@ RAG的基本结构：
 # 获取源代码
 git clone https://github.com/datawhalechina/tiny-universe.git
 # 安装环境依赖 
-pip install -r requirements
+pip install -r requirements.txt
 
 # 或者直接用docker
 镜像地址：https://www.codewithgpu.com/i/datawhalechina/tiny-universe/tiny-universe-tiny-rag
