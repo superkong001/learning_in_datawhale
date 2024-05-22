@@ -10,6 +10,21 @@
 - [Learning to Filter Context for Retrieval-Augmented Generation](http://arxiv.org/abs/2311.08377)
 - [In-Context Retrieval-Augmented Language Models](https://arxiv.org/abs/2302.00083)
 
+# 下载 NLTK 相关资源
+
+下载 nltk 资源并解压
+
+```bash
+cd /root
+git clone https://gitee.com/yzy0612/nltk_data.git  --branch gh-pages
+cd nltk_data
+mv packages/*  ./
+cd tokenizers
+unzip punkt.zip
+cd ../taggers
+unzip averaged_perceptron_tagger.zip
+```
+
 # RAG 基础
 
 检索增强生成技术（Retrieval-Augmented Generation，RAG）：RAG 通过在语言模型生成答案之前，先从广泛的文档数据库中检索相关信息，然后利用这些信息来引导生成过程，极大地提升了内容的准确性和相关性。RAG 有效地缓解了幻觉问题，提高了知识更新的速度，并增强了内容生成的可追溯性，使得大型语言模型在实际应用中变得更加实用和可信。
