@@ -236,6 +236,21 @@ def query(self, query: str, EmbeddingModel: BaseEmbeddings, k: int = 1) -> List[
 
 引入 LangChain 框架中构建向量数据库。由纯文本对象构建向量数据库，需要先对文本进行分块，接着对文本块进行向量化。
 
+下载和安装包：
+pip install -U huggingface_hub
+
+```python
+import os
+
+# 设置环境变量
+os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
+
+# 下载模型
+os.system('huggingface-cli download --resume-download sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 --local-dir /root/data/model/sentence-transformer')
+```
+
+python download_hf.py
+
 #### 文本进行分块
 
 LangChain 文本分块工具，使用字符串递归分割器，并选择分块大小为 500，块重叠长度为 150
