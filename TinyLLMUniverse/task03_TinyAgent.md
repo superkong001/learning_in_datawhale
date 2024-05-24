@@ -9,34 +9,51 @@
 # Step 1: 构造大模型
 
 ```python
+import os
+from typing import Any, List, Optional, Dict, Tuple, Union
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
 class BaseModel:
-    def __init__(self, path: str = '') -> None:
-        self.path = path
+    def __init__(self, model_path: str = '') -> None:
+        self.model_path = model_path
 
-    def chat(self, prompt: str, history: List[dict]):
+    def chat(self, prompt: str, history: List[dict], content: str) -> str:
         pass
 
     def load_model(self):
         pass
+
+    @property
+    def _llm_type(self) -> str:
+        return "BaseModel"
 ```
 
 创建一个InternLM2类，这个类继承自BaseModel类，类中实现chat方法和load_model方法。
 
 ```python
 class InternLM2Chat(BaseModel):
-    def __init__(self, path: str = '') -> None:
-        super().__init__(path)
+    def __init__(self, model_path: str = '') -> None:
+        # model_path: InternLM 模型路径
+        # 从本地初始化模型
+        super().__init__(model_path)
         self.load_model()
 
-    def load_model(self):
-        print('================ Loading model ================')
-        self.tokenizer = AutoTokenizer.from_pretrained(self.path, trust_remote_code=True)
-        self.model = AutoModelForCausalLM.from_pretrained(self.path, torch_dtype=torch.float16, trust_remote_code=True).cuda().eval()
-        print('================ Model loaded ================')
-
-    def chat(self, prompt: str, history: List[dict], meta_instruction:str ='') -> str:
+    def chat(self, prompt: str, history: List = [], content: str='', meta_instruction:str ='') -> str:
+        prompt = PROMPT_TEMPLATE['InternLM_PROMPT_TEMPALTE'].format(question=prompt, context=content)
         response, history = self.model.chat(self.tokenizer, prompt, history, temperature=0.1, meta_instruction=meta_instruction)
         return response, history
+
+
+    def load_model(self):
+        print("正在从本地加载模型...")
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_path, trust_remote_code=True)
+        self.model = AutoModelForCausalLM.from_pretrained(self.model_path, torch_dtype=torch.float16, trust_remote_code=True).cuda()
+        self.model = self.model.eval()
+        print("完成本地模型的加载")
+
+    @property
+    def _llm_type(self) -> str:
+        return "InternLM"
 ```
 
 # Step 2: 构造工具
