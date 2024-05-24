@@ -10,6 +10,8 @@
 - [Learning to Filter Context for Retrieval-Augmented Generation](http://arxiv.org/abs/2311.08377)
 - [In-Context Retrieval-Augmented Language Models](https://arxiv.org/abs/2302.00083)
 
+![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/089641a6-68e9-40e1-878b-3dca7c693a06)
+
 # 下载 NLTK 相关资源
 
 下载 nltk 资源并解压
