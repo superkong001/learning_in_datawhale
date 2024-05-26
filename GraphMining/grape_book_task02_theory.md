@@ -240,6 +240,9 @@ PageRank <=> Stationary Distributions of Markov Chains
 
 <img width="520" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/5844236e-2d3c-4a04-afd3-ba087ddce9c2">
 
+暴力求解：L1一阶用绝对值，L2二阶可以用平方和
+
+<img width="553" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/1988b7bb-fc79-4215-ab05-b5b5c7d52bef">
 
 
 
