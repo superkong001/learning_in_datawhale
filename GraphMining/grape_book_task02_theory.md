@@ -264,3 +264,42 @@ PageRank <=> Stationary Distributions of Markov Chains
 
 <img width="419" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/95584472-3909-4067-a0b5-b919bf006d1f">
 
+### PageRank 问题
+
+- 多个彼此独立的连通域
+- (1) Some pages are dead ends 即：死胡同 (have no out-links)
+  违背收敛基本假设，全是0，解决方案：改写某些列不全为0，百分百被传走
+  
+  <img width="502" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/ee90abdf-69b3-48e8-bad1-5d0131b6e0b0">
+
+- (2) Spider traps 即：仅指向自己 (all out-links are within the group)
+  符合收敛基本假设，但结果无意义，其他全是0，解决方案：以1-ß概率随机跳到其他节点
+
+<img width="557" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/54c4bc65-eb43-42e6-b6b5-e5aab651abc6">
+
+<img width="555" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/02767016-05bf-43c9-9f96-e62d6f528971">
+
+summary:
+
+<img width="557" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3fde0ac4-d0c4-4b44-a7b4-0ea118acf001">
+
+<img width="557" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a6637d2d-e638-42b6-b0b4-5ff90d00fb53">
+
+eg:
+
+<img width="580" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/aed79b06-cd64-463d-85ad-a49ab7887684">
+
+### PageRank 扩展应用
+
+1） 推荐系统：寻找与指定节点最相似的节点（基本假设：被同一用户访问过的节点更可能是相似的）
+
+<img width="543" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/45204c12-7b3e-4ffd-b1b0-bc8ceaf229db">
+
+<img width="525" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/75d7ba47-032b-46fd-922a-3bf826b0fd6e">
+
+如计算Q最相似节点，就是以Q为起点模拟多次随机游走，看访问次数最多的节点是哪个？
+
+<img width="587" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/38444160-d28a-4424-867e-30e866aba817">
+
+<img width="541" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/64b2347a-9c2a-4c4a-821c-f0a3e99fb8b4">
+
