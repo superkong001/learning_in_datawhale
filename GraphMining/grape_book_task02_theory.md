@@ -304,21 +304,21 @@ eg:
 <img width="541" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/64b2347a-9c2a-4c4a-821c-f0a3e99fb8b4">
 
 参考资料：
-· 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
-· PageRank:A Trillion Dollar Algorithm(作者:Reducible) https://www.youtube.com/watch?v=JGQe4kiPnrU
-· Google 's PageRank Algorithm(作者:Global Software Support) https://www.youtube.com/playlist?list=PLH7W8KdUX6P2n4XwDiKsEU6sBhQj5cAqa
-· 曼彻斯特大学:https://personalpages.manchester.ac.uk/staff/yanghong.huang/teaching/MATH36032/pagerank.pdf
-· 斯坦福CS345 Data Mining: https://wenku.baidu.com/view/5be822bfbb4cf7ec4bfed052.html ?_ wkts _= 1669773903123&bdQuery=web+in+1839
+- 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
+- PageRank:A Trillion Dollar Algorithm(作者:Reducible) https://www.youtube.com/watch?v=JGQe4kiPnrU
+- Google 's PageRank Algorithm(作者:Global Software Support) https://www.youtube.com/playlist?list=PLH7W8KdUX6P2n4XwDiKsEU6sBhQj5cAqa
+- 曼彻斯特大学:https://personalpages.manchester.ac.uk/staff/yanghong.huang/teaching/MATH36032/pagerank.pdf
+- 斯坦福CS345 Data Mining: https://wenku.baidu.com/view/5be822bfbb4cf7ec4bfed052.html ?_ wkts _= 1669773903123&bdQuery=web+in+1839
 
 参考视频
-. https://www.youtube.com/watch?v=meonLcN7LD4
-. https://www.youtube.com/watch?v=P8Kt6Abq_rM&list=PLH7W8KdUX6P2n4XwDiKsEU6sBhQj5cAqa&index=4
-· PageRank与马尔科夫链:https://www.youtube.com/watch?v=JGQe4kiPnrU
+- https://www.youtube.com/watch?v=meonLcN7LD4
+- https://www.youtube.com/watch?v=P8Kt6Abq_rM&list=PLH7W8KdUX6P2n4XwDiKsEU6sBhQj5cAqa&index=4
+- PageRank与马尔科夫链:https://www.youtube.com/watch?v=JGQe4kiPnrU
 
 其它参考资料
-· 《数学之美》
-· 得到APP:张潇雨·商业经典案例课-谷歌
-· 得到APP:吴军·谷歌方法论
-· PageRank原始论文1:http://infolab.stanford.edu/~backrub/google.html
-· PageRank原始论文2:http://ilpubs.stanford.edu:8090/422
+- 《数学之美》
+- 得到APP:张潇雨·商业经典案例课-谷歌
+- 得到APP:吴军·谷歌方法论
+- PageRank原始论文1:http://infolab.stanford.edu/~backrub/google.html
+- PageRank原始论文2:http://ilpubs.stanford.edu:8090/422
 
