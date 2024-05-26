@@ -244,5 +244,23 @@ PageRank <=> Stationary Distributions of Markov Chains
 
 <img width="553" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/1988b7bb-fc79-4215-ab05-b5b5c7d52bef">
 
+### PageRank收敛性分析
 
+> 是否能收敛至稳定值?(而不是发散)
+> 不同初始值,是否收敛至同一个结果?
+> 收敛的结果在数学上是否有意义?
+> 收敛的结果是否真的代表节点重要度?
+
+相关定理：
+
+<img width="593" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/1c5c745c-f78e-412b-8089-429b1d875d25">
+
+可归约马尔科夫链（Reducible Markov Chain） ：如果马尔科夫链中的某些状态不能从其他状态到达，或者某些状态无法到达其他状态，那么这个链就是可归约的。这意味着整个状态空间可以被分割成不相连的子集，每个子集内部的状态可以互相到达，但不能到达其他子集的状态。
+
+<img width="424" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/45210248-5676-4ec7-a4a9-c66aa2a041c9">
+
+周期震荡马尔科夫链（Periodic Markov Chain）：是指马尔科夫链中存在某种规律性的循环或周期行为，其中从一个特定状态返回到自身的步数总是周期 𝑑 的倍数，且 
+𝑑>1。如果一个状态的周期是1，那么我们称这个状态是非周期的或者说这个链是非周期的。周期性在马尔科夫链的分析中非常重要，因为它影响到链的长期行为和收敛特性。
+
+<img width="419" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/95584472-3909-4067-a0b5-b919bf006d1f">
 
