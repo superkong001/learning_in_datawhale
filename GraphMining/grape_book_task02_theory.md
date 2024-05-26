@@ -1,4 +1,4 @@
-# 柯尼斯堡七桥问题
+<img width="559" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d87c2abf-c6da-41bf-9c71-9138ec1013a4"># 柯尼斯堡七桥问题
 
 ![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/6e7e26ea-2d0e-45c7-864c-a63308c852cb)
 
@@ -144,3 +144,45 @@ plt.legend(loc='upper left')
 plt.title("Bipartite Graph")
 plt.show()
 ```
+
+# PageRank
+
+改变世界的十大IT论文: 图灵机、香农信息论、维纳控制论、比特币白皮书、PageRank、AlexNet、ResNet、Alpha Go、Transformer、AlphaFold2
+
+现在网页挑战：
+- 随时生成的（如：随时生成的分享链接、推荐链接）
+- 不可触达，私域（微信朋友圈、聊天记录。。。）
+
+无标度网络（Scale-Free Network）指的是某些网络中节点的度（即与节点相连的边的数量）分布呈幂律分布（Power-Law Distribution）。这种类型的网络在许多自然和人造系统中都可以找到，如互联网、社交网络、蛋白质相互作用网络、引文网络等。
+
+变种算法：
+
+- PageRank
+- Personalized PageRank (PPR)
+- Random Walk with Restarts
+
+## PageRank
+
+idea: 
+- 以指向改网页的链接作为投票 In-coming links as votes
+- 投票数越高的网页投票权重越高 Links from important pages count more
+- 递归问题
+
+<img width="557" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/49e72520-c8bf-4d22-ae46-22315f480cc4">
+
+PageRank 算法：
+
+方法一： 迭代线性求解
+
+高斯消元法的基本目标是通过行变换将线性方程组的系数矩阵转化为行最简阶梯形矩阵（或上三角形矩阵），从而简化方程组的求解过程。
+
+<img width="562" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/585c75fb-ccb4-4281-a093-db4569a382fe">
+
+初始化每个节点重要度，然后逐步迭代计算
+
+<img width="553" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/65e044a9-216c-45af-9dd9-fc246ad828fb">
+
+方法二：迭代左乘M矩阵
+
+<img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/80c4c847-25fb-42ea-abc1-4199744425f2">
+
