@@ -236,6 +236,9 @@ PageRank <=> Stationary Distributions of Markov Chains
 
 > 马尔科夫链(和求解矩阵特征向量，不推荐)
 
+### 求解PageRank
+
+<img width="520" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/5844236e-2d3c-4a04-afd3-ba087ddce9c2">
 
 
 
