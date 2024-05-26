@@ -1,4 +1,4 @@
-<img width="559" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d87c2abf-c6da-41bf-9c71-9138ec1013a4"># 柯尼斯堡七桥问题
+# 柯尼斯堡七桥问题
 
 ![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/6e7e26ea-2d0e-45c7-864c-a63308c852cb)
 
@@ -155,6 +155,8 @@ plt.show()
 
 无标度网络（Scale-Free Network）指的是某些网络中节点的度（即与节点相连的边的数量）分布呈幂律分布（Power-Law Distribution）。这种类型的网络在许多自然和人造系统中都可以找到，如互联网、社交网络、蛋白质相互作用网络、引文网络等。
 
+通过链接结构来计算每个节点重要度。
+
 变种算法：
 
 - PageRank
@@ -172,9 +174,11 @@ idea:
 
 PageRank 算法：
 
-方法一： 迭代线性求解
+### 迭代求解线性方程组
 
 高斯消元法的基本目标是通过行变换将线性方程组的系数矩阵转化为行最简阶梯形矩阵（或上三角形矩阵），从而简化方程组的求解过程。
+
+所有节点重要度相加=1
 
 <img width="562" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/585c75fb-ccb4-4281-a093-db4569a382fe">
 
@@ -182,7 +186,50 @@ PageRank 算法：
 
 <img width="553" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/65e044a9-216c-45af-9dd9-fc246ad828fb">
 
-方法二：迭代左乘M矩阵
+### 迭代左乘M矩阵
 
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/80c4c847-25fb-42ea-abc1-4199744425f2">
+
+列是概率，求和等于1
+
+<img width="590" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/baaf71af-2417-4e2e-8a66-1b15392e9016">
+
+<img width="486" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/039793b2-7bb7-40c7-bf6f-c326f7b1600c">
+
+矩阵的线性变换可以有多种几何解释，例如旋转、缩放、剪切、投影等。这些变换可以改变向量的方向和大小，但不能平移（原点不变），变化总是以一种线性的方式进行，即不会引入非线性扭曲（如曲线或扭曲路径）。
+
+### 特征向量
+
+线性变化后方向不变只是进行长度缩放
+
+<img width="314" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a730991c-2629-4c65-aa1a-de61a92fcb74">
+
+因此，r是特征值为1的特征向量，实际就是通过幂迭代求主特征向量
+
+<img width="547" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/8a4f0954-0318-48a5-b3a4-9bb3f216d272">
+
+对于Column Stochastic矩阵,由Perreon-Frobenius定理：最大的特征值为1，存在唯一的主特征向量(特征值1对应的特征向量)，向量所有元素求和为1。
+
+### 随机游走(connection to Random Walk)
+
+<img width="558" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/cfab597a-5ef2-4fc3-ba41-1f3dce9a4b0c">
+
+pagerank值就是随机游走走到某个节点的概率
+
+<img width="555" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/15961c91-aefd-4ac0-860c-a860a0460b6e">
+
+### 马尔科夫链
+
+状态与状态之间的转移来表示，节点表示状态，连接表示状态转移。
+
+<img width="406" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/225bcfdd-291f-44c3-8ca2-65a214f694d6">
+
+PageRank <=> Stationary Distributions of Markov Chains
+
+> 迭代求解线性方程组(O(n3),不推荐)
+> 迭代左乘M矩阵(推荐,幂迭代)
+> 矩阵的特征向量(O(n3),不推荐)
+> 随机游走(需模拟很多游走,不推荐)
+> 马尔科夫链(和求解矩阵特征向量，不推荐)
+
 
