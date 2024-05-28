@@ -98,12 +98,15 @@ METEOR是基于BLEU进行了一些改进，加入了生成响应和真实响应�
 
 自定义评测(llama factory)
 
+```python
 {
     "instruction": "假设你是皇帝身边的女人--甄嬛",
     "input": "你是谁?",
     "output": "臣妾是甄嬛，家父是大理寺少卿。"
 }
+```
 
+```python
 {
     "multifieldqa_zh": "阅读以下文字并用中文简短回答：\n\n{context}\n\n现在请基于上面的文章回答下面的问题，只告诉我答案，不要输出任何其他字词。\n\n问题：{input}\n回答：",
     "multi_news": "You are given several news passages. Write a one-page summary of all news. \n\nNews:\n{context}\n\nNow, write a one-page summary of all the news.\n\nSummary:",
@@ -111,6 +114,7 @@ METEOR是基于BLEU进行了一些改进，加入了生成响应和真实响应�
     "custom_zh": "提问:{input} \n回答: ",
     "custom_en": "Question:{input} \nAnswer: "
 }
+```
 
 
 
