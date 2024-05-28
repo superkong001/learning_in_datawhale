@@ -96,6 +96,14 @@ METEOR是基于BLEU进行了一些改进，加入了生成响应和真实响应�
 - 根据模型初步预测结果采纳合理的抽取方式.
 - 对相应的pred与anwser进行得分计算.
 
+选用数据集：
+
+|name|type|metric|
+|---|---|---|
+|multi_news|长文本问答|Rouge|
+|multifieldqa_zh|短文本问答|F1|
+|trec|生成式选则|accuracy|
+
 自定义评测(llama factory)
 
 ```python
@@ -107,6 +115,7 @@ METEOR是基于BLEU进行了一些改进，加入了生成响应和真实响应�
 ```
 
 ```python
+# 配置每个数据集的prompt, 将上面自定义sft数据分别封装到`custom_zh`和`custom_en`,数据形式与sft格式一致
 {
     "multifieldqa_zh": "阅读以下文字并用中文简短回答：\n\n{context}\n\n现在请基于上面的文章回答下面的问题，只告诉我答案，不要输出任何其他字词。\n\n问题：{input}\n回答：",
     "multi_news": "You are given several news passages. Write a one-page summary of all news. \n\nNews:\n{context}\n\nNow, write a one-page summary of all the news.\n\nSummary:",
