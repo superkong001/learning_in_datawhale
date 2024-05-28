@@ -9,27 +9,81 @@
 
 常用词向量评价指标：Greedy matching、Embedding Average、Vector Extrema、perplexity困惑度。
 
-## ROUGE（Recall-Oriented Understudy for Gisting Evaluation）
+## 词重叠评价指标
 
-ROUGE 是一组用于评估文本摘要或自动生成的摘要与参考摘要之间的相似程度的度量标准。它主要关注召回率（Recall），即生成的摘要中覆盖参考摘要多少内容。ROUGE 标准包括 ROUGE-N（比较 n 元组）、ROUGE-L（比较最长公共子序列）、ROUGE-W（比较加权 n 元组）、ROUGE-S（比较重要的非连续序列）等。ROUGE 分数越高，表示生成的摘要与参考摘要越相似。
+### ROUGE（Recall-Oriented Understudy for Gisting Evaluation）
 
-## BLEU（Bilingual Evaluation Understudy）
+ROUGE 是一组用于评估文本摘要或自动生成的摘要与参考摘要之间的相似程度的度量标准，词可以不是连续的。它主要关注召回率（Recall），即生成的摘要中覆盖参考摘要多少内容。ROUGE 标准包括 ROUGE-N（比较 n 元组）、ROUGE-L（比较最长公共子序列）、ROUGE-W（比较加权 n 元组）、ROUGE-S（比较重要的非连续序列）等。ROUGE 分数越高，表示生成的摘要与参考摘要越相似。
 
-BLEU 计算两句子的共现词频率。它是一种用于评估机器翻译质量的指标，它通过比较生成的翻译结果与参考翻译之间的 n-gram 重叠来度量翻译的准确性。BLEU 评分考虑了精确匹配的 n-gram 以及模糊匹配的情况，以及短文本的处理。BLEU 分数通常在 0 到 1 之间，越接近 1 表示生成的翻译结果越好。
+<img width="212" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2a1555c8-9b35-43f0-a7de-59185a823f56">
 
-参考论文《BLEU: a Method for Automatic Evaluation of Machine Translation》(https://link.zhihu.com/?target=http%3A//www.aclweb.org/anthology/P02-1040.pdf) 
+### BLEU（Bilingual Evaluation Understudy）
+
+BLEU 计算两句子的共现词频率，n-gram要求词语必须连续出现。它是一种用于评估机器翻译质量的指标，它通过比较生成的翻译结果与参考翻译之间的 n-gram 重叠来度量翻译的准确性。BLEU 评分考虑了精确匹配的 n-gram 以及模糊匹配的情况，以及短文本的处理。BLEU 分数通常在 0 到 1 之间，越接近 1 表示生成的翻译结果越好。
+
+<img width="244" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/b7334935-15d4-4692-b452-64696f7846f5">
+
+第一个公式Pn用于计算n-gram短语词组在整个数据集中的准确度。h(k,r)表示每个n-gram词组在真实响应中出现的次数。故上式就是每个n-gram词组在真实和生成响应中出现次数的较小值求和除以其在生成响应中出现次数求和，表征了一种精确度度量。n的取值（一般取1-4）。
+
+第二个公式，beta表示各个n-gram的权重（可以取均匀分布），也就是对1-4进行加权求和，而b(r,r^)表示长度惩罚因子，即我们不想让生成的答案长度太短，所以加一个惩罚因子来改善效果。
+
+参考论文[《BLEU: a Method for Automatic Evaluation of Machine Translation》](https://link.zhihu.com/?target=http%3A//www.aclweb.org/anthology/P02-1040.pdf) 
 
 机器翻译评价指标之BLEU详细计算过程：https://blog.csdn.net/guolindonggld/article/details/56966200
 
 机器翻译自动评估-BLEU算法详解：https://blog.csdn.net/qq_31584157/article/details/77709454
 
-## METEOR
+### METEOR
 
 METEOR是基于BLEU进行了一些改进，加入了生成响应和真实响应之间的对其关系。使用WordNet计算特定的序列匹配，同义词，词根和词缀，释义之间的匹配关系，改善了BLEU的效果，使其跟人工判别共更强的相关性。
 
 ![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/d067e7c3-75fd-4af2-a901-e440539bfaaa)
 
 论文《METEOR: An automatic metric for mt evaluation with improved correlation with human judgments》
+
+## 词向量评价指标
+
+### Greedy matching
+
+<img width="258" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/ffb639d3-a045-4df0-8990-657b31105b37">
+
+### Embedding Average
+
+<img width="232" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c03bae65-3e77-44b2-9e6c-7d3fd0bc162d">
+
+### Vector Extrema
+
+与Embedding Average方法类似，也是先通过词向量计算出句向量，在使用句向量之间的余弦相似度表示二者的相似度。不过句向量采用向量极值法进行计算。
+
+### perplexity困惑度
+
+<img width="473" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/8a8b7bb7-4805-4f0c-a7a7-780682d0d200">
+
+# 数据集
+
+## 对话数据集
+
+参考[《A Survey of Available Corpora for Building Data-Driven Dialogue Systems》的作者整理](https://docs.google.com/spreadsheets/d/1SJ4XV6NIEl_ReF1odYBRXs0q6mTkedoygY3kLMPjcP8/pubhtml#)
+
+## 英文数据集
+
+- [Cornell Movie Dialogs：电影对话数据集](http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html)。
+- [Ubuntu Dialogue Corpus：Ubuntu日志对话数据](https://arxiv.org/abs/1506.08909)。
+-[ OpenSubtitles：电影字幕](http://opus.lingfil.uu.se/OpenSubtitles.php)。
+- [Twitter：twitter数据集](https://github.com/Marsan-Ma/twitter_scraper)。
+- [Papaya Conversational Data Set](https://github.com/bshao001/ChatLearner)：基于Cornell、Reddit等数据集重新整理之后，好像挺干净的。
+
+相关数据集的处理代码或者处理好的数据可以参见下面两个github项目：
+
+- [DeepQA](https://github.com/Conchylicultor/DeepQA)
+- [chat_corpus](https://github.com/Marsan-Ma/chat_corpus)
+
+## 中文数据集
+
+- [dgk_shooter_min.conv](https://github.com/rustch3n/dgk_lost_conv)：中文电影台词数据集，
+- [白鹭时代中文问答语料](https://github.com/Samurais/egret-wenda-corpus)：白鹭时代论坛问答数据，一个问题对应一个最好的答案。
+- [微博数据集：华为李航实验室发布](http://61.93.89.94/Noah_NRM_Data/)，也是论文“Neural Responding Machine for Short-Text Conversation”使用数据集。
+- [新浪微博数据集](http://lwc.daanvanesch.nl/openaccess.php)，评论回复短句。
 
 # 大模型Eval包含流程
 
