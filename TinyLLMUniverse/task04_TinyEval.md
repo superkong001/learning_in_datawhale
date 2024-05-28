@@ -89,12 +89,28 @@ METEOR是基于BLEU进行了一些改进，加入了生成响应和真实响应�
 
 评测任务的基础pipeline
 
-![0d7e6154a76a67343a7daa68e144d1f6_compass](https://github.com/superkong001/learning_in_datawhale/assets/37318654/e610de11-8441-4b48-adca-e8feae39ed54)
+<img width="521" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f538477f-57c7-4c97-a227-a75b711052db">
 
 - 首先，根据目标数据集的任务类型指定合理的评测metric.
 - 根据目标数据的形式总结模型引导prompt.
 - 根据模型初步预测结果采纳合理的抽取方式.
 - 对相应的pred与anwser进行得分计算.
+
+自定义评测(llama factory)
+
+{
+    "instruction": "假设你是皇帝身边的女人--甄嬛",
+    "input": "你是谁?",
+    "output": "臣妾是甄嬛，家父是大理寺少卿。"
+}
+
+{
+    "multifieldqa_zh": "阅读以下文字并用中文简短回答：\n\n{context}\n\n现在请基于上面的文章回答下面的问题，只告诉我答案，不要输出任何其他字词。\n\n问题：{input}\n回答：",
+    "multi_news": "You are given several news passages. Write a one-page summary of all news. \n\nNews:\n{context}\n\nNow, write a one-page summary of all the news.\n\nSummary:",
+    "trec": "Please determine the type of the question below. Here are some examples of questions.\n\n{context}\n{input}",
+    "custom_zh": "提问:{input} \n回答: ",
+    "custom_en": "Question:{input} \nAnswer: "
+}
 
 
 
