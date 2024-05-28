@@ -104,7 +104,7 @@ METEOR是基于BLEU进行了一些改进，加入了生成响应和真实响应�
 |multifieldqa_zh|短文本问答|F1|
 |trec|生成式选则|accuracy|
 
-自定义评测(llama factory)
+## 设计自己prompt(llama factory)
 
 ```python
 {
