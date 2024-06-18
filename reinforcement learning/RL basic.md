@@ -53,7 +53,7 @@ vs监督学习，监督学习两个假设：
 
 价值函数的值是对未来奖励的预测，用它来评估状态的好坏。 价值函数里面有一个折扣因子（discount factor），希望在尽可能短的时间里面得到尽可能多的奖励。
 
-$$
+$$ 
 V_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[G_{t} \mid s_{t}=s\right]=\mathbb{E}_{\pi}\left[\sum_{k=0}^{\infty} \gamma^{k} r_{t+k+1} \mid s_{t}=s\right], \text{对于所有的} s \in S 
 $$
 
@@ -61,7 +61,7 @@ $$
 
 还有一种价值函数：Q 函数。Q 函数里面包含两个变量：状态和动作。其定义为
 
-$$
+$$ 
 Q_{\pi}(s, a) \doteq \mathbb{E}_{\pi}\left[G_{t} \mid s_{t}=s, a_{t}=a\right]=\mathbb{E}_{\pi}\left[\sum_{k=0}^{\infty} \gamma^{k} r_{t+k+1} \mid s_{t}=s, a_{t}=a\right]
 $$
 
