@@ -5,7 +5,7 @@
 
 # 强化学习概述
 
-<img width="398" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d430f8af-dfbe-449e-9a02-2d5e177773f7">
+<img width="698" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d430f8af-dfbe-449e-9a02-2d5e177773f7">
 
 vs监督学习，监督学习两个假设：
 
