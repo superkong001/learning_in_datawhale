@@ -30,22 +30,24 @@ vs监督学习，监督学习两个假设：
 
 （4）智能体的动作会影响它随后得到的数据，这一点是非常重要的。在训练智能体的过程中，很多时 候我们也是通过正在学习的智能体与环境交互来得到数据的。所以如果在训练过程中，智能体不能保持稳定，就会使我们采集到的数据非常糟糕。我们通过数据来训练智能体，如果数据有问题，整个训练过程就会失败。所以在强化学习里面一个非常重要的问题就是，怎么让智能体的动作一直稳定地提升。
 
-<img width="407" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f1f4fc55-dd34-471c-959c-7d03df7130dd">
+<img width="607" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f1f4fc55-dd34-471c-959c-7d03df7130dd">
 
-<img width="394" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/49c8ba3b-2e83-48a3-a440-5161ccf9e724">
+<img width="594" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/49c8ba3b-2e83-48a3-a440-5161ccf9e724">
 
 # 强化学习智能体的组成成分和类型
 
 对于一个强化学习智能体，它可能有一个或多个如下的组成成分。
 
-> 策略（policy）。智能体会用策略来选取下一步的动作。
+1) 策略（policy）。智能体会用策略来选取下一步的动作。
 
 **随机性策略（stochastic policy）**就是 $\pi$ 函数，即$\pi(a | s)=p\left(a_{t}=a | s_{t}=s\right)$。输入一个状态 $s$，输出一个概率。 
 这个概率是智能体所有动作的概率，然后对这个概率分布进行采样，可得到智能体将采取的动作。比如可能是有 0.7 的概率往左，0.3 的概率往右，那么通过采样就可以得到智能体将采取的动作。
 
 **确定性策略（deterministic policy）**就是智能体直接采取最有可能的动作，即 $a^{*}=\underset{a}{\arg \max} \pi(a \mid s)$。 
 
-> 价值函数（value function）。我们用价值函数来对当前状态进行评估。价值函数用于评估智能体进 入某个状态后，可以对后面的奖励带来多大的影响。价值函数值越大，说明智能体进入这个状态越有利。
+2) 价值函数（value function）。我们用价值函数来对当前状态进行评估。价值函数用于评估智能体进 入某个状态后，可以对后面的奖励带来多大的影响。价值函数值越大，说明智能体进入这个状态越有利。
 
-> 模型（model）。模型表示智能体对环境的状态进行理解，它决定了环境中世界的运行方式。 下面我们深入了解这 3 个组成部分的细节。
+3) 模型（model）。模型表示智能体对环境的状态进行理解，它决定了环境中世界的运行方式。 下面我们深入了解这 3 个组成部分的细节。
+
+
 
