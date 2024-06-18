@@ -54,7 +54,7 @@ vs监督学习，监督学习两个假设：
 价值函数的值是对未来奖励的预测，用它来评估状态的好坏。 价值函数里面有一个折扣因子（discount factor），希望在尽可能短的时间里面得到尽可能多的奖励。
 
 $$
-V_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[G_t\mid s_t=s\right]= \mathbb{E}_{\pi}
+V_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[G_t\mid s_t=s\right]=\mathbb{E}
 $$
 
 $$
