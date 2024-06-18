@@ -58,7 +58,7 @@ V_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[G_t\right]=
 $$
 
 $$
-V_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[G_{t}\mid s_{t}=s\right]=\mathbb{E}_{\pi}\left[\sum_{k=0}^{\infty} \gamma^{k} r_{t+k+1} \mid s_{t}=s\right], \text{对于所有的} s \in S
+V_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[G_t\mid s_t=s\right]=\mathbb{E}_{\pi}\left[\sum_{k=0}^{\infty} \gamma^k r_{t+k+1} \mid s_t=s\right], \text{对于所有的} s \in S
 $$
 
 期望 $\mathbb{E}_{\pi}$ 的下标是 $\pi$ 函数， $\pi$ 函数的值可反映在我们使用策略 $\pi$ 的时候，到底可以得到多少奖励。
