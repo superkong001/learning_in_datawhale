@@ -104,4 +104,10 @@ $$
 
 <img width="413" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/e6352c84-3713-4066-8ab6-748a9ffdda22">
 
+## Gym库
+
+PS: Gym 库 0.26.0 及其之后的版本对之前的代码不兼容
+
+pip install gym==0.25.2
+
 
