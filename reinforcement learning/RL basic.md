@@ -303,6 +303,12 @@ $$
   \mathbb{E}[X]=\sum_{i} \mathbb{E}\left[X \mid A_{i}\right] p\left(A_{i}\right)
 $$
 
+如果 $X$ 和 $Y$ 都是离散型随机变量，则条件期望（conditional expectation）$\mathbb{E}[X|Y=y]$ 定义为
+
+$$
+  \mathbb{E}[X \mid Y=y]=\sum_{x} x p(X=x \mid Y=y)
+$$
+
 贝尔曼方程的推导过程如下：
 
 $$
