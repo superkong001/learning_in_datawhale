@@ -56,7 +56,7 @@ vs监督学习，监督学习两个假设：
 <img width="431" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/8bdbcfb1-052b-44bf-89ef-bfc33351cc03">
 
 $$
-V_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[=\mathbb{E}_{\pi}\left[, \text{对于所有的} s \in S
+V_{\pi}(s) \doteq \mathbb{E}_{\pi}\_{\pi}\left[, \text{对于所有的} s \in S
 $$
 
 期望 $\mathbb{E}_{\pi}$ 的下标是 $\pi$ 函数， $\pi$ 函数的值可反映在我们使用策略 $\pi$ 的时候，到底可以得到多少奖励。
