@@ -291,3 +291,30 @@ $$
 * $\gamma \sum_{s^{\prime} \in S} p\left(s^{\prime} \mid s\right) V\left(s^{\prime}\right)$ 可以看成未来奖励的折扣总和（discounted sum of future reward）。
 
 贝尔曼方程定义了当前状态与未来状态之间的关系。
+
+$$
+  \mathbb{E}[V(s_{t+1})|s_t]=\mathbb{E}[\mathbb{E}[G_{t+1}|s_{t+1}]|s_t]=\mathbb{E}[G_{t+1}|s_t]
+$$
+
+全期望公式也被称为叠期望公式（law of iterated expectations，LIE）。
+如果 $A_i$ 是样本空间的有限或可数的划分（partition），则全期望公式可定义为
+
+$$
+  \mathbb{E}[X]=\sum_{i} \mathbb{E}\left[X \mid A_{i}\right] p\left(A_{i}\right)
+$$
+
+贝尔曼方程的推导过程如下：
+
+$$
+  \begin{aligned}
+    V(s)&=\mathbb{E}\left[G_{t} \mid s_{t}=s\right]\\
+    &=\mathbb{E}\left[r_{t+1}+\gamma r_{t+2}+\gamma^{2} r_{t+3}+\ldots \mid s_{t}=s\right]  \\
+    &=\mathbb{E}\left[r_{t+1}|s_t=s\right] +\gamma \mathbb{E}\left[r_{t+2}+\gamma r_{t+3}+\gamma^{2} r_{t+4}+\ldots \mid s_{t}=s\right]\\
+    &=R(s)+\gamma \mathbb{E}[G_{t+1}|s_t=s] \\
+    &=R(s)+\gamma \mathbb{E}[V(s_{t+1})|s_t=s]\\
+    &=R(s)+\gamma \sum_{s^{\prime} \in S} p\left(s^{\prime} \mid s\right) V\left(s^{\prime}\right)
+    \end{aligned}  
+$$
+
+
+
