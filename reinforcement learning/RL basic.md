@@ -213,6 +213,7 @@ env.close() # 关闭图形界面
 $$
 p\left(X_{t+1}=x_{t+1} \mid X_{0:t}=x_{0: t}\right)=p\left(X_{t+1}=x_{t+1} \mid X_{t}=x_{t}\right)
 $$
+
 其中，$X_{0:t}$ 表示变量集合 $X_{0}, X_{1}, \cdots, X_{t}$，$x_{0: t}$ 为在状态空间中的状态序列 $x_{0}, x_{1}, \cdots, x_{t}$。
 
 
