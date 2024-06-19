@@ -55,21 +55,11 @@ vs监督学习，监督学习两个假设：
 
 <img width="431" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/8bdbcfb1-052b-44bf-89ef-bfc33351cc03">
 
-$$
-V_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[G_{t} \mid s_{t}=s\right]{\pi}\left[\right], \text{对于所有的} s \in S
-$$
-
-$$
-V_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[G_{t}\mid s_{t}=s\right ]=\mathbb{E}_{\pi}\left[\sum_{k=0}^{\infty} \gamma^{k} r_{t+k+1} \mid s_{t}=s\right], \text{对于所有的} s \in S
-$$
-
 期望 $\mathbb{E}_{\pi}$ 的下标是 $\pi$ 函数， $\pi$ 函数的值可反映在我们使用策略 $\pi$ 的时候，到底可以得到多少奖励。
 
 还有一种价值函数：Q 函数。Q 函数里面包含两个变量：状态和动作。其定义为:
 
-$$
-Q_{\pi}(s, a) \doteq \mathbb{E}_{\pi}\left[G_{t} \mid s_{t}=s, a_{t}=a\right]=\mathbb{E}_{\pi}\left[\sum_{k=0}^{\infty} \gamma^{k} r_{t+k+1} \mid s_{t}=s, a_{t}=a\right]
-$$
+<img width="425" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/de7462cc-6ff3-4094-a017-3b73cd52da5b">
 
 3) 模型（model）。模型表示智能体对环境的状态进行理解，它决定了环境中世界的运行方式。 下面我们深入了解这 3 个组成部分的细节。
 
