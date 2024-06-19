@@ -56,7 +56,7 @@ vs监督学习，监督学习两个假设：
 <img width="431" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/8bdbcfb1-052b-44bf-89ef-bfc33351cc03">
 
 $$
-V_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[\right]{\pi}\left[, \text{对于所有的} s \in S
+V_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[\right]{\pi}\left[\right], \text{对于所有的} s \in S
 $$
 
 $$
