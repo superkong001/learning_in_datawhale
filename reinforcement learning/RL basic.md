@@ -55,7 +55,7 @@ vs监督学习，监督学习两个假设：
 
 $$
 V_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[G_t\mid s_t=s\right] 
-=\mathbb{E}_{\pi}
+=\mathbb{E}
 $$
 
 $$
