@@ -90,7 +90,7 @@ $$
 
 <img width="414" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/ad81c33d-0e3a-478d-812d-514e7d8ee3e1">
 
-把基于价值的智能体和基于策略的智能体结合起来就有了演员-评论员智能体（actor-critic agent）。这一类智能体把策略和价值函数都学习了，然后通过两者的交互得到最佳的动作。
+把基于价值的智能体和基于策略的智能体结合起来就有了**演员-评论员智能体（actor-critic agent）**。这一类智能体把策略和价值函数都学习了，然后通过两者的交互得到最佳的动作。
 
 基于策略的强化学习方法VS基于价值的强化学习方法：
 
