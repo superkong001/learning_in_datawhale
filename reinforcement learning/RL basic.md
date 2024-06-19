@@ -322,5 +322,8 @@ $$
     \end{aligned}  
 $$
 
+贝尔曼方程定义的就是当前状态与未来状态的迭代关系，即：把状态转移概率乘它未来的状态的价值，再加上它的即时奖励（immediate reward），就会得到它当前状态的价值。
+
+<img width="587" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f86a4ac6-f90f-45dd-988c-ba6e9e6d158e">
 
 
