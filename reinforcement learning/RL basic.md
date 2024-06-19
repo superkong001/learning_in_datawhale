@@ -106,8 +106,106 @@ $$
 
 ## Gym库
 
-PS: Gym 库 0.26.0 及其之后的版本对之前的代码不兼容
+https://www.gymlibrary.dev/environments/classic_control/
 
-pip install gym==0.25.2
+<img width="411" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fd6be7d2-2c43-4612-9b21-509beca9c407">
+
+OpenAI 的 Gym库是一个环境仿真库，里面包含很多现有的环境。针对不同的场景，我们可以选择不同的环境。离散控制场景（输出的动作是可数的，比如Pong游戏中输出的向上或向下动作）一般使用雅达利环境评估；连续控制场景（输出的动作是不可数的，比如机器人走路时不仅有方向，还有角度，角度就是不可数的，是一个连续的量 ）一般使用 MuJoCo 环境评估。Gym Retro是对 Gym 环境的进一步扩展，包含更多的游戏。
+
+```bash
+pip install gym==0.25.2 #  Gym 库 0.26.0 及其之后的版本对之前的代码不兼容
+pip install pygame # 用于显示图形界面
+```
+
+<img width="427" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/5af0cf04-acbc-46f7-8bec-8197467d0a62">
+
+```python
+import gym  # 导入 Gym 的 Python 接口环境包
+env = gym.make('CartPole-v0')  # 构建实验环境
+env.reset()  # 重置一个回合
+for _ in range(1000):
+    env.render()  # 显示图形界面
+    action = env.action_space.sample() # 在该游戏的所有动作空间里随机选择一个作为输出
+    observation, reward, done, info = env.step(action)  # 用于提交动作，括号内是具体的动作
+    print(observation)
+env.close() # 关闭环境
+```
+
+env.step()完成了一个完整的 $S \to A \to R \to S'$ 过程。
+马尔可夫决策过程来定义强化学习任务，并将其表示为四元组 <S,A,P,R>，即状态集合、动作集合、状态转移函数和奖励函数。
+
+### 小车上山（MountainCar-v0）例子
+
+```python
+# 看任务的观测空间和动作空间
+# 环境的观测空间用 env.observation_space 表示，动作空间用 env.action_space 表示。
+# 离散空间 gym.spaces.Discrete 类表示，连续空间用 gym.spaces.Box 类表示。
+# 对于离散空间，Discrete (n) 表示可能取值的数量为 n；对于连续空间，Box类实例成员中的 low 和 high 表示每个浮点数的取值范围。
+import gym
+env = gym.make('MountainCar-v0')
+print('观测空间 = {}'.format(env.observation_space))
+print('动作空间 = {}'.format(env.action_space))
+print('观测范围 = {} ~ {}'.format(env.observation_space.low,
+        env.observation_space.high))
+print('动作数 = {}'.format(env.action_space.n))
+```
+
+```python
+# 智能体来控制小车移动
+class SimpleAgent:
+    def __init__(self, env):
+        pass
+    
+    def decide(self, observation): # 决策
+        position, velocity = observation
+        lb = min(-0.09 * (position + 0.25) ** 2 + 0.03,
+                0.3 * (position + 0.9) ** 4 - 0.008)
+        ub = -0.07 * (position + 0.38) ** 2 + 0.07
+        if lb < velocity < ub:
+            action = 2
+        else:
+            action = 0
+        return action # 返回动作
+
+    def learn(self, *args): # 学习
+        pass
+
+# 智能体与环境交互
+'''
+env 是环境类。agent 是智能体类。render 是 bool 型变量，其用于判断是否需要图形化显示。如果 render 为 True，则在交互过程中会调用 env.render() 以显示图形界面，通过调用 env.close() 可关闭图形界面。train 是 bool 型变量，其用于判断是否训练智能体，在训练过程中设置为 True，让智能体学习；在测试过程中设置为 False，让智能体保持不变。该函数的返回值 episode_reward 是 float 型的数值，其表示智能体与环境交互一个回合的回合总奖励。
+'''
+def play(env, agent, render=False, train=False):
+    episode_reward = 0. # 记录回合总奖励，初始值为0
+    observation = env.reset() # 重置游戏环境，开始新回合
+    while True: # 不断循环，直到回合结束
+        if render: # 判断是否显示
+            env.render() # 显示图形界面
+        action = agent.decide(observation)
+        next_observation, reward, done, _ = env.step(action) # 执行动作
+        episode_reward += reward # 收集回合奖励
+        if train: # 判断是否训练智能体
+            agent.learn(observation, action, reward, done) # 学习
+        if done: # 回合结束，跳出循环
+            break
+        observation = next_observation
+    return episode_reward # 返回回合总奖励
+```
+
+```python
+# 智能体和环境交互，并显示图形界面
+env.seed(3) # 设置随机种子，让结果可复现
+agent = SimpleAgent(env)
+episode_reward = play(env, agent, render=True)
+print('回合奖励 = {}'.format(episode_reward))
+
+# 计算出连续交互 100 回合的平均回合奖励
+episode_rewards = [play(env, agent) for _ in range(100)]
+print('平均回合奖励 = {}'.format(np.mean(episode_rewards)))
+
+env.close() # 关闭图形界面
+```
+
+
+
 
 
