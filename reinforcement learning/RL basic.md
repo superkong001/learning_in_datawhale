@@ -327,6 +327,7 @@ $$
 <img width="587" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f86a4ac6-f90f-45dd-988c-ba6e9e6d158e">
 
 把贝尔曼方程写成矩阵的形式：
+
 $$
   \left(\begin{array}{c}
     V\left(s_{1}\right) \\
