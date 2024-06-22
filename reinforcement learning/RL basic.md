@@ -345,5 +345,18 @@ $$
 
 可以通过矩阵求逆把 $\boldsymbol{V}$ 的价值直接求出来。但是一个问题是这个矩阵求逆的过程的复杂度是 $O(N^3)$ 。所以当状态非常多的时候，比如从10个状态到1000个状态，或者到100万个状态，当有100万个状态的时候，状态转移矩阵就会是一个100万乘100万的矩阵，对这样一个大矩阵求逆是非常困难的。所以这种通过解析解去求解的方法只适用于很小量的马尔可夫奖励过程。
 
+### 迭代算法计算马尔可夫奖励过程价值
+
+迭代计算状态非常多的马尔可夫奖励过程（large MRP），比如：动态规划的方法，蒙特卡洛的方法（通过采样的办法计算它），时序差分学习（temporal-difference learning，TD learning）的方法（时序差分学习是动态规划和蒙特卡洛方法的一个结合）。
+
+蒙特卡洛的方法：从某个状态开始随机产生多条“轨迹”, 然后直接取每条轨迹回报的平均值，就等价于开展节点的价值。
+
+<img width="410" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/288681a6-c619-475d-972a-d2198a175a23">
+
+动态规划的方法：通过自举（bootstrapping）的方法一直迭代贝尔曼方程，直到价值函数收敛（当最后更新的状态与上一个状态的区别并不大）。
+
+<img width="418" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f5122292-5bae-44ed-96c2-ccc5d336288e">
+
+<img width="412" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2c37ed30-d6e2-47e1-84d9-65e059681a34">
 
 
