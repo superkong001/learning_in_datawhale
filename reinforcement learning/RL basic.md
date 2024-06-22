@@ -350,9 +350,13 @@ $$
 
 迭代计算状态非常多的马尔可夫奖励过程（large MRP），比如：动态规划的方法，蒙特卡洛的方法（通过采样的办法计算它），时序差分学习（temporal-difference learning，TD learning）的方法（时序差分学习是动态规划和蒙特卡洛方法的一个结合）。
 
-蒙特卡洛的方法：从某个状态开始随机产生多条“轨迹”, 然后直接取每条轨迹回报的平均值，就等价于开展节点的价值。
+蒙特卡洛的方法：从某个状态开始随机产生多条“轨迹”, 然后直接取每条轨迹回报的平均值，就等价于开展节点的价值（撒豆子来估计图形面积）。其分成首次访问蒙特卡洛（FVMC）和每次访问蒙特卡洛（EVMC）
 
 <img width="410" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/288681a6-c619-475d-972a-d2198a175a23">
+
+$$
+V(s_t) \leftarrow V(s_t) + \alpha[G_t- V(s_{t})]
+$$
 
 动态规划的方法：通过自举（bootstrapping）的方法一直迭代贝尔曼方程，直到价值函数收敛（当最后更新的状态与上一个状态的区别并不大）。
 
@@ -360,4 +364,12 @@ $$
 
 <img width="512" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2c37ed30-d6e2-47e1-84d9-65e059681a34">
 
+时序差分估计方法：类似于蒙特卡罗方法的；但同时也利用了贝尔曼方程的思想，将下一状态的值函数作为现有状态值函数的一部分估计来更新现有状态的值函数。此外，时序差分还结合了自举（ $\text{bootstrap}$ ）的思想，即未来状态的价值是通过现有的估计 $r_{t+1}+\gamma V(s_{t+1})$ （也叫做**时序差分目标**）进行计算的，即使用一个状态的估计值来更新该状态的估计值，没有再利用后续状态信息的计算方法。这种方法的好处在于可以将问题分解成只涉及一步的预测，从而简化计算。
 
+**单步时序差分**（ $\text{one-step TD}$ ,  $TD(0)$ ）: 还有n 步时序差分
+
+$$
+V(s_t) \leftarrow V(s_t) + \alpha[r_{t+1}+\gamma V(s_{t+1})- V(s_{t})]
+$$
+
+<img width="428" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/67445bc9-a719-4cbd-ac59-babbda2c056a">
