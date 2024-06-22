@@ -326,30 +326,24 @@ $$
 
 <img width="587" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f86a4ac6-f90f-45dd-988c-ba6e9e6d158e">
 
-把贝尔曼方程写成矩阵的形式：
+直接求解：
 
 $$
-  \left(\begin{array}{c}
-    V\left(s_{1}\right) \\
-    V\left(s_{2}\right) \\
-    \vdots \\
-    V\left(s_{N}\right)
-    \end{array}\right)=\left(\begin{array}{c}
-    R\left(s_{1}\right) \\
-    R\left(s_{2}\right) \\
-    \vdots \\
-    R\left(s_{N}\right)
-    \end{array}\right)+\gamma\left(\begin{array}{cccc}
-    p\left(s_{1} \mid s_{1}\right) & p\left(s_{2} \mid s_{1}\right) & \ldots & p\left(s_{N} \mid s_{1}\right) \\
-    p\left(s_{1} \mid s_{2}\right) & p\left(s_{2} \mid s_{2}\right) & \ldots & p\left(s_{N} \mid s_{2}\right) \\
-    \vdots & \vdots & \ddots & \vdots \\
-    p\left(s_{1} \mid s_{N}\right) & p\left(s_{2} \mid s_{N}\right) & \ldots & p\left(s_{N} \mid s_{N}\right)
-    \end{array}\right)\left(\begin{array}{c}
-    V\left(s_{1}\right) \\
-    V\left(s_{2}\right) \\
-    \vdots \\
-    V\left(s_{N}\right)
-    \end{array}\right) 
+  \begin{aligned}
+    \boldsymbol{V} &= \boldsymbol{\boldsymbol{R}}+ \gamma \boldsymbol{P}\boldsymbol{V} \\
+    \boldsymbol{I}\boldsymbol{V} &= \boldsymbol{R}+ \gamma \boldsymbol{P}\boldsymbol{V} \\
+    (\boldsymbol{I}-\gamma \boldsymbol{P})\boldsymbol{V}&=\boldsymbol{R} \\
+    \boldsymbol{V}&=(\boldsymbol{I}-\gamma \boldsymbol{P})^{-1}\boldsymbol{R}
+    \end{aligned}
 $$
+
+可以直接得到**解析解（analytic solution）**：
+
+$$
+  \boldsymbol{V}=(\boldsymbol{I}-\gamma \boldsymbol{P})^{-1} \boldsymbol{R}
+$$
+
+可以通过矩阵求逆把 $\boldsymbol{V}$ 的价值直接求出来。但是一个问题是这个矩阵求逆的过程的复杂度是 $O(N^3)$ 。所以当状态非常多的时候，比如从10个状态到1000个状态，或者到100万个状态，当有100万个状态的时候，状态转移矩阵就会是一个100万乘100万的矩阵，对这样一个大矩阵求逆是非常困难的。所以这种通过解析解去求解的方法只适用于很小量的马尔可夫奖励过程。
+
 
 
