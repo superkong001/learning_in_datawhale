@@ -355,8 +355,8 @@ $$
 
 动态规划的方法：通过自举（bootstrapping）的方法一直迭代贝尔曼方程，直到价值函数收敛（当最后更新的状态与上一个状态的区别并不大）。
 
-<img width="418" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f5122292-5bae-44ed-96c2-ccc5d336288e">
+<img width="518" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f5122292-5bae-44ed-96c2-ccc5d336288e">
 
-<img width="412" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2c37ed30-d6e2-47e1-84d9-65e059681a34">
+<img width="512" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2c37ed30-d6e2-47e1-84d9-65e059681a34">
 
 
