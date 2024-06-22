@@ -326,4 +326,29 @@ $$
 
 <img width="587" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f86a4ac6-f90f-45dd-988c-ba6e9e6d158e">
 
+把贝尔曼方程写成矩阵的形式：
+$$
+  \left(\begin{array}{c}
+    V\left(s_{1}\right) \\
+    V\left(s_{2}\right) \\
+    \vdots \\
+    V\left(s_{N}\right)
+    \end{array}\right)=\left(\begin{array}{c}
+    R\left(s_{1}\right) \\
+    R\left(s_{2}\right) \\
+    \vdots \\
+    R\left(s_{N}\right)
+    \end{array}\right)+\gamma\left(\begin{array}{cccc}
+    p\left(s_{1} \mid s_{1}\right) & p\left(s_{2} \mid s_{1}\right) & \ldots & p\left(s_{N} \mid s_{1}\right) \\
+    p\left(s_{1} \mid s_{2}\right) & p\left(s_{2} \mid s_{2}\right) & \ldots & p\left(s_{N} \mid s_{2}\right) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    p\left(s_{1} \mid s_{N}\right) & p\left(s_{2} \mid s_{N}\right) & \ldots & p\left(s_{N} \mid s_{N}\right)
+    \end{array}\right)\left(\begin{array}{c}
+    V\left(s_{1}\right) \\
+    V\left(s_{2}\right) \\
+    \vdots \\
+    V\left(s_{N}\right)
+    \end{array}\right) 
+$$
+
 
