@@ -3,6 +3,10 @@
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 
+![c9ba77fb1a738bd0767da059b607935](https://github.com/superkong001/learning_in_datawhale/assets/37318654/8070549f-60b7-4cce-9f41-d3e1e41f1bbf)
+
+![edecff492aee3680561fd9f3da826f7](https://github.com/superkong001/learning_in_datawhale/assets/37318654/4194c2ad-1ef1-424b-b004-c9354a83081e)
+
 # Qwen整体介绍
 
 Qwen的架构：
