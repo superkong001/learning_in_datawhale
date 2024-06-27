@@ -376,13 +376,30 @@ $$
 
 ### 时序差分估计
 
-**单步时序差分**（ $\text{one-step TD}$ ,  $TD(0)$ ）: 另外还有n 步时序差分
+**单步时序差分**（ $\text{one-step TD}$ ,  $TD(0)$ ）: 
 
 $$
 V(s_t) \leftarrow V(s_t) + \alpha[r_{t+1}+\gamma V(s_{t+1})- V(s_{t})]
 $$
 
 类似于蒙特卡罗方法，更新过程中使用了当前奖励和后继状态的估计；但同时也利用了贝尔曼方程的思想，将下一状态的值函数作为现有状态值函数的一部分估计来更新现有状态的值函数。此外，时序差分还结合了自举（ $\text{bootstrap}$ ）的思想，即未来状态的价值是通过现有的估计 $r_{t+1}+\gamma V(s_{t+1})$ （也叫做**时序差分目标**）进行计算的，即使用一个状态的估计值来更新该状态的估计值，没有再利用后续状态信息的计算方法。这种方法的好处在于可以将问题分解成只涉及一步的预测，从而简化计算。此外， $\delta=r_{t+1}+\gamma V(s_{t+1})- V(s_{t})$ 被定义为 **时序差分误差**（ $\text{TD error}$ ）。
+
+n 步时序差分：如调整为两步，利用两步得到的回报来更新状态的价值，调整 $n$ 步就是 $n$ 步时序差分（ $\text{n-step TD}$ ）。
+
+$$
+\begin{aligned}
+& n=1(\mathrm{TD}) \quad G_t^{(1)}=r_{t+1}+\gamma V\left(s_{t+1}\right) \\
+& n=2 \quad G_t^{(2)}=r_{t+1}+\gamma r_{t+2}+\gamma^2 V\left(s_{t+2}\right) \\
+& n=\infty(\mathrm{MC}) \quad G_t^{\infty}=r_{t+1}+\gamma r_{t+2}+\cdots+\gamma^{T-t-1} r_T \\
+&
+\end{aligned}
+$$
+
+当 $n$ 趋近于无穷大时，就变成了蒙特卡洛方法，因此可以通过调整自举的步数，来实现蒙特卡洛方法和时序差分方法之间的权衡。这个 $n$ 我们通常会用 
+$\lambda$ 来表示，即 $\text{TD}(\lambda)$ 方法。
+
+
+### 时序差分和蒙特卡洛的比较
 
 <img width="428" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/67445bc9-a719-4cbd-ac59-babbda2c056a">
 
