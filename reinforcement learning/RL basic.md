@@ -415,7 +415,7 @@ $\lambda$ 来表示，即 $\text{TD}(\lambda)$ 方法。
 $\text{Q-learning}$ 算法更新公式下式所示：
 
 $$
-Q(s_t,a_t) \leftarrow Q(s_t,a_t)+\alpha[r_t+\gamma\max _{a}Q(s_{t+1},a)-Q(s_t,a_t)]
+Q(s_t,a_t) \leftarrow Q(s_t,a_t) + \alpha [r_t+\gamma\max_{a}Q(s_{t+1},a)-Q(s_t,a_t)]
 $$
 
 时序差分方法中状态价值函数的更新公式：
