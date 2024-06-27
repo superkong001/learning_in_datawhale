@@ -6,4 +6,9 @@ $$
 \boldsymbol{y} = f_{\theta}(\boldsymbol{x})
 $$
 
+动作价值函数 $Q(\boldsymbol{s},\boldsymbol{a})$，即将状态向量 $\boldsymbol{s}$ 作为输入，并输出所有动作 $\boldsymbol{a} = (a_1,a_2,...,a_n)$ 对应的价值，如以下所示：
+
+$$
+\boldsymbol{y} = Q_{\theta}(\boldsymbol{s},\boldsymbol{a})
+$$
 
