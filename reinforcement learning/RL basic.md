@@ -355,8 +355,11 @@ $$
 <img width="410" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/288681a6-c619-475d-972a-d2198a175a23">
 
 $$
+新的估计值 \leftarrow 旧的估计值 + 步长 *（目标值-旧的估计值）
 V(s_t) \leftarrow V(s_t) + \alpha[G_t- V(s_{t})]
 $$
+
+其中 $\alpha$ 表示学习率，$G_t- V(S_{t+1})$为目标值与估计值之间的误差（ $\text{error}$ ）。此外，$\text{FVMC}$ 是一种基于回合的增量式方法，具有无偏性和收敛快的优点，但是在状态空间较大的情况下，依然需要训练很多个回合才能达到稳定的结果。而 $\text{EVMC}$ 则是更为精确的预测方法，但是计算的成本相对也更高。
 
 动态规划的方法：通过自举（bootstrapping）的方法一直迭代贝尔曼方程，直到价值函数收敛（当最后更新的状态与上一个状态的区别并不大）。
 
