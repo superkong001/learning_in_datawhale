@@ -370,6 +370,7 @@ $$
 
 其中 $\alpha$ 表示学习率， $G_t- V(S_{t+1})$  为目标值与估计值之间的误差（ $\text{error}$ ）。此外， $\text{FVMC}$ 是一种基于回合的增量式方法，具有无偏性和收敛快的优点，但是在状态空间较大的情况下，依然需要训练很多个回合才能达到稳定的结果。而 $\text{EVMC}$ 则是更为精确的预测方法，但是计算的成本相对也更高。
 
+<img width="316" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a6d3d0ef-f7ce-4722-903d-67acb426a0bc">
 
 <img width="512" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2c37ed30-d6e2-47e1-84d9-65e059681a34">
 
