@@ -418,6 +418,8 @@ $$
 Q(s_t,a_t) \leftarrow Q(s_t,a_t) + \alpha [r_t+\gamma\max_{a}Q(s_{t+1},a)-Q(s_t,a_t)]
 $$
 
+其中 $y_t = r_t+\gamma\max _{a}Q^{\prime}(s_{t+1},a)$ 表示期望的 $Q$ 值，$Q(s_t,a_t)$ 表示实际的 $Q$ 值，$\alpha$ 是学习率。在 $\text{Q-learning}$ 算法中，由于没有额外的参数，因此只需要直接一步步迭代更新 $Q$ 值即可。
+
 时序差分方法中状态价值函数的更新公式：
 
 $$
