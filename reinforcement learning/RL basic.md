@@ -426,6 +426,87 @@ $$
 
 会发现两者的更新方式是一样的，都是基于时序差分的更新方法。不同的是，动作价值函数更新时是直接拿最大的未来动作价值的 $\gamma\max_{a}Q(s_{t+1},a)$ 来估计的，而在状态价值函数更新中相当于是拿对应的平均值来估计的。这就会导致这个估计相当于状态价值函数中的估计更不准确，一般称为 **Q 值的过估计**，当然这个过估计仅仅限于以 $\text{Q-learning}$ 为基础的算法，不同的算法为了优化这个问题使用了不同的估计方式。
 
+Q 表格： $3 \times 3$ 网格，以左上角为起点，右下角为终点，机器人可以向上、向下、向左和向右随意走动，每次移动后机器人会收到一个 $-1$ 的奖励，即奖励函数 $R(s,a)=1$ ，然后求出机器人从起点走到终点的最短路径。
+
+<img width="230" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a42572c2-3e58-4111-b7f6-bc358ccbfd27">
+
+把机器人的位置看作状态，这样一来总共有 $\text{9}$ 个状态，$\text{4}$ 个动作 $a_1,a_2,a_3,a_4$（分别对应上、下、左、右）。知道 Q 函数，也就是状态价值函数的输入就是状态和动作，输出就是一个值，由于这里的状态和动作都是离散的，这样就用一个表格来表示：
+
+
+<div style="text-align: center;">
+  <div style="display: table; margin: 0 auto;">
+    <table>
+      <tr>
+        <th> $\space$ </th>
+        <th>$s_1$</th>
+        <th>$s_2$</th>
+        <th>$s_3$</th>
+        <th>$s_4$</th>
+        <th>$s_5$</th>
+        <th>$s_6$</th>
+        <th>$s_7$</th>
+        <th>$s_8$</th>
+        <th>$s_9$</th>
+      </tr>
+      <tr>
+        <td>$a_1$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+      </tr>
+      <tr>
+        <td>$a_2$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+      </tr>
+      <tr>
+        <td>$a_3$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+      </tr>
+      <tr>
+        <td>$a_4$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+        <td>$\text{0}$</td>
+      </tr>
+    </table>
+  </div>
+  <div> $\text{Q}$ 表格</div>
+</div>
+
+表格的横和列对应状态和动作，数值表示对应的 $Q$ 值。在实践中可以给所有的 $Q$ 预先设一个值，这就是 $Q$ 值的初始化。这些值是可以随机的。但终止状态 $s_9$ 对应的所有 $Q$ 值，包括 $Q(s_9,a_1),Q(s_9,a_2),Q(s_9,a_3),Q(s_9,a_4)$ 等都必须为 $\text{0}$ ，并且也不参与 $Q$ 值的更新。
+
+更新过程，是时序差分方法。具体的做法是，让机器人自行在网格中走动，走到一个状态，就把对应的 $Q$ 值 更新一次，这个过程就叫做 **探索** 。这个探索的过程也是时序差分方法结合了蒙特卡洛方法的体现。
+
+### 探索策略
+
 ### Sarsa 算法
 
 
