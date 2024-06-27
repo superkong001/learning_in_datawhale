@@ -354,9 +354,9 @@ $$
 
 <img width="410" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/288681a6-c619-475d-972a-d2198a175a23">
 
-$$
 新的估计值 \leftarrow 旧的估计值 + 步长 *（目标值-旧的估计值）
 
+$$
 V(s_t) \leftarrow V(s_t) + \alpha[G_t- V(s_{t})]
 $$
 
