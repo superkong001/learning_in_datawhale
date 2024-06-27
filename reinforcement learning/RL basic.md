@@ -356,6 +356,7 @@ $$
 
 $$
 新的估计值 \leftarrow 旧的估计值 + 步长 *（目标值-旧的估计值）
+
 V(s_t) \leftarrow V(s_t) + \alpha[G_t- V(s_{t})]
 $$
 
