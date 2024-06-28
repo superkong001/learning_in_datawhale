@@ -372,8 +372,6 @@ $$
 
 其中 $\alpha$ 表示学习率， $G_t- V(S_{t+1})$  为目标值与估计值之间的误差（ $\text{error}$ ）。此外， $\text{FVMC}$ 是一种基于回合的增量式方法，具有无偏性和收敛快的优点，但是在状态空间较大的情况下，依然需要训练很多个回合才能达到稳定的结果。而 $\text{EVMC}$ 则是更为精确的预测方法，但是计算的成本相对也更高。
 
-<img width="512" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2c37ed30-d6e2-47e1-84d9-65e059681a34">
-
 ### 时序差分估计
 
 **单步时序差分**（ $\text{one-step TD}$ ,  $TD(0)$ ）: 
@@ -403,6 +401,17 @@ $\lambda$ 来表示，即 $\text{TD}(\lambda)$ 方法。
 ### 时序差分和蒙特卡洛的比较
 
 <img width="428" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/67445bc9-a719-4cbd-ac59-babbda2c056a">
+
+## 马尔可夫决策过程 
+
+马尔可夫决策过程多了决策（决策是指动作），其他的定义与马尔可夫奖励过程的是类似的。此外，状态转移也多了一个条件，变成了$p\left(s_{t+1}=s^{\prime} \mid s_{t}=s,a_{t}=a\right)$。未来的状态不仅依赖于当前的状态，也依赖于在当前状态智能体采取的动作。马尔可夫决策过程满足条件：
+$$
+  p\left(s_{t+1} \mid s_{t}, a_{t}\right) =p\left(s_{t+1} \mid h_{t}, a_{t}\right)   
+$$
+
+奖励函数，它也多了一个当前的动作，变成了 $R\left(s_{t}=s, a_{t}=a\right)=\mathbb{E}\left[r_{t} \mid s_{t}=s, a_{t}=a\right]$。
+
+<img width="512" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2c37ed30-d6e2-47e1-84d9-65e059681a34">
 
 ## 免模型控制
 
