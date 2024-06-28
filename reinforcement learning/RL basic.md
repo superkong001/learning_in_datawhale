@@ -411,7 +411,7 @@ $$
 引入了一个 **Q 函数（Q-function）**。Q 函数也被称为**动作价值函数（action-value function）**。Q 函数定义的是在某一个状态采取某一个动作，它有可能得到的回报的一个期望，即
 
 $$
-Q_{\pi}(s, a)=\mathbb{E}_{\pi}\left[G_{t} \right] 
+Q_{\pi}(s, a)=\mathbb{E}_{\pi}\left[ \right] 
 $$
 
 $$ G_{t} \mid s_{t}=s, a_{t}=a $$
