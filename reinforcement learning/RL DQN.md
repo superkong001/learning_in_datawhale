@@ -79,6 +79,37 @@ $$
 
 目标网络的作用，比如当前有个小批量样本导致模型对 $Q$ 值进行了较差的过估计，如果接下来从经验回放中提取到的样本正好连续几个都这样的，很有可能导致 $Q$ 值的发散。
 
+<img width="470" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f929707a-1027-490c-ac22-94bc447fda7a">
+
+# DQN算法进阶
+
+通过提高预测的精度和控制过程中的探索度来改善 DQN 算法的性能。
+
+## Double DQN 算法
+
+ Double DQN算法是谷歌DeepMind于2015年12月提出，主要贡献是通过引入两个网络用于解决 $Q$ 值过估计（ $\text{overestimate}$ ）的问题。
+ 
+① Hasselt H V , Guez A , Silver D .Deep Reinforcement Learning with Double Q-learning[J].Computer ence, 2015.DOI:10.48550/arXiv.1509.06461.
+
+DQN 算法的更新公式：
+
+$$
+Q_{\theta}(s_t,a_t) \leftarrow Q_{\theta}(s_t,a_t)+\alpha[r_t+\gamma\max_{a}Q_{\hat{\theta}}(s_{t+1},a_{t+1})-Q_{\theta}(s_t,a_t)]
+$$
+
+$\qquad$ 其中 $y_t = r_t+\gamma\max _{a}Q_{\hat{\theta}}(s_{t+1},a_{t+1})$ 是估计值，注意这里的 $Q_{\hat{\theta}}$ 指的是目标网络。这个意思就是直接拿目标网络中各个动作对应的最大的 $Q$ 值来当作估计值，这样一来就会存在过估计的问题。为了解决这个问题， $\text{Double DQN}$ 算法提出了在当前网络中找出最大 $Q$ 值对应的动作，然后再将这个动作代入到目标网络中去计算 $Q$ 值：
+
+$$
+a^{max}_{\theta}(s_{t+1}) = \arg \max_{a}Q_{\theta}(s_{t+1},a)
+$$
+
+然后将这个找出来的动作代入到目标网络里面去计算目标的 $Q$ 值，进而计算估计值：
+
+$$
+y_t = r_t+\gamma\max_{a}Q_{\hat{\theta}}(s_{t+1},a^{max}_{\theta}(s_{t+1}))
+$$
+
+$\qquad$ 这样做相当于是把动作选择和动作评估这两个过程分离开来，从而减轻了过估计问题。
 
 
 
