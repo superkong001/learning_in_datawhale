@@ -33,7 +33,20 @@ $$
 Q\left(s_{i}, a_{i} ; \theta\right) \leftarrow Q\left(s_{i}, a_{i} ; \theta\right)+\alpha[y_i-Q\left(s_{i}, a_{i} ; \theta\right)]
 $$
 
-$\qquad$ 其中 $Q\left(s_{i}, a_{i} ; \theta\right)$ 根据习惯不同也可以写成 $Q_{\theta}(s_{i}, a_{i})$ ，注意到，在理想的收敛情况下，实际的 $Q$ 值应该接近于期望的 $Q$ 值，即我们希望最小化 $r_t+\gamma\max_{a}Q^{\prime}(s_{t+1},a)$ 和 $Q(s_t,a_t)$ 之间的绝对差值。这个差值也就是 $TD$ 误差，也可以写成损失函数的形式并用梯度下降的方式来求解参数 $\theta$ ：
+$\qquad$ 其中 $Q\left(s_{i}, a_{i} ; \theta\right)$ 根据习惯不同也可以写成 $Q_{\theta}(s_{i}, a_{i})$ ，注意到，在理想的收敛情况下，实际的 $Q$ 值应该接近于期望的 $Q$ 值，即希望最小化 $r_t+\gamma\max_{a}Q^{\prime}(s_{t+1},a)$ 和 $Q(s_t,a_t)$ 之间的绝对差值。这个差值也就是 $TD$ 误差，也可以写成损失函数的形式并用梯度下降的方式来求解参数 $\theta$ ：
+
+$$
+\begin{aligned}
+L(\theta)=\left(y_{i}-Q\left(s_{i}, a_{i} ; \theta\right)\right)^{2} \\
+\theta_i \leftarrow \theta_i - \alpha \nabla_{\theta_{i}} L_{i}\left(\theta_{i}\right)
+\end{aligned}
+$$
+
+由于 $\text{DQN}$ 算法也是基于 $TD$ 更新的，因此依然需要判断终止状态，在 $\text{Q-learning}$ 算法中也有同样的操作：
+
+$$
+y_i = \begin{cases}r_i & \text {对于终止状态} s_{i} \\ r_{i}+\gamma \max _{a^{\prime}} Q\left(s_{i+1}, a^{\prime} ; \theta\right) & \text {对于非终止状态} s_{i}\end{cases}
+$$
 
 
 
