@@ -428,7 +428,8 @@ $$
   P_{\pi}\left(s^{\prime} \mid s\right)=\sum_{a \in A} \pi(a \mid s) p\left(s^{\prime} \mid s, a\right)
 $$
 
-对于奖励函数，我们也可以把动作去掉，这样就会得到类似于马尔可夫奖励过程的奖励函数，即
+对于奖励函数，也可以把动作去掉，这样就会得到类似于马尔可夫奖励过程的奖励函数，即
+
 $$
   r_{\pi}(s)=\sum_{a \in A} \pi(a \mid s) R(s, a)
 $$
