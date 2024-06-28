@@ -45,7 +45,7 @@ $$
 由于 $\text{DQN}$ 算法也是基于 $TD$ 更新的，因此依然需要判断终止状态，在 $\text{Q-learning}$ 算法中也有同样的操作：
 
 $$
-y_i = \begin{cases}r_i & \text {对于终止状态} s_{i} \\ r_{i}+\gamma \max _{a^{\prime}} Q\left(s_{i+1}, a^{\prime} ; \theta\right) & \text {对于非终止状态} s_{i}\end{cases}
+y_i = \begin{cases}r_i & \text {对于终止状态} s_{i} \\ r_{i}+\gamma \max_{a^{\prime}} Q\left(s_{i+1}, a^{\prime} ; \theta\right) & \text {对于非终止状态} s_{i}\end{cases}
 $$
 
 
