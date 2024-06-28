@@ -37,7 +37,7 @@ $\qquad$ 其中 $Q\left(s_{i}, a_{i} ; \theta\right)$ 根据习惯不同也可�
 
 $$
 \begin{aligned}
-L(\theta)=\left(y_{i}-Q\left(s_{i}, a_{i} ; \theta\right)\right)^{2} \\
+L(\theta)=\left(y_{i}-Q\left(s_{i}, a_{i} ; \theta\right)\right)^{2} 
 \theta_i \leftarrow \theta_i - \alpha \nabla_{\theta_{i}} L_{i}\left(\theta_{i}\right)
 \end{aligned}
 $$
