@@ -398,9 +398,7 @@ $$
 当 $n$ 趋近于无穷大时，就变成了蒙特卡洛方法，因此可以通过调整自举的步数，来实现蒙特卡洛方法和时序差分方法之间的权衡。这个 $n$ 通常会用 
 $\lambda$ 来表示，即 $\text{TD}(\lambda)$ 方法。
 
-常见的以下方法来选择合适的 $\lambda$ ：网格搜索（ $\text{Grid Search}$ ）、随机搜索（ $\text{Random Search}$ ）、自适应选择、交叉验证（ $\text{Cross-validation}$ ）。
-
-* 经验取值：在某些
+常见的以下方法来选择合适的 $\lambda$ ：网格搜索（ $\text{Grid Search}$ ）、随机搜索（ $\text{Random Search}$ ）、自适应选择、交叉验证（ $\text{Cross-validation}$ ）、经验取值。
 
 ### 时序差分和蒙特卡洛的比较
 
