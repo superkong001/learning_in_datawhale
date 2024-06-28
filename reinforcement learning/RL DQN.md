@@ -19,6 +19,23 @@ $$
 
 输出的都是每个动作对应的Q值，即预测，而不是直接输出动作。要输出动作，就需要额外做一些处理，例如结合贪心算法选择Q值最大对应的动作等，这就是控制过程。
 
+<img width="416" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/584958fc-116d-4751-8e89-10b892fa460e">
+
+ $\text{Q-learning}$ 算法的更新公式：
+
+$$
+Q(s_t,a_t) \leftarrow Q(s_t,a_t)+\alpha[r_t+\gamma\max_{a}Q^{\prime}(s_{t+1},a)-Q(s_t,a_t)]
+$$
+
+在 $\text{DQN}$ 中，我们用神经网络来近似 $Q$ 函数，引入了额外的网络参数 $\theta$ ：
+
+$$
+Q\left(s_{i}, a_{i} ; \theta\right) \leftarrow Q\left(s_{i}, a_{i} ; \theta\right)+\alpha[y_i-Q\left(s_{i}, a_{i} ; \theta\right)]
+$$
+
+$\qquad$ 其中 $Q\left(s_{i}, a_{i} ; \theta\right)$ 根据习惯不同也可以写成 $Q_{\theta}(s_{i}, a_{i})$ ，注意到，在理想的收敛情况下，实际的 $Q$ 值应该接近于期望的 $Q$ 值，即我们希望最小化 $r_t+\gamma\max_{a}Q^{\prime}(s_{t+1},a)$ 和 $Q(s_t,a_t)$ 之间的绝对差值。这个差值也就是 $TD$ 误差，也可以写成损失函数的形式并用梯度下降的方式来求解参数 $\theta$ ：
+
+
 
 
 
