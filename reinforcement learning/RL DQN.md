@@ -47,7 +47,8 @@ $$
 
 $$
 y_i = \begin{cases} r_i & \text {对于终止状态} s_{i} 
-\\ r_{i}+\gamma \max_{a^{\prime}} Q\left(s_{i+1}, a^{\prime} ; \theta\right) & \text {对于非终止状态} s_{i} \end{cases}
+\\ 
+r_{i}+\gamma \max_{a^{\prime}} Q\left(s_{i+1}, a^{\prime} ; \theta\right) & \text {对于非终止状态} s_{i} \end{cases}
 $$
 
 
