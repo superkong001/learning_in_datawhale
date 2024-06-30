@@ -71,7 +71,7 @@ $$
 \end{aligned}
 $$
 
-<img width="639" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/85c5974d-3160-42c2-86a1-4f5b9f3bb805">
+<img width="439" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/85c5974d-3160-42c2-86a1-4f5b9f3bb805">
 
 
 
