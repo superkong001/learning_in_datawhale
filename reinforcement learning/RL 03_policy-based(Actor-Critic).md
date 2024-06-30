@@ -7,7 +7,7 @@
 
 # 策略梯度算法
 
-<img width="394" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/db90d957-b21f-44b7-a00d-710c41e13a85">
+<img width="494" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/db90d957-b21f-44b7-a00d-710c41e13a85">
 
 从开始状态到终止状态为一个**回合**（ $\text{episode}$ ），然后把所有的状态和动作按顺序组合起来，记作 $\tau$ ，称为**轨迹**（ $\text{trajectory}$ ）：
 
@@ -27,9 +27,9 @@ $$
 
 因为优化目标也是每回合的累积奖励期望，即通常讲的回报 $G$（return），则累积奖励就可以计算为 $R(\tau)=\sum_{t=0}^T r\left(s_t, a_t\right)$ 。
 
-<img width="410" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/528280cb-e8d8-4805-b143-b6c41aee999d">
+<img width="510" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/528280cb-e8d8-4805-b143-b6c41aee999d">
 
-策略的价值期望公式；
+策略的价值期望公式：
 
 $$
 \begin{aligned}
@@ -39,6 +39,8 @@ J(\pi_{\theta}) = \underset{\tau \sim \pi_\theta}{E}[R(\tau)]
 &=E_{\tau \sim P_\theta(\tau)}[\sum_t r(s_t, a_t)] 
 \end{aligned}
 $$
+
+推导：
 
 $$
 \nabla_\theta P_{\theta}(\tau)= P_{\theta}(\tau) \frac{\nabla_\theta P_{\theta}(\tau)}{P_{\theta}(\tau) }= P_{\theta}(\tau) \nabla_\theta \log P_{\theta}(\tau)
@@ -56,7 +58,7 @@ $$
 \end{aligned}
 $$
 
-期望可以被视为连续随机变量的加权平均，权重由随机变量的概率分布给出。
+期望可以被视为连续随机变量的加权平均，权重由随机变量的概率分布给出，最终推导：
 
 $$
 \begin{aligned}
