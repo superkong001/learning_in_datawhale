@@ -7,7 +7,7 @@
 
 # 策略梯度算法
 
-<img width="494" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/db90d957-b21f-44b7-a00d-710c41e13a85">
+<img width="594" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/db90d957-b21f-44b7-a00d-710c41e13a85">
 
 从开始状态到终止状态为一个**回合**（ $\text{episode}$ ），然后把所有的状态和动作按顺序组合起来，记作 $\tau$ ，称为**轨迹**（ $\text{trajectory}$ ）：
 
@@ -27,7 +27,7 @@ $$
 
 因为优化目标也是每回合的累积奖励期望，即通常讲的回报 $G$（return），则累积奖励就可以计算为 $R(\tau)=\sum_{t=0}^T r\left(s_t, a_t\right)$ 。
 
-<img width="510" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/528280cb-e8d8-4805-b143-b6c41aee999d">
+<img width="610" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/528280cb-e8d8-4805-b143-b6c41aee999d">
 
 策略的价值期望公式：
 
@@ -71,6 +71,7 @@ $$
 \end{aligned}
 $$
 
+<img width="639" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/85c5974d-3160-42c2-86a1-4f5b9f3bb805">
 
 
 
