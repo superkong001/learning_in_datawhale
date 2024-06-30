@@ -12,7 +12,7 @@
 从开始状态到终止状态为一个**回合**（ $\text{episode}$ ），然后把所有的状态和动作按顺序组合起来，记作 $\tau$ ，称为**轨迹**（ $\text{trajectory}$ ）：
 
 $$
-\tau= \left{ s_0, a_0, s_1, a_1, \cdots, s_T, a_T\right}
+\tau=\left{s_0, a_0, s_1, a_1, \cdots, s_T, a_T\right}
 $$
 
 其中 $T$ 表示回合的终止时刻。对于任意轨迹 $\tau$ ，其产生的概率公式：
