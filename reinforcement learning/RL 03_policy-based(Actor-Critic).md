@@ -104,3 +104,12 @@ d^\pi(s)=\lim_{t \rightarrow \infty} P\left(s_t=s \mid s_0, \pi_\theta\right)
 $$
 
 $\qquad$ 换句话说，对于一个特定的环境， $d^{\pi}(s)$ 相当于一个环境本身常量，类似于状态转移概率矩阵，只是在求解马尔可夫过程的时候无法获得，只能通过其他的方法近似。
+
+对于连续动作空间，通常策略对应的动作可以从高斯分布 ${\mathbb{N}}\left(\phi(s)^{\mathbb{T}} \theta , \sigma^2\right)$ ，对应的梯度也可求得：
+
+$$
+    \nabla_\theta \log \pi_\theta(s, a)=\frac{\left(a-\phi(s)^T \theta\right) \phi(s)}{\sigma^2}
+$$
+
+$\qquad$ 这个公式实现起来只需要在模型最后一层输出两个值，一个是均值，一个是方差，然后再用这两个值来构建一个高斯分布，然后采样即可。
+
