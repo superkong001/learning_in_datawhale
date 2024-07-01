@@ -100,7 +100,7 @@ $$
 $\qquad$ 这样就可以得出结论，即该马氏链一定存在一个平稳分布，用 $d^{\pi}(s)$ 表示，可得到：
 
 $$
-d^\pi(s)=\lim _{t \rightarrow \infty} P\left(s_t=s \mid s_0, \pi_\theta\right)
+d^\pi(s)=\lim_{t \rightarrow \infty} P\left(s_t=s \mid s_0, \pi_\theta\right)
 $$
 
 $\qquad$ 换句话说，对于一个特定的环境，$d^{\pi}(s)$ 相当于一个环境本身常量，类似于状态转移概率矩阵，只是在求解马尔可夫过程的时候无法获得，只能通过其他的方法近似。
