@@ -29,12 +29,17 @@ DDPG是一种确定性的策略梯度算法。由于DQN算法的一个主要缺�
 DDPG特点：
 适用但只适用于连续动作空间、高效的梯度优化、经验回放和目标网络、高度依赖超参数、高度敏感的初始条件、容易陷入局部最优。
 
+DDPG 伪代码：
+
+![d11b6ed09f7b21d224e4fe2129a0c1d1_ddpg_pseu](https://github.com/superkong001/learning_in_datawhale/assets/37318654/da1b7b50-3fc9-45c0-85c0-e5aba63b973c)
+
 # TD3(twin delayed DDPG, 双延迟确定性策略梯度算法)算法
 
 TD3算法的改进主要做了三点重要的改进：
 1) 双 $Q$ 网络（名字中 twin）。在DDPG算法中的 $\text{Critic}$ 网络上再加一层，形成两个 $\text{Critic}$ 网络，分别记为 $Q_{\omega_1}$ 和 $Q_{\omega_2}$ ，在计算 $\text{TD}$ 误差的时候，就可以取两个 $Q$ 值中较小的那个。
 2) 延迟更新（名字中 delayed）。在训练中让Actor的更新频率低于Critic的更新频率，如：Critic每更新10次，Actor只更新1次。
 3) 躁声正则（noise regularisation），即：目标策略平滑正则化（ $\text{Target Policy Smoothing Regularization}$ ）。主要思想是通过提高Critic的更新频率来减少值函数的估计误差。具体来说，它跟DDPG算法中的噪声是不一样的，在计算TD误差的时候，给目标值y加上一个噪声，并且为了让噪声不至于过大，还增加了一个裁剪clip。这只是让Critic带来的误差不要过分地影响到了Actor，而没有考虑改进Critic本身的稳定性。
+
 
 
 
