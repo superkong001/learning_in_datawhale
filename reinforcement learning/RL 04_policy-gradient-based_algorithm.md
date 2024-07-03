@@ -22,6 +22,4 @@ $$
 d x_t=\theta\left(\mu-x_t\right) d t+\sigma d W_t
 $$
 
-$\qquad$ 其中 $x_t$ 是OU过程在时间 $t$ 的值，即当前的噪声值，这个 $t$ 也是强化学习中的时步（ $\text{time step}$ ）。 $\mu$ 是回归到的均值，表示噪声在长时间尺度上的平均值。 $\theta$ 是 $\text{OU}$ 过程的回归速率，表示噪声向均值回归的速率。 $\sigma$ 是 $\text{OU}$ 过程的扰动项，表示随机高斯噪声的标准差。 $dW_t$ 是布朗运动（ $\text{Brownian motion}$ ）或者维纳过程（ $\text{Wiener process}$ ），是一个随机项，表示随机高斯噪声的微小变化。
-
-$\qquad$ 在实际应用中，只需要调整 $\mu$ 和 $\sigma$ 就可以了，$\theta$ 通常是固定的，而 $dW_t$ 是随机项，不需要关注。
+$\qquad$ 其中 $x_t$ 是OU过程在时间 $t$ 的值，即当前的噪声值，这个 $t$ 也是强化学习中的时步（ $\text{time step}$ ）。 $\mu$ 是回归到的均值，表示噪声在长时间尺度上的平均值。 $\theta$ 是 $\text{OU}$ 过程的回归速率，表示噪声向均值回归的速率。 $\sigma$ 是 $\text{OU}$ 过程的扰动项，表示随机高斯噪声的标准差。 $dW_t$ 是布朗运动（ $\text{Brownian motion}$ ）或者维纳过程（ $\text{Wiener process}$ ），是一个随机项，表示随机高斯噪声的微小变化。 $\qquad$ 在实际应用中，只需要调整 $\mu$ 和 $\sigma$ 就可以了， $\theta$ 通常是固定的，而 $dW_t$ 是随机项，不需要关注。
