@@ -31,7 +31,7 @@ DDPG特点：
 
 DDPG 伪代码：
 
-![d11b6ed09f7b21d224e4fe2129a0c1d1_ddpg_pseu](https://github.com/superkong001/learning_in_datawhale/assets/37318654/da1b7b50-3fc9-45c0-85c0-e5aba63b973c)
+<img width="485" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/98eaaa37-8362-4501-b79f-6d1aba146884">
 
 # TD3(twin delayed DDPG, 双延迟确定性策略梯度算法)算法
 
