@@ -95,8 +95,4 @@ $$
 \mathcal{H}\left(\pi\left(\cdot \mid \mathbf{s}_t\right)\right) =-\sum _{\mathbf{a}_t} \pi\left(\mathbf{a}_t \mid \mathbf{s}_t\right) \log \pi\left(\mathbf{a}_t \mid \mathbf{s}_t\right)
 $$
 
-$$
-\right)\right) =-\sum_{\mathbf{a}_t} \pi\left(\mathbf{a}_t \mid \mathbf{s}_t\right) \log \pi\left(\mathbf{a}_t \mid \mathbf{s}_t\right)
-$$
-
 
