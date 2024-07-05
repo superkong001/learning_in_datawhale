@@ -95,4 +95,6 @@ $$
 \mathcal{H}\left(\pi\left(\cdot \mid \mathbf{s}_t\right)\right) =-\sum _{\mathbf{a}_t} \pi\left(\mathbf{a}_t \mid \mathbf{s}_t\right) \log \pi\left(\mathbf{a}_t \mid \mathbf{s}_t\right)
 $$
 
+$\qquad$ 它表示了随机策略 $\pi\left(\cdot \mid \mathbf{s}_t\right)$ 对应概率分布的随机程度，策略越随机，熵越大。
+
 
