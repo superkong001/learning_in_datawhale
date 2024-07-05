@@ -79,5 +79,7 @@ $$
 <img width="490" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/19358798-421e-4e33-befc-351792b6535b">
 </div>
 
+# SAC(Soft Actor-Critic)算法
 
+SAC算法是一种基于最大熵强化学习的策略梯度算法。核心思想是，通过最大化策略的熵，使得策略更加鲁棒。
 
