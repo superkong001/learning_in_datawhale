@@ -60,13 +60,20 @@ E_{p(x)}[f(x)]=\frac{1}{N} \sum f\left(x_{i}\right) \frac{p\left(x_{i}\right)}{q
 \end{aligned}
 $$
 
-概率分布的方差公式：
+根据概率分布的方差公式：
 
 $$
 Var_{x \sim p}[f(x)]=E_{x \sim p}\left[f(x)^{2}\right]-\left(E_{x \sim p}[f(x)]\right)^{2}
 $$
 
+从而结合重要性采样公式得出：
 
+$$
+\begin{aligned}
+Var_{x \sim q}\left[f(x) \frac{p(x)}{q(x)}\right]=E_{x \sim q}\left[\left(f(x) \frac{p(x)}{q(x)}\right)^{2}\right]-\left(E_{x \sim q}\left[f(x) \frac{p(x)}{q(x)}\right]\right)^{2} \\
+= E_{x \sim p}\left[f(x)^{2} \frac{p(x)}{q(x)}\right]-\left(E_{x \sim p}[f(x)]\right)^{2}
+\end{aligned}
+$$
 
 
 
