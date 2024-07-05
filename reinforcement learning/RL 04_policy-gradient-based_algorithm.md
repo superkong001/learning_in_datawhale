@@ -75,8 +75,9 @@ Var_{x \sim q}\left[f(x) \frac{p(x)}{q(x)}\right]=E_{x \sim q}\left[\left(f(x) \
 \end{aligned}
 $$
 
+<div align=center>
 <img width="490" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/19358798-421e-4e33-befc-351792b6535b">
-
+</div>
 
 
 
