@@ -89,12 +89,10 @@ $$
 \pi_{\mathrm{MaxEnt}}^*=\arg \max_\pi \sum_t \mathbb{E}_{\left(\mathbf{s}_t,\mathbf{a}_t\right) \sim\rho_pi}\left[\gamma^t\left(r\left(\mathbf{s}_t, \mathbf{a}_t\right)+\alpha \mathcal{H}\left(\pi\left(\cdot \mid \mathbf{s}_t\right)\right)\right)\right]
 $$
 
+$\qquad$ 其中 $\alpha$ 是一个超参，称作温度因子（ $\text{temperature}$ ），用于平衡累积奖励和策略熵的比重。这里的 $\mathcal{H}\left(\pi\left(\cdot \mid \mathbf{s}_t\right)\right)$ 就是策略的信息熵：
+
 $$
-\sim\rho_\pi}\left[\gamma^t\left(r\left(\mathbf{s}_t, \mathbf{a}_t\right)+\alpha \mathcal{H}\left(\pi\left(\cdot \mid \mathbf{s}_t\right)\right)\right)\right]
+\mathcal{H}\left(\pi\left(\cdot \mid \mathbf{s}_t\right)\right)=-\sum_{\mathbf{a}_t} \pi\left(\mathbf{a}_t \mid \mathbf{s}_t\right) \log \pi\left(\mathbf{a}_t \mid \mathbf{s}_t\right)
 $$
-
-$\qquad$ 其中 $\alpha$ 是一个超参，称作温度因子（ $\text{temperature}$ ），用于平衡累积奖励和策略熵的比重。这里的 $\mathcal{H}\left(\pi\left(\cdot \mid \mathbf{s}_t\right)\right)$ 就是策略的信息熵。
-
-
 
 
