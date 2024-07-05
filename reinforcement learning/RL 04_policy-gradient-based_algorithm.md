@@ -97,4 +97,8 @@ $$
 
 $\qquad$ 它表示了随机策略 $\pi\left(\cdot \mid \mathbf{s}_t\right)$ 对应概率分布的随机程度，策略越随机，熵越大。
 
+SAC算法有两个版本，第二个版本 $\text{SAC v2}$ 主要在前一版本的基础上做了简化，实现了温度因子的自动调节(就是转换成规划问题，然后用动态规划、拉格朗日乘子法等方法简化求解)，从而使得算法更加简单稳定。
+
+<img width="389" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/cf692ee8-c695-442a-834e-fcaac36ac3c6">
+
 
