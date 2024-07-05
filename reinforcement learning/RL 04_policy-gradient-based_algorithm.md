@@ -60,7 +60,11 @@ E_{p(x)}[f(x)]=\frac{1}{N} \sum f\left(x_{i}\right) \frac{p\left(x_{i}\right)}{q
 \end{aligned}
 $$
 
+概率分布的方差公式：
 
+$$
+Var_{x \sim p}[f(x)]=E_{x \sim p}\left[f(x)^{2}\right]-\left(E_{x \sim p}[f(x)]\right)^{2}
+$$
 
 
 
