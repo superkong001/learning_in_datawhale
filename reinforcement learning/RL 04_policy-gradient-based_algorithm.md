@@ -52,7 +52,13 @@ $$
 E_{p(x)}[f(x)]=\int_{a}^{b} f(x) \frac{p(x)}{q(x)} q(x) d x=E_{q(x)}\left[f(x) \frac{p(x)}{q(x)}\right]
 $$
 
+对于离散分布的情况，可以表达为:
 
+$$
+\begin{aligned}
+E_{p(x)}[f(x)]=\frac{1}{N} \sum f\left(x_{i}\right) \frac{p\left(x_{i}\right)}{q\left(x_{i}\right)}
+\end{aligned}
+$$
 
 
 
