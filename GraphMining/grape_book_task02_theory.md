@@ -147,12 +147,12 @@ plt.show()
 
 图问题类型：
 
-1. 节点层面
+1. 节点层面**
 2. 社群层面
 3. 连接层面
 4. 全图层面
 
-<img width="498" alt="image" src="https://github.com/user-attachments/assets/b95ae8f0-0cf5-436e-8fde-fc9af733520c">
+<img width="598" alt="image" src="https://github.com/user-attachments/assets/b95ae8f0-0cf5-436e-8fde-fc9af733520c">
 
 # PageRank
 
@@ -220,6 +220,8 @@ PageRank 算法：
 对于Column Stochastic矩阵,由Perreon-Frobenius定理：最大的特征值为1，存在唯一的主特征向量(特征值1对应的特征向量)，向量所有元素求和为1。
 
 ### 随机游走(connection to Random Walk)
+
+变成低维、连续、稠密的向量
 
 <img width="558" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/cfab597a-5ef2-4fc3-ba41-1f3dce9a4b0c">
 
@@ -312,6 +314,42 @@ eg:
 
 <img width="541" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/64b2347a-9c2a-4c4a-821c-f0a3e99fb8b4">
 
+# 半监督节点分类：标签传播和消息传递
+
+Transductive 直推式学习 而不是 Inductive 归纳式学习
+
+<img width="530" alt="image" src="https://github.com/user-attachments/assets/c1d8b87e-2ba3-409e-90ad-c740f22a75ac">
+
+<img width="517" alt="image" src="https://github.com/user-attachments/assets/2f018fd8-ef0c-40e2-9852-671c646b7f99">
+
+<img width="521" alt="image" src="https://github.com/user-attachments/assets/4956e07d-702f-4e62-b1eb-f5b7e296712c">
+
+## 半监督节点分类问题-求解方法对比
+
+| 方法               | 图嵌入 | 表示学习 | 使用属性特征 | 使用标注 | 直推式 | 归纳式 |
+| ------------------ | ------ | -------- | ------------ | -------- | ------ | ------ |
+| 人工特征工程       | 是     | 否       | 否           | 否       | /      | /      |
+| 基于随机游走的方法 | 是     | 是       | 否           | 否       | 是     | 否     |
+| 基于矩阵分解的方法 | 是     | 是       | 否           | 否       | 是     | 否     |
+| 标签传播           | 否     | 否       | 是/否        | 是       | 是     | 否     |
+| 图神经网络         | 是     | 是       | 是           | 是       | 是     | 是     |
+
+- 人工特征工程：节点重要度、集群系数、Graphlet等。
+
+- 基于随机游走的方法，构造自监督表示学习任务实现图嵌入。无法泛化到新节点。
+
+  例如：DeepWalk、Node2Vec、LINE、SDNE等。
+
+- 标签传播：假设“物以类聚，人以群分”，利用邻域节点类别猜测当前节点类别。无法泛化到新节点。
+
+  例如：Label Propagation、Iterative Classification、Belief Propagation、Correct & Smooth等。
+
+- 图神经网络：利用深度学习和神经网络，构造邻域节点信息聚合计算图，实现节点嵌入和类别预测。
+
+  可泛化到新节点。
+
+  例如：GCN、GraphSAGE、GAT、GIN等。
+  
 参考资料：
 - 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
 - PageRank:A Trillion Dollar Algorithm(作者:Reducible) https://www.youtube.com/watch?v=JGQe4kiPnrU
