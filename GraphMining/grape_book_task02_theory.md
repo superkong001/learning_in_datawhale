@@ -145,6 +145,15 @@ plt.title("Bipartite Graph")
 plt.show()
 ```
 
+图问题类型：
+
+1. 节点层面
+2. 社群层面
+3. 连接层面
+4. 全图层面
+
+<img width="498" alt="image" src="https://github.com/user-attachments/assets/b95ae8f0-0cf5-436e-8fde-fc9af733520c">
+
 # PageRank
 
 改变世界的十大IT论文: 图灵机、香农信息论、维纳控制论、比特币白皮书、PageRank、AlexNet、ResNet、Alpha Go、Transformer、AlphaFold2
