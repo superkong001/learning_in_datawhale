@@ -1,4 +1,4 @@
-<img width="610" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/ae22aff9-14e9-4311-be3d-a058e672dcc9"># word2vec
+# word2vec
 
 ## 基础知识
 
