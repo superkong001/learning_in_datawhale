@@ -385,9 +385,22 @@ Main idea of iterative classification: Classify node $v$ based on its attributes
 
 eg: Web Page Classification
 
+1. Train classifiers
+2. Apply classifier to unlab. set
+
 <img width="566" alt="image" src="https://github.com/user-attachments/assets/b6e5197e-4c03-43b8-9b4d-84cbd94b19be">
 
 <img width="577" alt="image" src="https://github.com/user-attachments/assets/84ec3213-884a-4aac-a532-533f13e6d055">
+
+3. Iterate
+     4. Update relational features $z_v$
+
+<img width="588" alt="image" src="https://github.com/user-attachments/assets/abfe932a-7f51-4f65-bd4b-d29fa25b7efe">
+
+     6. Update label $Y_v$
+
+<img width="640" alt="image" src="https://github.com/user-attachments/assets/72ef3924-37d8-41c0-ab50-bc7dcccfac90">
+
 
 参考资料：
 - 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
