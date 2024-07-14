@@ -412,6 +412,8 @@ Eg: Web Page Classification
 
 ## C&S (Correct & Smooth)
 
+C&S uses graph structure to post-process the soft node labels predicted by any base model. C&S achieves strong performance on semi-supervised node classification.
+
 > https://ogb.stanford.edu
 
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/f87aeaea-8e6f-4799-ac0c-17cd8b994385">
@@ -439,7 +441,7 @@ C&S follows the three-step procedure:
 
 <img width="766" alt="image" src="https://github.com/user-attachments/assets/5aa6962f-b97e-4090-b0b5-b5cd90fe4d5e">
 
-     1) Correct step    
+     1) Correct step: Diffuse and correct for the training errors of the base predictor.    
 
 <img width="751" alt="image" src="https://github.com/user-attachments/assets/f01c4869-52b3-46f7-a5ae-e9ff4402206f">
 
@@ -459,7 +461,7 @@ C&S follows the three-step procedure:
 
 <img width="805" alt="image" src="https://github.com/user-attachments/assets/661f89cc-d913-4397-b0e6-4278bb51fd45">
 
-     2) Smooth step
+     2) Smooth step: Smoothen the prediction of the base predictor.
 
 <img width="725" alt="image" src="https://github.com/user-attachments/assets/b2cc9037-0eea-4fd1-b662-5e41e4e816c7">
 
@@ -469,7 +471,6 @@ C&S follows the three-step procedure:
 
 <img width="778" alt="image" src="https://github.com/user-attachments/assets/5ec37a1d-3db7-4bf5-82ed-0249fb31013b">
 
-     
 参考资料：
 - 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
 - PageRank:A Trillion Dollar Algorithm(作者:Reducible) https://www.youtube.com/watch?v=JGQe4kiPnrU
