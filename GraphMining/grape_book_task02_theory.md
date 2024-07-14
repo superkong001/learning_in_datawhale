@@ -349,7 +349,22 @@ Transductive 直推式学习 而不是 Inductive 归纳式学习
   可泛化到新节点。
 
   例如：GCN、GraphSAGE、GAT、GIN等。
-  
+
+标签传播和集体分类：
+
+1. Label Propagation(Relational Classification)
+2. terative Classification
+3. Correct & Smooth
+4. Belief Propagation
+5. Masked Lable Prediction
+
+<img width="627" alt="image" src="https://github.com/user-attachments/assets/2d174e1a-7a91-4d07-b24c-1b3055970e77">
+
+<img width="632" alt="image" src="https://github.com/user-attachments/assets/47803694-6bc6-4f21-acad-7b3e0238a54a">
+
+<img width="629" alt="image" src="https://github.com/user-attachments/assets/98133985-662a-4430-9e54-cbf9b658db34">
+
+
 参考资料：
 - 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
 - PageRank:A Trillion Dollar Algorithm(作者:Reducible) https://www.youtube.com/watch?v=JGQe4kiPnrU
