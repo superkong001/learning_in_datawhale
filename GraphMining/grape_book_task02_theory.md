@@ -358,19 +358,33 @@ Transductive 直推式学习 而不是 Inductive 归纳式学习
 4. Belief Propagation
 5. Masked Lable Prediction
 
+## Relational Classification
+
 <img width="627" alt="image" src="https://github.com/user-attachments/assets/2d174e1a-7a91-4d07-b24c-1b3055970e77">
 
 <img width="632" alt="image" src="https://github.com/user-attachments/assets/47803694-6bc6-4f21-acad-7b3e0238a54a">
 
 <img width="629" alt="image" src="https://github.com/user-attachments/assets/98133985-662a-4430-9e54-cbf9b658db34">
 
+<img width="558" alt="image" src="https://github.com/user-attachments/assets/3c92e89b-b4f5-408c-9d9a-38908b2a2879">
+
+<img width="559" alt="image" src="https://github.com/user-attachments/assets/319fb4c0-4057-444f-a9cd-a947304f60a9">
+
+不收敛原因：线性代数知识，特征值[-1,1]的话不断左乘邻接矩阵会收敛，其他会发散。
+
+<img width="518" alt="image" src="https://github.com/user-attachments/assets/b83cd1ec-aa70-4118-8cdb-ea104950e4ac">
+
+## Iterative Classification
+
+Relational Classification 不使用节点特征。而Iterative Classification：
+Main idea of iterative classification: Classify node v based on its attributes $f_v$ as well as labels $Z_v$ of neighbor set $N_v$ .
 
 参考资料：
 - 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
 - PageRank:A Trillion Dollar Algorithm(作者:Reducible) https://www.youtube.com/watch?v=JGQe4kiPnrU
 - Google 's PageRank Algorithm(作者:Global Software Support) https://www.youtube.com/playlist?list=PLH7W8KdUX6P2n4XwDiKsEU6sBhQj5cAqa
 - 曼彻斯特大学:https://personalpages.manchester.ac.uk/staff/yanghong.huang/teaching/MATH36032/pagerank.pdf
-- 斯坦福CS345 Data Mining: https://wenku.baidu.com/view/5be822bfbb4cf7ec4bfed052.html ?_ wkts _= 1669773903123&bdQuery=web+in+1839
+- 斯坦福CS345 Data Mining: https://wenku.baidu.com/view/5be822bfbb4cf7ec4bfed052.html?_wkts_= 1669773903123&bdQuery=web+in+1839
 
 参考视频
 - https://www.youtube.com/watch?v=meonLcN7LD4
