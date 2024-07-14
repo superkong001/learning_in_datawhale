@@ -377,7 +377,7 @@ Transductive 直推式学习 而不是 Inductive 归纳式学习
 ## Iterative Classification
 
 Relational Classification 不使用节点特征。而Iterative Classification：
-Main idea of iterative classification: Classify node $v$ based on its attributes $f_v$ as well as labels $Z_v$ of neighbor set $N_v$ .
+Main idea of iterative classification: Classify node $v$ based on its attributes $f_v$ as well as labels $Z_v$ of neighbor set $N_v$ . 
 
 <img width="552" alt="image" src="https://github.com/user-attachments/assets/7182264a-47f4-418d-870e-08963312925a">
 
