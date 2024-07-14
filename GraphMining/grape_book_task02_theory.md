@@ -381,6 +381,7 @@ Main idea of iterative classification: Classify node $v$ based on its attributes
 
 <img width="552" alt="image" src="https://github.com/user-attachments/assets/7182264a-47f4-418d-870e-08963312925a">
 
+<img width="578" alt="image" src="https://github.com/user-attachments/assets/2f8cdf38-29e7-47f9-9d94-4ee9975fac7c">
 
 参考资料：
 - 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
