@@ -402,6 +402,14 @@ Eg: Web Page Classification
 
 <img width="640" alt="image" src="https://github.com/user-attachments/assets/72ef3924-37d8-41c0-ab50-bc7dcccfac90">
 
+   根据 $Y_2$ 再更新 $z_v$ 
+   
+<img width="616" alt="image" src="https://github.com/user-attachments/assets/03760096-deaf-4219-8d4f-69d72edab5a6">
+
+   再更新 $Y_3$ 
+   
+<img width="604" alt="image" src="https://github.com/user-attachments/assets/72dff135-325e-4d22-9cc4-6f88d773e672">
+
 
 参考资料：
 - 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
