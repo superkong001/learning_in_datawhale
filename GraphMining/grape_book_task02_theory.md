@@ -471,6 +471,9 @@ C&S follows the three-step procedure:
 
 <img width="778" alt="image" src="https://github.com/user-attachments/assets/5ec37a1d-3db7-4bf5-82ed-0249fb31013b">
 
+## Loopy Belief Propagation
+
+
 参考资料：
 - 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
 - PageRank:A Trillion Dollar Algorithm(作者:Reducible) https://www.youtube.com/watch?v=JGQe4kiPnrU
