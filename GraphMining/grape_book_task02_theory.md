@@ -397,7 +397,7 @@ eg: Web Page Classification
 
 <img width="588" alt="image" src="https://github.com/user-attachments/assets/abfe932a-7f51-4f65-bd4b-d29fa25b7efe">
 
-     6. Update label $Y_v$
+     6. Update label $Y_v$ 
 
 <img width="640" alt="image" src="https://github.com/user-attachments/assets/72ef3924-37d8-41c0-ab50-bc7dcccfac90">
 
