@@ -378,11 +378,12 @@ Transductive 直推式学习 而不是 Inductive 归纳式学习
 
 Relational Classification 不使用节点特征。而Iterative Classification：
 Main idea of iterative classification: Classify node $v$ based on its attributes $f_v$ as well as labels $Z_v$ of neighbor set $N_v$ .
+
 <img width="552" alt="image" src="https://github.com/user-attachments/assets/7182264a-47f4-418d-870e-08963312925a">
 
 <img width="578" alt="image" src="https://github.com/user-attachments/assets/2f8cdf38-29e7-47f9-9d94-4ee9975fac7c">
 
-eg: Web Page Classification
+Eg: Web Page Classification
 
 1. Train classifiers
 2. Apply classifier to unlab. set
@@ -392,11 +393,12 @@ eg: Web Page Classification
 <img width="577" alt="image" src="https://github.com/user-attachments/assets/84ec3213-884a-4aac-a532-533f13e6d055">
 
 3. Iterate
-     4. Update relational features $z_v$
+
+   4. Update relational features $z_v$
 
 <img width="588" alt="image" src="https://github.com/user-attachments/assets/abfe932a-7f51-4f65-bd4b-d29fa25b7efe">
 
-     6. Update label $Y_v$  
+   5. Update label $Y_v$  
 
 <img width="640" alt="image" src="https://github.com/user-attachments/assets/72ef3924-37d8-41c0-ab50-bc7dcccfac90">
 
