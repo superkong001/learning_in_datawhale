@@ -1,4 +1,4 @@
-# 柯尼斯堡七桥问题
+<img width="683" alt="image" src="https://github.com/user-attachments/assets/9e031c4b-9fbc-498f-9e3b-9229e43458bc"># 柯尼斯堡七桥问题
 
 ![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/6e7e26ea-2d0e-45c7-864c-a63308c852cb)
 
@@ -410,7 +410,66 @@ Eg: Web Page Classification
    
 <img width="604" alt="image" src="https://github.com/user-attachments/assets/72dff135-325e-4d22-9cc4-6f88d773e672">
 
+## C&S (Correct & Smooth)
 
+> https://ogb.stanford.edu
+
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/f87aeaea-8e6f-4799-ac0c-17cd8b994385">
+
+C&S follows the three-step procedure:
+1. Train base predictor
+2. Use the base predictor to predict soft labels of all nodes
+3. Post-process the predictions using graph structure to obtain the final predictions of all nodes.
+
+   (1) Train a base predictor that predict soft labels (class probabilities) over all nodes.
+
+   - Labeled nodes are used for train/validation data.
+   - Base predictor can be simple: Linear model/Multi-Layer-Perceptron(MLP) over node features
+
+<img width="768" alt="image" src="https://github.com/user-attachments/assets/8a9862d0-7c22-4030-ac4f-670447ef31f7">
+
+   (2) Given a trained base predictor, we apply it to obtain soft labels for all the nodes.
+
+    - We expect these soft labels to be decently(体面) accurate.
+    - Can we use graph structure to post-process(后处理) the predictions to make them more accurate?
+
+<img width="574" alt="image" src="https://github.com/user-attachments/assets/f1427ed6-d379-403a-a70f-2fcf8921c56a">
+
+   (3) C&S uses the 2-step procedure to post-process the soft predictions.
+
+<img width="766" alt="image" src="https://github.com/user-attachments/assets/5aa6962f-b97e-4090-b0b5-b5cd90fe4d5e">
+
+     1) Correct step    
+
+<img width="751" alt="image" src="https://github.com/user-attachments/assets/f01c4869-52b3-46f7-a5ae-e9ff4402206f">
+
+<img width="718" alt="image" src="https://github.com/user-attachments/assets/330fe12d-3b56-4b14-9324-cbc8c2cc16e0">
+
+<img width="767" alt="image" src="https://github.com/user-attachments/assets/96186ae8-0d7b-440a-8568-7ea56ae67c06">
+
+<img width="759" alt="image" src="https://github.com/user-attachments/assets/2ff10b1f-b110-42e5-8b9f-2cdbe9e57ae3">
+
+<img width="681" alt="image" src="https://github.com/user-attachments/assets/f5f124ca-4d89-4026-8732-f906fe55a1ff">
+
+<img width="767" alt="image" src="https://github.com/user-attachments/assets/82294561-32ac-4763-93c8-493af0a8b99e">
+
+<img width="760" alt="image" src="https://github.com/user-attachments/assets/e73bfe7f-606f-41e3-a333-479f0bb70ea2">
+
+<img width="786" alt="image" src="https://github.com/user-attachments/assets/15538999-d010-4243-9538-691e50a51a98">
+
+<img width="805" alt="image" src="https://github.com/user-attachments/assets/661f89cc-d913-4397-b0e6-4278bb51fd45">
+
+     2) Smooth step
+
+<img width="725" alt="image" src="https://github.com/user-attachments/assets/b2cc9037-0eea-4fd1-b662-5e41e4e816c7">
+
+<img width="714" alt="image" src="https://github.com/user-attachments/assets/14092c20-4de6-4abe-acbf-39effc5d07bd">
+
+<img width="775" alt="image" src="https://github.com/user-attachments/assets/3cf9addc-5529-4cdc-8016-c974a00d417d">
+
+<img width="778" alt="image" src="https://github.com/user-attachments/assets/5ec37a1d-3db7-4bf5-82ed-0249fb31013b">
+
+     
 参考资料：
 - 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
 - PageRank:A Trillion Dollar Algorithm(作者:Reducible) https://www.youtube.com/watch?v=JGQe4kiPnrU
