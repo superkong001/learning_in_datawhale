@@ -383,6 +383,12 @@ Main idea of iterative classification: Classify node $v$ based on its attributes
 
 <img width="578" alt="image" src="https://github.com/user-attachments/assets/2f8cdf38-29e7-47f9-9d94-4ee9975fac7c">
 
+eg: Web Page Classification
+
+<img width="566" alt="image" src="https://github.com/user-attachments/assets/b6e5197e-4c03-43b8-9b4d-84cbd94b19be">
+
+<img width="577" alt="image" src="https://github.com/user-attachments/assets/84ec3213-884a-4aac-a532-533f13e6d055">
+
 参考资料：
 - 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
 - PageRank:A Trillion Dollar Algorithm(作者:Reducible) https://www.youtube.com/watch?v=JGQe4kiPnrU
