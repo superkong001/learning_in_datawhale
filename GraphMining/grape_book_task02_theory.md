@@ -473,6 +473,21 @@ C&S follows the three-step procedure:
 
 ## Loopy Belief Propagation
 
+- Belief Propagation is a dynamic programming(动态规划) approach to answering probability queries in a graph (e.g. probability of node v belonging to class 1)
+- Iterative process in which neighbor nodes "talk" to each other, passing messages.
+- When consensus(共识) is reached, calculate final belief.
+
+<img width="742" alt="image" src="https://github.com/user-attachments/assets/bfcd13be-d04a-4e0e-8255-7a64c51e0890">
+
+<img width="734" alt="image" src="https://github.com/user-attachments/assets/ca54c77e-097d-4bde-ab4b-72e955c755c2">
+
+<img width="677" alt="image" src="https://github.com/user-attachments/assets/99209d8d-f103-46e6-a366-816470f1a357">
+
+<img width="686" alt="image" src="https://github.com/user-attachments/assets/197588d3-c156-4923-81bb-a004b858a444">
+
+## Masked Label Prediction
+
+<img width="745" alt="image" src="https://github.com/user-attachments/assets/d0798338-831d-4277-9214-968c018119f5">
 
 参考资料：
 - 斯坦福CS224W图机器学习 https://web.stanford.edu/class/cs224w
