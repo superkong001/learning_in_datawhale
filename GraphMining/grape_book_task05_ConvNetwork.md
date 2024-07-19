@@ -179,3 +179,21 @@ U 是正交矩阵，意味着其列向量是标准正交基，即：
 https://www.bilibili.com/video/BV1AP4y1r7Pz/?from_spmid=main.my-history.0.0&plat_id=411&share_from=season&share_medium=android&share_plat=android&share_session_id=238f193d-3639-4a6e-8fde-85b2ea18516b&share_source=WEIXIN&share_tag=s_i&spmid=united.player-video-detail.0.0&timestamp=1713947803&unique_k=a70gqJA
 
 《深入浅出图神经网络：GNN原理解析》配套代码：https://github.com/FighterLYL/GraphNeuralNetwork
+
+## 扩展阅读
+
+李沐老师推荐的GNN博客1：https://distill.pub/2021/gnn-intro
+
+李沐老师推荐的GNN博客2：https://distill.pub/2021/understanding-gnns
+
+Paperswithcode图任务：https://paperswithcode.com/area/graphs
+
+Cora节点分类数据集上的比分：https://paperswithcode.com/sota/node-classification-on-cora
+
+DIFFPOOL论文：https://arxiv.org/pdf/1806.08804.pdf
+
+《图神经网络 基础、前沿与应用》人民邮电出版社 异步图书社区，部分章节电子版
+
+https://graph-neural-networks.github.io
+
+五折购书（正版全新）：公众号 人工智能小技巧 回复 城堡书
