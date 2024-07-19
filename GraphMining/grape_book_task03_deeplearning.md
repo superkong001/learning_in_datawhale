@@ -144,5 +144,23 @@ Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法�
 
 循环神经网络的经典变体包括长短期记忆网络（Long Short-Term Memory，LSTM）和门控循环单元（Gated Recurrent Unit，GRU）。这些变体通过引入门控机制来解决传统循环神经网络中的梯度消失和梯度爆炸问题，从而改善了模型的长期依赖建模能力。在进行反向传播的时候，使用通过时间反向传播（Backpropagation Through Time, BPTT）。它通过将时间展开的 RNN 视为深度前馈神经网络，并在每个时间步骤上应用标准的反向传播算法来更新模型的权重。
 
+## 扩展阅读
+
+线性分类、损失函数、梯度下降：https://www.bilibili.com/video/BV1K7411W7So?p=3
+
+神经网络、计算图、反向传播：https://www.bilibili.com/video/BV1K7411W7So?p=4
+
+训练神经网络（权重初始化、激活函数、BN）：https://www.bilibili.com/video/BV1K7411W7So?p=7
+
+训练神经网络（优化器、正则化、学习率策略）：https://www.bilibili.com/video/BV1K7411W7So?p=8
+
+超有趣的神经网络可视化工具Tensorflow-Playground：https://www.bilibili.com/video/BV15J411u7Ly
+
+卷积神经网络：公众号 人工智能小技巧 回复 卷积神经网络
+
+循环神经网络：https://www.bilibili.com/video/BV1K7411W7So?p=17
+
+生成对抗神经网络GAN：https://www.bilibili.com/video/BV1oi4y1m7np
+
 
 
