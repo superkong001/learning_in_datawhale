@@ -180,7 +180,7 @@ https://www.bilibili.com/video/BV1AP4y1r7Pz/?from_spmid=main.my-history.0.0&plat
 
 《深入浅出图神经网络：GNN原理解析》配套代码：https://github.com/FighterLYL/GraphNeuralNetwork
 
-## 扩展阅读
+## 扩展阅读GNN
 
 李沐老师推荐的GNN博客1：https://distill.pub/2021/gnn-intro
 
@@ -197,3 +197,75 @@ DIFFPOOL论文：https://arxiv.org/pdf/1806.08804.pdf
 https://graph-neural-networks.github.io
 
 五折购书（正版全新）：公众号 人工智能小技巧 回复 城堡书
+
+## 扩展阅读GCN
+
+论文主页：https://arxiv.org/abs/1609.02907
+
+官方代码：https://github.com/tkipf/gcn
+
+作者本人写的博客：https://tkipf.github.io/graph-convolutional-networks
+
+博客：https://www.inference.vc/how-powerful-are-graph-convolutions-review-of-kipf-welling-2016-2
+
+博客：https://ireneli.eu/2019/01/08/understanding-graph-convolutional-networks
+
+Normalized Adjacency Matrix推导过程：https://math.stackexchange.com/questions/3035968/interpretation-of-symmetric-normalised-graph-adjacency-matrix
+
+在线编辑LaTex公式网站：https://www.latexlive.com
+
+和D矩阵相关的数学公式LaTex脚本：
+
+```latex
+{\color{Blue} h_{v}^{(k+1)} }  = {\color{Green} \sigma(} {\color{Red} W_{k}} \sum_{u\in N(v)} \frac{{\color{Blue} h_{u}^{k}} }{|N(v)|}{\color{Green} )} 
+
+
+
+D = 
+\begin{bmatrix} 
+  & d(1) & 0 & 0 & \cdots & 0  &\\
+  
+  & 0 & d(2) & 0 & \cdots & 0   \\
+
+  & 0 & 0 & d(3)  & \cdots & 0 \\
+  & \vdots & \vdots & \vdots & \ddots & \vdots\\
+
+  & 0 & 0 & 0 & \cdots & d(n)
+\end{bmatrix}
+
+D^{-1} = 
+\begin{bmatrix} 
+  & \frac{1}{d(1)} & 0 & 0 & \cdots & 0  &\\
+  
+  & 0 & \frac{1}{d(2)} & 0 & \cdots & 0   \\
+
+  & 0 & 0 & \frac{1}{d(3)}  & \cdots & 0 \\
+  & \vdots & \vdots & \vdots & \ddots & \vdots\\
+
+  & 0 & 0 & 0 & \cdots & \frac{1}{d(n)}
+\end{bmatrix}
+
+D^{\frac{1}{2}} = 
+\begin{bmatrix} 
+  & \sqrt{d(1)} & 0 & 0 & \cdots & 0  &\\
+  
+  & 0 & \sqrt{d(2)} & 0 & \cdots & 0   \\
+
+  & 0 & 0 & \sqrt{d(3)}  & \cdots & 0 \\
+  & \vdots & \vdots & \vdots & \ddots & \vdots\\
+
+  & 0 & 0 & 0 & \cdots & \sqrt{d(n)}
+\end{bmatrix}
+
+D^{-\frac{1}{2}} = 
+\begin{bmatrix} 
+  & \frac{1}{\sqrt{d(1)}} & 0 & 0 & \cdots & 0  &\\
+  
+  & 0 & \frac{1}{\sqrt{d(2)}} & 0 & \cdots & 0   \\
+
+  & 0 & 0 & \frac{1}{\sqrt{d(3)}}  & \cdots & 0 \\
+  & \vdots & \vdots & \vdots & \ddots & \vdots\\
+
+  & 0 & 0 & 0 & \cdots & \frac{1}{\sqrt{d(n)}}
+\end{bmatrix}
+```
