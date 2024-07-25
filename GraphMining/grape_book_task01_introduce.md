@@ -1,5 +1,7 @@
 - https://relph1119.github.io/my-team-learning/#/cs224w_learning46/task01
 - https://datawhalechina.github.io/grape-book/#/
+- https://github.com/TommyZihao/zihao_course/tree/main/CS224W
+- https://web.stanford.edu/class/cs224w
 - CS231n: 深度学习的计算机视觉
 - CS224n：深度学习的自然语言处理
 
