@@ -1,24 +1,3 @@
-# 机器学习优化：
-
-![image](https://github.com/user-attachments/assets/4dcb78d2-e01d-4418-b6c3-484292b97f34)
-
-## 交叉熵损失函数
-
-<img width="616" alt="image" src="https://github.com/user-attachments/assets/b6381cdc-d982-41b9-bcba-de07b3f29a10">
-
-交叉熵损失函数（Cross-Entropy Loss）的定义如下：
-
-$$
-L = -\sum_{i} y_i \log p_i
-$$
-
-其中：
-- $( y_i \)$ 是实际标签（通常是one-hot编码的形式）。
-- $( p_i \)$ 是模型预测的概率。
-
-交叉熵损失函数中包含 $𝑦_𝑖$ 项，是为了确保只计算实际类别的预测概率，从而更有效地指导模型学习并进行参数更新。这样做可以使得模型的训练更有效，最终提高分类的准确性。
-
-
 # 柯尼斯堡七桥问题
 
 ![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/6e7e26ea-2d0e-45c7-864c-a63308c852cb)
