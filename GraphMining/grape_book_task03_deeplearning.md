@@ -74,6 +74,16 @@ Minibatch SGD:
 
 训练神经网络(优化器、正则化、学习率策略):https://www.bilibili.com/video/BV1K7411W7So?p=8
 
+矩阵代表线性变换（即：对空间的挤压伸展，保持网格线平行且等距分布，且保持原点不变。），无论左乘多少个矩阵仍旧能表达成一个矩阵。线性变换包含剪切、旋转、缩放。
+
+<img width="670" alt="image" src="https://github.com/user-attachments/assets/89748f46-9c15-46b9-97e7-e3ca2d1081db">
+
+矩阵代表的线性变换对应机器学习线性模型（线性分类器），它的分类在N维空间中就是N-1维的超平面，因为是“直”的，所以它只能解决线性可分问题。
+
+<img width="721" alt="image" src="https://github.com/user-attachments/assets/28e0056e-3ed4-445a-b4a3-da202aaf31ba">
+
+<img width="544" alt="image" src="https://github.com/user-attachments/assets/55171880-e4d9-4637-b510-b162d3a038c4">
+
 > 随机梯度下降算法
 
 <img width="446" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/cdede783-2ebc-4944-ac3b-2f9c6547b6ab">
