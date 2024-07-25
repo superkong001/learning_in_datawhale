@@ -1,3 +1,7 @@
+图深度学习=图神经网络=图表示学习=几何深度学习：使用深度学习对图进行机器学习，关键图映射成向量
+
+<img width="734" alt="image" src="https://github.com/user-attachments/assets/97360e8c-fc30-427a-97a4-236780f98744">
+
 # word2vec
 
 ## 基础知识
