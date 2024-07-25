@@ -2,6 +2,8 @@
 
 <img width="734" alt="image" src="https://github.com/user-attachments/assets/97360e8c-fc30-427a-97a4-236780f98744">
 
+<img width="582" alt="image" src="https://github.com/user-attachments/assets/d612713f-d886-4862-9e76-67aac17ce4b5">
+
 # word2vec
 
 ## 基础知识
