@@ -84,6 +84,8 @@ Minibatch SGD:
 
 <img width="544" alt="image" src="https://github.com/user-attachments/assets/55171880-e4d9-4637-b510-b162d3a038c4">
 
+给每个神经元的输出接一个激活函数，从而具备表达非线性数据分布的表示能力。(https://www.bilibili.com/video/BV15J411u7Ly)
+
 > 随机梯度下降算法
 
 <img width="446" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/cdede783-2ebc-4944-ac3b-2f9c6547b6ab">
