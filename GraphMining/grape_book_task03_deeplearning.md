@@ -41,6 +41,39 @@ Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法�
 
 <img width="648" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3cddf35f-ae0e-44cf-a2b3-7d001be386ca">
 
+![image](https://github.com/user-attachments/assets/4dcb78d2-e01d-4418-b6c3-484292b97f34)
+
+## 交叉熵损失函数
+
+<img width="616" alt="image" src="https://github.com/user-attachments/assets/b6381cdc-d982-41b9-bcba-de07b3f29a10">
+
+交叉熵损失函数（Cross-Entropy Loss）的定义如下：
+
+$$
+L = -\sum_{i} y_i \log p_i
+$$
+
+其中：
+- $( y_i \)$ 是实际标签（通常是one-hot编码的形式）。
+- $( p_i \)$ 是模型预测的概率。
+
+交叉熵损失函数中包含 $𝑦_𝑖$ 项，是为了确保只计算实际类别的预测概率（即：-log正确类别预测概率），表达预测类别与真实类别之间的差异，从而更有效地指导模型学习并进行参数更新。这样做可以使得模型的训练更有效，最终提高分类的准确性。
+
+<img width="548" alt="image" src="https://github.com/user-attachments/assets/f4be58f8-38a0-4f91-bc66-f789818102b0">
+
+- iteration=step=输入一个mini batch=一次迭代=一步
+- epoch=一轮=完整遍历训练集的所有样本一遍
+
+Minibatch SGD:
+
+<img width="520" alt="image" src="https://github.com/user-attachments/assets/6791c092-3bf9-4bcf-a67c-f440cffcdcba">
+
+<img width="773" alt="image" src="https://github.com/user-attachments/assets/a7b524f1-2fba-47be-83f8-4e66c29f2101">
+
+神经网络通过反向传播来求梯度：
+
+<img width="556" alt="image" src="https://github.com/user-attachments/assets/0315ed43-33cf-4222-a812-e2f1ee88bf10">
+
 ## 模型的过拟合与欠拟合
 
 > 欠拟合（underfitting）：训练误差和验证误差都很严重，而且它们之间仅有一点差距。 即，如果模型不能降低训练误差，这可能意味着模型过于简单（即表达能力不足）， 无法捕获试图学习的模式。
