@@ -6,6 +6,15 @@
 
 <img width="616" alt="image" src="https://github.com/user-attachments/assets/b6381cdc-d982-41b9-bcba-de07b3f29a10">
 
+交叉熵损失函数（Cross-Entropy Loss）通常用于分类问题中，其定义如下：
+
+\[ L = -\sum_{i} y_i \log p_i \]
+
+其中：
+- \( y_i \) 是实际标签（通常是one-hot编码的形式）。
+- \( p_i \) 是模型预测的概率。
+
+
 
 # 柯尼斯堡七桥问题
 
