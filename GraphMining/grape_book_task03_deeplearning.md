@@ -64,6 +64,8 @@ Minibatch SGD:
 
 <img width="556" alt="image" src="https://github.com/user-attachments/assets/0315ed43-33cf-4222-a812-e2f1ee88bf10">
 
+<img width="563" alt="image" src="https://github.com/user-attachments/assets/023431f3-d867-40c3-86bf-0330d87e2088">
+
 > 随机梯度下降算法
 
 <img width="446" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/cdede783-2ebc-4944-ac3b-2f9c6547b6ab">
