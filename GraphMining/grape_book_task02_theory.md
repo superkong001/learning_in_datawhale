@@ -1,6 +1,10 @@
-机器学习优化：
+# 机器学习优化：
 
 ![image](https://github.com/user-attachments/assets/4dcb78d2-e01d-4418-b6c3-484292b97f34)
+
+## 交叉熵损失函数
+
+<img width="616" alt="image" src="https://github.com/user-attachments/assets/b6381cdc-d982-41b9-bcba-de07b3f29a10">
 
 
 # 柯尼斯堡七桥问题
