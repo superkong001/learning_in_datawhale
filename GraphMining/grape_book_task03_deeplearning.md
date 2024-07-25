@@ -66,9 +66,13 @@ Minibatch SGD:
 
 <img width="556" alt="image" src="https://github.com/user-attachments/assets/0315ed43-33cf-4222-a812-e2f1ee88bf10">
 
+
 <img width="563" alt="image" src="https://github.com/user-attachments/assets/023431f3-d867-40c3-86bf-0330d87e2088">
 
+
 <img width="554" alt="image" src="https://github.com/user-attachments/assets/8deddfc1-3404-4696-bd29-a8aa31e07a53">
+
+训练神经网络(优化器、正则化、学习率策略):https://www.bilibili.com/video/BV1K7411W7So?p=8
 
 > 随机梯度下降算法
 
