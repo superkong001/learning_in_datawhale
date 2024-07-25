@@ -2,7 +2,13 @@
 
 <img width="734" alt="image" src="https://github.com/user-attachments/assets/97360e8c-fc30-427a-97a4-236780f98744">
 
+图嵌入表示学习：
+
 <img width="582" alt="image" src="https://github.com/user-attachments/assets/d612713f-d886-4862-9e76-67aac17ce4b5">
+
+目标：向量点乘数值(余弦相似度)反映节点的相似度，即：图中相似节点，在向量空间里也相似。
+
+<img width="535" alt="image" src="https://github.com/user-attachments/assets/8b037c3b-dae9-4f4e-9737-4953d5e95ac9">
 
 # word2vec
 
