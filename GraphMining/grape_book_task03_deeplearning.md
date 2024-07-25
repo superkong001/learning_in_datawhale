@@ -51,6 +51,8 @@ $$
 
 <img width="548" alt="image" src="https://github.com/user-attachments/assets/f4be58f8-38a0-4f91-bc66-f789818102b0">
 
+<img width="529" alt="image" src="https://github.com/user-attachments/assets/e683ea58-4ffc-4f16-95a4-8f914f2a321f">
+
 - iteration=step=输入一个mini batch=一次迭代=一步
 - epoch=一轮=完整遍历训练集的所有样本一遍
 
