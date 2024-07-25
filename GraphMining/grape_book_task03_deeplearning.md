@@ -31,16 +31,6 @@ ReLU:
 
 ## 模型优化
 
-> 随机梯度下降算法
-
-<img width="446" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/cdede783-2ebc-4944-ac3b-2f9c6547b6ab">
-
-> Adam 算法
-
-Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法，结合了动量法和 RMSProp 算法的优点。
-
-<img width="648" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3cddf35f-ae0e-44cf-a2b3-7d001be386ca">
-
 ![image](https://github.com/user-attachments/assets/4dcb78d2-e01d-4418-b6c3-484292b97f34)
 
 ## 交叉熵损失函数
@@ -73,6 +63,16 @@ Minibatch SGD:
 神经网络通过反向传播来求梯度：
 
 <img width="556" alt="image" src="https://github.com/user-attachments/assets/0315ed43-33cf-4222-a812-e2f1ee88bf10">
+
+> 随机梯度下降算法
+
+<img width="446" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/cdede783-2ebc-4944-ac3b-2f9c6547b6ab">
+
+> Adam 算法
+
+Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法，结合了动量法和 RMSProp 算法的优点。
+
+<img width="648" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3cddf35f-ae0e-44cf-a2b3-7d001be386ca">
 
 ## 模型的过拟合与欠拟合
 
