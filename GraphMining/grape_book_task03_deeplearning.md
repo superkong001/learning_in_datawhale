@@ -1,35 +1,4 @@
-# 神经网络及其基本组成
-
-## 多层感知机
-
-多层感知机包含输入层，隐藏层和输出层，它们由多层神经元组成， 每一层与它的上一层相连。
-
-<img width="434" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/1bfc8ef8-d461-4010-9e04-3890a79aeb6f">
-
-<img width="646" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f8ac639a-4cc4-48af-8bd6-7b8e7739e407">
-
-ReLU: 
-优点：解决了梯度消失的问题；计算成本低，函数比较简单。
-
-缺点：会产生Dead Neurons，因此当x<0的时候梯度就变为0，这些神经元就变得无效，这些神经元在后面的训练过程就不会更新。
-
-> LeakyReLU
-
-<img width="398" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/7167996d-58b3-49d9-bbc5-8f1a483db3a0">
-
-优点：是ReLU函数的一个变体，解决了ReLU函数存在的问题，α的默认往往是非常小的，比如0.01，这样就保证了Dead Neurons的问题
-
-缺点：由于它具有线性特性，不能用于复杂的分类问题。
-
-## 输出层与损失函数
-
-<img width="629" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a8be190a-7f42-4c4b-9b53-c8b747c49f89">
-
-<img width="633" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/966a83c6-990a-4d98-b38a-ab388b37cacf">
-
-分子是元素𝑧j的指数，分母是所有指数值的和，𝐾是类别总数。通过这种方式，softmax确保了输出向量中的每个元素都是一个介于0和1之间的数，并且它们的总和为1，使其可以被解释为概率分布。每个元素的概率是该元素的指数与所有元素指数之和的比值，因此得分高的类别会被赋予更高的概率。
-
-## 模型优化
+# 模型优化
 
 ![image](https://github.com/user-attachments/assets/4dcb78d2-e01d-4418-b6c3-484292b97f34)
 
@@ -56,7 +25,7 @@ $$
 - iteration=step=输入一个mini batch=一次迭代=一步
 - epoch=一轮=完整遍历训练集的所有样本一遍
 
-Minibatch SGD:
+## Minibatch SGD:
 
 <img width="520" alt="image" src="https://github.com/user-attachments/assets/6791c092-3bf9-4bcf-a67c-f440cffcdcba">
 
@@ -86,9 +55,38 @@ Minibatch SGD:
 
 给每个神经元的输出接一个激活函数，从而具备表达非线性数据分布的表示能力。(超有趣的神经网络可视化工具Tensorflow-Playground：https://www.bilibili.com/video/BV15J411u7Ly)
 
-## Multi-layer Perceptron (MLP)
+# 神经网络及其基本组成
+
+## Multi-layer Perceptron (MLP 多层感知机/全连接神经网络)
 
 <img width="536" alt="image" src="https://github.com/user-attachments/assets/4a2389d7-7b53-4ed8-85bd-c931f691c734">
+
+多层感知机包含输入层，隐藏层和输出层，它们由多层神经元组成， 每一层与它的上一层相连。
+
+<img width="434" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/1bfc8ef8-d461-4010-9e04-3890a79aeb6f">
+
+<img width="646" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/f8ac639a-4cc4-48af-8bd6-7b8e7739e407">
+
+ReLU: 
+优点：解决了梯度消失的问题；计算成本低，函数比较简单。
+
+缺点：会产生Dead Neurons，因此当x<0的时候梯度就变为0，这些神经元就变得无效，这些神经元在后面的训练过程就不会更新。
+
+> LeakyReLU
+
+<img width="398" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/7167996d-58b3-49d9-bbc5-8f1a483db3a0">
+
+优点：是ReLU函数的一个变体，解决了ReLU函数存在的问题，α的默认往往是非常小的，比如0.01，这样就保证了Dead Neurons的问题
+
+缺点：由于它具有线性特性，不能用于复杂的分类问题。
+
+## 输出层与损失函数
+
+<img width="629" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a8be190a-7f42-4c4b-9b53-c8b747c49f89">
+
+<img width="633" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/966a83c6-990a-4d98-b38a-ab388b37cacf">
+
+分子是元素𝑧j的指数，分母是所有指数值的和，𝐾是类别总数。通过这种方式，softmax确保了输出向量中的每个元素都是一个介于0和1之间的数，并且它们的总和为1，使其可以被解释为概率分布。每个元素的概率是该元素的指数与所有元素指数之和的比值，因此得分高的类别会被赋予更高的概率。
 
 > 随机梯度下降算法
 
