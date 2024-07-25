@@ -1,4 +1,4 @@
-图深度学习=图神经网络=图表示学习=几何深度学习：使用深度学习对图进行机器学习，关键是将图表示学习映射成向量。即：图嵌入、节点表示学习（从数据中提取最少必要信息）就是把节点映射为低维连续稠密向量。
+<img width="349" alt="image" src="https://github.com/user-attachments/assets/3b161ca3-2e87-49bb-9eb6-442e9138541c">图深度学习=图神经网络=图表示学习=几何深度学习：使用深度学习对图进行机器学习，关键是将图表示学习映射成向量。即：图嵌入、节点表示学习（从数据中提取最少必要信息）就是把节点映射为低维连续稠密向量。
 
 <img width="734" alt="image" src="https://github.com/user-attachments/assets/97360e8c-fc30-427a-97a4-236780f98744">
 
@@ -9,6 +9,8 @@
 目标：向量点乘数值(余弦相似度)反映节点的相似度，即：图中相似节点，在向量空间里也相似。
 
 <img width="535" alt="image" src="https://github.com/user-attachments/assets/8b037c3b-dae9-4f4e-9737-4953d5e95ac9">
+
+《图神经网络基础、前沿与应用》人民邮电出版社 异步图书社区
 
 # word2vec
 
