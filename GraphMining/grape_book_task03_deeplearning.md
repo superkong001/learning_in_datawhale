@@ -134,6 +134,14 @@ Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法�
 
 <img width="361" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/0d107c47-ec92-43d0-98f7-890f200499df">
 
+## 深度学习中方法应用到GNN层
+
+<img width="533" alt="image" src="https://github.com/user-attachments/assets/1a96188d-9685-430c-9b68-6ddceab3e772">
+
+- batch normalization可以不用bias项；
+- dropout输出至0不进行反向传播，以防止过拟合（原因参考Alexnet论文）；
+- 其他：残差连接、密集连接、跨层连接...
+
 # 卷积神经网络
 
 卷积神经网络是包含卷积层的一类特殊的神经网络。在深度学习中，图像处理的区域检测对象被称为卷积核（convolution kernel）或者滤波器（filter）。
