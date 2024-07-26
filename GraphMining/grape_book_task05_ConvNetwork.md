@@ -22,7 +22,19 @@ summary:
 
 <img width="742" alt="image" src="https://github.com/user-attachments/assets/8faefb03-984d-46e0-9b46-84f1a135142b">
 
-使用消息传递图神经网络（MP-GNN，message passing GNN）
+使用消息传递图神经网络（MP-GNN，message passing GNN）。
+
+通过局部邻域构建计算图。每个节点的embedding都是基于邻居通过共享的同一个神经网络汇总出来，从而与顺序无关。
+
+<img width="745" alt="image" src="https://github.com/user-attachments/assets/2ad203c2-a787-4c5d-991c-b7acde7564a5">
+
+<img width="802" alt="image" src="https://github.com/user-attachments/assets/cfdf9e11-0c7a-4671-9635-aead4ad97a98">
+
+tips: 图神经网络的层数是计算图的层数而不是神经网络的层数。
+
+输入的各个节点的特征属性逐项求平均/求和/最大值（聚合函数与节点顺序无关），然后输入神经网络：
+
+<img width="764" alt="image" src="https://github.com/user-attachments/assets/df7f508f-9270-49ed-8662-19f856d6efcb">
 
 笔记：
 
