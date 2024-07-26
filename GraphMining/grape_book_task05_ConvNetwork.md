@@ -5,6 +5,8 @@
 
 <img width="799" alt="image" src="https://github.com/user-attachments/assets/6add36cb-57cb-4834-b57e-e350ffb472a0">
 
+节点的嵌入表示结果与节点编号顺序有关
+
 summary: 
 > 建模图神经网络时，关注重点是如何在网络上构建聚合算子，聚合算子的目的是刻画节点的局部结构。主要方法：谱域方法和空间域方法。
 
