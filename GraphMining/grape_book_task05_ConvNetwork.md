@@ -1,8 +1,11 @@
-summary: 
-
 - https://distill.pub/2021/understanding-gnns
 - https://distill.pub/2021/gnn-intro
 
+将邻接矩阵和节点属性直接输入神经网络导致的问题：
+
+<img width="799" alt="image" src="https://github.com/user-attachments/assets/6add36cb-57cb-4834-b57e-e350ffb472a0">
+
+summary: 
 > 建模图神经网络时，关注重点是如何在网络上构建聚合算子，聚合算子的目的是刻画节点的局部结构。主要方法：谱域方法和空间域方法。
 
 > 由于网络数据上平移不变性的缺失，GCN通过在节点的邻域进行聚合操作来提取特征，而不是简单的平移。
