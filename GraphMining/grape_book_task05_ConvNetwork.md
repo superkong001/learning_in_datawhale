@@ -1,12 +1,6 @@
 - https://distill.pub/2021/understanding-gnns
 - https://distill.pub/2021/gnn-intro
 
-将邻接矩阵和节点属性直接输入神经网络导致的问题：
-
-<img width="799" alt="image" src="https://github.com/user-attachments/assets/6add36cb-57cb-4834-b57e-e350ffb472a0">
-
-节点的嵌入表示结果与节点编号顺序有关（需要置换不变性）
-
 summary: 
 > 建模图神经网络时，关注重点是如何在网络上构建聚合算子，聚合算子的目的是刻画节点的局部结构。主要方法：谱域方法和空间域方法。
 
@@ -15,6 +9,20 @@ summary:
 > 谱域方法：傅里叶变换，使用拉普拉斯特征向量矩阵。拉普拉斯谱分解：L：=D-A。但基于全图的傅里叶卷积来实现图的卷积，存在无法保证局部性和计算复杂度比较大，难以扩展到大型图网络结构中的问题，所以采用切比雪夫多项式替代了谱卷积神经网络的卷积核，并对其进行了简化，只取一阶和二阶。
 
 > 空间域方法：空域卷积是从邻居节点信息聚合的角度出发，更加注重节点的局域环境。主要做对节点的信息进行转换和信息聚合。如：GraphSAGE
+
+# 问题
+
+- 将邻接矩阵和节点属性直接输入神经网络导致的问题：
+
+<img width="799" alt="image" src="https://github.com/user-attachments/assets/6add36cb-57cb-4834-b57e-e350ffb472a0">
+
+节点的嵌入表示结果与节点编号顺序有关（需要置换不变性）
+
+- 图直接输入卷积网络的问题：
+
+<img width="742" alt="image" src="https://github.com/user-attachments/assets/8faefb03-984d-46e0-9b46-84f1a135142b">
+
+使用消息传递图神经网络（MP-GNN，message passing GNN）
 
 笔记：
 
