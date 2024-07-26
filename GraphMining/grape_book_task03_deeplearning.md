@@ -146,6 +146,8 @@ Adam（Adaptive Moment Estimation）是一种自适应学习率的优化算法�
 
 卷积神经网络是包含卷积层的一类特殊的神经网络。在深度学习中，图像处理的区域检测对象被称为卷积核（convolution kernel）或者滤波器（filter）。
 
+<img width="756" alt="image" src="https://github.com/user-attachments/assets/387afdc5-c8df-4462-bb18-5187de6a3434">
+
 卷积神经网络具有的特性：
 > 平移不变性（translation invariance）：不管检测对象出现在图像中的哪个位置，神经网络的前面几层应该对相同的图像区域具有相似的反应，即为“平移不变性”。图像的平移不变性使我们以相同的方式处理局部图像，而不在乎它的位置。
 
