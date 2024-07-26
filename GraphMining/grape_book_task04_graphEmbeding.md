@@ -12,6 +12,10 @@
 
 《图神经网络基础、前沿与应用》人民邮电出版社 异步图书社区
 
+https://paperswithcode.com/area/graphs 任务、数据集、算法等
+
+ReadPaper论文集：https://readpaper.com/user/collect/1646173008626578176
+
 # word2vec
 
 ## 基础知识
