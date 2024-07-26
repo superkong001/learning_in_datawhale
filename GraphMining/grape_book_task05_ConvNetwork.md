@@ -1,6 +1,11 @@
 - https://distill.pub/2021/understanding-gnns
 - https://distill.pub/2021/gnn-intro
 
+工具库：
+- networkx.org
+- www.pyg.org
+- www.dgl.ai
+
 summary: 
 > 建模图神经网络时，关注重点是如何在网络上构建聚合算子，聚合算子的目的是刻画节点的局部结构。主要方法：谱域方法和空间域方法。
 
