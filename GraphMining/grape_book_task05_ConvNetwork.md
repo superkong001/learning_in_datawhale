@@ -17,6 +17,8 @@ summary:
 
 # 问题
 
+![image](https://github.com/user-attachments/assets/3ebcc043-3699-423e-8bcb-d96a8a8b7f5a)
+
 - 将邻接矩阵和节点属性直接输入神经网络导致的问题：
 
 <img width="799" alt="image" src="https://github.com/user-attachments/assets/6add36cb-57cb-4834-b57e-e350ffb472a0">
