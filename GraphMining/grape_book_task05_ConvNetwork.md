@@ -33,7 +33,7 @@ summary:
 
 通过局部邻域构建计算图。每个节点的embedding都是基于邻居通过共享的同一个神经网络汇总出来，从而与顺序无关。
 
-<img width="745" alt="image" src="https://github.com/user-attachments/assets/2ad203c2-a787-4c5d-991c-b7acde7564a5">
+![image](https://github.com/user-attachments/assets/dd79bbd8-c9bd-46ee-82b9-2b3a01f952f1)
 
 <img width="802" alt="image" src="https://github.com/user-attachments/assets/cfdf9e11-0c7a-4671-9635-aead4ad97a98">
 
