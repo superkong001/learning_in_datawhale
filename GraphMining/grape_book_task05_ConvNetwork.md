@@ -45,7 +45,7 @@ tips: 图神经网络的层数是计算图的层数而不是神经网络的层�
 
 <img width="764" alt="image" src="https://github.com/user-attachments/assets/df7f508f-9270-49ed-8662-19f856d6efcb">
 
-<img width="572" alt="image" src="https://github.com/user-attachments/assets/e1b4681f-e1df-4b5f-91a4-91ee6f016841">
+<img width="575" alt="image" src="https://github.com/user-attachments/assets/3b26e882-fd10-456c-a5af-c03a87bbdad0">
 
 矩阵方式计算：
 
