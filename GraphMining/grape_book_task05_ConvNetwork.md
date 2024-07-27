@@ -45,6 +45,13 @@ tips: 图神经网络的层数是计算图的层数而不是神经网络的层�
 
 <img width="764" alt="image" src="https://github.com/user-attachments/assets/df7f508f-9270-49ed-8662-19f856d6efcb">
 
+<img width="572" alt="image" src="https://github.com/user-attachments/assets/e1b4681f-e1df-4b5f-91a4-91ee6f016841">
+
+矩阵方式计算：
+
+<img width="539" alt="image" src="https://github.com/user-attachments/assets/786ec2a2-a9fa-499d-8aa7-655845545ae4">
+
+
 笔记：
 
 现有图神经网络皆基于邻居聚合的框架，即为每个目标节点通过聚合其邻居刻画结构信息，进而学习目标节点的表示。
