@@ -17,11 +17,11 @@ summary:
 
 # 问题
 
-![image](https://github.com/user-attachments/assets/3ebcc043-3699-423e-8bcb-d96a8a8b7f5a)
+<img width="648" alt="image" src="https://github.com/user-attachments/assets/f99467e1-14e0-479e-9c8d-23fa4f4f4641">
 
 - 将邻接矩阵和节点属性直接输入神经网络导致的问题：
 
-<img width="799" alt="image" src="https://github.com/user-attachments/assets/6add36cb-57cb-4834-b57e-e350ffb472a0">
+<img width="699" alt="image" src="https://github.com/user-attachments/assets/6add36cb-57cb-4834-b57e-e350ffb472a0">
 
 节点的嵌入表示结果与节点编号顺序有关（需要置换不变性）
 
