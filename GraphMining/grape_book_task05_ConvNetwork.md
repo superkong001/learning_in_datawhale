@@ -35,6 +35,8 @@ summary:
 
 ![image](https://github.com/user-attachments/assets/dd79bbd8-c9bd-46ee-82b9-2b3a01f952f1)
 
+![image](https://github.com/user-attachments/assets/d9bd4b3c-b2f4-4578-bb3f-cec04503309c)
+
 <img width="802" alt="image" src="https://github.com/user-attachments/assets/cfdf9e11-0c7a-4671-9635-aead4ad97a98">
 
 tips: 图神经网络的层数是计算图的层数而不是神经网络的层数。
