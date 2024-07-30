@@ -60,6 +60,9 @@ tips: 图神经网络的层数是计算图的层数而不是神经网络的层�
 <img width="442" alt="image" src="https://github.com/user-attachments/assets/52fc8582-7ab9-47d7-890b-bea1e1574719">
 
 https://math.stackexchange.com/questions/3035968/interpretation-of-symmetric-normalised-graph-adjacency-matrix
+
+<img width="272" alt="image" src="https://github.com/user-attachments/assets/15189361-ef83-45a3-9d89-2559ce95f2c1">
+
 笔记：
 
 现有图神经网络皆基于邻居聚合的框架，即为每个目标节点通过聚合其邻居刻画结构信息，进而学习目标节点的表示。
