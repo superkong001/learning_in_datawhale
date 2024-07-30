@@ -289,55 +289,51 @@ Normalized Adjacency Matrix推导过程：https://math.stackexchange.com/questio
 和D矩阵相关的数学公式LaTex脚本：
 
 ```latex
+$$
 {\color{Blue} h_{v}^{(k+1)} }  = {\color{Green} \sigma(} {\color{Red} W_{k}} \sum_{u\in N(v)} \frac{{\color{Blue} h_{u}^{k}} }{|N(v)|}{\color{Green} )} 
+$$
 
-
-
+$$
 D = 
 \begin{bmatrix} 
-  & d(1) & 0 & 0 & \cdots & 0  &\\
-  
+  & d(1) & 0 & 0 & \cdots & 0  &\\  
   & 0 & d(2) & 0 & \cdots & 0   \\
-
   & 0 & 0 & d(3)  & \cdots & 0 \\
   & \vdots & \vdots & \vdots & \ddots & \vdots\\
-
   & 0 & 0 & 0 & \cdots & d(n)
 \end{bmatrix}
+$$
 
+$$
 D^{-1} = 
 \begin{bmatrix} 
-  & \frac{1}{d(1)} & 0 & 0 & \cdots & 0  &\\
-  
+  & \frac{1}{d(1)} & 0 & 0 & \cdots & 0  &\\  
   & 0 & \frac{1}{d(2)} & 0 & \cdots & 0   \\
-
   & 0 & 0 & \frac{1}{d(3)}  & \cdots & 0 \\
   & \vdots & \vdots & \vdots & \ddots & \vdots\\
-
   & 0 & 0 & 0 & \cdots & \frac{1}{d(n)}
 \end{bmatrix}
+$$
 
+$$
 D^{\frac{1}{2}} = 
 \begin{bmatrix} 
-  & \sqrt{d(1)} & 0 & 0 & \cdots & 0  &\\
-  
+  & \sqrt{d(1)} & 0 & 0 & \cdots & 0  &\\  
   & 0 & \sqrt{d(2)} & 0 & \cdots & 0   \\
-
   & 0 & 0 & \sqrt{d(3)}  & \cdots & 0 \\
   & \vdots & \vdots & \vdots & \ddots & \vdots\\
-
   & 0 & 0 & 0 & \cdots & \sqrt{d(n)}
 \end{bmatrix}
+$$
 
+$$
 D^{-\frac{1}{2}} = 
 \begin{bmatrix} 
-  & \frac{1}{\sqrt{d(1)}} & 0 & 0 & \cdots & 0  &\\
-  
+  & \frac{1}{\sqrt{d(1)}} & 0 & 0 & \cdots & 0  &\\  
   & 0 & \frac{1}{\sqrt{d(2)}} & 0 & \cdots & 0   \\
-
   & 0 & 0 & \frac{1}{\sqrt{d(3)}}  & \cdots & 0 \\
   & \vdots & \vdots & \vdots & \ddots & \vdots\\
-
   & 0 & 0 & 0 & \cdots & \frac{1}{\sqrt{d(n)}}
 \end{bmatrix}
+$$
 ```
