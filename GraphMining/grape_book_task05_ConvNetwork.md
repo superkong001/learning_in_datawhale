@@ -29,6 +29,8 @@ summary:
 
 <img width="742" alt="image" src="https://github.com/user-attachments/assets/8faefb03-984d-46e0-9b46-84f1a135142b">
 
+## 思路
+
 使用消息传递图神经网络（MP-GNN，message passing GNN）。
 
 通过局部邻域构建计算图。每个节点的embedding都是基于邻居通过共享的同一个神经网络汇总出来，从而与顺序无关。
@@ -45,15 +47,15 @@ tips: 图神经网络的层数是计算图的层数而不是神经网络的层�
 
 <img width="764" alt="image" src="https://github.com/user-attachments/assets/df7f508f-9270-49ed-8662-19f856d6efcb">
 
-数学形式表达：
+## 数学形式表达
 
 <img width="575" alt="image" src="https://github.com/user-attachments/assets/3b26e882-fd10-456c-a5af-c03a87bbdad0">
 
-矩阵方式计算：
+## 矩阵方式计算
 
 <img width="539" alt="image" src="https://github.com/user-attachments/assets/786ec2a2-a9fa-499d-8aa7-655845545ae4">
 
-改进：
+## 改进
 
 <img width="747" alt="image" src="https://github.com/user-attachments/assets/3c24a99e-9f11-47a6-a91b-4bfd31cfe899">
 
