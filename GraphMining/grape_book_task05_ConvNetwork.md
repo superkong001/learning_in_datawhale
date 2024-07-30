@@ -53,6 +53,8 @@ tips: 图神经网络的层数是计算图的层数而不是神经网络的层�
 
 <img width="539" alt="image" src="https://github.com/user-attachments/assets/786ec2a2-a9fa-499d-8aa7-655845545ae4">
 
+改进：
+
 <img width="747" alt="image" src="https://github.com/user-attachments/assets/3c24a99e-9f11-47a6-a91b-4bfd31cfe899">
 
 <img width="755" alt="image" src="https://github.com/user-attachments/assets/f1420240-7f89-46cc-b633-1f5d3d53b91d">
