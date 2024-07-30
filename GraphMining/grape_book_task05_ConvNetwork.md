@@ -15,7 +15,9 @@ summary:
 
 > 空间域方法：空域卷积是从邻居节点信息聚合的角度出发，更加注重节点的局域环境。主要做对节点的信息进行转换和信息聚合。如：GraphSAGE
 
-# 问题
+# GCN
+
+## 问题
 
 <img width="648" alt="image" src="https://github.com/user-attachments/assets/f99467e1-14e0-479e-9c8d-23fa4f4f4641">
 
@@ -68,6 +70,13 @@ https://math.stackexchange.com/questions/3035968/interpretation-of-symmetric-nor
 <img width="272" alt="image" src="https://github.com/user-attachments/assets/15189361-ef83-45a3-9d89-2559ce95f2c1">
 
 <img width="571" alt="image" src="https://github.com/user-attachments/assets/3c6093eb-f977-4c5d-975b-ce7f1826e8a1">
+
+最终公式： 
+
+$$
+H^{(l+1)} = \sigma\left(\tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}} H^{(l)} W^{(l)}\right)
+$$
+
 
 笔记：
 
