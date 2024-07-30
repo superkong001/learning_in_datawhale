@@ -63,6 +63,8 @@ https://math.stackexchange.com/questions/3035968/interpretation-of-symmetric-nor
 
 <img width="272" alt="image" src="https://github.com/user-attachments/assets/15189361-ef83-45a3-9d89-2559ce95f2c1">
 
+<img width="571" alt="image" src="https://github.com/user-attachments/assets/3c6093eb-f977-4c5d-975b-ce7f1826e8a1">
+
 笔记：
 
 现有图神经网络皆基于邻居聚合的框架，即为每个目标节点通过聚合其邻居刻画结构信息，进而学习目标节点的表示。
