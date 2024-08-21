@@ -53,6 +53,8 @@ K层KNN感受野：一层图神经网络代表1跳的邻居，K-layer GNN代表K
 
 <img width="764" alt="image" src="https://github.com/user-attachments/assets/df7f508f-9270-49ed-8662-19f856d6efcb">
 
+<img width="792" alt="image" src="https://github.com/user-attachments/assets/83c5b85c-7c44-4368-bcef-c7b9ffb4b951">
+
 ## 数学形式表达
 
 <img width="575" alt="image" src="https://github.com/user-attachments/assets/3b26e882-fd10-456c-a5af-c03a87bbdad0">
