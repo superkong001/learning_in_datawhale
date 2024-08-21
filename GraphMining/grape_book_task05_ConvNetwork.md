@@ -91,6 +91,10 @@ $$
 
 <img width="772" alt="image" src="https://github.com/user-attachments/assets/c8d2d068-fbe2-4a5e-9ca7-bc9e24db0c2b">
 
+《图神经网给 基础、刖冶与应用》人氏邮电出版社异步社区
+
+<img width="743" alt="image" src="https://github.com/user-attachments/assets/1c2da715-ab1b-4cc7-8ae0-d613c41b73d5">
+
 笔记：
 
 现有图神经网络皆基于邻居聚合的框架，即为每个目标节点通过聚合其邻居刻画结构信息，进而学习目标节点的表示。
