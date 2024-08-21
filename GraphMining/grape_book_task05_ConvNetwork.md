@@ -1,4 +1,4 @@
-- https://distill.pub/2021/understanding-gnns
+<img width="236" alt="image" src="https://github.com/user-attachments/assets/8071557b-230f-4e86-b082-fb6fa352c70a"><img width="167" alt="image" src="https://github.com/user-attachments/assets/b6d323fa-450c-4cb8-852d-1c71b363fb44">- https://distill.pub/2021/understanding-gnns
 - https://distill.pub/2021/gnn-intro
 
 工具库：
@@ -120,11 +120,14 @@ $$
 
 直推式学习(Transductive Learning)：
 
-- 用于预测的节点在训练时就见过。如随机游走方法:DeepWalk、Node2Vec
+- 用于预测的节点在训练时就见过，无法立刻泛化到新加入的节点，某种程度的过合。如随机游走方法:DeepWalk、Node2Vec，需要重新采样随机游走序列，优化更新所有节点嵌入向量。
+- DeepWalk and node2vec do not capture structural similarity. 解决方案:Anonymous Randon Walks、GNN
+- 仅利用图本身的连接信息，没利用属性信息或标注信息。
 
 归纳式学习(Inductive Learning)：
 
-- 用于预测的节点在训练时没见过(泛化到新节点)。如图神经网络方法:GCN、GraphSAGE、GAT、GIN
+- 用于预测的节点在训练时没见过(泛化到新节点)，还能获得功能结构角色信息（结构上相似、地理上远隔）。如图神经网络方法:GCN、GraphSAGE、GAT、GIN
+- 利用属性信息或标注信息。节点、连接、子图、全图都可以有特征。
 
 笔记：
 
