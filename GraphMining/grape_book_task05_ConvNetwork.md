@@ -93,7 +93,9 @@ $$
 
 《图神经网给 基础、刖冶与应用》人氏邮电出版社异步社区
 
-<img width="743" alt="image" src="https://github.com/user-attachments/assets/1c2da715-ab1b-4cc7-8ae0-d613c41b73d5">
+<img width="719" alt="image" src="https://github.com/user-attachments/assets/f21c980f-4a20-441d-b4e8-0e0d901ddcab">
+
+公式4.6=公式4.7，公式4.7为自己邻域节点的计算+对自己节点的计算
 
 笔记：
 
