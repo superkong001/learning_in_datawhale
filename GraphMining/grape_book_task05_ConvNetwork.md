@@ -95,11 +95,28 @@ $$
 
 <img width="719" alt="image" src="https://github.com/user-attachments/assets/f21c980f-4a20-441d-b4e8-0e0d901ddcab">
 
-公式4.6=公式4.7，公式4.7为自己邻域节点的计算+对自己节点的计算
+公式4.6=公式4.7，公式4.7为自己邻域节点信息汇聚计算+对自己节点信息汇聚计算
 
 改进版：领域与自身采用不同的神经网络
 
 <img width="791" alt="image" src="https://github.com/user-attachments/assets/4e9ed0a1-97b4-4bfc-a59c-bad06bea815e">
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/6e3a461c-3a84-4bea-8b26-27ec4b201951">
+
+## 训练GNN
+
+<img width="701" alt="image" src="https://github.com/user-attachments/assets/3d33bf72-a2c6-4b29-b30d-fe40d6140772">
+
+### 监督训练：
+
+<img width="742" alt="image" src="https://github.com/user-attachments/assets/ff663776-0e50-4fb3-8d86-24294d413de0">
+
+<img width="805" alt="image" src="https://github.com/user-attachments/assets/e86692a0-aaf0-49bf-ac6e-680bbda5190e">
+
+### 无监督训练：
+目标：相连节点Embedding向量尽可能相似（点乘，余弦相似度），相似则数量积越大越好
+
+<img width="712" alt="image" src="https://github.com/user-attachments/assets/eb1e6555-b878-4445-bb78-cb6e92e2748b">
 
 笔记：
 
