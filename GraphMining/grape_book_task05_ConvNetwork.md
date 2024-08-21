@@ -49,7 +49,7 @@ tips: 图神经网络的层数是计算图的层数而不是神经网络的层�
 
 <img width="742" alt="image" src="https://github.com/user-attachments/assets/da426eff-b9b8-4c81-8d37-85f870e0e0f9">
 
-一层图神经网络代表1跳的邻居，K-layer GNN代表K-hop neighborhood
+K层KNN感受野：一层图神经网络代表1跳的邻居，K-layer GNN代表K-hop neighborhood
 
 <img width="764" alt="image" src="https://github.com/user-attachments/assets/df7f508f-9270-49ed-8662-19f856d6efcb">
 
