@@ -118,6 +118,14 @@ $$
 
 <img width="712" alt="image" src="https://github.com/user-attachments/assets/eb1e6555-b878-4445-bb78-cb6e92e2748b">
 
+直推式学习(Transductive Learning)：
+
+- 用于预测的节点在训练时就见过。如随机游走方法:DeepWalk、Node2Vec
+
+归纳式学习(Inductive Learning)：
+
+- 用于预测的节点在训练时没见过(泛化到新节点)。如图神经网络方法:GCN、GraphSAGE、GAT、GIN
+
 笔记：
 
 现有图神经网络皆基于邻居聚合的框架，即为每个目标节点通过聚合其邻居刻画结构信息，进而学习目标节点的表示。
