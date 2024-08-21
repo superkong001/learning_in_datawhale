@@ -1,4 +1,4 @@
-<img width="236" alt="image" src="https://github.com/user-attachments/assets/8071557b-230f-4e86-b082-fb6fa352c70a"><img width="167" alt="image" src="https://github.com/user-attachments/assets/b6d323fa-450c-4cb8-852d-1c71b363fb44">- https://distill.pub/2021/understanding-gnns
+- https://distill.pub/2021/understanding-gnns
 - https://distill.pub/2021/gnn-intro
 
 工具库：
