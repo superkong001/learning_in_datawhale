@@ -87,6 +87,9 @@ $$
 H^{(l+1)} = \sigma\left(\tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}} H^{(l)} W^{(l)}\right)
 $$
 
+加上自己的“声音”
+
+<img width="772" alt="image" src="https://github.com/user-attachments/assets/c8d2d068-fbe2-4a5e-9ca7-bc9e24db0c2b">
 
 笔记：
 
