@@ -57,6 +57,10 @@ K层KNN感受野：一层图神经网络代表1跳的邻居，K-layer GNN代表K
 
 ## 数学形式表达
 
+> 0 层就是输入每个节点给定的属性特征向量，可以One-hot或者全1表示没有特征
+> k+1 层为k层所有邻居节点逐元素求和，再取平均；然后输入神经网络；最后经过一个激活函数；
+> 最后一层输出的向量作为节点v的Embedding
+
 <img width="575" alt="image" src="https://github.com/user-attachments/assets/3b26e882-fd10-456c-a5af-c03a87bbdad0">
 
 ## 矩阵方式计算
