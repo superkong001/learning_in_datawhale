@@ -47,6 +47,8 @@ tips: 图神经网络的层数是计算图的层数而不是神经网络的层�
 
 输入的各个节点的特征属性逐项求平均/求和/最大值（聚合函数与节点顺序无关），然后输入神经网络：
 
+<img width="742" alt="image" src="https://github.com/user-attachments/assets/da426eff-b9b8-4c81-8d37-85f870e0e0f9">
+
 <img width="764" alt="image" src="https://github.com/user-attachments/assets/df7f508f-9270-49ed-8662-19f856d6efcb">
 
 ## 数学形式表达
