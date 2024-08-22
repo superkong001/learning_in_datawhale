@@ -164,8 +164,7 @@ H^{(l+1)} \rightarrow \sigma\left(\tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{
 $$
 
 $$
-\rightarrow
-*f*:X \rightarrow Y 
+f : X \rightarrow Y
 $$
 
 单射:每个输入对应唯-输出
