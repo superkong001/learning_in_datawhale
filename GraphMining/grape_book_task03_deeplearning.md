@@ -6,7 +6,7 @@
 
 eg:
 
-<img width="1049" alt="image" src="https://github.com/user-attachments/assets/569a7ede-b6f0-47bc-a59b-d1752b88dee3">
+<img width="770" alt="image" src="https://github.com/user-attachments/assets/8211e173-3630-40b5-83d6-d4e40a05b262">
 
 # 模型优化
 
