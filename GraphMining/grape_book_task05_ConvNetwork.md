@@ -143,6 +143,16 @@ CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$\widetilde{
 
 <img width="1034" alt="image" src="https://github.com/user-attachments/assets/f5dd8cdb-a0ed-450c-ba85-5e51554797cf">
 
+## 不同类型GNN
+
+- GCN
+
+<img width="741" alt="image" src="https://github.com/user-attachments/assets/05ce3057-d114-44ef-9c66-a4b736dad0d6">
+
+- GraphSAGE
+
+<img width="764" alt="image" src="https://github.com/user-attachments/assets/d60d9e0f-865b-426f-81ae-1c74bc7bd6fa">
+
 # 笔记：
 
 现有图神经网络皆基于邻居聚合的框架，即为每个目标节点通过聚合其邻居刻画结构信息，进而学习目标节点的表示。
