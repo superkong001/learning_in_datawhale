@@ -323,7 +323,7 @@ Cora节点分类数据集上的比分：https://paperswithcode.com/sota/node-cla
 
 DIFFPOOL论文：https://arxiv.org/pdf/1806.08804.pdf
 
-***《图神经网络 基础、前沿与应用》人民邮电出版社 异步图书社区，部分章节电子版 ***
+***《图神经网络 基础、前沿与应用》人民邮电出版社 异步图书社区，部分章节电子版***
 
 https://graph-neural-networks.github.io
 
