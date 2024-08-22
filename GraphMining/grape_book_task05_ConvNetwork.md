@@ -160,7 +160,7 @@ CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$\widetilde{
 <img width="773" alt="image" src="https://github.com/user-attachments/assets/bdbe67ab-70b9-4b29-88ea-8b48bad7c85e">
 
 $$
-H^{(l+1)} = \sigma\left(\tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}} H^{(l)} W^{(l)}\right)
+H^{(l+1)} \rightarrow \sigma\left(\tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}} H^{(l)} W^{(l)}\right)
 $$
 
 $$
