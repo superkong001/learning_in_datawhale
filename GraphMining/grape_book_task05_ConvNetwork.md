@@ -131,7 +131,7 @@ $$
 
 <img width="695" alt="image" src="https://github.com/user-attachments/assets/f3881266-2c3d-40f8-803f-efc11318c0fc">
 
-CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$\widetilde{A}$$ 预定义，即：固定的邻域和固定的顺序的CNN。
+CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$\widetilde{A}$$ 预定义，即：GNN是固定的邻域和固定的顺序的CNN；GNN具有置换不变性。
 
 # 笔记：
 
