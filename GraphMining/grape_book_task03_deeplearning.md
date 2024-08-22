@@ -1,3 +1,9 @@
+# 深度学习理论基石
+
+- 万能近似定理Theorem: Universal Approximation Theorem
+
+<img width="728" alt="image" src="https://github.com/user-attachments/assets/836ee5aa-9fb5-4935-82b8-04016b9c4fca">
+
 # 模型优化
 
 ![image](https://github.com/user-attachments/assets/4dcb78d2-e01d-4418-b6c3-484292b97f34)
