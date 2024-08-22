@@ -103,7 +103,7 @@ $$
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/6e3a461c-3a84-4bea-8b26-27ec4b201951">
 
-## 训练GNN
+## 训练GCN
 
 <img width="701" alt="image" src="https://github.com/user-attachments/assets/3d33bf72-a2c6-4b29-b30d-fe40d6140772">
 
@@ -131,9 +131,9 @@ $$
 
 <img width="695" alt="image" src="https://github.com/user-attachments/assets/f3881266-2c3d-40f8-803f-efc11318c0fc">
 
-CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$\widetilde{A}$$ 预定义，即：GNN是固定的邻域和固定的顺序的CNN；GNN具有置换不变性。
+CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$\widetilde{A}$$ 预定义，即：GCN是固定的邻域和固定的顺序的CNN；GCN具有置换不变性。
 
-### Today：A General GNN Framework
+### Today：A General GCN Framework
 
 <img width="718" alt="image" src="https://github.com/user-attachments/assets/355b51a3-e701-4dee-adc9-70fb6921c9f4">
 
