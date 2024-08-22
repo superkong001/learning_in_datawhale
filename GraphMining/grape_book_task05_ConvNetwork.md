@@ -131,9 +131,9 @@ $$
 
 <img width="695" alt="image" src="https://github.com/user-attachments/assets/f3881266-2c3d-40f8-803f-efc11318c0fc">
 
-CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $${upper~}A$$ 预定义
+CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$<sup>~A$$ 预定义
 
-笔记：
+# 笔记：
 
 现有图神经网络皆基于邻居聚合的框架，即为每个目标节点通过聚合其邻居刻画结构信息，进而学习目标节点的表示。
 
