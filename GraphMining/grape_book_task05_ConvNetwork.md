@@ -155,9 +155,13 @@ CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$\widetilde{
 
 ## GNN表达能力
 
-**GNN的表达能力=区分计算图根节点Embedding的能力。** 理想GNN:不同的计算图根节点、输出不同Embedding；如果两个节点的属性特征相同、计算图相同，则算出来的Embedding也相同，如：节点1和节点2
+**GNN的表达能力=区分计算图根节点Embedding的能力。** 理想GNN:不同的计算图根节点、输出不同Embedding；如果两个节点的属性特征相同、计算图相同，则算出来的Embedding也相同，如：节点1和节点2无法区分，但3、4、5必须能区分。
 
-<img width="751" alt="image" src="https://github.com/user-attachments/assets/d4744846-0190-4f64-bfe8-62fbfd97e9c0">
+<img width="773" alt="image" src="https://github.com/user-attachments/assets/bdbe67ab-70b9-4b29-88ea-8b48bad7c85e">
+
+\( f: X \rightarrow Y \) 单射:每个输入对应唯-输出
+
+<img width="427" alt="image" src="https://github.com/user-attachments/assets/52fd046f-a902-47bd-b923-d6de624815c1">
 
 # 笔记：
 
