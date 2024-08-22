@@ -131,7 +131,7 @@ $$
 
 <img width="695" alt="image" src="https://github.com/user-attachments/assets/f3881266-2c3d-40f8-803f-efc11318c0fc">
 
-CNN的卷积核权重需学习得到，而GCN的卷积核权重由 <sup>~ A 预定义
+CNN的卷积核权重需学习得到，而GCN的卷积核权重由 <sup>~</sup>A 预定义
 
 # 笔记：
 
