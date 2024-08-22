@@ -133,6 +133,10 @@ $$
 
 CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$\widetilde{A}$$ 预定义，即：GNN是固定的邻域和固定的顺序的CNN；GNN具有置换不变性。
 
+### Today：A General GNN Framework
+
+<img width="718" alt="image" src="https://github.com/user-attachments/assets/355b51a3-e701-4dee-adc9-70fb6921c9f4">
+
 # 笔记：
 
 现有图神经网络皆基于邻居聚合的框架，即为每个目标节点通过聚合其邻居刻画结构信息，进而学习目标节点的表示。
