@@ -91,7 +91,7 @@ $$
 
 <img width="772" alt="image" src="https://github.com/user-attachments/assets/c8d2d068-fbe2-4a5e-9ca7-bc9e24db0c2b">
 
-《图神经网给 基础、刖冶与应用》人氏邮电出版社异步社区
+**《图神经网给 基础、刖冶与应用》人民邮电出版社异步社区**
 
 <img width="719" alt="image" src="https://github.com/user-attachments/assets/f21c980f-4a20-441d-b4e8-0e0d901ddcab">
 
@@ -152,6 +152,12 @@ CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$\widetilde{
 - GraphSAGE
 
 <img width="764" alt="image" src="https://github.com/user-attachments/assets/d60d9e0f-865b-426f-81ae-1c74bc7bd6fa">
+
+## GNN表达能力
+
+**GNN的表达能力=区分计算图根节点Embedding的能力。** 理想GNN:不同的计算图根节点、输出不同Embedding；如果两个节点的属性特征相同、计算图相同，则算出来的Embedding也相同，如：节点1和节点2
+
+<img width="751" alt="image" src="https://github.com/user-attachments/assets/d4744846-0190-4f64-bfe8-62fbfd97e9c0">
 
 # 笔记：
 
