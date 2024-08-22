@@ -162,6 +162,7 @@ CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$\widetilde{
 $$
 f : X \rightarrow Y
 $$
+
 单射:每个输入对应唯-输出
 
 <img width="427" alt="image" src="https://github.com/user-attachments/assets/52fd046f-a902-47bd-b923-d6de624815c1">
