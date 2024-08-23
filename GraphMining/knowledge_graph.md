@@ -10,11 +10,11 @@ Neo4j中算法：
 
 <img width="772" alt="image" src="https://github.com/user-attachments/assets/98f86c66-6f60-4c23-a7c5-af491febd249">
 
-> https://graphacademy.neo4j.com/courses/graph-data-science-fundamentals/
+- https://graphacademy.neo4j.com/courses/graph-data-science-fundamentals/
+- https://neo4j.com/docs/graph-data-science/current/
+- QAMedicalKG - Python chatbot_graph.py https://github.com/TommyZihao/QASystemOnMedicalKG/tree/master/notebook_tutorials
 
-> QAMedicalKG - Python chatbot_graph.py https://github.com/TommyZihao/QASystemOnMedicalKG/tree/master/notebook_tutorials
-
-- 将疾病、症状、药物、科室、检查、治疗方法、药物厂商、宜吃不宜吃等医疗术语，提取为知识图谱的节点实体，节点实体之间通过关系连接。将人类的医学“知识”，定量固化存储为“知识图谱”。构建问答机器人完整流程：
+将疾病、症状、药物、科室、检查、治疗方法、药物厂商、宜吃不宜吃等医疗术语，提取为知识图谱的节点实体，节点实体之间通过关系连接。将人类的医学“知识”，定量固化存储为“知识图谱”。构建问答机器人完整流程：
 
 1. 导入CSV表格数据，构建知识图谱
 2. 可视化、探索知识图谱（Bloom、GraphXR）
