@@ -6,6 +6,8 @@
 - www.pyg.org
 - www.dgl.ai
 
+GNN论文：https://arxiv.org/pdf/1810.00826.pdf
+
 summary: 
 > 建模图神经网络时，关注重点是如何在网络上构建聚合算子，聚合算子的目的是刻画节点的局部结构。主要方法：谱域方法和空间域方法。
 
@@ -149,9 +151,21 @@ CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$\widetilde{
 
 <img width="741" alt="image" src="https://github.com/user-attachments/assets/05ce3057-d114-44ef-9c66-a4b736dad0d6">
 
+求平均方式，导致不是单射的
+
+<img width="674" alt="image" src="https://github.com/user-attachments/assets/c101a347-bc88-4de4-8ce3-3e831d29385a">
+
 - GraphSAGE
 
 <img width="764" alt="image" src="https://github.com/user-attachments/assets/d60d9e0f-865b-426f-81ae-1c74bc7bd6fa">
+
+伪代码：
+
+<img width="809" alt="image" src="https://github.com/user-attachments/assets/edfe0881-50f6-4583-ad36-1e0f11185e22">
+
+求最大值方式，导致不是单射的
+
+<img width="773" alt="image" src="https://github.com/user-attachments/assets/d06086ef-fccb-4e5f-9bad-5088c17075df">
 
 ## GNN表达能力
 
