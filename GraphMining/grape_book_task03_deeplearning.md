@@ -4,7 +4,7 @@
 
 <img width="728" alt="image" src="https://github.com/user-attachments/assets/836ee5aa-9fb5-4935-82b8-04016b9c4fca">
 
-eg:
+拟合一个哈希函数。Eg:
 
 <img width="770" alt="image" src="https://github.com/user-attachments/assets/8211e173-3630-40b5-83d6-d4e40a05b262">
 
