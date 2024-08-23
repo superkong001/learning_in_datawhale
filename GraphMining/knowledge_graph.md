@@ -1,6 +1,6 @@
 Neo4j中的图数据挖掘神器：Graph Data Science Playground
 
-- QAMedicalKG - Python chatbot_graph.py > https://github.com/TommyZihao/QASystemOnMedicalKG/tree/master/notebook_tutorials
+- QAMedicalKG - Python chatbot_graph.py https://github.com/TommyZihao/QASystemOnMedicalKG/tree/master/notebook_tutorials
 - https://neo4j.com/graphacademy/training-iga-40/02-iga-40-overview-of-graph-algorithms/
 
 <img width="631" alt="image" src="https://github.com/user-attachments/assets/cc2de419-f57d-42b3-83b7-e59b8a9eaf5b">
