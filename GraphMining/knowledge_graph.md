@@ -30,7 +30,7 @@ Neo4j中的图数据挖掘神器：Graph Data Science Playground
 
 ## GraphXR 
 
-> app.graphxr.cn
+> https://app.graphxr.cn 
 
 <img width="636" alt="image" src="https://github.com/user-attachments/assets/a4cdbb7e-e59b-4f79-9ef4-822f1ccdbe3d">
 
