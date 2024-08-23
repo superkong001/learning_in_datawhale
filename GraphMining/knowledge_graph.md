@@ -9,6 +9,8 @@ Neo4j中的图数据挖掘神器：Graph Data Science Playground
 
 <img width="763" alt="image" src="https://github.com/user-attachments/assets/8be88959-a14c-489b-921b-d0fbddbe2b9c">
 
+> https://github.com/TommyZihao/QASystemOnMedicalKG/tree/master/notebook_tutorials
+
 Neo4j中算法：
 
 <img width="772" alt="image" src="https://github.com/user-attachments/assets/98f86c66-6f60-4c23-a7c5-af491febd249">
