@@ -1,3 +1,5 @@
+# Neo4j
+
 Neo4j中的图数据挖掘神器：Graph Data Science Playground
 
 <img width="631" alt="image" src="https://github.com/user-attachments/assets/cc2de419-f57d-42b3-83b7-e59b8a9eaf5b">
@@ -6,7 +8,7 @@ Neo4j中的图数据挖掘神器：Graph Data Science Playground
 
 <img width="763" alt="image" src="https://github.com/user-attachments/assets/8be88959-a14c-489b-921b-d0fbddbe2b9c">
 
-Neo4j中算法：
+## Neo4j中算法
 
 <img width="772" alt="image" src="https://github.com/user-attachments/assets/98f86c66-6f60-4c23-a7c5-af491febd249">
 
@@ -26,7 +28,9 @@ Neo4j中算法：
 
 <img width="365" alt="image" src="https://github.com/user-attachments/assets/2f0a1c61-e0d8-44ec-8b19-51aa7c13db97">
 
-GraphXR app.graphxr.cn
+## GraphXR 
+
+> app.graphxr.cn
 
 <img width="636" alt="image" src="https://github.com/user-attachments/assets/a4cdbb7e-e59b-4f79-9ef4-822f1ccdbe3d">
 
