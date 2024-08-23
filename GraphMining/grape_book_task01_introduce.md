@@ -4,6 +4,9 @@
 - https://web.stanford.edu/class/cs224w
 - CS231n: 深度学习的计算机视觉
 - CS224n：深度学习的自然语言处理
+- CS224W：图数据挖掘
+- CS224S：语音识别
+- CS229：机器学习
 
 小世界网络效应：
 
