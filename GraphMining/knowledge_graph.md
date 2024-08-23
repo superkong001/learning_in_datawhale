@@ -1,6 +1,6 @@
 Neo4j中的图数据挖掘神器：Graph Data Science Playground
 
-- QAMedicalKG - Python chatbot_graph.py
+- QAMedicalKG - Python chatbot_graph.py > https://github.com/TommyZihao/QASystemOnMedicalKG/tree/master/notebook_tutorials
 - https://neo4j.com/graphacademy/training-iga-40/02-iga-40-overview-of-graph-algorithms/
 
 <img width="631" alt="image" src="https://github.com/user-attachments/assets/cc2de419-f57d-42b3-83b7-e59b8a9eaf5b">
@@ -8,8 +8,6 @@ Neo4j中的图数据挖掘神器：Graph Data Science Playground
 场景：
 
 <img width="763" alt="image" src="https://github.com/user-attachments/assets/8be88959-a14c-489b-921b-d0fbddbe2b9c">
-
-> https://github.com/TommyZihao/QASystemOnMedicalKG/tree/master/notebook_tutorials
 
 Neo4j中算法：
 
