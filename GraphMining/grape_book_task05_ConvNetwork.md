@@ -217,9 +217,11 @@ Weisfeiler- Lehman Kernel ——> GIN就是神经网络版的WL graph kernel
 
 summary：
 
-<img width="707" alt="image" src="https://github.com/user-attachments/assets/bf94d1b8-79c7-48ee-a449-f2fa4327b273">
-
 <img width="764" alt="image" src="https://github.com/user-attachments/assets/ed4cbc76-ba1a-44eb-acae-af52a1bc0d64">
+
+完整GIN模型：
+
+<img width="742" alt="image" src="https://github.com/user-attachments/assets/542782fc-dc7d-4b00-9a9b-b07285b5e735">
 
 # 笔记：
 
