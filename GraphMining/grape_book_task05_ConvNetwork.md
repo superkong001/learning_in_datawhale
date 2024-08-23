@@ -185,11 +185,41 @@ CNN的卷积核权重需学习得到，而GCN的卷积核权重由 $$\widetilde{
 
 # GIN (Graph Isomorphism Network)
 
-用神经网络拟合单射函数
+用神经网络拟合单射函数。最强的消息传递图神经网络。
 
 <img width="761" alt="image" src="https://github.com/user-attachments/assets/503bf079-3aa0-4796-8a61-825ad7235560">
 
 <img width="752" alt="image" src="https://github.com/user-attachments/assets/c62316bf-6227-4421-8c5e-4003e042434b">
+
+隐含层神经元个数100~500个。
+
+<img width="303" alt="image" src="https://github.com/user-attachments/assets/87d66524-6000-4a84-8f08-46501311ea5a">
+
+<img width="665" alt="image" src="https://github.com/user-attachments/assets/24fdb0f8-7ac3-442d-b180-bc021f9519f6">
+
+Weisfeiler- Lehman Kernel ——> GIN就是神经网络版的WL graph kernel
+
+<img width="713" alt="image" src="https://github.com/user-attachments/assets/258c11f7-1448-4d77-8fd1-03e240c8de3c">
+
+<img width="707" alt="image" src="https://github.com/user-attachments/assets/5ff77b3f-dacc-4dd2-8a9c-cdc1aae84145">
+
+<img width="689" alt="image" src="https://github.com/user-attachments/assets/222c02bd-83dd-4641-a21d-3e3b8d4f4eba">
+
+<img width="729" alt="image" src="https://github.com/user-attachments/assets/1d02f6c4-edfd-460a-9294-e9c00f687b9f">
+
+可以判断两个图是否同形（WL kernel构建每个颜色的节点数）：
+
+<img width="759" alt="image" src="https://github.com/user-attachments/assets/927f8aa9-3689-43f3-9301-119008644f76">
+
+判断同形、距离，以及余弦相似度：
+
+<img width="689" alt="image" src="https://github.com/user-attachments/assets/38b18f09-4ff4-4330-95b3-25b5c6c58bef">
+
+summary：
+
+<img width="707" alt="image" src="https://github.com/user-attachments/assets/bf94d1b8-79c7-48ee-a449-f2fa4327b273">
+
+<img width="764" alt="image" src="https://github.com/user-attachments/assets/ed4cbc76-ba1a-44eb-acae-af52a1bc0d64">
 
 # 笔记：
 
