@@ -231,6 +231,16 @@ summary：
 
 GIN是消息传递图神经网络的上界。
 
+调参：
+
+- 节点属性必须归一化
+- 使用ADAM优化器
+- 激活函数：ReLU、LeakyReLU、PReLU。（输出层不用加激活函数）
+- 每层加bias
+- Embedding dimensions:32、64、128
+- 注意训练时设置0梯度（Zero_grad）
+- 建议用PyTorch下的PyG、DGL，不要用TensorFlow
+
 # 笔记：
 
 现有图神经网络皆基于邻居聚合的框架，即为每个目标节点通过聚合其邻居刻画结构信息，进而学习目标节点的表示。
