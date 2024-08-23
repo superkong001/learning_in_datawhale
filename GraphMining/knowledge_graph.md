@@ -24,6 +24,7 @@ Neo4j中算法：
 6. 在Neo4j图数据库中运行Cypher查询语句
 7. 将Cypher查询结果翻译回“人话”，输出
 
+<img width="365" alt="image" src="https://github.com/user-attachments/assets/2f0a1c61-e0d8-44ec-8b19-51aa7c13db97">
 
 
 
