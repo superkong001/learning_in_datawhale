@@ -223,6 +223,14 @@ summary：
 
 <img width="742" alt="image" src="https://github.com/user-attachments/assets/542782fc-dc7d-4b00-9a9b-b07285b5e735">
 
+算几层就是计算几跳邻域信息。
+
+对比：
+
+<img width="734" alt="image" src="https://github.com/user-attachments/assets/66ceabee-255c-443d-8504-d54cbd098684">
+
+GIN是消息传递图神经网络的上界。
+
 # 笔记：
 
 现有图神经网络皆基于邻居聚合的框架，即为每个目标节点通过聚合其邻居刻画结构信息，进而学习目标节点的表示。
