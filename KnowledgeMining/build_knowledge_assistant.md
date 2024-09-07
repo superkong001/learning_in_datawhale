@@ -18,11 +18,11 @@
 
 ## web 版茴香豆
 
+<img width="528" alt="image" src="https://github.com/user-attachments/assets/c3c957f3-5857-4306-a78d-4c5a958c348e">
+
 <img width="435" alt="image" src="https://github.com/user-attachments/assets/a55a7ac4-3a06-4e1a-bc89-9887370b96ac">
 
 三阶段 Pipeline （前处理、拒答、响应）:
-
-<img width="528" alt="image" src="https://github.com/user-attachments/assets/c3c957f3-5857-4306-a78d-4c5a958c348e">
 
 <img width="470" alt="image" src="https://github.com/user-attachments/assets/d2ce9137-2b25-418e-8fe9-22331c1ae3e2">
 
