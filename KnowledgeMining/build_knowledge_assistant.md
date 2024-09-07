@@ -20,7 +20,7 @@
 
 <img width="470" alt="image" src="https://github.com/user-attachments/assets/d2ce9137-2b25-418e-8fe9-22331c1ae3e2">
 
-# 基于Coze
+# [基于Coze](https://www.coze.cn/home)
 
 - 人设
 
