@@ -73,7 +73,7 @@ Tips:
 
   上传文本：
 
-    <img width="469" alt="image" src="https://github.com/user-attachments/assets/0b72ebe2-2ffa-453c-97bb-ad7a05838635">
+   <img width="469" alt="image" src="https://github.com/user-attachments/assets/0b72ebe2-2ffa-453c-97bb-ad7a05838635">
 
   分段：
 
