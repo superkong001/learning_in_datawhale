@@ -29,7 +29,9 @@
 ## 茴香豆本地标准版搭建
 
 
-# [基于Coze智能客服](https://www.coze.cn/home)
+# 基于Coze智能客服
+
+[扣子](https://www.coze.cn/home)
 
 - 人设
 
