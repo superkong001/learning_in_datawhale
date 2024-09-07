@@ -18,7 +18,7 @@
 
 <img width="528" alt="image" src="https://github.com/user-attachments/assets/c3c957f3-5857-4306-a78d-4c5a958c348e">
 
-<img width="370" alt="image" src="https://github.com/user-attachments/assets/d2ce9137-2b25-418e-8fe9-22331c1ae3e2">
+<img width="470" alt="image" src="https://github.com/user-attachments/assets/d2ce9137-2b25-418e-8fe9-22331c1ae3e2">
 
 # 基于Coze
 
