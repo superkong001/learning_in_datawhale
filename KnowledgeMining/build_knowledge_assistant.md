@@ -77,12 +77,12 @@ Tips:
 
   分段：
 
-    <img width="769" alt="image" src="https://github.com/user-attachments/assets/d8ad52b7-371a-47b5-98d5-c61e761aaf34">
+   <img width="769" alt="image" src="https://github.com/user-attachments/assets/d8ad52b7-371a-47b5-98d5-c61e761aaf34">
 
   手动调整：
 
-    ![image](https://github.com/user-attachments/assets/e3ce83a4-a0c5-4aae-a8fc-ea874a489a2e)
-    
+   <img width="677" alt="image" src="https://github.com/user-attachments/assets/742ae224-766c-453f-b525-aadeb34fe580">
+   
 2. 创建工作流
 
  <img width="835" alt="image" src="https://github.com/user-attachments/assets/bf6d4b82-90fe-4d1a-8813-c209b0aa2a57">
@@ -91,7 +91,7 @@ Tips:
 
 3. 创建Bots
 
-  ![image](https://github.com/user-attachments/assets/c7a4e078-144f-419f-b769-81fa4e5ff1bf)
+  <img width="409" alt="image" src="https://github.com/user-attachments/assets/4bafae28-af41-46fd-8f32-563c18ea3102">
 
   选择工作流模型，并添加工作流
 
