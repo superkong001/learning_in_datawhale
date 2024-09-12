@@ -49,14 +49,23 @@
 ```bash
 # 启动容器
 docker run  -v /path/to/huixiangdou:/huixiangdou  -p 7860:7860 -p 23333:23333  -it continuumio/miniconda3 /bin/bash
+# 使用Docker运行一个基于continuumio/miniconda3镜像的容器，该镜像包含了Miniconda的环境。
+# -v参数将宿主机的一个目录(/path/to/huixiangdou)挂载到容器中的/huixiangdou目录，用于存放和访问外部数据。
+# -p参数将容器的7860和23333端口映射到相同的宿主机端口，用于外部访问。-it参数让Docker容器以交互式终端运行。
+
 # 装依赖
 apt update
 apt install python-dev libxml2-dev libxslt1-dev antiword unrtf poppler-utils pstotext tesseract-ocr flac ffmpeg lame libmad0 libsox-fmt-mp3 sox libjpeg-dev swig libpulse-dev
+# 更新了包管理器的索引，并安装了许多需要的依赖库，这些库主要用于文档转换、音视频处理等功能。
+# 安装Python依赖：
 python3 -m pip install -r requirements-cpu.txt
+
 # 建立知识库
 python3 -m huixiangdou.service.feature_store  --config_path config-cpu.ini
+
 # 问答测试
 python3 -m huixiangdou.main --standalone --config_path config-cpu.ini
+
 # gradio UI
 python3 -m huixiangdou.gradio_ui --config_path config-cpu.ini
 ```
