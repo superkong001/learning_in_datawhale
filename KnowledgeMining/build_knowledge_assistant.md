@@ -28,6 +28,38 @@
 
 ## 茴香豆本地标准版搭建
 
+参考： [茴香豆Github](https://github.com/InternLM/HuixiangDou/blob/main/README_zh.md)
+
+硬件要求
+
+以下是不同特性所需显存，区别仅在**配置选项是否开启**。
+
+|                     配置示例                     | 显存需求 |                                                                                 描述                                                                                 |                             Linux 系统已验证设备                              |
+| :----------------------------------------------: | :------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
+|         [config-cpu.ini](./config-cpu.ini)         |   -    | 用 [siliconcloud](https://siliconflow.cn/) API <br/>仅检索文本 | ![](https://img.shields.io/badge/x86-passed-blue?style=for-the-badge) |
+|         [config-2G.ini](./config-2G.ini)         |   2GB    | 用 openai API（如 [kimi](https://kimi.moonshot.cn)、[deepseek](https://platform.deepseek.com/usage) 和 [stepfun](https://platform.stepfun.com/)）<br/>仅检索文本 | ![](https://img.shields.io/badge/1660ti%206G-passed-blue?style=for-the-badge) |
+| [config-multimodal.ini](./config-multimodal.ini) |   10GB   |                                                                    用 openai API 做 LLM，图文检索                                                                    | ![](https://img.shields.io/badge/3090%2024G-passed-blue?style=for-the-badge)  |
+|       【标准版】[config.ini](./config.ini)       |   19GB   |                                                                         本地部署 LLM，单模态                                                                         | ![](https://img.shields.io/badge/3090%2024G-passed-blue?style=for-the-badge)  |
+|   [config-advanced.ini](./config-advanced.ini)   |   80GB   |                                                                本地 LLM，指代消歧，单模态，微信群实用                                                                | ![](https://img.shields.io/badge/A100%2080G-passed-blue?style=for-the-badge)  |
+
+### 纯 CPU 版
+
+没有 GPU，使用 siliconcloud API 完成模型推理。以 docker miniconda+Python3.11 为例，安装 cpu 依赖，运行：
+
+```bash
+# 启动容器
+docker run  -v /path/to/huixiangdou:/huixiangdou  -p 7860:7860 -p 23333:23333  -it continuumio/miniconda3 /bin/bash
+# 装依赖
+apt update
+apt install python-dev libxml2-dev libxslt1-dev antiword unrtf poppler-utils pstotext tesseract-ocr flac ffmpeg lame libmad0 libsox-fmt-mp3 sox libjpeg-dev swig libpulse-dev
+python3 -m pip install -r requirements-cpu.txt
+# 建立知识库
+python3 -m huixiangdou.service.feature_store  --config_path config-cpu.ini
+# 问答测试
+python3 -m huixiangdou.main --standalone --config_path config-cpu.ini
+# gradio UI
+python3 -m huixiangdou.gradio_ui --config_path config-cpu.ini
+```
 
 # 基于Coze智能客服
 
