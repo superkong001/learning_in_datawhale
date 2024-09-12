@@ -61,6 +61,57 @@ python3 -m huixiangdou.main --standalone --config_path config-cpu.ini
 python3 -m huixiangdou.gradio_ui --config_path config-cpu.ini
 ```
 
+```bash
+# 1. 下载Docker镜像
+# 在能够连接到外网的机器上，下载必要的Docker镜像：
+docker pull continuumio/miniconda3
+
+# 2. 导出Docker镜像
+# 将下载的Docker镜像导出为一个文件：
+docker save continuumio/miniconda3 > miniconda3.tar
+
+# 3. 下载系统依赖
+# 下载所需的系统依赖包。可以使用apt命令配合--download-only选项来下载但不安装它们：
+apt-get update
+apt-get install --download-only python-dev libxml2-dev libxslt1-dev antiword unrtf poppler-utils pstotext tesseract-ocr flac ffmpeg lame libmad0 libsox-fmt-mp3 sox libjpeg-dev swig libpulse-dev
+# 这将下载所有依赖包但不安装，然后您可以从/var/cache/apt/archives/目录中找到这些.deb文件。
+
+# 4. 下载Python依赖
+# 在一个有外网的环境中，下载所有的Python库：
+pip download -r requirements-cpu.txt
+# 这将下载所有在requirements-cpu.txt文件中列出的库到当前目录。
+
+# 5. 拷贝文件到外置媒介
+# 将上述所有文件（Docker镜像、系统依赖的.deb文件、Python依赖包）拷贝到一个USB驱动器或其他传输设备中。
+
+# 第二步：在内网服务器上部署
+# 1. 导入Docker镜像
+# 将Docker镜像文件传输到内网服务器后，加载镜像：
+docker load < miniconda3.tar
+
+# 2. 安装系统依赖
+# 将所有.deb文件传输到服务器后，在服务器上安装它们：
+dpkg -i /path/to/debs/*.deb
+
+# 3. 安装Python依赖
+# 将下载的Python包上传到服务器后，使用以下命令安装：
+pip install --no-index --find-links=/path/to/downloaded/packages -r requirements-cpu.txt
+# 这将从本地目录安装所有必需的Python库，而不是从互联网。
+
+# 4. 启动Docker容器
+# 使用之前提到的命令来启动Docker容器：
+docker run -v /path/to/huixiangdou:/huixiangdou -p 7860:7860 -p 23333:23333 -it continuumio/miniconda3 /bin/bash
+
+# 5. 运行应用
+# 在容器内，根据之前提供的步骤运行应用程序：
+# 建立知识库
+python3 -m huixiangdou.service.feature_store --config_path config-cpu.ini
+# 问答测试
+python3 -m huixiangdou.main --standalone --config_path config-cpu.ini
+# gradio UI
+python3 -m huixiangdou.gradio_ui --config_path config-cpu.ini
+```
+
 # 基于Coze智能客服
 
 [扣子](https://www.coze.cn/home)
