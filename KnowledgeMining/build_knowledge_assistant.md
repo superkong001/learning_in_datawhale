@@ -44,7 +44,7 @@
 
 ### 纯 CPU 版
 
-没有 GPU，使用 siliconcloud API 完成模型推理。以 docker miniconda+Python3.11 为例，安装 cpu 依赖，运行：
+没有 GPU，使用 [siliconcloud API](https://siliconflow.cn/) 完成模型推理。以 docker miniconda+Python3.11 为例，安装 cpu 依赖，运行：
 
 ```bash
 # 启动容器
@@ -59,7 +59,43 @@ apt install python-dev libxml2-dev libxslt1-dev antiword unrtf poppler-utils pst
 # 更新了包管理器的索引，并安装了许多需要的依赖库，这些库主要用于文档转换、音视频处理等功能。
 # 安装Python依赖：
 python3 -m pip install -r requirements-cpu.txt
+```
 
+[docker](https://hub.docker.com/repository/docker/tpoisonooo/huixiangdou/tags) 拉取
+
+常用容器命令：
+
+```bash
+# docker拉取
+docker pull tpoisonooo/huixiangdou:20240814
+
+# 显示所有拉取的镜像
+docker images
+
+# 运行容器并进入其交互模式
+docker run -it tpoisonooo/huixiangdou:20240814 /bin/bash
+
+# 退出交互式 Bash 会话但保持容器运行， Ctrl + P 然后 Ctrl + Q
+
+# 退出并停止容器 
+exit # 或者 Ctrl + D
+
+# 首先查看运行中的容器
+docker ps
+
+# 停止运行的容器
+docker stop <container_id>
+
+# 导出 Docker 镜像
+# docker save -o <filename.tar> <image_name>:<tag>
+docker save -o huixiangdou_20240814.tar tpoisonooo/huixiangdou:20240814
+
+# 导入 Docker 镜像
+# docker load -i <filename.tar>
+docker load -i huixiangdou_20240814.tar
+```
+
+```bash
 # 建立知识库
 python3 -m huixiangdou.service.feature_store  --config_path config-cpu.ini
 
