@@ -21,6 +21,7 @@ jupyter kernelspec uninstall openvino
 # python -m pip install optimum
 # 安装了与生成式 AI 模型相关的扩展包以及 Hugging Face Optimum 库的 OpenVINO 支持模块
 pip install openvino-genai==2024.4.0 optimum[openvino]
+pip install einops
 
 pip install opencv-python jupyter notebook openai appbuilder-sdk qianfan
 # Verify that the Package Is Installed
@@ -31,7 +32,17 @@ python -c "from openvino import Core; print(Core().available_devices)"
 
 ```bash
 # 将原生大模型量化压缩为INT4的OpenVINO IR模型
-optimum-cli export openvino --model "D:\github\internlm2_5-1_8b-chat" --task text-generation-with-past --weight-format int4 --group-size 128 --ratio 0.8 "internlm2_5-1_8b-chat-int4-ov"
+# 使用 Hugging Face 的 optimum-cli 工具将一个基于 PyTorch 的生成式 AI 模型导出为 OpenVINO 格式，以便在 OpenVINO 框架中运行
+optimum-cli export openvino --model "D:\github\internlm2_5-1_8b-chat" --task text-generation-with-past --weight-format int4 --group-size 128 --ratio 0.8 --trust-remote-code "D:\github\internlm2_5-1_8b-chat-int4-ov"
+
+optimum-cli export openvino \
+  --model "D:\github\internlm2_5-1_8b-chat" \
+  --task text-generation-with-past \ # 指定任务类型，这里是生成式文本任务
+  --weight-format int4 \ # 指定模型权重的精度为 int4，即 4 位整数精度。
+  --group-size 128 \ # 指定量化分组的大小，即每 128 个参数被分成一个组进行处理
+  --ratio 0.8 \ # 量化比例，0.8 表示保持 80% 的权重信息
+  --trust-remote-code \
+  "D:\github\internlm2_5-1_8b-chat-int4-ov" # 指定输出模型的名称和路径
 
 !optimum-cli export openvino \
              --model "Qwen/Qwen2-7B-Instruct" \
