@@ -7,11 +7,22 @@
 
 ```bash
 # 创建虚拟环境
-conda create -n ov-Qwen python=3.10
-conda activate ov-Qwen
+conda create -n openvino python=3.10
+conda activate openvino
+
+# 将环境添加到Jupyter
+python -m ipykernel install --user --name openvino --display-name "Python (openvino)"
+jupyter kernelspec list # 检查现有的 Jupyter kernel
+# 删除无效的 kernel
+jupyter kernelspec uninstall openvino
 
 # 安装OpenVINO和其它工具包
-pip install openvino-genai==2024.3.0 optimum[openvino]
+# pip install openvino==2024.4.0
+# 安装了与生成式 AI 模型相关的扩展包以及 Hugging Face Optimum 库的 OpenVINO 支持模块
+pip install openvino-genai==2024.4.0 optimum[openvino]
+# Verify that the Package Is Installed
+python -c "from openvino import Core; print(Core().available_devices)"
+
 pip install opencv-python jupyter notebook openai appbuilder-sdk qianfan
 ```
 
