@@ -35,6 +35,7 @@ python -c "from openvino import Core; print(Core().available_devices)"
 # 使用 Hugging Face 的 optimum-cli 工具将一个基于 PyTorch 的生成式 AI 模型导出为 OpenVINO 格式，以便在 OpenVINO 框架中运行
 optimum-cli export openvino --model "D:\github\internlm2_5-1_8b-chat" --task text-generation-with-past --weight-format int4 --group-size 128 --ratio 0.8 --trust-remote-code "D:\github\internlm2_5-1_8b-chat-int4-ov"
 
+# 参数解释
 optimum-cli export openvino \
   --model "D:\github\internlm2_5-1_8b-chat" \
   --task text-generation-with-past \ # 指定任务类型，这里是生成式文本任务
@@ -44,6 +45,7 @@ optimum-cli export openvino \
   --trust-remote-code \
   "D:\github\internlm2_5-1_8b-chat-int4-ov" # 指定输出模型的名称和路径
 
+# 远程拉取保存到当前目录
 !optimum-cli export openvino \
              --model "Qwen/Qwen2-7B-Instruct" \
              --task text-generation-with-past \
@@ -56,4 +58,33 @@ optimum-cli export openvino \
 - [optimum库介绍](https://www.bilibili.com/video/BV1SQpceiEMh)
 - [optimum-cli参数说明](https://huggingface.co/docs/optimum/intel/openvino/export)
 - [或者直接下载转换好的OpenVINO INT4 IR模型文件](https://www.modelscope.cn/models/snake7gun/Qwen2-7B-Instruct-int4-ov)
+
+开启大模型对话
+
+```bash
+# 导入工具包
+import openvino_genai as ov_genai
+# 选择计算设备
+device = 'CPU' 
+# device = 'GPU'
+# device = 'NPU'
+# 载入OpenVINO IR格式的大模型
+pipe = ov_genai.LLMPipeline("D:\github\internlm2_5-1_8b-chat-int4-ov", device)
+# 提示词
+prompt = "<|im_start|>system\n<|im_end|>\n<|im_start|>user\n什么是OpenVINO？<|im_end|>\n<|im_start|>assistant\n"
+# 大模型推理预测
+result = pipe.generate(prompt)
+result.texts
+print(result.texts[0])
+```
+
+```bash
+函数：大模型对话
+def chat_qwen_ov(question="什么是OpenVINO？"):
+    prompt = "<|im_start|>system\n<|im_end|>\n<|im_start|>user\n{}<|im_end|>\n<|im_start|>assistant\n".format(question)
+    result = pipe.generate(prompt)
+    return result.texts[0]
+result = chat_qwen_ov('什么是OpenVINO？')
+print(result)
+```
 
