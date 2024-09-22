@@ -20,10 +20,10 @@ jupyter kernelspec uninstall openvino
 # pip install openvino==2024.4.0
 # 安装了与生成式 AI 模型相关的扩展包以及 Hugging Face Optimum 库的 OpenVINO 支持模块
 pip install openvino-genai==2024.4.0 optimum[openvino]
-# Verify that the Package Is Installed
-python -c "from openvino import Core; print(Core().available_devices)"
 
 pip install opencv-python jupyter notebook openai appbuilder-sdk qianfan
+# Verify that the Package Is Installed
+python -c "from openvino import Core; print(Core().available_devices)"
 ```
 
 [下载Qwen2-7B-Instruct开源大模型](https://huggingface.co/Qwen/Qwen2-7B-Instruct)
