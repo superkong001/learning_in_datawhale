@@ -31,7 +31,7 @@ python -c "from openvino import Core; print(Core().available_devices)"
 
 ```bash
 # 将原生大模型量化压缩为INT4的OpenVINO IR模型
-optimum-cli export openvino --model "Qwen/Qwen2-7B-Instruct" --task text-generation-with-past --weight-format int4 --group-size 128 --ratio 0.8 "Qwen2-7B-Instruct-int4-ov"
+optimum-cli export openvino --model "D:\github\internlm2_5-1_8b-chat" --task text-generation-with-past --weight-format int4 --group-size 128 --ratio 0.8 "internlm2_5-1_8b-chat-int4-ov"
 
 !optimum-cli export openvino \
              --model "Qwen/Qwen2-7B-Instruct" \
