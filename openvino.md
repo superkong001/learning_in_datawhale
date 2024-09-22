@@ -18,6 +18,7 @@ jupyter kernelspec uninstall openvino
 
 # 安装OpenVINO和其它工具包
 # pip install openvino==2024.4.0
+# python -m pip install optimum
 # 安装了与生成式 AI 模型相关的扩展包以及 Hugging Face Optimum 库的 OpenVINO 支持模块
 pip install openvino-genai==2024.4.0 optimum[openvino]
 
@@ -30,6 +31,8 @@ python -c "from openvino import Core; print(Core().available_devices)"
 
 ```bash
 # 将原生大模型量化压缩为INT4的OpenVINO IR模型
+optimum-cli export openvino --model "Qwen/Qwen2-7B-Instruct" --task text-generation-with-past --weight-format int4 --group-size 128 --ratio 0.8 "Qwen2-7B-Instruct-int4-ov"
+
 !optimum-cli export openvino \
              --model "Qwen/Qwen2-7B-Instruct" \
              --task text-generation-with-past \
