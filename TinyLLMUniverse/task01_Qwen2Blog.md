@@ -4,6 +4,64 @@
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 - [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
 
+# 基础概念
+## 语言模型
+语言模型两类问题：
+1）输入序列问题：输入是文本信号，而计算机能进入神经网络处理和计算的是数值，所以需要讲字符通过一定方式转化为数值。 如：独热编码。
+2）输出序列问题：输出要求是文本，而神经网络的输出是数值类型的（分类问题：二分类问题对应01输出，多分类对应多个01输出；回归问题：对应数值类型输出），所以需要建立神经网络的数值类型输出和最终字符输出的映射关系。如：构建神经网络的输出独热编码后每个字符的概率，选取最高的那个。
+
+语言模型（LM）的经典定义是一种对词元序列(token)的概率分布。假设我们有一个词元集的词汇表 $V$ 。语言模型p为每个词元序列 $x_{1},...,x_{L}$ ∈ $V$ 分配一个概率（介于0和1之间的数字）：
+
+$$
+p(x_1, \dots, x_L)
+$$
+
+概率直观地告诉我们一个标记序列有多“好（good）”。例如，如果词汇表为{ate, ball, cheese, mouse, the}，语言模型可能会分配以下概率（演示）：
+
+$$
+p(\text{the, mouse, ate, the, cheese}) = 0.02,
+$$
+
+$$
+p(\text{the, cheese ate, the, mouse}) = 0.01,
+$$
+
+$$
+p(\text{mouse, the, the, cheese, ate}) = 0.0001,
+$$
+
+但赋予所有序列以（有意义的）概率的能力要求语言模型具有非凡的（但是隐含的）语言能力和世界知识。
+
+如：语言模型应该隐含地赋予"𝗆𝗈𝗎𝗌𝖾 𝗍𝗁𝖾 𝗍𝗁𝖾 𝖼𝗁𝖾𝖾𝗌𝖾 𝖺𝗍𝖾"一个非常低的概率，因为它在语法上是不正确的（句法知识）。由于世界知识的存在，语言模型应该隐含地赋予"𝗍𝗁𝖾 𝗆𝗈𝗎𝗌𝖾 𝖺𝗍𝖾 𝗍𝗁𝖾 𝖼𝗁𝖾𝖾𝗌𝖾"比"𝗍𝗁𝖾 𝖼𝗁𝖾𝖾𝗌𝖾 𝖺𝗍𝖾 𝗍𝗁𝖾 𝗆𝗈𝗎𝗌𝖾"更高的概率。这是因为两个句子在句法上是相同的，但在语义上却存在差异，而语言模型需要具备卓越的语言能力和世界知识，才能准确评估序列的概率。
+
+语言模型也可以做生成任务。如定义所示，语言模型p接受一个序列并返回一个概率来评估其好坏。我们也可以根据语言模型生成一个序列。最纯粹的方法是从语言模型$p$中以概率 $p(x_{1:L})$ 进行采样，表示为：
+
+$$
+x_{1:L}∼p.
+$$
+
+### 自回归语言模型(Autoregressive language models)
+
+将序列  $x_{1:L}$  的联合分布  $p(x_{1:L})$  的常见写法是使用概率的链式法则：
+
+$$
+p(x_{1:L}) = p(x_1) p(x_2 \mid x_1) p(x_3 \mid x_1, x_2) \cdots p(x_L \mid x_{1:L-1}) = \prod_{i=1}^L p(x_i \mid x_{1:i-1}).
+$$
+
+例子：
+
+$$
+\begin{align*} p({the}, {mouse}, {ate}, {the}, {cheese}) = \, & p({the}) \\ & p({mouse} \mid {the}) \\ & p({ate} \mid {the}, {mouse}) \\ & p({the} \mid {the}, {mouse}, {ate}) \\ & p({cheese} \mid {the}, {mouse}, {ate}, {the}). \end{align*}
+$$
+
+$$
+\begin{aligned}
+\text { for } i & =1, \ldots, L: \\
+   x_i & \sim p\left(x_i \mid x_{1: i-1}\right)^{1 / T},
+\end{aligned}
+$$
+
+
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
 
 <img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
