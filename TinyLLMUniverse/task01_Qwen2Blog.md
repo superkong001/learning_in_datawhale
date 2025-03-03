@@ -61,6 +61,33 @@ $$
 \end{aligned}
 $$
 
+其中  $T≥0$  是一个控制我们希望从语言模型中得到多少随机性的温度参数：
+- T=0：确定性地在每个位置 i 选择最可能的词元 $x_{i}$
+- T=1：从纯语言模型“正常（normally）”采样
+- T=∞：从整个词汇表上的均匀分布中采样
+如果仅将概率提高到  $1/T$  的次方，概率分布可能不会加和到 1。可以通过重新标准化分布来解决这个问题。将标准化版本  $p_{T}(x_{i}∣x_{1:i−1})∝p(x_{i}∣x_{1:i−1})^{1/T}$ 称为退火条件概率分布。"退火"类比的是对概率分布进行调整的过程。"退火"分布是通过将原始概率分布的每个元素都取幂  $1/T$ ，然后重新标准化得到的新分布。当 $T ≠ 1$ 时，这个过程会改变原始概率分布，因此从"退火"分布中采样得到的结果可能与对每一步的条件分布应用 T 并进行迭代采样的结果不同。
+
+另外当  $T$  值较高时，会获得更平均的概率分布，生成的结果更具随机性；反之，当 $T$ 值较低时，模型会更倾向于生成概率较高的词元。
+
+例如：
+
+$$
+\begin{array}{cl}
+p(\text { cheese })=0.4, & p(\text { mouse })=0.6 \\
+p_{T=0.5}(\text { cheese })=0.31, & \left.p_{T=0.5} \text { (mouse }\right)=0.69 \\
+\left.p_{T=0.2} \text { (cheese }\right)=0.12, & p_{T=0.2} \text { (mouse) }=0.88 \\
+\left.p_{T=0} \text { (cheese }\right)=0, & \left.p_{T=0} \text { (mouse }\right)=1
+\end{array}
+$$
+
+对于非自回归的条件生成，更一般地，我们可以通过指定某个前缀序列 $x_{1:i}$ （称为提示）并采样其余的  $x_{i+1:L}$ （称为补全）来进行条件生成。例如，生成 $T=0$ 的产生的：
+
+$$
+\underbrace{{the}, {mouse}, {ate}}_\text{prompt} \stackrel{T=0}{\leadsto} \underbrace{{the}, {cheese}}_\text{completion}.
+$$
+
+如果我们将温度改为 $T=1$ ，我们可以得到更多的多样性，例如，"its house" 和 "my homework"。我们将很快看到，条件生成解锁了语言模型通过简单地更改提示就能解决各种任务的能力。
+
 
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
 
