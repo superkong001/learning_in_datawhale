@@ -57,7 +57,7 @@ $$
 $$
 \begin{aligned}
 \text { for } i & =1, \ldots, L: \\
-   x_i & \sim p\left(x_i \mid x_{1: i-1}\right)^{1 / T},
+    x_i & \sim p\left(x_i \mid x_{1: i-1}\right)^{1 / T},
 \end{aligned}
 $$
 
