@@ -2,6 +2,7 @@
 
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
+- [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
 
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
 
