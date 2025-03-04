@@ -151,7 +151,7 @@ $$
 - 然后给定语音，我们希望恢复（最有可能的）文本。这可以通过贝叶斯定理实现：
 
 $$p(\text{text} \mid \text{speech}) \propto \underbrace{p(\text{text})}_\text{language model} 
-\underbrace{p(\text{speech} \mid \text{text})}_text{language model}$$
+\underbrace{p(\text{speech} \mid \text{text})}_\text{language model}$$
 
 $$
 p(\text{text} \mid \text{speech}) \propto \underbrace{p(\text{text})}_\text{language model} \underbrace{p(\text{speech} \mid \text{text})}\text{acoustic model}.  
