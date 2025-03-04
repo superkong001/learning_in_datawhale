@@ -150,7 +150,7 @@ $$
 - 这些文本被转换为语音（声音信号）
 - 然后给定语音，我们希望恢复（最有可能的）文本。这可以通过贝叶斯定理实现：
 
-$\underbrace{p(\text{text})}_\text{language model} \underbrace{p(\text{speech} \mid \text{text})}_\text {acoustic model}.$
+$underbrace{p( \text {text})}_\text{language model} \underbrace{p(\text{speech} \mid \text{text})}_\text {acoustic model}.$
 
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
 
