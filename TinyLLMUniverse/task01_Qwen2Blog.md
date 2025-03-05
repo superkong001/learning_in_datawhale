@@ -131,7 +131,7 @@ $$
 交叉熵：
 
 $$
-H(p,q) = \sum_x p(x) \log_2 \frac{1}{q(x)} = -\sum_x p(x) \log_2 q(x) .
+H(p,q) = \sum_x p(x) \log_2 \frac{1}{q(x)} = -\sum_x p(x) \log_2 q(x) 
 $$
 
 - $p(x)$ ：表示真实的分布（真实的概率）。
@@ -146,8 +146,9 @@ $$
 交叉熵实际上可以分解为两个部分：
 
 $$
-H(p,q) = H(p) + D_\text{KL}(p∥q) = H(p) + \sum_{x} p(x) \log \frac{p(x)}{q(x)}
-= - \sum_{x} p(x) \log p(x) + ( \sum_{x} p(x) ( \log p(x) - \log q(x))
+H(p,q) = H(p) + D_\text{KL}(p∥q) = H(p) + \sum_{x} p(x) \log_2 \frac{p(x)}{q(x)}
+= -\sum_{x} p(x) \log_2 p(x) + ( \sum_{x} p(x) ( \log_2 p(x) - \log_2 q(x))
+= -\sum_x p(x) \log_2 q(x)
 $$
 
 其中：
