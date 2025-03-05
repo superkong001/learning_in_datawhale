@@ -211,11 +211,6 @@ $$
 - **Recurrent Neural Networks**（RNNs），包括长短期记忆（LSTMs），使得一个词元 $x_{i}$ 的条件分布可以依赖于整个上下文 $x_{1:i−1}$ （有效地使 $n=∞$ ），但这些模型难以训练。
 - **Transformers**是2017年为机器翻译开发，再次返回固定上下文长度n，但更易于训练（并利用了GPU的并行性）。
 
-
-<img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
-
-<img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
-
 ### 大模型
 
 将语言模型转化为任务模型的过程：
@@ -262,6 +257,10 @@ $$
 \text{perplexity}_p \left(x_{1: L}\right)= \exp \left(\frac{1}{L} \sum_{i=1}^L \log \frac{1}{p\left(x_i \mid x_{1: i-1} \right)} \right) \text {. }
 $$
 
+
+<img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
+
+<img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
 
 
 # Qwen整体介绍
