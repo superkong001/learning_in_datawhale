@@ -147,6 +147,7 @@ $$
 
 $$
 H(p,q) = H(p) + D_\text{KL}(p∥q) = H(p) + \sum_{x} p(x) \log \frac{p(x)}{q(x)}
+= - \sum_{x} p(x) \log p(x) + ( \sum_{x} p(x) ( \log p(x) - \log q(x))
 $$
 
 其中：
