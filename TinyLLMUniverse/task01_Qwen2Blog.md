@@ -264,7 +264,7 @@ $$
 即：将所有数据值相乘： $𝑥_1\times 𝑥_2\times … \times 𝑥_𝑛$ ，再对结果取 n 次方根。
 
 $$
-\text{perplexity}_p \left( x_{1:L} \right) = \exp \left( \frac{1}{L} \sum_{i = 1}^{L} \log \frac{1}{p \left( x_{i} \mid x_{1:i - 1} \right)} \right)
+\text{perplexity} _p \left( x_{1:L} \right) = \exp \left( \frac{1}{L} \sum_{i = 1}^{L} \log \frac{1}{p \left( x_{i} \mid x_{1:i - 1} \right)} \right)
 $$
 
 $$
