@@ -285,6 +285,8 @@ $$
 \log Perplexity_p \left( x_{1:L} \right) = \log \left( \exp \left( \frac{1}{L} \sum_{i = 1}^{L} \log \frac{1}{p \left( x_{i} \mid x_{1:i - 1} \right)} \right) \right) = \frac{1}{L} \sum_{i = 1}^{L} \log \frac{1}{p \left( x_{i} \mid x_{1:i - 1} \right)} 
 $$
 
+用对数和指数化来简化计算和表达模型的 不确定性。在自然语言处理中，困惑度本质上衡量了语言模型对文本的预测不确定性，而对数函数可以将乘法变成加法，使得计算更加方便。此外，对数函数还有一个重要的性质：它能够压缩极端值，避免某些非常小的概率导致数值计算上的溢出或不稳定。
+困惑度反映了模型在预测下一个词时的 平均不确定性。当困惑度为 10 时，模型在预测下一个词时，平均上会考虑大约 10 个词作为可能的选择，且它们的概率相对接近。这表示模型的预测不完全确定，在给定的上下文下有多个可能的候选词。
 
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
 
