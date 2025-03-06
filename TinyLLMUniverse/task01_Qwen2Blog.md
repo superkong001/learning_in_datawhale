@@ -278,7 +278,7 @@ $$
 Tips 因为：
 
 $$
-\log Perplexity_p \left( x_{1:L} \right) = \log P(X)^{(-1/L)} = \log \left(\prod_{i = 1}^{L}p(x_{i} \mid x_{1:i - 1}) \right)^{(-1/L)} = - \frac{1}{L} \sum_{i = 1}^{L} \log {p \left( x_{i} \mid x_{1:i - 1} \right)} 
+\log Perplexity_p \left( x_{1:L} \right) = \log P(X)^{\frac{1}{L}} = \log \left(\prod_{i = 1}^{L}p(x_{i} \mid x_{1:i - 1}) \right)^{\frac{1}{L}} = - \frac{1}{L} \sum_{i = 1}^{L} \log {p \left( x_{i} \mid x_{1:i - 1} \right)} 
 $$
 
 $$
