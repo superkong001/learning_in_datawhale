@@ -323,7 +323,7 @@ $$
 \frac{1}{1 - \epsilon} \approxeq 1 + \epsilon + \epsilon^2 + \epsilon ^3 + ...
 $$
 
-在 $\epsilon$ 很小的时候，$\epsilon ^2$ 和更高阶的项变得非常小，因此可以忽略它们。
+在 $\epsilon$ 很小的时候， $\epsilon ^2$ 和更高阶的项变得非常小，因此可以忽略它们。
 
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
 
