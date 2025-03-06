@@ -303,7 +303,7 @@ $$
 q(x_i \mid x_{1:i-1}) = (1-\epsilon) p(x_i \mid x_{1:i-1}) + \epsilon r(x_i \mid x_{1:i-1}).
 $$
 
-    那么，在 $q$ 下的 $x_{1:L}$ 的困惑度：
+那么，在 $q$ 下的 $x_{1:L}$ 的困惑度：
 
 $$
 perplexity_q(x_{1:L}) \le \frac{1}{1 - \epsilon} perplexity_p(x_{1:L}) \approxeq (1 + \epsilon) perplexity_p(x_{1:L}),
