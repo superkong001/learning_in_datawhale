@@ -311,6 +311,20 @@ $$
 
 如果混入 $ϵ=5%$ 的垃圾信息，那么困惑度只增加5%，但这样生成的语言结果会非常糟糕，因为平均每 20 个词符就会生成一个无意义的词符。
 
+Tips 根据泰勒展开公式，在 $x_0$ 的某个邻域内，$f(x)$ 可以展开为：
+
+$$
+f(x)=f(x_0)+f^{\prime}(x_0)(x - x_0)+\frac{f^{\prime\prime}(x_0)}{2!}(x - x_0)^2+\cdots+\frac{f^{(n)}(x_0)}{n!}(x - x_0)^n+R_n(x)
+$$
+
+所以，在 $\epsilon=0$ 处：
+
+$$
+\frac{1}{1 - \epsilon} \approxeq 1 + \epsilon + \epsilon^2 + \epsilon ^3 + ...
+$$
+
+在 $\epsilon$ 很小的时候，$\epsilon ^2$ 和更高阶的项变得非常小，因此可以忽略它们。
+
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
 
 <img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
