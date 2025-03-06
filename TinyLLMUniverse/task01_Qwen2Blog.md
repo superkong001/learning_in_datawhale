@@ -303,11 +303,13 @@ $$
 q(x_i \mid x_{1:i-1}) = (1-\epsilon) p(x_i \mid x_{1:i-1}) + \epsilon r(x_i \mid x_{1:i-1}).
 $$
 
-那么，在 $q$ 下的 $x_{1:L}$ 的困惑度：
+    那么，在 $q$ 下的 $x_{1:L}$ 的困惑度：
 
 $$
 perplexity_q(x_{1:L}) \le \frac{1}{1 - \epsilon} perplexity_p(x_{1:L}) \approxeq (1 + \epsilon) perplexity_p(x_{1:L}),
 $$
+
+如果混入 $ϵ=5%$ 的垃圾信息，那么困惑度只增加5%，但这样生成的语言结果会非常糟糕，因为平均每 20 个词符就会生成一个无意义的词符。
 
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
 
