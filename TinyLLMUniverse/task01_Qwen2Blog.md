@@ -273,10 +273,14 @@ $$
 - $\sum_{i = 1}^{L} \log \frac{1}{p \left( x_{i} \mid x_{1:i - 1} \right)}$ 对整个序列进行求和，得到所有词的累积不确定性。
 - $\frac{1}{L}$ 计算每个词预测的不确定性的平均值。这个结果描述了模型在给定整个序列时的平均困惑度。
 - $\exp \left( \cdot \right)$ 取指数，得到困惑度值。因为对数的单位是信息量（比如比特），取指数后的结果则是实际的困惑度度量，反映了模型对整个序列的预测不确定性。
-与整个序列的联合概率 $Perplexity_p \left( x_{1:L} \right) = P(X)^{(-1/N)} = \left(\prod_{i = 1}^{L}p(x_{i} \mid x_{1:i - 1}) \right)^{(-1/N)}$ 是等价的。
+与整个序列的联合概率 $Perplexity_p \left( x_{1:L} \right) = P(X)^{(-1/L)} = \left(\prod_{i = 1}^{L}p(x_{i} \mid x_{1:i - 1}) \right)^{(-1/L)}$ 是等价的。
 
 Tips 因为：
-$\log Perplexity_p \left( x_{1:L} \right) = \log P(X)^{(-1/N)} =  
+
+$$
+\log Perplexity_p \left( x_{1:L} \right) = \log P(X)^{(-1/L)} = - \frac{1}{L} \sum_{i = 1}^{L} \log \frac{1}{p \left( x_{i} \mid x_{1:i - 1} \right)} 
+\log Perplexity_p \left( x_{1:L} \right) = \log \left( \exp \left( \frac{1}{L} \sum_{i = 1}^{L} \log \frac{1}{p \left( x_{i} \mid x_{1:i - 1} \right)} \right) \right) = \frac{1}{L} \sum_{i = 1}^{L} \log \frac{1}{p \left( x_{i} \mid x_{1:i - 1} \right)} \right
+$$
 
 
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
