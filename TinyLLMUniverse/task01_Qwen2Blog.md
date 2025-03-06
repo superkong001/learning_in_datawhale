@@ -306,7 +306,7 @@ $$
 那么，在 $q$ 下的 $x_{1:L}$ 的困惑度：
 
 $$
-\text{perplexity}_q(x_{1:L}) \leq \frac{1}{1 - \epsilon} \text{perplexity}_p(x_{1:L}) \approx (1 + \epsilon)\text{perplexity}_p(x_{1:L})
+perplexity_q(x_{1:L}) \le \frac{1}{1 - \epsilon} \text{perplexity}_p(x_{1:L}) \approxeq (1 + \epsilon) \text{perplexity}_p(x_{1:L}),
 $$
 
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
