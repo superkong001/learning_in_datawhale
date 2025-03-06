@@ -252,7 +252,7 @@ $$
 
 事实上不希望采取算术平均，因为如果给一个词标记分配了0的概率（即模型认为这个词在特定的上下文中绝对不可能出现），那么在算术平均中这会造成极大的问题。因为算术平均并不会为此惩罚你，它只是简单地将所有词标记的概率加在一起，然后除以总数，因此一个非常低的概率（如0）可能会被其他较高的概率抵消。
 
-相反，我们希望采用几何平均，这就是困惑度（perplexity）所做的。在几何平均中，每个词标记的概率都被同等看待，并且一个极低的概率（如0）将会导致整个几何平均大幅度下降。因此，通过计算几何平均，我们可以更好地衡量模型在处理所有可能的词标记时的性能，特别是在处理那些模型可能会出错的情况。
+相反，采用几何平均，这就是困惑度（perplexity）所做的。在几何平均中，每个词标记的概率都被同等看待，并且一个极低的概率（如0）将会导致整个几何平均大幅度下降。因此，通过计算几何平均，可以更好地衡量模型在处理所有可能的词标记时的性能，特别是在处理那些模型可能会出错的情况。
 
 Tips 几何平均的定义：
 对于一组数据 $𝑥_1,𝑥_2,…,𝑥_𝑛$ ，几何平均可以通过以下公式计算：
@@ -264,15 +264,11 @@ $$
 即：将所有数据值相乘： $𝑥_1\times 𝑥_2\times … \times 𝑥_𝑛$ ，再对结果取 n 次方根。
 
 $$
-\text{perplexity}_p\left(x_{1: L}\right)=\exp \left(\frac{1}{L} \sum_{i=1}^L \log \frac{1}{p\left(x_i \mid x_{1: i-1}\right)}\right) \text {. }
-$$
-
-$$
 perplexity_p \left( x_{1:L} \right) = \exp \left( \frac{1}{L} \sum_{i = 1}^{L} \log \frac{1}{p \left( x_{i} \mid x_{1:i - 1} \right)} \right) \text {. }
 $$
 
 $$
-\text{perplexity}_p \left(x_{1: L} \right)= \exp \left( \frac{1}{L} \sum_{i=1}^L \log \frac{1}{p \left( x_i \mid x_{1:i-1} \right)} \right) \text {. }
+perplexity_p \left(x_{1: L} \right)= \exp \left( \frac{1}{L} \sum_{i=1}^L \log \frac{1}{p \left( x_i \mid x_{1:i-1} \right)} \right) \text {. }
 $$
 
 
