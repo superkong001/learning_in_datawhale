@@ -268,7 +268,7 @@ $$
 $$
 
 $$
-\text{perplexity} p \left( x_{1:L} \right) = \exp \left( \frac{1}{L} \sum_{i = 1}^{L} \log \frac{1}{p \left( x_{i} \mid x_{1:i - 1} \right)} \right) \text {. }
+perplexity_p \left( x_{1:L} \right) = \exp \left( \frac{1}{L} \sum_{i = 1}^{L} \log \frac{1}{p \left( x_{i} \mid x_{1:i - 1} \right)} \right) \text {. }
 $$
 
 $$
