@@ -313,11 +313,17 @@ $$
 
 Tips：
 
-- 的
+- 对数的加法不等式推导：
 
 $$
 perplexity_q(x_{1:L}) = - \frac{1}{L} \sum_{i = 1}^{L} \log {p \left( x_{i} \mid x_{1:i - 1} \right)} 
 = - \frac{1}{L} \sum_{i = 1}^{L} \log {\left( (1-\epsilon) p(x_i \mid x_{1:i-1}) + \epsilon r(x_i \mid x_{1:i-1}) \right)}
+$$
+
+根据上凸函数的琴生不等式：
+
+$$
+f\left(\sum_{i = 1}^{n}\lambda_ix_i\right)\geq\sum_{i = 1}^{n}\lambda_if(x_i)
 $$
 
 - 根据泰勒展开公式，在 $x_0$ 的某个邻域内， $f(x)$ 可以展开为：
