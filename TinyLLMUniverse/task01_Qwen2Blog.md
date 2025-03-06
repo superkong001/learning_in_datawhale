@@ -311,7 +311,16 @@ $$
 
 如果混入 $ϵ=5%$ 的垃圾信息，那么困惑度只增加5%，但这样生成的语言结果会非常糟糕，因为平均每 20 个词符就会生成一个无意义的词符。
 
-Tips 根据泰勒展开公式，在 $x_0$ 的某个邻域内， $f(x)$ 可以展开为：
+Tips：
+
+- 的
+
+$$
+perplexity_q(x_{1:L}) = - \frac{1}{L} \sum_{i = 1}^{L} \log {p \left( x_{i} \mid x_{1:i - 1} \right)} 
+= - \frac{1}{L} \sum_{i = 1}^{L} \log {\left( q(x_i \mid x_{1:i-1}) = (1-\epsilon) p(x_i \mid x_{1:i-1}) + \epsilon r(x_i \mid x_{1:i-1}) \right)}
+$$
+
+- 根据泰勒展开公式，在 $x_0$ 的某个邻域内， $f(x)$ 可以展开为：
 
 $$
 f(x)=f(x_0)+f^{\prime}(x_0)(x - x_0)+\frac{f^{\prime\prime}(x_0)}{2!}(x - x_0)^2+\cdots+\frac{f^{(n)}(x_0)}{n!}(x - x_0)^n+R_n(x)
