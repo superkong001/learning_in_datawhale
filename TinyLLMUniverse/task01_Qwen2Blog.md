@@ -321,6 +321,7 @@ perplexity_q(x_{1:L}) = \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} \log {p \left(
 = \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} \log {\left( (1-\epsilon) p(x_i \mid x_{1:i-1}) + \epsilon r(x_i \mid x_{1:i-1}) \right)} \right) \\
 \le \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} {\left( (1-\epsilon) \log p(x_i \mid x_{1:i-1}) + \epsilon \log r(x_i \mid x_{1:i-1}) \right)} \right) \\
 = \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} {\left( (1-\epsilon) \log p(x_i \mid x_{1:i-1}) \right)} \right) \cdot \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} {\left( \epsilon \log r(x_i \mid x_{1:i-1}) \right)} \right) \\
+= \left( (1-\epsilon) \right) perplexity_p(x_{1:L}) \cdot \exp \left(- \frac{\epsilon}{L} \sum_{i = 1}^{L} {\left( \log r(x_i \mid x_{1:i-1}) \right)} \right) \\
 \end{aligned}
 $$
 
