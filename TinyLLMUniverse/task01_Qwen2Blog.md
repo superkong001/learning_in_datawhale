@@ -328,8 +328,10 @@ $$
 根据上凸函数的琴生不等式：
 
 $$
+\begin{aligned}
 f\left(\sum_{i = 1}^{n}\lambda_ix_i\right)\geq\sum_{i = 1}^{n}\lambda_if(x_i) \\
-\sum_{i}\log\left((1 - \epsilon)p(x_i|x_{1:i - 1})+\epsilon r(x_i|x_{1:i - 1})\right)\leq(1 - \epsilon)\sum_{i}\log p(x_i|x_{1:i - 1})+\epsilon\sum_{i}\log r(x_i|x_{1:i - 1})
+\sum_{i}\log\left((1 - \epsilon)p(x_i|x_{1:i - 1})+\epsilon r(x_i|x_{1:i - 1})\right)\leq(1 - \epsilon)\sum_{i}\log p(x_i|x_{1:i - 1})+\epsilon\sum_{i}\log r(x_i|x_{1:i - 1}) \\
+\end{aligned}
 $$
 
 - 根据泰勒展开公式，在 $x_0$ 的某个邻域内， $f(x)$ 可以展开为：
