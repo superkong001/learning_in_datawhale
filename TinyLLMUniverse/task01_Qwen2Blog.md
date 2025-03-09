@@ -313,6 +313,12 @@ $$
 
 Tips：
 
+- 根据困惑度定义：
+
+$$
+perplexity_p \left( x_{1:L} \right) = \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} \log {p \left( x_{i} \mid x_{1:i - 1} \right)} \right) 
+$$
+
 - 对数的加法不等式推导：
 
 $$
