@@ -388,7 +388,7 @@ $$
     - while(当我们仍然希望V继续增长时)：
       Step2. 找到$V$中共同出现次数最多的元素对 $x,x'$ 。
     - Step3. 用一个新的符号 $xx'$ 替换所有 $x,x'$ 的出现。
-    - Step4. 将$xx'$ 添加到V中。
+    - Step4. 将 $xx'$ 添加到V中。
 
     存在训练数据中不可能见到所有的字符的问题。可以对字节而不是Unicode（统一码）字符运行BPE算法
 4. Unigram model (SentencePiece工具)
