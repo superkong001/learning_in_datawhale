@@ -704,7 +704,50 @@ $p(rain,coat)=p(rain)⋅p(coat | rain)$ 即： $p(x,y)=p(x)⋅p(y|x)$
 
 <img width="290" alt="image" src="https://github.com/user-attachments/assets/fa026e16-eda0-48a7-b307-9d7197e7d469" />
 
-辛普森悖论（Simpson’s Paradox）
+扩展：辛普森悖论（Simpson’s Paradox）
+
+- 编码
+
+<img width="239" alt="image" src="https://github.com/user-attachments/assets/615f5625-9879-48d5-b370-65b661e16991" />
+
+将句子中每个单词替换为相应的码字，然后连接成编码字符串：
+
+<img width="241" alt="image" src="https://github.com/user-attachments/assets/40fd9570-e7db-469e-954c-39d381d5e4be" />
+
+根据频率：
+
+<img width="270" alt="image" src="https://github.com/user-attachments/assets/37963044-3d1d-43ad-b530-6a35aebf1f6b" />
+<img width="302" alt="image" src="https://github.com/user-attachments/assets/94242f13-2e9c-4bd6-96bd-a5d3ac03a470" />
+
+短码字压缩后（目标常用的 codeword 简短）：
+
+<img width="233" alt="image" src="https://github.com/user-attachments/assets/bdf40eeb-07bb-4ead-9763-daac84e7683d" />
+<img width="415" alt="image" src="https://github.com/user-attachments/assets/5f3befac-5d54-47b4-90df-bcccc1ad3cca" />
+
+<img width="246" alt="image" src="https://github.com/user-attachments/assets/94e6d2cc-218d-4af1-b74a-5fa250c7e803" />
+
+- 码字空间
+添加的每个位都会使可能的代码数量增加一倍：
+
+<img width="297" alt="image" src="https://github.com/user-attachments/assets/b9b366af-61b5-431a-b9f3-1f3c0d99da86" />
+
+短码字后需要增加前缀（prefix codes，以免构成编码字符串的歧义）：
+
+<img width="356" alt="image" src="https://github.com/user-attachments/assets/3958497d-1f5f-419e-8e9c-72b37490981b" />
+
+花在获取短码字上的预算（通过牺牲一小部分可能的码字来支付一个码字的费用）是有限的。
+
+<img width="521" alt="image" src="https://github.com/user-attachments/assets/53fca0f8-b59c-4acb-8c3a-ac43b8bf6014" />
+
+如果成本呈（自然）指数衰减，则它既是高度，也是面积。如果需要在 50% 的时间内发送一个 4 位长的码字，那么平均消息长度比不发送该码字时长 2 位。
+
+<img width="185" alt="image" src="https://github.com/user-attachments/assets/b553b506-f434-4718-87a4-2c6a0d213c08" />
+
+支付的金额决定了码字的长度。码字的长度控制它对平均消息长度的增加程度。
+
+<img width="410" alt="image" src="https://github.com/user-attachments/assets/1901e581-4d13-40b4-93ce-9679d03a4a4e" />
+
+短码字会缩短平均消息长度，但成本高昂，而长码字会增加平均消息长度，但成本低廉。
 
 #### Kullback-Leibler 散度
 
