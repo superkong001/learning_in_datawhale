@@ -675,8 +675,32 @@ Transformer学习资源：
 
 <img width="454" alt="image" src="https://github.com/user-attachments/assets/a890aacb-0164-4d50-84f2-c8da7d195f22" />
 
-- 交叉熵
-- Kullback-Leibler 散度
+##### 交叉熵
+假设：假设一个城市 75% 的时间都是晴天：
+
+<img width="84" alt="image" src="https://github.com/user-attachments/assets/5fa5db4e-14a6-4b98-b982-757521e84ff0" />
+
+某A有 38% 的时间穿着外套：
+
+<img width="76" alt="image" src="https://github.com/user-attachments/assets/f07b6fb8-97f3-4359-af94-2d68b8b010f9" />
+
+如果这两件事情相对独立（互不影响）：
+
+<img width="274" alt="image" src="https://github.com/user-attachments/assets/054515dd-c08f-472a-91db-06f4bac90fe0" />
+
+图中直线、垂直线和水平线都贯穿始终。这就是独立，A穿着外套并且下周会下雨的概率就是A穿着外套的概率乘以下雨的概率。他们互不影响。
+
+如果相互影响的话；
+
+<img width="270" alt="image" src="https://github.com/user-attachments/assets/5de38dbe-5958-48c6-b7d1-2b972d04209c" />
+
+当关注一个变量，比如天气，知道晴天或下雨的可能性有多大。对于这两种情况，都可以查看条件概率：如果天气晴朗，A穿 T 恤的可能性有多大？如果下雨，A穿外套的可能性有多大？
+
+<img width="377" alt="image" src="https://github.com/user-attachments/assets/9e7b6501-2642-4bf7-bf7e-9ff2788e5e68" />
+
+$p(rain,coat)=p(rain)⋅p(coat | rain)$
+
+#### Kullback-Leibler 散度
 
 # Qwen整体介绍
 
