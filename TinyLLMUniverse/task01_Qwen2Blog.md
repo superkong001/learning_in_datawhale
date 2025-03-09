@@ -769,8 +769,8 @@ $H(p)=\sum_x {p(x)log_2(\frac{1}{p(x)})}$
 使用同一套编码时：
 
 $$
-L_avg = \sum_x {p(x)L(x)} = (\frac{1}{2} ⋅ 1) + (\frac{1}{4} ⋅ 2) + (\frac{1}{8} ⋅ 3) + (\frac{1}{8} ⋅ 3) = 1.75 bits \\
-L_avg = \sum_x {p(x)L(x)} = (\frac{1}{8} ⋅ 1) + (\frac{1}{2} ⋅ 2) + (\frac{1}{4} ⋅ 3) + (\frac{1}{8} ⋅ 3) = 2.25 bits
+L_{avg} = \sum_x {p(x)L(x)} = (\frac{1}{2} ⋅ 1) + (\frac{1}{4} ⋅ 2) + (\frac{1}{8} ⋅ 3) + (\frac{1}{8} ⋅ 3) = 1.75 bits \\
+L_{avg} = \sum_x {p(x)L(x)} = (\frac{1}{8} ⋅ 1) + (\frac{1}{2} ⋅ 2) + (\frac{1}{4} ⋅ 3) + (\frac{1}{8} ⋅ 3) = 2.25 bits \\
 $$
 
 
