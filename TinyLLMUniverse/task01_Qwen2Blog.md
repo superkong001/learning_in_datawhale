@@ -752,7 +752,7 @@ $p(rain,coat)=p(rain)⋅p(coat | rain)$ 即： $p(x,y)=p(x)⋅p(y|x)$
 <img width="485" alt="image" src="https://github.com/user-attachments/assets/18cbcc94-b6cb-463f-97fa-5956d470ffb5" />
 
 - 信息熵
-长度 $L$ 的消息的开销为 $\frac{1}{2^L}$ 。反过来获得花费给定金额的消息的长度为 $L(x) = log_2 (\frac{1}{cost}) = log_2 (\frac{1}{p(x)})$ 。
+长度 $L$ 的消息的开销为 $\frac{1}{2^L}$ 。反过来获得花费给定金额的消息的长度为 $L(x) = log_2 (\frac{1}{cost})$ ，由于希望符号 $𝑥$ 的出现概率越高，占用的资源就越大，因此 $cost = p(x)$ ， $L(x) = log_2 (\frac{1}{p(x)})=-log_2 {p(x)}$ 。
 
 <img width="421" alt="image" src="https://github.com/user-attachments/assets/a3d21097-d323-4079-a29a-7af868064555" />
 
