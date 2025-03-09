@@ -637,6 +637,8 @@ Transformer学习资源：
 
 <img width="623" alt="image" src="https://github.com/user-attachments/assets/96c44f95-63b4-4338-b36f-64e907e7db40" />
 
+[Self-Attention with Relative Position Representations 使用相对位置表示的自我注意](https://arxiv.org/abs/1803.02155)
+
 ### 残差
 每个 encoder 中的每个子层 （self-attention，ffnn） 周围都有一个残差连接，然后是[层归一化](https://arxiv.org/abs/1607.06450)步骤。
 
@@ -647,11 +649,32 @@ Transformer学习资源：
 <img width="691" alt="image" src="https://github.com/user-attachments/assets/1b43856e-b0ea-44e9-ac1b-a4613ce6d038" />
 
 ### 解码（Decoder）端
-![image](https://jalammar.github.io/images/t/transformer_decoding_1.gif)
-
 ![transformer_decoding_1](https://github.com/user-attachments/assets/159dde71-fee8-4cc8-a134-c84bfb64cf66)
 
+重复该过程，直到到达一个特殊符号，指示 transformer 解码器已完成其输出。每个步骤的输出在下一个时刻步骤中馈送到底部解码器，解码器就像编码器一样冒泡其解码结果。
 
+![transformer_decoding_2](https://github.com/user-attachments/assets/7fb17afe-4ae6-4c01-899b-4dd82ace0768)
+
+解码器中的自我注意层的工作方式与编码器中的自我注意层略有不同：在 decoder 中，self-attention 层只允许关注 output sequence 中的较早位置。这是通过在自我注意力计算中的 softmax 步骤之前屏蔽未来位置（将它们设置为 -inf）来完成的。
+
+### Linear 和 Softmax 层
+线性层是一个简单的全连接神经网络，它将解码器堆栈生成的向量投影到一个大得多的向量中，称为 logits 向量。如有个10,000 个英语词汇表（训练之前在预处理阶段创建的），这将使 logits 向量宽 10,000 个单元格 - 每个单元格对应于一个唯一单词的分数。
+
+![image](https://github.com/user-attachments/assets/41269628-4452-4754-ac3d-8661b50d77b5)
+
+然后，softmax 层将这些分数转换为概率（均为正数，加起来均为 1.0）。
+
+![image](https://github.com/user-attachments/assets/0130867f-6579-4764-8ba9-0b1238ed4922)
+
+### 损失函数
+将模型输出与实际输出进行比较，然后使用反向传播调整模型的所有权重，使输出更接近所需的输出。
+
+<img width="461" alt="image" src="https://github.com/user-attachments/assets/a8113bc7-b384-40c2-ba10-a0adc9fbf501" />
+
+<img width="454" alt="image" src="https://github.com/user-attachments/assets/a890aacb-0164-4d50-84f2-c8da7d195f22" />
+
+- 交叉熵
+- Kullback-Leibler 散度
 
 # Qwen整体介绍
 
