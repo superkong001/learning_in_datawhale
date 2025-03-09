@@ -698,7 +698,13 @@ Transformer学习资源：
 
 <img width="377" alt="image" src="https://github.com/user-attachments/assets/9e7b6501-2642-4bf7-bf7e-9ff2788e5e68" />
 
-$p(rain,coat)=p(rain)⋅p(coat | rain)$
+$p(rain,coat)=p(rain)⋅p(coat | rain)$ 即： $p(x,y)=p(x)⋅p(y|x)$ 
+
+反过来关注穿衣的话： $p(rain,coat)=p(coat)⋅p(rain | coat)$ 
+
+<img width="290" alt="image" src="https://github.com/user-attachments/assets/fa026e16-eda0-48a7-b307-9d7197e7d469" />
+
+辛普森悖论（Simpson’s Paradox）
 
 #### Kullback-Leibler 散度
 
