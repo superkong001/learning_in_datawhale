@@ -326,7 +326,7 @@ $$
 perplexity_q(x_{1:L}) = \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} \log {q \left( x_{i} \mid x_{1:i - 1} \right)} \right) \\
 \le \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} {\left( (1-\epsilon) \log p(x_i \mid x_{1:i-1}) + \epsilon \log r(x_i \mid x_{1:i-1}) \right)} \right) \\
 = \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} {\left( (1-\epsilon) \log p(x_i \mid x_{1:i-1}) \right)} \right) \cdot \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} {\left( \epsilon \log r(x_i \mid x_{1:i-1}) \right)} \right) \\
-= perplexity_p(x_{1:L})^{(1-\epsilon)} \cdot \exp \left(- \frac{\epsilon}{L} \sum_{i = 1}^{L} {\left( \log r(x_i \mid x_{1:i-1}) \right)} \right) \\
+= perplexity_p(x_{1:L})^\text{(1-\epsilon)} \cdot \exp \left(- \frac{\epsilon}{L} \sum_{i = 1}^{L} {\left( \log r(x_i \mid x_{1:i-1}) \right)} \right) \\
 = (1-\epsilon) perplexity_p(x_{1:L}) \cdot \exp \left(- \frac{\epsilon}{L} \sum_{i = 1}^{L} {\left( \log r(x_i \mid x_{1:i-1}) \right)} \right) \\
 \end{aligned}
 $$
@@ -342,10 +342,10 @@ f\left(\sum_{i = 1}^{n}\lambda_ix_i\right)\leq\sum_{i = 1}^{n}\lambda_if(x_i) (�
 \end{aligned}
 $$
 
-- 根据上界估计，幂函数的不等式
+- 根据上界估计，幂函数的不等式(在 $0<1−\epsilon<1 的情况下)
 
 $$
-
+M^{1-\epsilon} \leq \frac{M}{1-\epsilon}
 $$
 
 - 根据泰勒展开公式，在 $x_0$ 的某个邻域内， $f(x)$ 可以展开为：
