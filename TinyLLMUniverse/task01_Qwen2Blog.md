@@ -792,6 +792,8 @@ $$
 
 <img width="365" alt="image" src="https://github.com/user-attachments/assets/0561c05b-bee2-4abe-9a7d-91b7999a1ba3" />
 
+以下每个子图代表这 4 种可能性中的一种：
+
 <img width="483" alt="image" src="https://github.com/user-attachments/assets/6ee0f5e1-5633-457e-bd4d-4df118ae787f" />
 
 交叉熵为提供了一种表达两种概率分布差异的方法。
