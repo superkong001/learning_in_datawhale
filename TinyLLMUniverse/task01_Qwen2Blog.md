@@ -324,7 +324,7 @@ $$
 $$
 \begin{aligned}
 perplexity_q(x_{1:L}) = \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} \log {q \left( x_{i} \mid x_{1:i - 1} \right)} \right) \\
-\le \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} {\left( (1-\epsilon) \log p(x_i \mid x_{1:i-1}) + \epsilon \log r(x_i \mid x_{1:i-1}) \right)} \right) \\
+\le \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} {\left( (1-\epsilon) \log p(x_i \mid x_{1:i-1}) - \epsilon \log r(x_i \mid x_{1:i-1}) \right)} \right) \\
 = \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} {\left( (1-\epsilon) \log p(x_i \mid x_{1:i-1}) \right)} \right) \cdot \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} {\left( \epsilon \log r(x_i \mid x_{1:i-1}) \right)} \right) \\
 = (1-\epsilon) perplexity_p(x_{1:L}) \cdot \exp \left(- \frac{\epsilon}{L} \sum_{i = 1}^{L} {\left( \log r(x_i \mid x_{1:i-1}) \right)} \right) \\
 \end{aligned}
