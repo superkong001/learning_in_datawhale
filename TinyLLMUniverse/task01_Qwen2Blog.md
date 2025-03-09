@@ -756,6 +756,17 @@ $p(rain,coat)=p(rain)⋅p(coat | rain)$ 即： $p(x,y)=p(x)⋅p(y|x)$
 
 <img width="421" alt="image" src="https://github.com/user-attachments/assets/a3d21097-d323-4079-a29a-7af868064555" />
 
+信息熵：
+
+$H(p)=\sum_x {p(x)log_2(\frac{1}{p(x)})}$
+
+- Cross-Entropy  交叉熵：
+
+<img width="306" alt="image" src="https://github.com/user-attachments/assets/495cb124-777e-44fc-b846-627d89d36ee1" />
+
+
+
+
 #### Kullback-Leibler 散度
 
 # Qwen整体介绍
