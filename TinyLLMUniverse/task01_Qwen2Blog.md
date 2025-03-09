@@ -724,6 +724,8 @@ $p(rain,coat)=p(rain)⋅p(coat | rain)$ 即： $p(x,y)=p(x)⋅p(y|x)$
 <img width="233" alt="image" src="https://github.com/user-attachments/assets/bdf40eeb-07bb-4ead-9763-daac84e7683d" />
 <img width="415" alt="image" src="https://github.com/user-attachments/assets/5f3befac-5d54-47b4-90df-bcccc1ad3cca" />
 
+$L_avg = \sum_x {p(x)L(x)} = (\frac{1}{2} ⋅ 1) + (\frac{1}{4} ⋅ 2) + (\frac{1}{8} ⋅ 3) + (\frac{1}{8} ⋅ 3) = 1.75 bits$
+
 <img width="246" alt="image" src="https://github.com/user-attachments/assets/94e6d2cc-218d-4af1-b74a-5fa250c7e803" />
 
 - 码字空间
@@ -764,6 +766,12 @@ $H(p)=\sum_x {p(x)log_2(\frac{1}{p(x)})}$
 
 <img width="306" alt="image" src="https://github.com/user-attachments/assets/495cb124-777e-44fc-b846-627d89d36ee1" />
 
+使用同一套编码时：
+
+$$
+L_avg = \sum_x {p(x)L(x)} = (\frac{1}{2} ⋅ 1) + (\frac{1}{4} ⋅ 2) + (\frac{1}{8} ⋅ 3) + (\frac{1}{8} ⋅ 3) = 1.75 bits \\
+L_avg = \sum_x {p(x)L(x)} = (\frac{1}{8} ⋅ 1) + (\frac{1}{2} ⋅ 2) + (\frac{1}{4} ⋅ 3) + (\frac{1}{8} ⋅ 3) = 2.25 bits
+$$
 
 
 
