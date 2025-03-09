@@ -499,6 +499,8 @@ $$
 
 <img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
 
+<img width="617" alt="image" src="https://github.com/user-attachments/assets/ddccf4ae-d353-4bc8-8087-a4cc62b92b05" />
+
 ### 递归神经网络（RNN）
 
 它是一类模型，包括简单的RNN、LSTM和GRU。基本形式的RNN通过递归地计算一系列隐藏状态来进行计算。
