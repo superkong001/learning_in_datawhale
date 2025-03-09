@@ -20,15 +20,11 @@ $$
 概率直观地告诉我们一个标记序列有多“好（good）”。例如，如果词汇表为{ate, ball, cheese, mouse, the}，语言模型可能会分配以下概率（演示）：
 
 $$
-p(\text{the, mouse, ate, the, cheese}) = 0.02,
-$$
-
-$$
-p(\text{the, cheese ate, the, mouse}) = 0.01,
-$$
-
-$$
-p(\text{mouse, the, the, cheese, ate}) = 0.0001,
+\begin{aligned}
+p(\text{the, mouse, ate, the, cheese}) = 0.02 \\
+p(\text{the, cheese ate, the, mouse}) = 0.01 \\
+p(\text{mouse, the, the, cheese, ate}) = 0.0001 \\
+\end{aligned}
 $$
 
 - 语言模型是序列  $x_{1:L}$ 的概率分布 p。
@@ -49,7 +45,7 @@ $$
 将序列  $x_{1:L}$  的联合分布  $p(x_{1:L})$  的常见写法是使用概率的链式法则：
 
 $$
-p(x_{1:L}) = p(x_1)p(x_2 \mid x_1)p(x_3 \mid x_1, x_2) \cdots p(x_L \mid x_{1:L-1}) = \prod_{i=1}^L p(x_i \mid x_{1:i-1}).
+p(x_{1:L}) = p(x_1) p(x_2 \mid x_1) p(x_3 \mid x_1, x_2) \cdots p(x_L \mid x_{1:L-1}) = \prod_{i=1}^L p(x_i \mid x_{1:i-1}).
 $$
 
 例子：
