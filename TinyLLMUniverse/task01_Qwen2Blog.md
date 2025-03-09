@@ -758,9 +758,9 @@ $L_avg = \sum_x {p(x)L(x)} = (\frac{1}{2} ⋅ 1) + (\frac{1}{4} ⋅ 2) + (\frac{
 
 <img width="421" alt="image" src="https://github.com/user-attachments/assets/a3d21097-d323-4079-a29a-7af868064555" />
 
-信息熵：
+信息熵：在信息论中，给定一个真实分布 $𝑝(𝑥)$ ，最佳编码方案应该使用熵 $𝐻(𝑝)$ 作为理论上的最优平均编码长度。
 
-$H(p)=\sum_x {p(x)log_2(\frac{1}{p(x)})}$
+$H(p)=\sum_x {p(x)log_2(\frac{1}{p(x)})} = - \sum_x {p(x)log_2{p(x)}}$
 
 - Cross-Entropy  交叉熵：
 
@@ -775,7 +775,9 @@ L_\text{avg} = \sum_x {p(x)L(x)} = (\frac{1}{8} ⋅ 1) + (\frac{1}{2} ⋅ 2) + (
 \end{aligned}
 $$
 
+将一个分布中的事件与另一个分布的最佳代码进行通信的平均长度，称为交叉熵。也就是不了解真实分布 $𝑝(𝑥)$ 情况下，选择了一个替代分布 $𝑞(𝑥)$ 进行编码，那么编码的平均长度变为：
 
+$H(p)=- \sum_x {p(x)log_2{q(x)}}$
 
 #### Kullback-Leibler 散度
 
