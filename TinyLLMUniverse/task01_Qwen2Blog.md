@@ -331,12 +331,12 @@ perplexity_q(x_{1:L}) = \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} \log {p \left(
 \end{aligned}
 $$
 
-根据上凸函数的詹森不等式：
+根据log是凹函数，根据Jensen’s(詹森)不等式：
 
 $$
 \begin{aligned}
-f\left(\sum_{i = 1}^{n}\lambda_ix_i\right)\leq\sum_{i = 1}^{n}\lambda_if(x_i) \\
-\sum_{i}\log\left((1 - \epsilon)p(x_i|x_{1:i - 1})+\epsilon r(x_i|x_{1:i - 1})\right)\leq(1 - \epsilon)\sum_{i}\log p(x_i|x_{1:i - 1})+\epsilon\sum_{i}\log r(x_i|x_{1:i - 1}) \\
+f\left(\sum_{i = 1}^{n}\lambda_ix_i\right)\geq\sum_{i = 1}^{n}\lambda_if(x_i) \\
+\sum_{i}\log\left((1 - \epsilon)p(x_i|x_{1:i - 1})+\epsilon r(x_i|x_{1:i - 1})\right)\geq(1 - \epsilon)\sum_{i}\log p(x_i|x_{1:i - 1})+\epsilon\sum_{i}\log r(x_i|x_{1:i - 1}) \\
 \end{aligned}
 $$
 
