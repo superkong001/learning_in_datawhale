@@ -535,6 +535,15 @@ def $BidirectionalSequenceRNN(x_{1:L}:ℝ^{d×L})→ℝ^{2d×L}$ ：
 
 存在问题：简单RNN由于梯度消失的问题很难训练。为了解决这个问题，发展了长短期记忆（LSTM）和门控循环单元（GRU）（都属于RNN）。
 
+#### Transformer
+Transformer学习资源：
+
+- [Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)和[Illustrated GPT-2](https://jalammar.github.io/illustrated-gpt2/)：对Transformer的视觉描述非常好。
+- [Annotated Transformer](https://nlp.seas.harvard.edu/2018/04/03/attention.html)：Transformer的Pytorch实现。
+
+#### 注意力机制
+
+
 # Qwen整体介绍
 
 Qwen的架构：
