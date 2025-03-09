@@ -722,9 +722,17 @@ $p(rain,coat)=p(rain)⋅p(coat | rain)$ 即： $p(x,y)=p(x)⋅p(y|x)$
 短码字压缩后（目标常用的 codeword 简短）：
 
 <img width="233" alt="image" src="https://github.com/user-attachments/assets/bdf40eeb-07bb-4ead-9763-daac84e7683d" />
+
 <img width="415" alt="image" src="https://github.com/user-attachments/assets/5f3befac-5d54-47b4-90df-bcccc1ad3cca" />
 
-$L_avg = \sum_x {p(x)L(x)} = (\frac{1}{2} ⋅ 1) + (\frac{1}{4} ⋅ 2) + (\frac{1}{8} ⋅ 3) + (\frac{1}{8} ⋅ 3) = 1.75 bits$
+$$
+\begin{aligned}
+-log_2{\frac{1}{2}} = 1 \\
+-log_2{\frac{1}{4}} = 2 \\
+-log_2{\frac{1}{8}} = 3 \\
+L_{avg} = \sum_x {p(x)L(x)} = (\frac{1}{2} ⋅ 1) + (\frac{1}{4} ⋅ 2) + (\frac{1}{8} ⋅ 3) + (\frac{1}{8} ⋅ 3) = 1.75 bits \\
+\end{aligned}
+$$
 
 <img width="246" alt="image" src="https://github.com/user-attachments/assets/94e6d2cc-218d-4af1-b74a-5fa250c7e803" />
 
