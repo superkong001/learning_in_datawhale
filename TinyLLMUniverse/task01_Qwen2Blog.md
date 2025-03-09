@@ -647,10 +647,9 @@ Transformer学习资源：
 <img width="691" alt="image" src="https://github.com/user-attachments/assets/1b43856e-b0ea-44e9-ac1b-a4613ce6d038" />
 
 ### 解码（Decoder）端
-![image](https://github.com/user-attachments/assets/36687154-f5d6-4425-baa0-478d3b8dedaf)
-
 ![image](https://jalammar.github.io/images/t/transformer_decoding_1.gif)
 
+![transformer_decoding_1](https://github.com/user-attachments/assets/159dde71-fee8-4cc8-a134-c84bfb64cf66)
 
 
 
