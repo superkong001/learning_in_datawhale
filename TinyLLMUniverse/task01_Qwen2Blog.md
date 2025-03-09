@@ -376,7 +376,7 @@ prompt \overset{model}{\leadsto} completion \ \ or \ \ model(prompt) = completio
 $$
 
 #### 分词
-分词（Tokenization）：即如何将一个字符串拆分成多个词元。
+分词（Tokenization）：即如何将一个字符串拆分成多个词元。分词方法：
 
 1. 基于空格的分词。如：`text.split(' ')`
 2. 字节对编码（BPE, Byte pair encoding）算法。
@@ -413,13 +413,91 @@ $$
       - 计算每个词汇 $x∈V$ 的 $loss(x)$ ，衡量如果将 $x$ 从 $V$ 中移除，似然值会减少多少。
       - 按照 $loss$ 进行排序，并保留 $V$ 中排名靠前的80%的词汇。
 
+#### 向量化
 
+需要将词元序列转换为序列的向量形式。 $EmbedToken$ 函数通过在嵌入矩阵 $E∈ℝ^{|v|×d}$ 中查找每个词元所对应的向量，该向量的具体值这是从数据中学习的参数：
+
+def  $EmbedToken(x_{1:L}:V^{L})→ℝ^{d×L}$ ：
+
+- 将序列 $x_{1:L}$ 中的每个词元 $xi$ 转换为向量。
+- 返回[Ex1,…,ExL]。
+
+以上的词嵌入是传统的词嵌入，向量内容与上下文无关。这里定义一个抽象的 $SequenceModel$ 函数，它接受这些上下文无关的嵌入，并将它们映射为上下文相关的嵌入。
+
+ $def SequenceModel(x_{1:L}:ℝ^{d×L})→ℝ^{d×L}$ ：
+
+- 针对序列 $x_{1:L}$ 中的每个元素xi进行处理，考虑其他元素。
+- [抽象实现（例如， $FeedForwardSequenceModel$ ， $SequenceRNN$ ， $TransformerBlock$ ）]
+
+最简单类型的序列模型基于前馈网络（Bengio等人，2003），应用于固定长度的上下文，就像n-gram模型一样，函数的实现如下：
+
+def  $FeedForwardSequenceModel(x_{1:L}:ℝ^{d×L})→ℝ^{d×L}$ ：
+
+- 通过查看最后 $n$ 个元素处理序列 $x_{1:L}$ 中的每个元素 $xi$ 。
+- 对于每个 $i=1,…,L$ ：
+  - 计算 $h_{i}=FeedForward(x_{i−n+1},…,x_{i})$ 。
+- 返回[ $h_{1},…,h_{L}$ ]。
+
+### 语言模型架构
+上下文向量表征 (Contextual Embedding): 作为模型处理的先决条件，其关键是将词元序列表示为响应的上下文的向量表征：
+
+$$
+[the, mouse, ate, the, cheese] \stackrel{\phi}{\Rightarrow}\left[\left(\begin{array}{c}
+1 \\
+0.1
+\end{array}\right),\left(\begin{array}{l}
+0 \\
+1
+\end{array}\right),\left(\begin{array}{l}
+1 \\
+1
+\end{array}\right),\left(\begin{array}{c}
+1 \\
+-0.1
+\end{array}\right),\left(\begin{array}{c}
+0 \\
+-1
+\end{array}\right)\right]. 
+$$
+
+语言模型分为三个类型：编码端（Encoder-Only），解码端（Decoder-Only）和编码-解码端（Encoder-Decoder）。
+
+- 编码端（Encoder-Only）
+    如：BERT、RoBERTa等。这些语言模型生成上下文向量表征，但不能直接用于生成文本。可以表示为， $x_{1:L}⇒ϕ(x_{1:L})$ 。这些上下文向量表征通常用于分类任务（也被称为自然语言理解任务）。任务形式比较简单，下面以情感分类/自然语言推理任务举例：
+
+    $$
+    情感分析输入与输出形式：[[CLS], 他们, 移动, 而, 强大]\Rightarrow 正面情绪
+    $$
+    
+    $$
+    自然语言处理输入与输出形式：[[CLS], 所有, 动物, 都, 喜欢, 吃, 饼干, 哦]⇒蕴涵
+    $$
+
+    该架构的优势是对于文本的上下文信息有更好的理解，因此该模型架构才会多用于理解任务。该架构的有点是对于每个 $x{i}$ ，上下文向量表征可以双向地依赖于左侧上下文 $(x_{1:i−1})$ 和右侧上下文  $(x_{i+1:L})$ 。但是缺点在于不能自然地生成完成文本，且需要更多的特定训练目标（如掩码语言建模）。
+
+- 解码端（Decoder-Only）
+    如：GPT系列模型。这些是常见的自回归语言模型，给定一个提示  $x_{1:i}$ ，它们可以生成上下文向量表征，并对下一个词元 $x_{i+1}$ （以及递归地，整个完成 
+ $x_{i+1:L}$） 生成一个概率分布。 $x_{1:i}⇒ϕ(x_{1:i}),p(x_{i+1}∣x_{1:i})$ 。以自动补全任务来说，输入与输出的形式为， $[[CLS], 他们, 移动, 而]⇒强大$ 。与编码端架构比，其优点为能够自然地生成完成文本，有简单的训练目标（最大似然）。缺点也很明显，对于每个  $xi$ ，上下文向量表征只能单向地依赖于左侧上下文  ($x_{1:i−1}$) 。
+
+- 编码-解码端（Encoder-Decoder）
+    如：Transformer、BART、T5等模型。这些模型在某种程度上结合了两者的优点：它们可以使用双向上下文向量表征来处理输入 $x_{1:L}$ ，并且可以生成输出 $y_{1:L}$ 。可以公式化为：
+    
+    $$
+    x1:L⇒ϕ(x1:L),p(y1:L∣ϕ(x1:L))。
+    $$
+
+    以表格到文本生成任务为例，其输入和输出的可以表示为：
+    
+    $$
+    [名称:, 植物, |, 类型:, 花卉, 商店]⇒[花卉, 是, 一, 个, 商店]。
+    $$
+    
+    该模型的具有编码端，解码端两个架构的共同的优点，对于每个 $x_{i}$ ，上下文向量表征可以双向地依赖于左侧上下文  $x_{1:i−1}$ ) 和右侧上下文 ( $x_{i+1:L}$ )，可以自由的生成文本数据。缺点就说需要更多的特定训练目标。
 
 
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
 
 <img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
-
 
 # Qwen整体介绍
 
