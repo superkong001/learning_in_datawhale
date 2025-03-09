@@ -329,7 +329,7 @@ $$
 
 $$
 \begin{aligned}
-f\left(\sum_{i = 1}^{n}\lambda_ix_i\right)\geq\sum_{i = 1}^{n}\lambda_if(x_i) \\
+f\left(\sum_{i = 1}^{n}\lambda_ix_i\right)\leq\sum_{i = 1}^{n}\lambda_if(x_i) \\
 \sum_{i}\log\left((1 - \epsilon)p(x_i|x_{1:i - 1})+\epsilon r(x_i|x_{1:i - 1})\right)\leq(1 - \epsilon)\sum_{i}\log p(x_i|x_{1:i - 1})+\epsilon\sum_{i}\log r(x_i|x_{1:i - 1}) \\
 \end{aligned}
 $$
