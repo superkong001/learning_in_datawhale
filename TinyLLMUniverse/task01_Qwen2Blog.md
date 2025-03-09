@@ -499,6 +499,42 @@ $$
 
 <img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
 
+#### 递归神经网络（RNN）
+
+它是一类模型，包括简单的RNN、LSTM和GRU。基本形式的RNN通过递归地计算一系列隐藏状态来进行计算。
+
+def $SequenceRNN(x:ℝ^{d×L})→ℝ^{d×L}$ ：
+
+- 从左到右处理序列 $x_{1},…,x_{L}$ ，并递归计算向量 $h_{1},…,h_{L}$ 。
+- 对于 $i=1,…,L$ ：
+  - 计算 $h_{i}=RNN(h_{i−1},x_{i})$ 。
+  - 返回 $[h_{1},…,h_{L}]$ 。
+
+工作的模块是RNN，类似于有限状态机，它接收当前状态h、新观测值x，并返回更新后的状态：
+
+def $RNN(h:ℝ^d,x:ℝ^d)→ℝ^d$ ：
+
+- 根据新的观测值x更新隐藏状态h。
+- [抽象实现（例如，SimpleRNN，LSTM，GRU）]
+
+- 简单RNN：
+
+def $SimpleRNN(h:ℝd,x:ℝd)→ℝd$ ：
+
+- 通过简单的线性变换和非线性函数根据新的观测值 $x$ 更新隐藏状态 $h$ 。
+- 返回 $σ(Uh+Vx+b)$ 。
+
+- 双向RNN：
+
+def $BidirectionalSequenceRNN(x_{1:L}:ℝ^{d×L})→ℝ^{2d×L}$ ：
+
+- 同时从左到右和从右到左处理序列。
+- 计算从左到右： $[h→_{1},…,h→_{L}]←SequenceRNN(x_{1},…,x_{L})$ 。
+- 计算从右到左： $[h←_{L},…,h←_{1}]←SequenceRNN(x_{L},…,x_{1})$ 。
+- 返回 $[h→_{1}h←_{1},…,h→_{L}h←_{L}]$ 。
+
+存在问题：简单RNN由于梯度消失的问题很难训练。为了解决这个问题，发展了长短期记忆（LSTM）和门控循环单元（GRU）（都属于RNN）。
+
 # Qwen整体介绍
 
 Qwen的架构：
