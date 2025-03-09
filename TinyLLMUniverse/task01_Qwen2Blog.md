@@ -749,6 +749,13 @@ $p(rain,coat)=p(rain)⋅p(coat | rain)$ 即： $p(x,y)=p(x)⋅p(y|x)$
 
 短码字会缩短平均消息长度，但成本高昂，而长码字会增加平均消息长度，但成本低廉。
 
+<img width="485" alt="image" src="https://github.com/user-attachments/assets/18cbcc94-b6cb-463f-97fa-5956d470ffb5" />
+
+- 信息熵
+长度 $L$ 的消息的开销为 $\frac{1}{2^L}$ 。反过来获得花费给定金额的消息的长度为 $L(x) = log_2 (\frac{1}{cost}) = log_2 (\frac{1}{p(x)})$ 。
+
+<img width="421" alt="image" src="https://github.com/user-attachments/assets/a3d21097-d323-4079-a29a-7af868064555" />
+
 #### Kullback-Leibler 散度
 
 # Qwen整体介绍
