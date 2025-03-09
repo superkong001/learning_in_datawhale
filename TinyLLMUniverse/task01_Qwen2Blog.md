@@ -94,7 +94,7 @@ p_{T=0.5}(\text { cheese })=0.31, & \left.p_{T=0.5} \text { (mouse }\right)=0.69
 \end{array}
 $$
 
-### 大模型理论
+## 大模型理论
 
 香农在信息理论中用于度量概率分布的熵（Entropy），熵是一个概率分布的度量，它衡量的是随机变量的不确定性。对于离散随机变量 $𝑋$ 的概率分布 $𝑝(𝑥_1),𝑝(𝑥_2),…,p(x_n)$ ，香农熵 $𝐻(𝑋)$ 被定义为：
 
@@ -375,7 +375,7 @@ $$
 prompt \overset{model}{\leadsto} completion \ \ or \ \ model(prompt) = completion
 $$
 
-#### 分词
+### 分词
 分词（Tokenization）：即如何将一个字符串拆分成多个词元。分词方法：
 
 1. 基于空格的分词。如：`text.split(' ')`
@@ -413,7 +413,7 @@ $$
       - 计算每个词汇 $x∈V$ 的 $loss(x)$ ，衡量如果将 $x$ 从 $V$ 中移除，似然值会减少多少。
       - 按照 $loss$ 进行排序，并保留 $V$ 中排名靠前的80%的词汇。
 
-#### 向量化
+### 向量化
 
 需要将词元序列转换为序列的向量形式。 $EmbedToken$ 函数通过在嵌入矩阵 $E∈ℝ^{|v|×d}$ 中查找每个词元所对应的向量，该向量的具体值这是从数据中学习的参数：
 
@@ -438,7 +438,7 @@ def  $FeedForwardSequenceModel(x_{1:L}:ℝ^{d×L})→ℝ^{d×L}$ ：
   - 计算 $h_{i}=FeedForward(x_{i−n+1},…,x_{i})$ 。
 - 返回[ $h_{1},…,h_{L}$ ]。
 
-### 语言模型架构
+## 语言模型架构
 上下文向量表征 (Contextual Embedding): 作为模型处理的先决条件，其关键是将词元序列表示为响应的上下文的向量表征：
 
 $$
@@ -499,7 +499,7 @@ $$
 
 <img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
 
-#### 递归神经网络（RNN）
+### 递归神经网络（RNN）
 
 它是一类模型，包括简单的RNN、LSTM和GRU。基本形式的RNN通过递归地计算一系列隐藏状态来进行计算。
 
@@ -535,13 +535,14 @@ def $BidirectionalSequenceRNN(x_{1:L}:ℝ^{d×L})→ℝ^{2d×L}$ ：
 
 存在问题：简单RNN由于梯度消失的问题很难训练。为了解决这个问题，发展了长短期记忆（LSTM）和门控循环单元（GRU）（都属于RNN）。
 
-#### Transformer
+## Transformer
 Transformer学习资源：
 
 - [Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)和[Illustrated GPT-2](https://jalammar.github.io/illustrated-gpt2/)：对Transformer的视觉描述非常好。
 - [Annotated Transformer](https://nlp.seas.harvard.edu/2018/04/03/attention.html)：Transformer的Pytorch实现。
 
 - high level
+
   <img width="684" alt="image" src="https://github.com/user-attachments/assets/dba88382-20fb-40d8-ac9a-f6f6fe97a871" />
 
   <img width="478" alt="image" src="https://github.com/user-attachments/assets/028676ad-762e-47f2-932d-27424d99ab24" />
@@ -550,9 +551,102 @@ Transformer学习资源：
 
   <img width="647" alt="image" src="https://github.com/user-attachments/assets/33bab4b7-4cac-4d89-98be-758134be4e36" />
 
-每个编码器又包含注意力层（self-attention）和前馈神经网络（Feed Forward Neural Network ）两个子层。而每个解码器中前面的两个子层之间加一个注意力层，可帮助解码器专注于输入句子的相关部分（类似于注意力在[seq2seq models SEQ2SEQ模型](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/)).
+每个编码器又包含注意力层（self-attention）和前馈神经网络（Feed Forward Neural Network ）两个子层。而每个解码器中前面的两个子层之间加一个注意力层，可帮助解码器专注于输入句子的相关部分（类似于注意力在[seq2seq models](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/)).
 
-#### 注意力机制
+<img width="658" alt="image" src="https://github.com/user-attachments/assets/e184bf65-16f4-41de-b4ef-ce6dc5a1607e" />
+
+编码器接收向量列表作为输入。它通过将这些向量传递到“自注意力”层，然后传递到前馈神经网络，然后将输出向上发送到下一个编码器来处理此列表。
+
+<img width="687" alt="image" src="https://github.com/user-attachments/assets/605b12cf-2ea9-4aa8-813d-7b650ac6d039" />
+
+### 注意力机制
+假设以下句子是我们要翻译的输入句子：
+
+”The animal didn't cross the street because it was too tired”  “ The animal didn't cross the street because it was too tired ”
+
+这句话中的“它”指的是什么？它指的是街道还是动物？这对人类来说是一个简单的问题，但对算法来说却没有那么简单。
+
+<img width="308" alt="image" src="https://github.com/user-attachments/assets/c8f83709-a4c9-4bc0-a3d7-ed2662302617" />
+
+代码参考：[Tensor2Tensor notebook](https://colab.research.google.com/github/tensorflow/tensor2tensor/blob/master/tensor2tensor/notebooks/hello_t2t.ipynb) ，在其中加载 Transformer 模型，并使用此交互式可视化对其进行检查。
+
+#### 单头注意力
+步骤：
+
+1. 从编码器的每个输入向量（如本例为每个单词的嵌入）创建Query、Key和Value三个向量。（新向量的维度小于嵌入向量。它们的维度为 64，而嵌入向量和编码器输入/输出向量的维度为 512）
+
+<img width="653" alt="image" src="https://github.com/user-attachments/assets/8c4baadf-27ef-4994-bc38-978979a459fa" />
+
+<img width="395" alt="image" src="https://github.com/user-attachments/assets/178381db-630e-4753-ac40-cdd451590c93" />
+
+2. 计算分数。如计算第一个单词 “Thinking” 的自我关注，需要根据这个单词对输入句子的每个单词进行评分，分数决定了在某个位置对单词进行编码时，将多少注意力放在输入句子的其他部分上。分数的计算方法是将查询向量的点积与正在评分的相应单词的关键向量。因此，如果处理位置 #1 中的单词的自我注意，第一个分数将是 q1 和 k1 的点积，第二个分数将是 q1 和 k2 的点积。
+
+<img width="487" alt="image" src="https://github.com/user-attachments/assets/c8707cdd-cd1e-4954-b228-dd358d8429cd" />
+
+3. 将分数除以 8。（论文中使用的关键向量维度的平方根 64，这会导致更稳定的梯度）
+4. 通过 softmax。 对分数进行标准化，使其全部为正数，总和为 1。
+
+<img width="560" alt="image" src="https://github.com/user-attachments/assets/c3a70121-e616-4cbb-a615-1870fa83a3eb" />
+
+<img width="496" alt="image" src="https://github.com/user-attachments/assets/4dd9ba41-83d5-49b5-8ff0-ed7d276a2c97" />
+
+5. 将每个值向量乘以 softmax 分数（准备对它们求和）。目的保持想要关注的单词的值完整，并淹没不相关的单词（例如，将它们乘以 0.001 等小数字）。
+6. 将加权值向量相加。在此位置（对于第一个单词）产生自我注意层的输出。
+
+<img width="531" alt="image" src="https://github.com/user-attachments/assets/2b185565-02b0-4176-8084-4c8eaa916952" />
+
+#### 多头注意力
+- 多头注意力：对于多头注意力，有多组 Query/Key/Value 权重矩阵（Transformer 使用 8 个注意力头，因此最终为每个编码器/解码器提供 8 组）。这些集合中的每一个都是随机初始化的。然后，在训练之后，每个集合用于将输入嵌入（或来自较低编码器/解码器的向量）投影到不同的表示子空间中。
+
+<img width="630" alt="image" src="https://github.com/user-attachments/assets/f1a556fd-465c-4765-a078-374a3e771dc8" />
+
+进行与上面概述的相同的自我注意计算，只需 8 次不同的权重矩阵，最终得到 8 个不同的 Z 矩阵：
+
+<img width="611" alt="image" src="https://github.com/user-attachments/assets/a6b601ef-bc4a-4aac-a316-ec16de9abd41" />
+
+将这 8 个压缩成一个矩阵：连接矩阵，然后将它们乘以一个额外的权重矩阵 WO。
+
+<img width="683" alt="image" src="https://github.com/user-attachments/assets/999e32cb-1cc4-4840-a253-c490b3d1fac2" />
+
+完整来看就是：
+
+<img width="714" alt="image" src="https://github.com/user-attachments/assets/f41e5978-4720-4455-be72-152a87dbd086" />
+
+<img width="307" alt="image" src="https://github.com/user-attachments/assets/4f0dd2da-8402-49ba-ab60-89044157d30c" />
+
+编码 “it” 这个词时，一个注意力头最关注 “the animal”，而另一个 attention 头关注 “tired” —— 从某种意义上说，模型对 “it” 这个词的表示在一些 “animal” 和 “tired” 的表示中融入了。
+
+### 位置编码
+添加位置编码向量，为了让模型了解单词的顺序。
+
+<img width="713" alt="image" src="https://github.com/user-attachments/assets/3a55b247-d618-4089-975a-539771952de6" />
+
+假设嵌入的维度为 4，则实际的位置编码将如下所示：
+
+<img width="678" alt="image" src="https://github.com/user-attachments/assets/0b7ede7a-070d-4587-a977-49365a9da04d" />
+
+嵌入大小为 512（列）的 20 个单词（行）的位置编码的真实示例（图中对它们进行了颜色编码，以便可以看到图案）：
+
+<img width="707" alt="image" src="https://github.com/user-attachments/assets/dc3afa37-fc05-48a2-8257-4453fc03e956" />
+
+在图中，每行对应于向量的位置编码。因此，第一行将是将添加到输入序列中第一个单词的嵌入向量。每行包含 512 个值 – 每个值的值介于 1 和 -1 之间。可以看到似乎在中心一分为二。这是因为左半部分的值由一个函数（使用正弦）生成，而右半部分由另一个函数（使用余弦）生成，然后将它们连接起来形成每个位置编码向量。
+
+参考用于生成位置编码的代码： [get_timing_signal_1d()](https://github.com/tensorflow/tensor2tensor/blob/23bd23b9830059fbc349381b70d9429b5c40a139/tensor2tensor/layers/common_attention.py)
+
+两个信号交织在一起的话（[代码](https://github.com/jalammar/jalammar.github.io/blob/master/notebookes/transformer/transformer_positional_encoding_graph.ipynb)）：
+
+<img width="623" alt="image" src="https://github.com/user-attachments/assets/96c44f95-63b4-4338-b36f-64e907e7db40" />
+
+### 残差
+每个 encoder 中的每个子层 （self-attention，ffnn） 周围都有一个残差连接，然后是[层归一化](https://arxiv.org/abs/1607.06450)步骤。
+
+<img width="518" alt="image" src="https://github.com/user-attachments/assets/04ce24e5-82f8-4019-9d14-9db672f0c403" />
+
+同样适用于 decoder 的子层。如果考虑一个由 2 个堆叠编码器和解码器组成的 Transformer：
+
+<img width="691" alt="image" src="https://github.com/user-attachments/assets/1b43856e-b0ea-44e9-ac1b-a4613ce6d038" />
+
+### 解码（Decoder）端
 
 
 # Qwen整体介绍
