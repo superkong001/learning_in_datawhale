@@ -325,7 +325,7 @@ perplexity_q(x_{1:L}) = \exp \left(- \frac{1}{L} \sum_{i = 1}^{L} \log {p \left(
 \end{aligned}
 $$
 
-根据上凸函数的琴生不等式：
+根据上凸函数的詹森不等式：
 
 $$
 \begin{aligned}
