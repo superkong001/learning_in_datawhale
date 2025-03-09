@@ -541,6 +541,17 @@ Transformer学习资源：
 - [Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)和[Illustrated GPT-2](https://jalammar.github.io/illustrated-gpt2/)：对Transformer的视觉描述非常好。
 - [Annotated Transformer](https://nlp.seas.harvard.edu/2018/04/03/attention.html)：Transformer的Pytorch实现。
 
+- high level
+  <img width="684" alt="image" src="https://github.com/user-attachments/assets/dba88382-20fb-40d8-ac9a-f6f6fe97a871" />
+
+  <img width="478" alt="image" src="https://github.com/user-attachments/assets/028676ad-762e-47f2-932d-27424d99ab24" />
+
+每个编解码组件是一堆编码器：
+
+  <img width="647" alt="image" src="https://github.com/user-attachments/assets/33bab4b7-4cac-4d89-98be-758134be4e36" />
+
+每个编码器又包含注意力层（self-attention）和前馈神经网络（Feed Forward Neural Network ）两个子层。而每个解码器中前面的两个子层之间加一个注意力层，可帮助解码器专注于输入句子的相关部分（类似于注意力在[seq2seq models SEQ2SEQ模型](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/)).
+
 #### 注意力机制
 
 
