@@ -791,7 +791,7 @@ $$
 KL 散度就是熵和交叉熵之间的差异。
 
 $$
-D_KL(p||q)=H(p,q)-H(q)=\sum_x{p(x)log{\frac{q(x)}{p(x)}}}
+D_KL(p||q)=H(p,q)-H(p)=\sum_x{p(x)log{\frac{q(x)}{p(x)}}}
 ​$$
 
 
