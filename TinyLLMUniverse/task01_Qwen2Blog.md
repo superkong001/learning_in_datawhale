@@ -682,7 +682,26 @@ def $EmbedTokenWithPosition(x_{1:L}:ℝ^{d×L})$ ：
 
 <img width="454" alt="image" src="https://github.com/user-attachments/assets/a890aacb-0164-4d50-84f2-c8da7d195f22" />
 
-##### 交叉熵
+### GPT-3
+GPT-3 架构的形状（如何分配1750亿个参数）：
+
+- 隐藏状态的维度：dmodel=12288
+- 中间前馈层的维度：dff=4dmodel
+- 注意头的数量：nheads=96
+- 上下文长度：L=2048
+
+$$
+GPT-3(x_{1:L})=TransformerBlock^{96}(EmbedTokenWithPosition(x_{1:L}))
+$$
+
+不同版本的Transformer之间存在重要但详细的差异：
+
+- 层归一化“后归一化”（原始Transformer论文）与“先归一化”（GPT-2），这影响了训练的稳定性（[Davis等人，2021](http://proceedings.mlr.press/v139/davis21a/davis21a.pdf)）。
+- 应用了丢弃（Dropout）以防止过拟合。
+- GPT-3使用了[sparse Transformer](https://arxiv.org/pdf/1904.10509.pdf)（稀释 Transformer）来减少参数数量，并与稠密层交错使用。
+- 根据Transformer的类型（Encdoer-Only, Decoder-Only, Encdoer-Decoder），使用不同的掩码操作。
+
+### 交叉熵
 假设：假设一个城市 75% 的时间都是晴天：
 
 <img width="84" alt="image" src="https://github.com/user-attachments/assets/5fa5db4e-14a6-4b98-b982-757521e84ff0" />
