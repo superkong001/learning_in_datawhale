@@ -599,7 +599,7 @@ $$
 score_i = x_i^{\top} W_{\text{key}}^{\top} W_{\text{query}} y
 $$
 
-进行指数化和归一化，形成关于词元位置${1,…,L}$的概率分布：
+进行指数化和归一化，形成关于词元位置 ${1,…,L}$ 的概率分布：
 
 $$
 (α_{1},…,α_{L})=softmax((score_{1},…,score_{L}))
@@ -622,7 +622,7 @@ def $MultiHeadedAttention(x_{1:L}:ℝ^{d×L},y:ℝ^{d})→ℝ^{d}$ :
 - 返回
 
 $$
-W_{\text{output}} \left( \underbrace{\text{Attention}(x_{1:L}, y), \ldots, \text{Attention}(x_{1:L}, y)}_{n_{\text{heads}} \text{ times}} \right)
+W_{\text{output}} \left( \underbrace{\mathrm{Attention}(x_{1:L}, y), \ldots, \mathrm{Attention}(x_{1:L}, y)}_{n_{\text{heads}} \text{ times}} \right)
 $$
 
 #### 多头注意力
