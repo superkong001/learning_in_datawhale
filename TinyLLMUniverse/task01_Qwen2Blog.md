@@ -596,7 +596,7 @@ Transformer学习资源：
 <img width="531" alt="image" src="https://github.com/user-attachments/assets/2b185565-02b0-4176-8084-4c8eaa916952" />
 
 $$
-\text{score}_i = x_i^\top W_{\text{key}}^\top W_{\text{query}} y
+score_i = x_i^{\top} W_{\text{key}}^{\top} W_{\text{query}} y
 $$
 
 进行指数化和归一化，形成关于词元位置${1,…,L}$的概率分布：
@@ -611,7 +611,7 @@ def $Attention(x_{1:L}:ℝ^{d×L},y:ℝ^d)→ℝ^d$ ：
 - 返回
 
 $$
-W_{\text{value}} x_{1:L} \cdot \operatorname{softmax} \left( \frac{x_{1:L}^{\top} W_{\text{key}}^{\top} W_{\text{query}} y}{\sqrt{d}} \right)
+W_{\text{value}} x_{1:L} \cdot \mathrm{softmax} \left( \frac{x_{1:L}^{\top} W_{\text{key}}^{\top} W_{\text{query}}y}{\sqrt{d}} \right)
 $$
 
 可以将注意力看作是具有多个方面（例如，句法、语义）的匹配，即：多个注意力头：
@@ -622,7 +622,7 @@ def $MultiHeadedAttention(x_{1:L}:ℝ^{d×L},y:ℝ^{d})→ℝ^{d}$ :
 - 返回
 
 $$
-W_{\text{output}} \left[ \underbrace{\operatorname{Attention}(x_{1:L}, y), \ldots, \operatorname{Attention}(x_{1:L}, y)}_{n_{\text{heads}} \text{ times}} \right]
+W_{\text{output}} \left( \underbrace{\text{Attention}(x_{1:L}, y), \ldots, \text{Attention}(x_{1:L}, y)}_{n_{\text{heads}} \text{ times}} \right)
 $$
 
 #### 多头注意力
