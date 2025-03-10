@@ -596,7 +596,7 @@ Transformer学习资源：
 <img width="531" alt="image" src="https://github.com/user-attachments/assets/2b185565-02b0-4176-8084-4c8eaa916952" />
 
 $$
-score_{i} = x^{⊤}_{i} W^{⊤}_{key} W_{query}y
+score_{i} = x^{⊤}_i W^{⊤}_{key} W_{query}y
 $$
 
 进行指数化和归一化，形成关于词元位置${1,…,L}$的概率分布：
@@ -607,7 +607,7 @@ $$
 
 def $Attention(x_{1:L}:ℝ^{d×L},y:ℝ^d)→ℝ^d$ ：
 
-- 通过将其与每个$x_{i}$进行比较来处理$y$。
+- 通过将其与每个 $x_{i}$ 进行比较来处理 $y$ 。
 - 返回
 
 $$
@@ -622,7 +622,7 @@ def $MultiHeadedAttention(x_{1:L}:ℝ^{d×L},y:ℝ^{d})→ℝ^{d}$ :
 - 返回
 
 $$
-W_{output}(\underbrace{\left(\text{Attention} \left(x_{1: L}, y\right), \ldots, \text{Attention} \left(x_{1: L}, y \right) \right)}_{n_{heads}times})
+W_{output}(\underbrace{\left({Attention} \left(x_{1: L}, y\right), \ldots, {Attention} \left(x_{1: L}, y \right) \right)}_{n_{heads}times})
 $$
 
 
