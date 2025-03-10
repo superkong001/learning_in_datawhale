@@ -814,12 +814,48 @@ $$
 H(p,q)=- \sum_{x,y} {p(x,y)log_2{p(x,y)}}
 $$
 
+例子：以穿衣为关注变量，T恤和外套现在是边际概率，即不考虑天气就穿着那件衣服的概率；另一方面，rain和sunny标签，它们的概率分别以穿T恤和穿外套为条件。
+
+<img width="460" alt="image" src="https://github.com/user-attachments/assets/9b98fd89-8175-437d-b326-672b3a1758ef" />
+
+这些概率事件的最佳码字，并计算平均消息长度：
+
+<img width="470" alt="image" src="https://github.com/user-attachments/assets/624322a4-d4ec-4c6d-8fff-4ef45d23f056" />
+
+将代码长度视为第三个维度，现在熵就是体积：
+
+<img width="232" alt="image" src="https://github.com/user-attachments/assets/d7d7f258-80c4-41b5-8587-efe930026c89" />
+
 - 条件熵
 
 $$
-H(X|Y)=- \sum_y p(y) \sum_x {p(x|y)log_2{p(x|y)}} = \sum_{x,y} {p(x,y)log_2{p(x,y)}} 
+H(X|Y)=- \sum_y p(y) \sum_x {p(x|y)log_2{p(x|y)}} = - \sum_{x,y} {p(x,y)log_2{p(x,y)}} 
 $$
 
+<img width="310" alt="image" src="https://github.com/user-attachments/assets/6f5ceda8-bc95-448d-8909-8184cb810c78" />
+
+- 互信息
+
+<img width="314" alt="image" src="https://github.com/user-attachments/assets/aa38ba34-8aa4-4e9d-8462-e1c6b909b607" />
+
+<img width="460" alt="image" src="https://github.com/user-attachments/assets/9fb7bf91-f3b2-4da5-9e33-556af4f986f4" />
+
+$H(X,Y)=H(Y)+H(X|Y)$
+
+互信息 $I(X,Y)$ 定义为：
+
+$I(X,Y)=H(X)+H(Y)−H(X,Y)$
+
+信息变化量：
+
+$V(X,Y)=H(X,Y)−I(X,Y)$
+
+<img width="295" alt="image" src="https://github.com/user-attachments/assets/d004f96e-7fa2-42f6-a299-e3eeed4fe8fb" />
+
+#### 理想编码长度
+$L(x) = -log_2 {p(x)}$
+
+可以向上取整（Ceil），确保每个符号可以被唯一编码并正确解码。也可以用四舍五入（Round），更贴近真实平均编码长度，但编码实现时仍需调整。
 
 # Qwen整体介绍
 
