@@ -614,15 +614,15 @@ $$
 W_{\text{value}} x_{1:L} \cdot \mathrm{softmax} \left( \frac{x_{1:L}^{\top} W_{\text{key}}^{\top} W_{\text{query}}y}{\sqrt{d}} \right)
 $$
 
-可以将注意力看作是具有多个方面（例如，句法、语义）的匹配，即：多个注意力头：
+可以将注意力看作是具有多个方面（例如，句法、语义）的匹配，即多个注意力头：
 
 def $MultiHeadedAttention(x_{1:L}:ℝ^{d×L},y:ℝ^{d})→ℝ^{d}$ :
 
-- 通过将其与每个xi与nheads个方面进行比较，处理y。
+- 通过将其与每个 $x_i$ 与 $nheads$ 个方面进行比较，处理y。
 - 返回
 
 $$
-W_{\text{output}} \left( \underbrace{\mathrm{Attention}(x_{1:L}, y), \ldots, \mathrm{Attention}(x_{1:L}, y)}_{n_{\text{heads}} \text{ times}} \right)
+W_{\text{output}} \left( \underbrace{\mathrm{Attention}(x_{1:L}, y), \ldots, \mathrm{Attention}(x_{1:L}, y)}_ {n_{\text{heads}} \text{ times}} \right)
 $$
 
 #### 多头注意力
