@@ -611,7 +611,7 @@ def $Attention(x_{1:L}:ℝ^{d×L},y:ℝ^d)→ℝ^d$ ：
 - 返回
 
 $$
-W_{value} x_{1: L} \operatorname{softmax}\left(x_{1: L}^{\top} W_{key}^{\top} W_{query} y / \sqrt{d}\right)
+W_{value} x_{1: L} \text{softmax}\left(x_{1: L}^{\top} W_{key}^{\top} W_{query} y / \sqrt{d}\right)
 $$
 
 可以将注意力看作是具有多个方面（例如，句法、语义）的匹配，即：多个注意力头：
