@@ -787,7 +787,7 @@ $$
 将一个分布中的事件与另一个分布的最佳代码进行通信的平均长度，称为交叉熵。也就是不了解真实分布 $𝑝(𝑥)$ 情况下，选择了一个替代分布 $𝑞(𝑥)$ 进行编码，那么编码的平均长度变为：
 
 $$
-H(p,q)=- \sum_x {p(x)log_2{q(x)}}
+H_q(p)=- \sum_x {p(x)log_2{q(x)}}
 $$
 
 <img width="365" alt="image" src="https://github.com/user-attachments/assets/0561c05b-bee2-4abe-9a7d-91b7999a1ba3" />
@@ -796,16 +796,28 @@ $$
 
 <img width="483" alt="image" src="https://github.com/user-attachments/assets/6ee0f5e1-5633-457e-bd4d-4df118ae787f" />
 
-交叉熵为提供了一种表达两种概率分布差异的方法。
+可以看出交叉熵不是对称的。交叉熵提供了一种表达两种概率分布差异的方法：分布p和q的差异越大，p关于q的交叉熵就越大于p的熵。
 
-#### Kullback-Leibler 散度
+<img width="184" alt="image" src="https://github.com/user-attachments/assets/60327ece-4ad9-4817-926b-d07a8dd2086d" />
+
+- Kullback-Leibler 散度
 KL 散度就是熵和交叉熵之间的差异。
 
 $$
 D_KL(p||q)=H(p,q)-H(p)=\sum_x{p(x)log{\frac{p(x)}{q(x)}}}
 ​$$
 
+- 联合熵
+$X$ 和 $Y$ 的联合熵定义为：
 
+$$
+H(p,q)=- \sum_{x,y} {p(x,y)log_2{p(x,y)}}
+$$
+
+- 条件熵
+$$
+H(X|Y)=- \sum_y p(y) \sum_x {p(x|y)log_2{p(x|y)}} = \sum_{x,y} {p(x,y)log_2{p(x,y)}} 
+$$
 
 
 # Qwen整体介绍
