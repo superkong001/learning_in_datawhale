@@ -815,6 +815,7 @@ H(p,q)=- \sum_{x,y} {p(x,y)log_2{p(x,y)}}
 $$
 
 - 条件熵
+
 $$
 H(X|Y)=- \sum_y p(y) \sum_x {p(x|y)log_2{p(x|y)}} = \sum_{x,y} {p(x,y)log_2{p(x,y)}} 
 $$
