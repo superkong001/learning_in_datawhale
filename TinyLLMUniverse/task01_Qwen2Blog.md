@@ -953,10 +953,6 @@ $$
 最终的输出是所有专家输出的加权和，权重由门控函数 \(g_e(x)\) 来确定。公式如下：
 
 $$
-f(x)=\sum_{e = 1}^{E}g_e(x)\cdot h_{\theta_e}(x)
-$$
-
-$$
 f(x) = \sum_{e=1}^E \underbrace{g_e(x)}_ \text{gating} \underbrace {h_{\theta_e}(x)}_\text{expert}.
 $$
 
