@@ -639,6 +639,15 @@ Transformer学习资源：
 
 [Self-Attention with Relative Position Representations 使用相对位置表示的自我注意](https://arxiv.org/abs/1803.02155)
 
+def $EmbedTokenWithPosition(x_{1:L}:ℝ^{d×L})$ ：
+- 添加位置信息。
+- 定义位置嵌入：
+  - 偶数维度： $P_{i,2j}=sin(i/10000^{2j/dmodel})$ 
+  - 奇数维度： $P_{i,2j+1}=cos(i/10000^{2j/dmodel})$ 
+- 返回 $[x_1+P_1,…,x_L+P_L]$ 。
+
+上面的函数中， $i$ 表示句子中词元的位置， $j$ 表示该词元的向量表示维度位置。
+
 ### 残差
 每个 encoder 中的每个子层 （self-attention，ffnn） 周围都有一个残差连接，然后是[层归一化](https://arxiv.org/abs/1607.06450)步骤。
 
