@@ -1,4 +1,4 @@
-引用参考：
+<img width="602" alt="image" src="https://github.com/user-attachments/assets/98e25bc3-70dc-4c36-80fa-2452ec67200b" />引用参考：
 
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
@@ -914,6 +914,66 @@ $V(X,Y)=H(X,Y)−I(X,Y)$
 $L(x) = -log_2 {p(x)}$
 
 可以向上取整（Ceil），确保每个符号可以被唯一编码并正确解码。也可以用四舍五入（Round），更贴近真实平均编码长度，但编码实现时仍需调整。
+
+## 新的模型架构
+### 混合专家模型
+创建一组专家，每个输入只激活一小部分专家。类似一个由专家组成的咨询委员会，每个人都有不同的背景（如历史、数学、科学等）。
+
+$$
+\text{input} \quad\quad\Rightarrow\quad\quad \text{expert}_1 \quad \text{expert}_2 \quad \text{expert}_3 \quad \text{expert}_4 \quad\quad\Rightarrow\quad\quad \text{output}.
+$$
+
+<img width="463" alt="image" src="https://github.com/user-attachments/assets/92068ef2-25b9-433e-bf1e-910158919a8e" />
+
+步骤：
+1. 定义专家
+设定有 $E$ 个专家，每个专家 $e \in \{1,2,\ldots,E\}$ ，每个专家 $e$ 都有自己的嵌入向量 $w_e \in \mathbb{R}^d$ ，这是专家的特征参数，通常是在训练过程中学习到的。
+3. 专家的概率分布
+通过一个函数 $g_e(x)$ 来表示专家 \(e\) 对输入 $x$ 的概率分布（即该专家对输入 $x$ 贡献的概率）。公式如下：
+
+$$
+g_e(x)=\frac{\exp(w_e\cdot x)}{\sum_{e' = 1}^{E}\exp(w_{e'}\cdot x)}
+$$
+
+- 这个公式使用了 softmax 函数，即根据输入 \(x\) 计算每个专家的权重（或称为“门控”函数），它表示了输入 \(x\) 对每个专家的兴趣度。通过对每个专家的指数进行归一化（分母部分），保证所有专家的权重之和为 1。
+- \(w_e\cdot x\) 表示专家 \(e\) 和输入 \(x\) 的内积，内积的结果越大，说明专家 \(e\) 对该输入的兴趣度越高。
+5. 每个专家的参数
+每个专家都有自己的参数集 $\theta^{(e)} = (W_1^{(e)}, W_2^{(e)})$ ，其中：
+- $W_1^e$ 是专家 $e$ 的第一部分参数。
+- $W_2^e$ 是专家 $e$ 的第二部分参数。
+6. 专家的函数
+根据每个专家的参数，定义每个专家的函数 $h_{\theta}_e(x)$ 。这个函数基于专家的参数 $W_1^e$ 和 $W_2^e$ 来计算输出：
+
+$$
+h_{\theta}_e(x)=W_2^e\cdot\max(W_1^e\cdot x,0)
+$$
+
+- 这相当于一个带有ReLU激活的线性变换，其中 $\max(W_e^1\cdot x,0)$ 表示如果 $W_1^e\cdot x$ 小于零，则输出为零，反之则输出 $W_1^e\cdot x$ 。 
+7. 最终混合模型
+最终的输出是所有专家输出的加权和，权重由门控函数 \(g_e(x)\) 来确定。公式如下：
+
+$$
+f(x)=\sum_{e = 1}^{E}g_e(x)\cdot h_{\theta_e}(x)
+$$
+
+$$
+f(x) = \sum_{e=1}^E \underbrace{g_e(x)}_ \text{gating} \underbrace {h_{\theta_e}(x)}_\text{expert}.
+$$
+
+这表示最终模型的输出是每个专家的输出 \(h_{\theta_e}(x)\) 按照门控函数 \(g_e(x)\) 的权重加权平均得到的。具体来说：
+- \(g_e(x)\) 为每个专家的门控函数，表示该专家对输入 \(x\) 的贡献程度。
+- \(h_{\theta_e}(x)\) 为每个专家的输出函数，它根据专家的参数 \(\theta_e\) 计算输出。
+
+
+
+### 基于检索的模型
+有一个原始数据存储库，给定一个新的输入，检索存储库中和它相关的部分，并使用它们来预测输出。类似提问一个问题，然后进行网络搜索，并阅读搜索得到的文档以得出答案。
+
+$$
+\text{store} \quad\quad|\quad\quad \text{input} \quad\quad\Rightarrow\quad\quad \text{relevant data from store} \quad \quad\quad\Rightarrow\quad\quad \text{output}.
+$$
+
+
 
 # Qwen整体介绍
 
