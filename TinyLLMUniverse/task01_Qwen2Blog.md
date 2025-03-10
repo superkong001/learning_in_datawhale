@@ -595,6 +595,37 @@ Transformer学习资源：
 
 <img width="531" alt="image" src="https://github.com/user-attachments/assets/2b185565-02b0-4176-8084-4c8eaa916952" />
 
+$$
+score_{i}=x^{⊤}_{i}W^{⊤}_{key}W_{query}y
+$$
+
+进行指数化和归一化，形成关于词元位置${1,…,L}$的概率分布：
+
+$$
+\[α_{1},…,α_{L}\]=softmax(\[score_{1},…,score_{L}\])
+$$
+
+def $Attention(x_{1:L}:ℝ^{d×L},y:ℝ^d)→ℝ^d$ ：
+
+- 通过将其与每个$x_{i}$进行比较来处理$y$。
+- 返回
+
+$$
+W_{value} x_{1: L} \operatorname{softmax}\left(x_{1: L}^{\top} W_{key}^{\top} W_{query} y / \sqrt{d}\right)
+$$
+
+可以将注意力看作是具有多个方面（例如，句法、语义）的匹配，即：多个注意力头：
+
+def $MultiHeadedAttention(x_{1:L}:ℝ^{d×L},y:ℝ^{d})→ℝ^{d}$ :
+
+- 通过将其与每个xi与nheads个方面进行比较，处理y。
+- 返回
+
+$$
+W_{output}(\underbrace{\left(\operatorname{Attention}\left(x_{1: L}, y\right), \ldots, \operatorname{Attention}\left(x_{1: L}, y\right)\right)}_{n_{heads}times})
+$$
+
+
 #### 多头注意力
 - 多头注意力：对于多头注意力，有多组 Query/Key/Value 权重矩阵（Transformer 使用 8 个注意力头，因此最终为每个编码器/解码器提供 8 组）。这些集合中的每一个都是随机初始化的。然后，在训练之后，每个集合用于将输入嵌入（或来自较低编码器/解码器的向量）投影到不同的表示子空间中。
 
