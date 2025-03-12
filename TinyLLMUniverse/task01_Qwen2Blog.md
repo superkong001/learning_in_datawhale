@@ -1,5 +1,4 @@
 引用参考：
-
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 - [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
@@ -230,36 +229,34 @@ $$
 
 因此，语言模型被限制在如语音识别和机器翻译等任务中，其中声音信号或源文本提供了足够的信息，只捕获局部依赖关系（而无法捕获长距离依赖关系）。
 
-存在问题2
+存在问题2：如果词没有出现过, $count = 0$ 
 
-<img width="356" alt="image" src="https://github.com/user-attachments/assets/f1b83b5b-156a-4a62-aaf1-f5a27031a3c1" />
+<img width="581" alt="image" src="https://github.com/user-attachments/assets/b36cb30e-464c-46eb-a0b0-7f2388aa8f0c" />
 
-- 基于频率的估计方法 (最大似然估计)
-    - 加一平滑 (又称为 Laplace smoothing )
-        - 每个词都加上一次出现
+采用方法：
+- 加一平滑 (又称为 Laplace smoothing )
+  - 每个词都加上一次出现
 
-          原始估计 $P_{MLE}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)}{count(w_{i - 1})}$
+    原始估计 $P_{MLE}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)}{count(w_{i - 1})}$
           
-          加一平滑 $P_{Add - 1}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)+1}{count(w_{i - 1})+|V|}$  <span style="text-decoration: underline;">词典大小</span>
+    加一平滑 $P_{Add - 1}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)+1}{count(w_{i - 1})+|V|}$  <span style="text-decoration: underline;">词典大小</span>
           
-        - 仍然保持概率分布，不破坏概率分布基本性质
-          -  $P(w_i)>0, \forall w_i\in V$ 
-          -  $\sum_{i}P(w_i) = 1$ 
-    - 回退 (back - off)
-        - 当 $count(w_{i - n + 1}, \ldots, w_i)=0$ ， $n$ 元语言模型退化成更低阶数元语言模型，
+  - 仍然保持概率分布，不破坏概率分布基本性质
+      -  $P(w_i)>0, \forall w_i\in V$ 
+      -  $\sum_{i}P(w_i) = 1$ 
+- 回退 (back - off)
+    - 当 $count(w_{i - n + 1}, \ldots, w_i)=0$ ， $n$ 元语言模型退化成更低阶数元语言模型，
         $$P(w_i|w_{i - 1}, \ldots, w_{i - n + 1}) = P(w_i|w_{i - 1}, \ldots, w_{i - n + k + 1})$$
         - 例如：当$count(w_{i - 2}, w_{i - 1}, w_i)=0$时，三元语言模型可以退化成二元语言模型进行估计
         $$P(w_i|w_{i - 1}, w_{i - 2}) = P(w_i|w_{i - 1})$$
-    - 插值 (interpolation)
-        - 例如：混合多个不同阶数的语言模型
-        $$P'(w_i|w_{i - 1}, w_{i - 2})=\alpha P(w_i|w_{i - 1}, w_{i - 2})+\beta P(w_i|w_{i - 1})+\gamma P(w_i)$$
-        - 可以证明，仍然能够保证语言模型的概率性质
-        - 通常这种方式可以结合不同阶数估计方法的优势
-        - 但仍然不能从根本解决数据稀疏性问题
-
+- 插值 (interpolation)
+    - 例如：混合多个不同阶数的语言模型
+      $$P'(w_i|w_{i - 1}, w_{i - 2})=\alpha P(w_i|w_{i - 1}, w_{i - 2})+\beta P(w_i|w_{i - 1})+\gamma P(w_i)$$
+    - 可以证明，仍然能够保证语言模型的概率性质
+    - 通常这种方式可以结合不同阶数估计方法的优势
+    - 但仍然不能从根本解决数据稀疏性问题
 
 ### 神经语言模型
-
 神经语言模型，其中 $p(x_{i}∣x_{i−(n−1):i−1})$ 由神经网络给出：
 
 $$
