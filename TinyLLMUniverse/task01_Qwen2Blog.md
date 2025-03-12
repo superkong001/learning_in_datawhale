@@ -278,7 +278,6 @@ $$
 
 ### 大模型
 将语言模型转化为任务模型的过程：
-
 - 训练（标准的有监督学习）：训练一个新模型，使其能将输入映射到输出。这可以通过创建一个新模型并利用语言模型作为特征（探针法），或者从现有的语言模型出发，根据训练实例进行更新（微调），或者在这两者之间找到平衡（轻量级的微调）。
 - 提示（上下文）学习：根据对任务的描述建一个或一组提示/上下文信息，将其输入到语言模型中以获取基于该任务的生成结果。根据提示/上下文信息的数量，还可以进一步细分：
     - 零样本学习(Zero-shot)：提示/上下文信息的数量为0，模型直接基于对任务的理解输出结果。
@@ -289,6 +288,24 @@ $$
 实验的任务选择如下：Language modeling、Question answering、Translation、Arithmetic、News article generation、Novel tasks
 
 Tips: 消融实验（Ablation Study）是一种常用于机器学习和深度学习研究中的实验方法，基本思想是构建一个完整的系统或模型，并通过逐步删除或修改系统的某些部分，观察性能变化，从而确定哪些部分对模型的性能至关重要。主要目的是通过逐步移除或“消融”系统的某些部分，来评估各个组件对整体性能的贡献。这种实验帮助研究人员理解不同模块、特性或算法设计在模型性能中的重要性。
+
+<img width="908" alt="image" src="https://github.com/user-attachments/assets/d075380a-443f-4190-9037-f137ca7bba31" />
+
+<img width="793" alt="image" src="https://github.com/user-attachments/assets/68456354-1085-436d-9fa3-4e9fa9a72d7b" />
+
+- 预训练输出(Pre-training)：base model
+- 后训练输出(Post-training)：instruct model
+    - 指令微调(Instruction Tuning)：SFT
+        - 使用输入与输出配对的指令数据对于模型进行微调
+        - 提升模型通过问答形式进行任务求解的能力
+
+<img width="644" alt="image" src="https://github.com/user-attachments/assets/b30509ad-0e25-407d-94a9-f934c03b0c1c" />
+
+    - 人类对齐(Human Alignment)
+        - 将大语言模型与人类的期望、需求以及价值观对齐
+        - 基于人类反馈的强化学习对齐方法(RLHF)
+
+<img width="654" alt="image" src="https://github.com/user-attachments/assets/03ffa5bf-718b-470c-8f78-7c2d58c19aa7" />
 
 #### 语言模型
 语言模型的目标是给定一个序列 $𝑥_1,𝑥_2,…,𝑥_𝐿$ 来预测每个词的条件概率。公式表示为：
