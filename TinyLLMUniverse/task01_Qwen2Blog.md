@@ -1,4 +1,4 @@
-引用参考：
+<img width="442" alt="image" src="https://github.com/user-attachments/assets/f520023c-14ea-4cae-832e-461fc2b02c3c" />引用参考：
 
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
@@ -1071,7 +1071,25 @@ $$
 \text{store} \quad\quad|\quad\quad \text{input} \quad\quad\Rightarrow\quad\quad \text{relevant data from store} \quad \quad\quad\Rightarrow\quad\quad \text{output}.
 $$
 
+### DeepSeek
+- 训练框架：HAI-LLM
+- 语言大模型：DeepSeek LLM/V2/V3、Coder/Coder-V2、Math
+- 多模态大模型：DeepSeek-VL
+- 推理大模型：DeepSeek-R1
 
+- DeepSeek R1
+
+<img width="917" alt="image" src="https://github.com/user-attachments/assets/1508d34b-e746-4730-ab41-9bd596dd5c7f" />
+
+- DeepSeek进行了重要的网络架构、训练算法、性能优化探索
+    - V1探索了scaling law分析(考虑了数据质量影响),用于预估超参数性能
+    - V2提出了MLA高效注意力机制,提升推理性能
+    - V2、V3都针对MoE架构提出了相关稳定性训练策略
+    - V3使用了MTP(多token预测)训练
+    - Math提出了PPO的改进算法GRPO
+    - V3详细介绍Infrastructure的搭建方法,并提出了高效FP8训练方法
+
+<img width="724" alt="image" src="https://github.com/user-attachments/assets/612f1a72-6156-4bff-9789-d442384d979a" />
 
 # Qwen整体介绍
 
