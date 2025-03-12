@@ -1089,6 +1089,11 @@ $$
     - Math提出了PPO的改进算法GRPO
     - V3详细介绍Infrastructure的搭建方法,并提出了高效FP8训练方法
 
+- DeepSeek-V3
+    - 671B参数(37B激活),14.8T训练数据
+    - 基于V2的MoE架构,引入了MTP和新的复杂均衡损失
+    - 对于训练效率进行了极致优化,共使用2.788M H800 GPU时
+
 <img width="724" alt="image" src="https://github.com/user-attachments/assets/612f1a72-6156-4bff-9789-d442384d979a" />
 
 # Qwen整体介绍
