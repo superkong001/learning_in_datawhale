@@ -202,7 +202,7 @@ $P(exams|students\ opened\ their)= 0.1$
           -  $P(w_i)>0, \forall w_i\in V$ 
           -  $\sum_{i}P(w_i) = 1$ 
     - 回退 (back - off)
-        - 当$count(w_{i - n + 1}, \ldots, w_i)=0$，$n$元语言模型退化成更低阶数元语言模型，
+        - 当 $count(w_{i - n + 1}, \ldots, w_i)=0$ ， $n$ 元语言模型退化成更低阶数元语言模型，
         $$P(w_i|w_{i - 1}, \ldots, w_{i - n + 1}) = P(w_i|w_{i - 1}, \ldots, w_{i - n + k + 1})$$
         - 例如：当$count(w_{i - 2}, w_{i - 1}, w_i)=0$时，三元语言模型可以退化成二元语言模型进行估计
         $$P(w_i|w_{i - 1}, w_{i - 2}) = P(w_i|w_{i - 1})$$
