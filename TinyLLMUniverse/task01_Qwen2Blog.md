@@ -180,7 +180,15 @@ $$
 P(\boldsymbol{w}|students\ opened\ their)=\frac{count(students\ opened\ their\ \boldsymbol{w})}{count(students\ opened\ their)}
 $$  
 
-        “students opened their” 出现了1000次、“students opened their books”出现了400次、 $P(books|students\ opened\ their)= 0.4$ 、        - “students opened their exams” 出现了100次、 $P(exams|students\ opened\ their)= 0.1$ 
+“students opened their” 出现了1000次
+
+“students opened their books”出现了400次
+
+$P(books|students\ opened\ their)= 0.4$
+
+“students opened their exams” 出现了100次
+
+$P(exams|students\ opened\ their)= 0.1$ 
 
 主要问题：
 
