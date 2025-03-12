@@ -1,4 +1,4 @@
-引用参考：
+<img width="352" alt="image" src="https://github.com/user-attachments/assets/b8766dca-19c2-41b3-b52d-7b44e4cdad80" />引用参考：
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 - [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
@@ -316,6 +316,19 @@ Tips: 消融实验（Ablation Study）是一种常用于机器学习和深度学
  
       <img width="702" alt="image" src="https://github.com/user-attachments/assets/9b25bcb6-de4f-4f2b-a42c-c47209e621a8" />
 
+基于扩展定律可以使用小模型性能去预估大模型的性能，或帮助超参数选择；训练过程中使用模型早期性能来预估后续性能。
+
+问题：
+- 随着模型参数、数据数量的扩展,模型性能增益将逐渐减小
+- 开放数据已经接近枯竭,难以支持扩展定律的持续推进
+
+- 模型的语言建模损失分解为：
+    - 可约损失:真实分布和模型分布之间KL散度,可通过优化减少
+    - 不可约损失:真实数据分布的熵,无法通过优化减少
+      
+    $$
+  L(x)=\underbrace{L_{\infty}}_{不可约损失}+\underbrace{\left(\frac{x_0}{x}\right)^{\alpha_x}}_{可约损失}
+    $$
 
 #### 语言模型
 语言模型的目标是给定一个序列 $𝑥_1,𝑥_2,…,𝑥_𝐿$ 来预测每个词的条件概率。公式表示为：
