@@ -1161,10 +1161,6 @@ $$
 
 <img width="909" alt="image" src="https://github.com/user-attachments/assets/491fabaf-e3bc-4256-b564-8ce7c980dc24" />
 
-- DeepSeek R1
-
-<img width="917" alt="image" src="https://github.com/user-attachments/assets/1508d34b-e746-4730-ab41-9bd596dd5c7f" />
-
 - DeepSeek进行了重要的网络架构、训练算法、性能优化探索
     - V1探索了scaling law分析(考虑了数据质量影响),用于预估超参数性能
     - V2提出了MLA高效注意力机制,提升推理性能
@@ -1179,6 +1175,10 @@ $$
     - 对于训练效率进行了极致优化,共使用2.788M H800 GPU时
 
 <img width="724" alt="image" src="https://github.com/user-attachments/assets/612f1a72-6156-4bff-9789-d442384d979a" />
+
+- DeepSeek R1
+
+<img width="917" alt="image" src="https://github.com/user-attachments/assets/1508d34b-e746-4730-ab41-9bd596dd5c7f" />
 
 # Qwen整体介绍
 
