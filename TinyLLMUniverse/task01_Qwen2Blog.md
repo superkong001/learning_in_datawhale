@@ -695,6 +695,8 @@ Transformer学习资源：
 
 代码参考：[Tensor2Tensor notebook](https://colab.research.google.com/github/tensorflow/tensor2tensor/blob/master/tensor2tensor/notebooks/hello_t2t.ipynb) ，在其中加载 Transformer 模型，并使用此交互式可视化对其进行检查。
 
+<img width="713" alt="image" src="https://github.com/user-attachments/assets/655df108-72b8-4673-b8c3-c956a7b25990" />
+
 #### 单头注意力
 步骤：
 
