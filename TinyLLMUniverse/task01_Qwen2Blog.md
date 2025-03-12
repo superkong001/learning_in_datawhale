@@ -173,6 +173,29 @@ p(s) &= p(w_1)p(w_2\mid w_1) \cdots p(w_m\mid w_{m - n + 1}, \cdots, w_{m - 1})\
 \end{align*}
 $$
 
+- 基于频率的估计方法 (最大似然估计)
+    - 四元语言模型估计示例
+
+$P(\boldsymbol{w}|students\ opened\ their)=\frac{count(students\ opened\ their\ \boldsymbol{w})}{count(students\ opened\ their)}$ 
+
+  - “students opened their” 出现了1000次
+  - “students opened their books” 出现了400次
+    -  $P(books|students\ opened\ their)= 0.4$ 
+  - “students opened their exams” 出现了100次
+    -  $P(exams|students\ opened\ their)= 0.1$ 
+
+主要问题：
+
+<img width="356" alt="image" src="https://github.com/user-attachments/assets/f1b83b5b-156a-4a62-aaf1-f5a27031a3c1" />
+
+    - 加一平滑 (又称为 Laplace smoothing )
+        - 每个词都加上一次出现
+          - 原始估计 $P_{MLE}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)}{count(w_{i - 1})}$ 
+          - 加一平滑 $P_{Add - 1}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)+1}{count(w_{i - 1})+|V|}$  <span style="text-decoration: underline;">词典大小</span>
+        - 仍然保持概率分布，不破坏概率分布基本性质
+          -  $P(w_i)>0, \forall w_i\in V$ 
+          -  $\sum_{i}P(w_i) = 1$ 
+
 ### N-gram模型
 以前解决语音识别、机器翻译任务的主要模型是噪声信道模型。以语音识别为例：
 - 假设有一些从某个分布p中抽取的文本
