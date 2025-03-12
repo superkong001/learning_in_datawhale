@@ -188,12 +188,20 @@ $P(\boldsymbol{w}|students\ opened\ their)=\frac{count(students\ opened\ their\ 
 
 <img width="356" alt="image" src="https://github.com/user-attachments/assets/f1b83b5b-156a-4a62-aaf1-f5a27031a3c1" />
 
-aa
-
     - 加一平滑 (又称为 Laplace smoothing )
         - 每个词都加上一次出现
-          - 原始估计 $P_{MLE}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)}{count(w_{i - 1})}$ 
-          - 加一平滑 $P_{Add - 1}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)+1}{count(w_{i - 1})+|V|}$  <span style="text-decoration: underline;">词典大小</span>
+          - 原始估计 
+
+$$
+P_{MLE}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)}{count(w_{i - 1})}
+$$
+
+          - 加一平滑 
+
+$$
+P_{Add - 1}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)+1}{count(w_{i - 1})+|V|} 
+$$  <span style="text-decoration: underline;">词典大小</span>
+
         - 仍然保持概率分布，不破坏概率分布基本性质
           -  $P(w_i)>0, \forall w_i\in V$ 
           -  $\sum_{i}P(w_i) = 1$ 
