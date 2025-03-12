@@ -326,9 +326,9 @@ Tips: 消融实验（Ablation Study）是一种常用于机器学习和深度学
     - 可约损失:真实分布和模型分布之间KL散度,可通过优化减少
     - 不可约损失:真实数据分布的熵,无法通过优化减少
       
-    $$
-      L(x)=\underbrace{L_{\infty}}_ \text{不可约损失} + \underbrace{\left(\frac{x_0}{x}\right)^{\alpha_x}}_\text{可约损失}
-    $$
+$$
+L(x)=\underbrace{L_{\infty}}_ \text{不可约损失} + \underbrace{\left(\frac{x_0}{x}\right)^{\alpha_x}}_\text{可约损失}
+$$
 
 $$
 p(\text{text} \mid \text{speech}) \propto \underbrace{p(\text{text})}_\text{language model} \underbrace{p(\text{speech} \mid \text{text})} _ \text{acoustic model}  
