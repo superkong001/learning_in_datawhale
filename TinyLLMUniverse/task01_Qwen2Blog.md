@@ -178,11 +178,15 @@ $$
 
 $P(\boldsymbol{w}|students\ opened\ their)=\frac{count(students\ opened\ their\ \boldsymbol{w})}{count(students\ opened\ their)}$ 
 
-        - “students opened their” 出现了1000次
-        - “students opened their books” 出现了400次
-        -  $P(books|students\ opened\ their)= 0.4$ 
-        - “students opened their exams” 出现了100次
-        -  $P(exams|students\ opened\ their)= 0.1$ 
+        “students opened their” 出现了1000次
+        
+        “students opened their books” 出现了400次
+        
+        $P(books|students\ opened\ their)= 0.4$ 
+        
+        “students opened their exams” 出现了100次
+        
+        $P(exams|students\ opened\ their)= 0.1$ 
 
 主要问题：
 
@@ -191,18 +195,11 @@ $P(\boldsymbol{w}|students\ opened\ their)=\frac{count(students\ opened\ their\ 
 - 基于频率的估计方法 (最大似然估计)
     - 加一平滑 (又称为 Laplace smoothing )
         - 每个词都加上一次出现
-          - 原始估计 
 
-$$
-P_{MLE}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)}{count(w_{i - 1})}
-$$
-
-          - 加一平滑 
-
-$$
-P_{Add - 1}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)+1}{count(w_{i - 1})+|V|} 
-$$  <span style="text-decoration: underline;">词典大小</span>
-
+          原始估计 $P_{MLE}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)}{count(w_{i - 1})}$
+          
+          加一平滑 $P_{Add - 1}(w_i|w_{i - 1})=\frac{count(w_{i - 1}, w_i)+1}{count(w_{i - 1})+|V|}$  <span style="text-decoration: underline;">词典大小</span>
+          
         - 仍然保持概率分布，不破坏概率分布基本性质
           -  $P(w_i)>0, \forall w_i\in V$ 
           -  $\sum_{i}P(w_i) = 1$ 
