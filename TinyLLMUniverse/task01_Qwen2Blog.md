@@ -178,16 +178,17 @@ $$
 
 $P(\boldsymbol{w}|students\ opened\ their)=\frac{count(students\ opened\ their\ \boldsymbol{w})}{count(students\ opened\ their)}$ 
 
-  - “students opened their” 出现了1000次
-  - “students opened their books” 出现了400次
-    -  $P(books|students\ opened\ their)= 0.4$ 
-  - “students opened their exams” 出现了100次
-    -  $P(exams|students\ opened\ their)= 0.1$ 
+        - “students opened their” 出现了1000次
+        - “students opened their books” 出现了400次
+        -  $P(books|students\ opened\ their)= 0.4$ 
+        - “students opened their exams” 出现了100次
+        -  $P(exams|students\ opened\ their)= 0.1$ 
 
 主要问题：
 
 <img width="356" alt="image" src="https://github.com/user-attachments/assets/f1b83b5b-156a-4a62-aaf1-f5a27031a3c1" />
 
+- 基于频率的估计方法 (最大似然估计)
     - 加一平滑 (又称为 Laplace smoothing )
         - 每个词都加上一次出现
           - 原始估计 
