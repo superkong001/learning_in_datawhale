@@ -663,6 +663,8 @@ def $BidirectionalSequenceRNN(x_{1:L}:ℝ^{d×L})→ℝ^{2d×L}$ ：
 - 在编码器中Q,K,V相同,均为自身前一层的输出；
 - 在解码器中Q来自前一层输出,K,V是编码器输出；
 
+<img width="376" alt="image" src="https://github.com/user-attachments/assets/53aafcce-25e8-4926-81a4-e4a21986fd86" />
+
 Transformer学习资源：
 
 - [Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)和[Illustrated GPT-2](https://jalammar.github.io/illustrated-gpt2/)：对Transformer的视觉描述非常好。
