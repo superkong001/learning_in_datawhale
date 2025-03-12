@@ -1,4 +1,4 @@
-<img width="442" alt="image" src="https://github.com/user-attachments/assets/f520023c-14ea-4cae-832e-461fc2b02c3c" />引用参考：
+引用参考：
 
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
