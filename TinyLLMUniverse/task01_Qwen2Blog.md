@@ -1,4 +1,4 @@
-引用参考：
+<img width="530" alt="image" src="https://github.com/user-attachments/assets/65447e39-88bd-4159-bbce-8f0f79618c4b" />引用参考：
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 - [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
@@ -329,6 +329,20 @@ Tips: 消融实验（Ablation Study）是一种常用于机器学习和深度学
 $$
 L(x)=\underbrace{L_{\infty}}_ \text{不可约损失} + \underbrace{\left(\frac{x_0}{x}\right)^{\alpha_x}}_\text{可约损失}
 $$
+
+- 涌现能力
+    - 指令遵循(Instruction Following)：大语言模型能够按照自然语言指令来执行对应的任务。
+ 
+      <img width="494" alt="image" src="https://github.com/user-attachments/assets/871aa02e-28f1-4880-9ee5-3ad4e7494b07" />
+
+    - 上下文学习(In-context Learning)：在提示中为语言模型提供自然语言指令和任务示例，无需显式梯度更新就能为测试样本生成预期输出。
+ 
+      <img width="754" alt="image" src="https://github.com/user-attachments/assets/911e685e-a676-47f7-88e7-73662292a9bc" />
+
+    - 逐步推理(Step-by-step Reasoning)：在提示中引入任务相关的中间推理步骤来加强复杂任务的求解，从而获得更可靠的答案。
+ 
+      <img width="367" alt="image" src="https://github.com/user-attachments/assets/48256423-39ed-4e00-b4d2-3736e8ff186a" />
+
 
 #### 语言模型
 语言模型的目标是给定一个序列 $𝑥_1,𝑥_2,…,𝑥_𝐿$ 来预测每个词的条件概率。公式表示为：
