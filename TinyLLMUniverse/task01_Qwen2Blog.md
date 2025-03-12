@@ -268,6 +268,14 @@ $$
 - **Recurrent Neural Networks**（RNNs），包括长短期记忆（LSTMs），使得一个词元 $x_{i}$ 的条件分布可以依赖于整个上下文 $x_{1:i−1}$ （有效地使 $n=∞$ ），但这些模型难以训练。
 - **Transformers**是2017年为机器翻译开发，再次返回固定上下文长度n，但更易于训练（并利用了GPU的并行性）。
 
+#### Word2Vec
+- 基本功能：给定文本数据,对于每个单词学习一个低维表示
+- 基于分布式语义的思想进行设计：词义=背景单词的语义
+- 不考虑窗口内单词的顺序：应用了简单的average pooling的策略
+- 充分考虑实践和效果：有很多的优化trick,速度快、效果稳定
+
+<img width="167" alt="image" src="https://github.com/user-attachments/assets/b4e632a0-cd2f-4ec1-854f-4034c9d57d43" />
+
 ### 大模型
 将语言模型转化为任务模型的过程：
 
