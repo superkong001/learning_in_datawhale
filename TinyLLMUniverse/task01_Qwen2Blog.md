@@ -1,4 +1,4 @@
-引用参考：
+<img width="209" alt="image" src="https://github.com/user-attachments/assets/d4a156c5-0b15-431d-92d5-a00bf81290bd" />引用参考：
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 - [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
@@ -807,9 +807,23 @@ def $EmbedTokenWithPosition(x_{1:L}:ℝ^{d×L})$ ：
   - 奇数维度： $P_{i,2j+1}=cos(i/10000^{2j/dmodel})$ 
 - 返回 $[x_1+P_1,…,x_L+P_L]$ 。
 
-上面的函数中， $i$ 表示句子中词元的位置， $j$ 表示该词元的向量表示维度位置。
+上面的函数中， $i$ 表示句子中词元的位置， $j$ 表示该词元的向量表示维度位置， $dmodel$ 是词嵌入维度。
+
+<img width="875" alt="image" src="https://github.com/user-attachments/assets/175108d7-ac1f-42e2-bc03-7b1827c19a7a" />
+
+### 前馈网络层
+学习复杂的函数关系和特征
+
+$$
+\text{FFN}(\boldsymbol{X}) = \sigma(\boldsymbol{X}\boldsymbol{W}^U + \boldsymbol{b}_1)\boldsymbol{W}^D+\boldsymbol{b}_2
+$$
+
+- 线性变换：先升维、后降维
+- 非线性激活函数 $\sigma$ ：ReLU 或 GELU 等
 
 ### 残差
+通过将输入与输出相加，缓解梯度爆炸和消失。
+
 每个 encoder 中的每个子层 （self-attention，ffnn） 周围都有一个残差连接，然后是[层归一化](https://arxiv.org/abs/1607.06450)步骤。
 
 <img width="518" alt="image" src="https://github.com/user-attachments/assets/04ce24e5-82f8-4019-9d14-9db672f0c403" />
@@ -817,6 +831,9 @@ def $EmbedTokenWithPosition(x_{1:L}:ℝ^{d×L})$ ：
 同样适用于 decoder 的子层。如果考虑一个由 2 个堆叠编码器和解码器组成的 Transformer：
 
 <img width="691" alt="image" src="https://github.com/user-attachments/assets/1b43856e-b0ea-44e9-ac1b-a4613ce6d038" />
+
+### 层归一化
+对数据进行重新放缩，以提升训练稳定性。
 
 ### 解码（Decoder）端
 ![transformer_decoding_1](https://github.com/user-attachments/assets/159dde71-fee8-4cc8-a134-c84bfb64cf66)
