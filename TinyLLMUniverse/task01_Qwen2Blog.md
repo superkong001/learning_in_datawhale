@@ -301,6 +301,7 @@ Tips: 消融实验（Ablation Study）是一种常用于机器学习和深度学
 
 <img width="644" alt="image" src="https://github.com/user-attachments/assets/b30509ad-0e25-407d-94a9-f934c03b0c1c" />
 
+- 后训练输出
     - 人类对齐(Human Alignment)
         - 将大语言模型与人类的期望、需求以及价值观对齐
         - 基于人类反馈的强化学习对齐方法(RLHF)
