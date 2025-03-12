@@ -341,8 +341,7 @@ $$
 
     - 逐步推理(Step-by-step Reasoning)：在提示中引入任务相关的中间推理步骤来加强复杂任务的求解，从而获得更可靠的答案。
  
-      <img width="367" alt="image" src="https://github.com/user-attachments/assets/48256423-39ed-4e00-b4d2-3736e8ff186a" />
-
+      <img width="584" alt="image" src="https://github.com/user-attachments/assets/7aef1498-4246-4aca-8c44-51726008ca10" />
 
 #### 语言模型
 语言模型的目标是给定一个序列 $𝑥_1,𝑥_2,…,𝑥_𝐿$ 来预测每个词的条件概率。公式表示为：
