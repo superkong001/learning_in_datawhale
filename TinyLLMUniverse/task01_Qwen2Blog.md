@@ -327,8 +327,12 @@ Tips: 消融实验（Ablation Study）是一种常用于机器学习和深度学
     - 不可约损失:真实数据分布的熵,无法通过优化减少
       
     $$
-  L(x)=\underbrace{L_{\infty}}_{不可约损失}+\underbrace{\left(\frac{x_0}{x}\right)^{\alpha_x}}_{可约损失}
+      L(x)=\underbrace{L_{\infty}}_ \text{不可约损失} + \underbrace{\left(\frac{x_0}{x}\right)^{\alpha_x}}_\text{可约损失}
     $$
+
+$$
+p(\text{text} \mid \text{speech}) \propto \underbrace{p(\text{text})}_\text{language model} \underbrace{p(\text{speech} \mid \text{text})} _ \text{acoustic model}  
+$$
 
 #### 语言模型
 语言模型的目标是给定一个序列 $𝑥_1,𝑥_2,…,𝑥_𝐿$ 来预测每个词的条件概率。公式表示为：
