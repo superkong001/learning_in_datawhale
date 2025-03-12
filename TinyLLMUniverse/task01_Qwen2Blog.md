@@ -1159,6 +1159,8 @@ $$
 - 多模态大模型：DeepSeek-VL
 - 推理大模型：DeepSeek-R1
 
+<img width="909" alt="image" src="https://github.com/user-attachments/assets/491fabaf-e3bc-4256-b564-8ce7c980dc24" />
+
 - DeepSeek R1
 
 <img width="917" alt="image" src="https://github.com/user-attachments/assets/1508d34b-e746-4730-ab41-9bd596dd5c7f" />
