@@ -305,7 +305,7 @@ Tips: 消融实验（Ablation Study）是一种常用于机器学习和深度学
         - 将大语言模型与人类的期望、需求以及价值观对齐
         - 基于人类反馈的强化学习对齐方法(RLHF)
 
-<img width="654" alt="image" src="https://github.com/user-attachments/assets/03ffa5bf-718b-470c-8f78-7c2d58c19aa7" />
+        <img width="654" alt="image" src="https://github.com/user-attachments/assets/03ffa5bf-718b-470c-8f78-7c2d58c19aa7" />
 
 #### 语言模型
 语言模型的目标是给定一个序列 $𝑥_1,𝑥_2,…,𝑥_𝐿$ 来预测每个词的条件概率。公式表示为：
