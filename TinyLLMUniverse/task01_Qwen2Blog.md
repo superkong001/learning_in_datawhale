@@ -307,6 +307,16 @@ Tips: 消融实验（Ablation Study）是一种常用于机器学习和深度学
 
         <img width="654" alt="image" src="https://github.com/user-attachments/assets/03ffa5bf-718b-470c-8f78-7c2d58c19aa7" />
 
+- 扩展定律：通过扩展参数规模、数据规模和计算算力，大语言模型的能力会出现显著提升。
+    - KM 扩展定律：OpenAI团队建立的神经语言模型性能与参数规模(N)、数据规模(D)和计算算力(C)之间的幂律关系：
+
+      <img width="802" alt="image" src="https://github.com/user-attachments/assets/e48af5aa-fafb-4c9a-a79f-5dda3cb20440" />
+
+    - Chinchilla扩展定律：DeepMind团队于提出的旨在指导大语言模型充分利用给定的算力资源优化训练：
+ 
+      <img width="702" alt="image" src="https://github.com/user-attachments/assets/9b25bcb6-de4f-4f2b-a42c-c47209e621a8" />
+
+
 #### 语言模型
 语言模型的目标是给定一个序列 $𝑥_1,𝑥_2,…,𝑥_𝐿$ 来预测每个词的条件概率。公式表示为：
 
