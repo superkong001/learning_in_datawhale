@@ -613,7 +613,6 @@ $$
     
 该模型的具有编码端，解码端两个架构的共同的优点，对于每个 $x_{i}$ ，上下文向量表征可以双向地依赖于左侧上下文  $x_{1:i−1}$ ) 和右侧上下文 ( $x_{i+1:L}$ )，可以自由的生成文本数据。缺点就说需要更多的特定训练目标。
 
-
 <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
 
 <img width="608" alt="image" src="https://github.com/user-attachments/assets/6e364403-8703-4ef0-a5fb-b7893fc2970a" />
@@ -661,6 +660,9 @@ def $BidirectionalSequenceRNN(x_{1:L}:ℝ^{d×L})→ℝ^{2d×L}$ ：
 存在问题：简单RNN由于梯度消失的问题很难训练。为了解决这个问题，发展了长短期记忆（LSTM）和门控循环单元（GRU）（都属于RNN）。
 
 ## Transformer
+- 在编码器中Q,K,V相同,均为自身前一层的输出；
+- 在解码器中Q来自前一层输出,K,V是编码器输出；
+
 Transformer学习资源：
 
 - [Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)和[Illustrated GPT-2](https://jalammar.github.io/illustrated-gpt2/)：对Transformer的视觉描述非常好。
