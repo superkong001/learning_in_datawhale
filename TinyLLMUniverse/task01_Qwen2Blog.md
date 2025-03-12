@@ -837,7 +837,20 @@ def $EmbedTokenWithPosition(x_{1:L}:ℝ^{d×L})$ ：
 
 <img width="454" alt="image" src="https://github.com/user-attachments/assets/a890aacb-0164-4d50-84f2-c8da7d195f22" />
 
-### GPT-3
+### GPT
+GPT 系列模型成体系推进：
+> 2017年,谷歌提出Transformer
+> 2018年,OpenAI提出GPT(1亿+参数)
+> 2019年,GPT-2(15亿参数)
+> 2020年,GPT-3(1750亿参数)
+> 2021年,CodeX(基于GPT-3,代码预训练)
+> 2021年,WebGPT(搜索能力)
+> 2022年2月,InstructGPT(人类对齐)
+> 2022年11月,ChatGPT(对话能力)
+> 2023年3月,GPT-4(推理能力、多模态能力)
+> 2024年9月,01(深度思考能力提升)
+> 2025年1月,03(深度思考能力进一步增强)
+
 GPT-3 架构的形状（如何分配1750亿个参数）：
 
 - 隐藏状态的维度：dmodel=12288
