@@ -838,7 +838,14 @@ $$
 <img width="691" alt="image" src="https://github.com/user-attachments/assets/1b43856e-b0ea-44e9-ac1b-a4613ce6d038" />
 
 ### 层归一化
-对数据进行重新放缩，以提升训练稳定性。
+对数据进行重新放缩，实现以下目标：
+
+- 不同特征在空间中的尺度不同,对损失优化的影响不一致
+- 提升训练稳定性,加速模型收敛
+
+<img width="598" alt="image" src="https://github.com/user-attachments/assets/e9e54851-5174-4fbd-8487-919df231fa82" />
+
+<img width="875" alt="image" src="https://github.com/user-attachments/assets/da550520-b1a6-4b44-bf19-2a14d24f609b" />
 
 ### 解码（Decoder）端
 ![transformer_decoding_1](https://github.com/user-attachments/assets/159dde71-fee8-4cc8-a134-c84bfb64cf66)
