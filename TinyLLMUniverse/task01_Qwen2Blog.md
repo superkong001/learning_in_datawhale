@@ -1196,6 +1196,35 @@ $$
 
 <img width="909" alt="image" src="https://github.com/user-attachments/assets/491fabaf-e3bc-4256-b564-8ce7c980dc24" />
 
+#### HAI-LLM
+HAI-LLM(High-Flyer）是一个由DeepSeek团队开发，高效且轻量级的分布式训练框架，主要用于训练和评估大型语言模型（LLM）。具有以下特点和优势：
+1. 并行策略：集成了多种并行策略，包括数据并行（Data Parallel）、张量并行（Tensor Parallel）、流水线并行（Pipeline Parallel）以及1F1B流水线并行（1F1B Pipeline Parallel）；数据并行通过ZeRO-1技术优化了激活参数的存储，减少了内存占用。
+   
+   <img width="716" alt="image" src="https://github.com/user-attachments/assets/ed12fd97-ab35-454a-920d-d4c35fd06ede" />
+
+2. 硬件利用率优化：利用FlashAttention等加速算子提高硬件利用率；通过自研的高性能算子haiscale，显著提升了显存和计算效率。
+3. 训练效率：通过优化计算和通信的排程，HAI-LLM有效减少了分布式训练过程中的通信开销，从而提升了训练效率。
+4. 灵活性与扩展性：支持数万亿参数规模的超大模型训练，并可扩展至数千个GPU。
+
+#### MoE架构
+MoE（Mixture of Experts，混合专家）架构是一种先进的深度学习模型设计方法，通过将复杂任务分解为多个子任务，并由多个专家网络协同处理，从而提高模型的灵活性、可扩展性和效率。它两个主要部分组成：门控网络（Gating Network）和专家网络（Expert Networks）。
+
+- 门控网络：负责根据输入数据动态选择激活哪些专家网络。它通过路由机制决定每个token或输入数据被发送到哪个专家网络，从而实现稀疏激活。
+- 专家网络：每个专家网络是一个独立的神经网络，专门处理特定类型的输入数据。它们可以是小型神经网络或特定任务的优化模型
+
+<img width="440" alt="image" src="https://github.com/user-attachments/assets/af99b5c2-6596-45c4-a067-86a0dd24f5d6" />
+
+MoE架构的工作流程：
+- 输入分配：输入数据被分配给不同的专家网络。
+- 专家处理：每个专家网络独立处理其负责的任务。
+- 结果汇总：所有专家网络的输出结果被加权汇总，形成最终输出
+
+<img width="761" alt="image" src="https://github.com/user-attachments/assets/43246051-c5b8-49d1-b517-8b3eafe7473f" />
+
+NLP：
+
+<img width="580" alt="image" src="https://github.com/user-attachments/assets/bb3e6ea1-7d80-4791-8c64-09fa72eab088" />
+
 - DeepSeek进行了重要的网络架构、训练算法、性能优化探索
     - V1探索了scaling law分析(考虑了数据质量影响),用于预估超参数性能
     - V2提出了MLA高效注意力机制,提升推理性能
