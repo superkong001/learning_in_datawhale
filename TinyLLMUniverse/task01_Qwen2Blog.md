@@ -499,6 +499,8 @@ $$
 分词（Tokenization）：即如何将一个字符串拆分成多个词元。分词方法：
 
 1. 基于空格的分词。如：`text.split(' ')`
+   [可视化的词编码](https://observablehq.com/@simonw/gpt-tokenizer)
+
 2. 字节对编码（BPE, Byte pair encoding）算法。
    先将每个字符作为自己的词元，并组合那些经常共同出现的词元。整个过程可以表示为：
 
@@ -511,7 +513,7 @@ $$
     - Step4. 将 $xx'$ 添加到V中。
 
     存在训练数据中不可能见到所有的字符的问题。可以对字节而不是Unicode（统一码）字符运行BPE算法
-4. Unigram model (SentencePiece工具)
+3. Unigram model (SentencePiece工具)
     Unigram（一元模型）模型是一种基于统计的语言模型，用于为给定的文本选择最佳的词划分。其目标是通过给定一个文本序列，使用一种合适的分词策略，尽可能优化整个分词的质量。这个分词模型通过目标函数进行优化，能够找到一种最优的分词方式。
 
     SentencePiece 工具进行分词：
