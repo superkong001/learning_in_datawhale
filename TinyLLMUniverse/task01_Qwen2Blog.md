@@ -1,4 +1,4 @@
-<img width="209" alt="image" src="https://github.com/user-attachments/assets/d4a156c5-0b15-431d-92d5-a00bf81290bd" />引用参考：
+引用参考：
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 - [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
