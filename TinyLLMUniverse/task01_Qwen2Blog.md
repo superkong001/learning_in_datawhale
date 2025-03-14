@@ -667,10 +667,32 @@ def $BidirectionalSequenceRNN(x_{1:L}:ℝ^{d×L})→ℝ^{2d×L}$ ：
 存在问题：简单RNN由于梯度消失的问题很难训练。为了解决这个问题，发展了长短期记忆（LSTM）和门控循环单元（GRU）（都属于RNN）。
 
 ## Transformer
-- 在编码器中Q,K,V相同,均为自身前一层的输出；
-- 在解码器中Q来自前一层输出,K,V是编码器输出；
+Transformer核心模块：注意力。它完全抛弃传统的CNN和RNN，整个网络结构完全由注意力机制组成。
+
+编码器-解码器结构：
+- 编码器将输入序列变换为隐藏层特征。在编码器中Q,K,V相同,均为自身前一层的输出；
+    - N个堆叠的编码器层：多头注意力 + 前馈网络 + 残差连接和层归一化
+        $$
+        \begin{align*}
+        \boldsymbol{X}_l'&=\text{LayerNorm}(\text{MHA}(\boldsymbol{X}_{l - 1})+\boldsymbol{X}_{l - 1})\\
+        \boldsymbol{X}_l&=\text{LayerNorm}(\text{FFN}(\boldsymbol{X}_l')+\boldsymbol{X}_l')
+        \end{align*}
+        $$
+        $\boldsymbol{X}_{l - 1}$：编码器第$l - 1$层的输出
+- 解码器将隐藏层特征变换为输出序列。在解码器中Q来自前一层输出,K,V是编码器输出；
+    - N个堆叠的解码器层：(掩码)多头注意力 + 前馈网络 + 残差连接和层归一化
+        $$
+        \begin{align*}
+        \boldsymbol{Y}_l'&=\text{LayerNorm}(\text{MaskedMHA}(\boldsymbol{Y}_{l - 1})+\boldsymbol{Y}_{l - 1})\\
+        \boldsymbol{Y}_l''&=\text{LayerNorm}(\text{CrossMHA}(\boldsymbol{Y}_l', \boldsymbol{X}_L)+\boldsymbol{Y}_l')\\
+        \boldsymbol{Y}_l&=\text{LayerNorm}(\text{FFN}(\boldsymbol{Y}_l'')+\boldsymbol{Y}_l'')
+        \end{align*}
+        $$
+        $\boldsymbol{Y}_{l - 1}$：解码器第$l - 1$层的输出  
+        $\boldsymbol{X}_{L}$：编码器第$L$层的输出
 
 <img width="376" alt="image" src="https://github.com/user-attachments/assets/53aafcce-25e8-4926-81a4-e4a21986fd86" />
+
 
 Transformer学习资源：
 
