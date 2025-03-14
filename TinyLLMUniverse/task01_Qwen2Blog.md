@@ -676,13 +676,9 @@ Transformer核心模块：注意力。它完全抛弃传统的CNN和RNN，整个
 $$
 \begin{aligned}
 \boldsymbol{X}_ l' = \text{LayerNorm} ({MHA} (\boldsymbol{X}_ {l - 1}) + \boldsymbol{X}_{l - 1})\\
-\boldsymbol{X}_l = \text{LayerNorm} (\text{FFN} (\boldsymbol{X}_l')+\boldsymbol{X}_l')
-\end{aligned}
-$$
+\boldsymbol{X}_l = \text{LayerNorm} (\text{FFN} (\boldsymbol{X}_l') + \boldsymbol{X}_l') \\
 
-$$
-\begin{aligned}
-\boldsymbol{X}_{l - 1}：编码器第 l - 1 层的输出
+\boldsymbol{X}_ {l - 1}：编码器第 l - 1 层的输出
 \end{aligned}
 $$
       
@@ -693,15 +689,11 @@ $$
 \begin{aligned}
 \boldsymbol{Y}_ l' = \text{LayerNorm} (\text{MaskedMHA} (\boldsymbol{Y}_ {l - 1})+\boldsymbol{Y}_{l - 1})\\
 \boldsymbol{Y}_l'' = \text{LayerNorm} (\text{CrossMHA} (\boldsymbol{Y}_l', \boldsymbol{X}_L)+\boldsymbol{Y}_l')\\
-\boldsymbol{Y}_l = \text{LayerNorm} (\text{FFN} (\boldsymbol{Y}_l'')+\boldsymbol{Y}_l'')
-\end{aligned}
-$$
+\boldsymbol{Y}_l = \text{LayerNorm} (\text{FFN} (\boldsymbol{Y}_l'')+\boldsymbol{Y}_l'') \\
 
-$$
-\begin{center}
 \boldsymbol{Y}_ {l - 1} ：解码器第 l - 1 层的输出 \\
 \boldsymbol{X}_{L} ：编码器第 L 层的输出
-\end{center}
+\end{aligned}
 $$
 
 <img width="376" alt="image" src="https://github.com/user-attachments/assets/53aafcce-25e8-4926-81a4-e4a21986fd86" />
