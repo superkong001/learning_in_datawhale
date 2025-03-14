@@ -679,8 +679,10 @@ $$
 \boldsymbol{X}_l = \text{LayerNorm} (\text{FFN} (\boldsymbol{X}_l')+\boldsymbol{X}_l')
 \end{aligned}
 $$
-      
+
+\begin{aligned}
 $\boldsymbol{X}_{l - 1}$：编码器第 $l - 1$ 层的输出
+\end{aligned}
       
 - 解码器将隐藏层特征变换为输出序列。在解码器中Q来自前一层输出,K,V是编码器输出；
     - N个堆叠的解码器层：(掩码)多头注意力 + 前馈网络 + 残差连接和层归一化
@@ -692,10 +694,12 @@ $$
 \boldsymbol{Y}_l = \text{LayerNorm} (\text{FFN} (\boldsymbol{Y}_l'')+\boldsymbol{Y}_l'')
 \end{aligned}
 $$
-      
+
+\begin{center}
 $\boldsymbol{Y}_{l - 1}$ ：解码器第 $l - 1$ 层的输出
       
 $\boldsymbol{X}_{L}$ ：编码器第 $L$ 层的输出
+\end{center}
 
 <img width="376" alt="image" src="https://github.com/user-attachments/assets/53aafcce-25e8-4926-81a4-e4a21986fd86" />
 
