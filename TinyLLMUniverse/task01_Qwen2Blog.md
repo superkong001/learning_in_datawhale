@@ -912,6 +912,55 @@ RMSNorm代码实现：
 
 <img width="605" alt="image" src="https://github.com/user-attachments/assets/9313325f-249c-4e92-9a78-c5ac3ec98de1" />
 
+Qwen2的RMSNormal：
+
+$$
+\text{RMSNorm}(x)=\frac{x}{\sqrt{\frac{1}{n}\sum_{i = 1}^{n}w_{i}^{2}+\epsilon}}
+$$
+
+例如：
+
+$$
+\begin{bmatrix}
+1^2 & 2^2 & 3^2 & 4^2\\
+5^2 & 6^2 & 7^2 & 8^2\\
+9^2 & 10^2 & 11^2 & 12^2
+\end{bmatrix}
+$$
+
+要计算这个张量的根均方（RMS）。根均方是通过以下步骤计算的：
+
+步骤1: 计算每个元素的平方
+
+$$
+\begin{bmatrix}
+1^2 & 2^2 & 3^2 & 4^2\\
+5^2 & 6^2 & 7^2 & 8^2\\
+9^2 & 10^2 & 11^2 & 12^2
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 4 & 9 & 16\\
+25 & 36 & 49 & 64\\
+81 & 100 & 121 & 144
+\end{bmatrix}
+$$
+
+步骤2: 计算所有元素平方的平均值
+
+
+将所有上述平方值相加，然后除以总元素数（12个）:
+
+$$
+平均值 = \frac{1 + 4+9 + 16+25 + 36+49 + 64+81 + 100+121 + 144}{12}=\frac{650}{12}\approx 54.17
+$$
+
+步骤3: 取平均值的平方根以得到RMS
+
+$$
+\text{RMS} = \sqrt{54.17}\approx 7.36
+$$
+
 层一化模块位置：
 1. 层后归一化(Post-Layer Normalization,Post-Norm)
 
