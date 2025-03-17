@@ -734,7 +734,7 @@ Transformer学习资源：
 <img width="687" alt="image" src="https://github.com/user-attachments/assets/605b12cf-2ea9-4aa8-813d-7b650ac6d039" />
 
 ### 注意力机制
-假设以下句子是我们要翻译的输入句子：
+假设以下句子是要翻译的输入句子：
 
 ”The animal didn't cross the street because it was too tired”  “ The animal didn't cross the street because it was too tired ”
 
@@ -802,7 +802,8 @@ W_{\text{output}} \left( \underbrace{\mathrm{Attention}(x_{1:L}, y), \ldots, \ma
 $$
 
 #### 多头注意力
-- 多头注意力：对于多头注意力，有多组 Query/Key/Value 权重矩阵（Transformer 使用 8 个注意力头，因此最终为每个编码器/解码器提供 8 组）。这些集合中的每一个都是随机初始化的。然后，在训练之后，每个集合用于将输入嵌入（或来自较低编码器/解码器的向量）投影到不同的表示子空间中。
+- 多头注意力：对于多头注意力，有多组 Query/Key/Value 权重矩阵（Transformer 使用 8 个注意力头，因此最终为每个编码器/解码器提供 8 组）。这些集合中的每一个都是随机初始化的。然后，在训练之后，每个集合用于将输入嵌入（或来自较低编码器/解码器的向量）投影到不同的表示子空间中，从而可以让模型去关注不同方面信息，最后再将各个方面的信息综合起来。
+- 多次注意力计算综合的结果类比CNN中同时使用多个卷积核的作用。
 
 <img width="630" alt="image" src="https://github.com/user-attachments/assets/f1a556fd-465c-4765-a078-374a3e771dc8" />
 
