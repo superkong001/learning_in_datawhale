@@ -869,6 +869,8 @@ def $EmbedTokenWithPosition(x_{1:L}:ℝ^{d×L})$ ：
 
 <img width="875" alt="image" src="https://github.com/user-attachments/assets/175108d7-ac1f-42e2-bc03-7b1827c19a7a" />
 
+Tips：傅里叶变换用一组正弦和余弦函数作为框架，适合分析信号中的频率分量；小波变换使用一组小波函数作为框架，能够同时捕捉信号的频率和时间特性；主成分分析则用数据的多个主成分作为框架，适合降维和提取关键特征。
+
 ### 前馈网络层
 学习复杂的函数关系和特征
 
