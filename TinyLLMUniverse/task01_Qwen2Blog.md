@@ -1447,7 +1447,7 @@ HAI-LLM(High-Flyer）是一个由DeepSeek团队开发，高效且轻量级的分
 4. 灵活性与扩展性：支持数万亿参数规模的超大模型训练，并可扩展至数千个GPU。
 
 #### MoE架构
-MoE（Mixture of Experts，混合专家）架构是一种先进的深度学习模型设计方法，通过将复杂任务分解为多个子任务，并由多个专家网络协同处理，从而提高模型的灵活性、可扩展性和效率。它两个主要部分组成：门控网络（Gating Network）和专家网络（Expert Networks）。
+MoE（Mixture of Experts，混合专家）架构是一种先进的深度学习模型设计方法，通过将复杂任务分解为多个子任务，并由多个专家网络协同处理，从而提高模型的灵活性、可扩展性和效率。旨在不显著提升计算成本的同时实现对于模型参数的拓展。它两个主要部分组成：门控网络（Gating Network）和专家网络（Expert Networks）。
 
 - 门控网络：负责根据输入数据动态选择激活哪些专家网络。它通过路由机制决定每个token或输入数据被发送到哪个专家网络，从而实现稀疏激活。
 - 专家网络：每个专家网络是一个独立的神经网络，专门处理特定类型的输入数据。它们可以是小型神经网络或特定任务的优化模型
@@ -1463,7 +1463,28 @@ MoE架构的工作流程：
 
 NLP：
 
+<img width="673" alt="image" src="https://github.com/user-attachments/assets/92641eee-c509-46a3-be57-d5d93b3f8a6f" />
+
 <img width="580" alt="image" src="https://github.com/user-attachments/assets/bb3e6ea1-7d80-4791-8c64-09fa72eab088" />
+
+混合专家架构：
+
+- 包含 $K$ 个由前馈神经网络构成的专家组件 $E_i$ 
+- 通过路由网络 $G$ 计算词元 $\boldsymbol{x}_t$ 对应于各个专家的权重
+
+$$
+G(\boldsymbol{x}_t)=\text{softmax}(\text{topk}(\boldsymbol{x}_t\cdot\boldsymbol{W}^G))
+$$
+
+  - $\boldsymbol{W}^G$ ：将词元映射为 $K$ 个专家的得分
+  - $\text{topk}$ ：选择出得分最高的 $k$ 个专家进行激活
+  - $\text{softmax}$ ：计算专家权重，未被选择的专家权重被置为0
+
+- 被选择专家的输出加权和，作为该混合专家网络层的最终输出$\boldsymbol{o}_t$
+
+$$
+\boldsymbol{o}_t = \text{MoELayer}(\boldsymbol{x}_t)=\sum_{i = 1}^{K}G(\boldsymbol{x}_t)_i\cdot E_i(\boldsymbol{x}_t)
+$$
 
 - DeepSeek进行了重要的网络架构、训练算法、性能优化探索
     - V1探索了scaling law分析(考虑了数据质量影响),用于预估超参数性能
