@@ -905,8 +905,8 @@ $$
 
 $$
 \begin{aligned}
-\boldsymbol{q}_i = \boldsymbol{x}_ i \boldsymbol{W}^Q \boldsymbol{R}_ {\theta,i}\\
-\boldsymbol{k}_j = \boldsymbol{x}_ j\boldsymbol{W}^K \boldsymbol{R}_ {\theta,j}\\
+\boldsymbol{q}_ i = \boldsymbol{x}_ i \boldsymbol{W}^Q \boldsymbol{R}_ {\theta,i}\\
+\boldsymbol{k}_ j = \boldsymbol{x}_ j \boldsymbol{W}^K \boldsymbol{R}_ {\theta,j}\\
 A_{ij} = (\boldsymbol{x}_ i \boldsymbol{W}^Q \boldsymbol{R}_ {\theta,i})(\boldsymbol{x}_ j \boldsymbol{W}^K \boldsymbol{R}_ {\theta,j})^{\mathrm{T}} = \boldsymbol{x}_ i \boldsymbol{W}^Q \boldsymbol{R}_ {\theta,i - j} \boldsymbol{W}^{K^{\mathrm{T}}} \boldsymbol{x}_ j^{\mathrm{T}}
 \end{aligned}
 $$
