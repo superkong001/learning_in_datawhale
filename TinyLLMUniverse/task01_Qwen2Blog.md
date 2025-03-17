@@ -864,6 +864,10 @@ $$
 
 [Self-Attention with Relative Position Representations 使用相对位置表示的自我注意](https://arxiv.org/abs/1803.02155)
 
+- 旋转位置编码（Rotary Position Embedding，RoPE）：
+
+引入旋转矩阵的位置编码，位置编码的含义是对每一个token的每一个dim赋予不同的位置信息。
+
 def $EmbedTokenWithPosition(x_{1:L}:ℝ^{d×L})$ ：
 - 添加位置信息。
 - 定义位置嵌入：
@@ -871,7 +875,7 @@ def $EmbedTokenWithPosition(x_{1:L}:ℝ^{d×L})$ ：
   - 奇数维度： $P_{i,2j+1}=cos(i/10000^{2j/dmodel})$ 
 - 返回 $[x_1+P_1,…,x_L+P_L]$ 。
 
-上面的函数中， $i$ 表示句子中词元的位置， $j$ 表示该词元的向量表示维度位置， $dmodel$ 是词嵌入维度。
+上面的函数中， $i$ 表示句子中词元的位置， $j$ 表示该词元的向量表示维度位置（索引）， $dmodel$ 是位置向量的维度（通常与模型的隐藏层维度相同，例如512）。公式中的 ${10000^{2j/dmodel}}$ 是一个缩放因子，它随 $𝑖$ 的增大而增大，这样对于不同的 $𝑖$ ，正弦和余弦函数的波长会随之增长。这种设计使得模型能够在每个维度捕捉到不同频率的位置信息。
 
 <img width="875" alt="image" src="https://github.com/user-attachments/assets/175108d7-ac1f-42e2-bc03-7b1827c19a7a" />
 
@@ -881,7 +885,7 @@ Tips：傅里叶变换用一组正弦和余弦函数作为框架，适合分析�
 
 这里 𝑝𝑜𝑠 是词在序列中的位置，𝑖 是位置向量中的维度索引，𝑑 是位置向量的维度（通常与模型的隐藏层维度相同，例如512）。这个公式中的 ${10000^{2n/d}}$ 是一个缩放因子，它随 𝑖 的增大而增大，这样对于不同的 𝑖，正弦和余弦函数的波长会随之增长。这种设计使得模型能够在每个维度捕捉到不同频率的位置信息。
 
-旋转位置编码（RoPE）：引入旋转矩阵的位置编码，位置编码的含义是对每一个token的每一个dim赋予不同的位置信息。 公式定义:
+基于RoPE公式定义:
 
 ![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/58f0f9f6-4d7b-4762-b4b5-826af5259975)
 
