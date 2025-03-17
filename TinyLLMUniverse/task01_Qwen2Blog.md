@@ -901,13 +901,13 @@ $$
 R_{\theta,i}R_{\theta,j}^{\mathrm{T}} = R_{\theta,i - j}
 $$
 
-- 通过这种方式将\textbf{相对位置信息}融入注意力分数
+- 通过这种方式将相对位置信息融入注意力分数
 
 $$
 \begin{aligned}
 \boldsymbol{q}_i = \boldsymbol{x}_ i \boldsymbol{W}^Q \boldsymbol{R}_ {\theta,i}\\
 \boldsymbol{k}_j = \boldsymbol{x}_ j\boldsymbol{W}^K \boldsymbol{R}_ {\theta,j}\\
-A_{ij} = (\boldsymbol{x}_ i \boldsymbol{W}^Q \boldsymbol{R}_{\theta,i})(\boldsymbol{x}_j\boldsymbol{W}^K\boldsymbol{R}_{\theta,j})^{\mathrm{T}}=\boldsymbol{x}_i\boldsymbol{W}^Q\boldsymbol{R}_{\theta,i - j}\boldsymbol{W}^{K^{\mathrm{T}}}\boldsymbol{x}_j^{\mathrm{T}}
+A_{ij} = (\boldsymbol{x}_ i \boldsymbol{W}^Q \boldsymbol{R}_ {\theta,i})(\boldsymbol{x}_ j \boldsymbol{W}^K \boldsymbol{R}_ {\theta,j})^{\mathrm{T}} = \boldsymbol{x}_ i \boldsymbol{W}^Q \boldsymbol{R}_ {\theta,i - j} \boldsymbol{W}^{K^{\mathrm{T}}} \boldsymbol{x}_ j^{\mathrm{T}}
 \end{aligned}
 $$
 
