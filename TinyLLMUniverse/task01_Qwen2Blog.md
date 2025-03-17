@@ -947,7 +947,7 @@ e) 进行旋转嵌入。
 - 引入了与相对距离成比例关系的惩罚因子来调整注意力分数
 
 $$
-A_{ij}=\boldsymbol{x}_i\boldsymbol{W}^Q\boldsymbol{W}^{K^{\mathrm{T}}}\boldsymbol{x}_j^{\mathrm{T}}\boldsymbol{\colorbox{yellow!20}{$-m(i - j)$}}
+A_{ij}=\boldsymbol{x}_i\boldsymbol{W}^Q\boldsymbol{W}^{K^{\mathrm{T}}}\boldsymbol{x}_j^{\mathrm{T}}\boldsymbol{{$-m(i - j)$}}
 $$
 
 - $i - j$ ：查询和键之间的位置偏移量
