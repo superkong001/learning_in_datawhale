@@ -890,7 +890,28 @@ Tips：傅里叶变换用一组正弦和余弦函数作为框架，适合分析�
 - RoPE本质是实现对特征向量的旋转操作，如果以二维特征向量举例，对于相邻两个token来说，其对应同一个。
 - 既能以自注意力矩阵偏置的形式作用于，直接反映两个token的相对位置信息，又能拆解到向量和上，通过直接编码token的绝对位置实现。
 - 使用了基于绝对位置信息的旋转矩阵来表示注意力中的相对位置信息，为序列中每个绝对位置设置了特定的旋转矩阵 $\boldsymbol{R}_{\theta,t}$ (位置索引为 $t$ )
-- 其定义为:
+
+<img width="850" alt="image" src="https://github.com/user-attachments/assets/1251d0d3-3988-4911-bc91-f5050e97b490" />
+
+- 在处理query和key向量时，将连续出现的两个元素视为一个子空间
+- 每一个子空间 $i$ 所对应的两个元素都会根据一个特定的旋转角度 $t\cdot\theta_i$ 进行旋转
+- 根据三角函数的特性，位置索引为 $i$ 的旋转矩阵与位置索引为 $j$ 的旋转矩阵的乘积等于位置索引为相对距离 $i - j$ 的旋转矩阵，即
+
+$$
+R_{\theta,i}R_{\theta,j}^{\mathrm{T}} = R_{\theta,i - j}
+$$
+
+- 通过这种方式将\textbf{相对位置信息}融入注意力分数
+
+$$
+\begin{aligned}
+\boldsymbol{q}_i = \boldsymbol{x}_ i \boldsymbol{W}^Q \boldsymbol{R}_ {\theta,i}\\
+\boldsymbol{k}_j = \boldsymbol{x}_ j\boldsymbol{W}^K \boldsymbol{R}_ {\theta,j}\\
+A_{ij} = (\boldsymbol{x}_ i \boldsymbol{W}^Q \boldsymbol{R}_{\theta,i})(\boldsymbol{x}_j\boldsymbol{W}^K\boldsymbol{R}_{\theta,j})^{\mathrm{T}}=\boldsymbol{x}_i\boldsymbol{W}^Q\boldsymbol{R}_{\theta,i - j}\boldsymbol{W}^{K^{\mathrm{T}}}\boldsymbol{x}_j^{\mathrm{T}}
+\end{aligned}
+$$
+
+  其定义为:
 
 ![bcfcb5136238da2cca5641a70169cc23_ROPE2](https://github.com/superkong001/learning_in_datawhale/assets/37318654/3e698be4-2a31-43cf-af96-6e50a8b859cd)
 
