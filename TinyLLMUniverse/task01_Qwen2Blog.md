@@ -497,6 +497,8 @@ $$
 
 构建大模型需要考虑的因素：归一化方法、位置编码、激活函数、注意力计算（层数L、注意力头数N、特征维度H，根据模型规模大小确定)
 
+<img width="916" alt="image" src="https://github.com/user-attachments/assets/5a991683-b0b5-4940-a2cd-6e7270a288d9" />
+
 ### 分词
 分词（Tokenization）：即如何将一个字符串拆分成多个词元。分词方法：
 
