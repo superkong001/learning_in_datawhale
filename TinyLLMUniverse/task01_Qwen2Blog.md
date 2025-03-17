@@ -747,6 +747,10 @@ Transformer学习资源：
 <img width="713" alt="image" src="https://github.com/user-attachments/assets/655df108-72b8-4673-b8c3-c956a7b25990" />
 
 #### 单头注意力
+$$
+\text{Attention}(Q, K, V)=\text{softmax}\left(\frac{QK^{\mathrm{T}}}{\sqrt{D}}\right)V
+$$
+
 步骤：
 
 1. 从编码器的每个输入向量（如本例为每个单词的嵌入）创建Query、Key和Value三个向量。（新向量的维度小于嵌入向量。它们的维度为 64，而嵌入向量和编码器输入/输出向量的维度为 512）
@@ -759,7 +763,8 @@ Transformer学习资源：
 
 <img width="487" alt="image" src="https://github.com/user-attachments/assets/c8707cdd-cd1e-4954-b228-dd358d8429cd" />
 
-3. 将分数除以 8。（论文中使用的关键向量维度的平方根 64，这会导致更稳定的梯度）
+3. 将分数除以 8（缩放维度scale，即除以 $\sqrt{D}$ ， $D$ 为隐藏层特征维度，论文中使用的关键向量维度的平方根 64）。（论文中猜测当隐藏层维度很大时，点积结果会指数增加，会导致softmax函数饱和，即梯度极小，所以缩放会导致更稳定的梯度）
+   
 4. 通过 softmax。 对分数进行标准化，使其全部为正数，总和为 1。
 
 <img width="560" alt="image" src="https://github.com/user-attachments/assets/c3a70121-e616-4cbb-a615-1870fa83a3eb" />
@@ -804,6 +809,13 @@ $$
 #### 多头注意力
 - 多头注意力：对于多头注意力，有多组 Query/Key/Value 权重矩阵（Transformer 使用 8 个注意力头，因此最终为每个编码器/解码器提供 8 组）。这些集合中的每一个都是随机初始化的。然后，在训练之后，每个集合用于将输入嵌入（或来自较低编码器/解码器的向量）投影到不同的表示子空间中，从而可以让模型去关注不同方面信息，最后再将各个方面的信息综合起来。
 - 多次注意力计算综合的结果类比CNN中同时使用多个卷积核的作用。
+
+$$
+\begin{aligned}
+\text{MHA}&=\text{Concat}(\text{head}_1,\ldots,\text{head}_N)\boldsymbol{W}^O \\
+\text{head}_n&=\text{Attention}(\boldsymbol{X}\boldsymbol{W}_n^Q,\boldsymbol{X}\boldsymbol{W}_n^K,\boldsymbol{X}\boldsymbol{W}_n^V)
+\end{aligned}
+$$
 
 <img width="630" alt="image" src="https://github.com/user-attachments/assets/f1a556fd-465c-4765-a078-374a3e771dc8" />
 
