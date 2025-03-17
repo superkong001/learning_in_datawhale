@@ -1,4 +1,4 @@
-<img width="163" alt="image" src="https://github.com/user-attachments/assets/83b4edc3-305c-4508-82e6-2ce25ace801c" />引用参考：
+引用参考：
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 - [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
@@ -937,13 +937,14 @@ $$
 1^2 & 2^2 & 3^2 & 4^2 \\
 5^2 & 6^2 & 7^2 & 8^2 \\
 9^2 & 10^2 & 11^2 & 12^2
-\end{bmatrix}
+\end{bmatrix} 
+$$
 
+$$
 =
-
 \begin{bmatrix}
-1 & 4 & 9 & 16\\
-25 & 36 & 49 & 64\\
+1 & 4 & 9 & 16 \\
+25 & 36 & 49 & 64 \\
 81 & 100 & 121 & 144
 \end{bmatrix}
 $$
