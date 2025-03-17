@@ -495,6 +495,8 @@ $$
 prompt \overset{model}{\leadsto} completion \ \ or \ \ model(prompt) = completion
 $$
 
+构建大模型需要考虑的因素：归一化方法、位置编码、激活函数、注意力计算（层数L、注意力头数N、特征维度H，根据模型规模大小确定)
+
 ### 分词
 分词（Tokenization）：即如何将一个字符串拆分成多个词元。分词方法：
 
@@ -561,7 +563,7 @@ def  $FeedForwardSequenceModel(x_{1:L}:ℝ^{d×L})→ℝ^{d×L}$ ：
 - 返回[ $h_{1},…,h_{L}$ ]。
 
 ## 语言模型架构
-上下文向量表征 (Contextual Embedding): 作为模型处理的先决条件，其关键是将词元序列表示为响应的上下文的向量表征：
+上下文向量表征 (Contextual Embedding): 作为模型处理的先决条件，其关键是将词元序列表示为响应的上下文的向量表征。
 
 $$
 [the, mouse, ate, the, cheese] \stackrel{\phi}{\Rightarrow}\left[\left(\begin{array}{c}
