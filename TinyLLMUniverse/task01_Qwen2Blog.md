@@ -877,6 +877,44 @@ def $EmbedTokenWithPosition(x_{1:L}:ℝ^{d×L})$ ：
 
 Tips：傅里叶变换用一组正弦和余弦函数作为框架，适合分析信号中的频率分量；小波变换使用一组小波函数作为框架，能够同时捕捉信号的频率和时间特性；主成分分析则用数据的多个主成分作为框架，适合降维和提取关键特征。
 
+<img width="533" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3ee73abe-a686-429e-8491-fa6dc46d9f5d">
+
+这里 𝑝𝑜𝑠 是词在序列中的位置，𝑖 是位置向量中的维度索引，𝑑 是位置向量的维度（通常与模型的隐藏层维度相同，例如512）。这个公式中的 ${10000^{2n/d}}$ 是一个缩放因子，它随 𝑖 的增大而增大，这样对于不同的 𝑖，正弦和余弦函数的波长会随之增长。这种设计使得模型能够在每个维度捕捉到不同频率的位置信息。
+
+旋转位置编码（RoPE）：引入旋转矩阵的位置编码，位置编码的含义是对每一个token的每一个dim赋予不同的位置信息。 公式定义:
+
+![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/58f0f9f6-4d7b-4762-b4b5-826af5259975)
+
+概念：通过旋转编码，使得每个token既有相对位置信息，又有绝对位置信息。
+
+- 既能以自注意力矩阵偏置的形式作用于,直接反映两个token的相对位置信息，又能拆解到向量和上，通过直接编码token的绝对位置实现。
+- RoPE本质是实现对特征向量的旋转操作，如果以二维特征向量举例，对于相邻两个token来说，其对应同一个,其定义为:
+
+![bcfcb5136238da2cca5641a70169cc23_ROPE2](https://github.com/superkong001/learning_in_datawhale/assets/37318654/3e698be4-2a31-43cf-af96-6e50a8b859cd)
+
+可得，其本质就是: $q_{t}$, $k_{s}$ 旋转后的结果，就是 $q_{t}$, $k_{s}$乘上cos再加上 $q_{t}$, $k_{s}$翻转维度并取反一维后乘上sin。
+- 对于高纬向量，由于奇、偶数维度两两交错实现较为复杂，则现在可简化为将特征维度一切二，如下图所示，在实现过程中对前后各半进行的操作即为rotate_half操作：
+
+![b9732c2d7d6e7e265bfd933fb481cc9b_ROPE3](https://github.com/superkong001/learning_in_datawhale/assets/37318654/2204dd5d-2fae-4455-9fb0-600c17c3aa11)
+
+a) 生成角度: $$\theta = \left(\frac{1}{10000^{2n/d}}\right)$$
+
+其中，n表示维度数，其取值范围为[0, 1, ..., d/2-1]
+
+b) 将上述生成角度与每一个位置乘积，区分一个seq中各个词：其实等价于:
+$$\theta = \left(\frac{i}{10000^{2n/d}}\right)$$  
+其中: `i`为行数。
+
+c) emb将二者cat起来，得到dim维度，每dim/2一循环。
+
+d) 在取出位置编码信息cos与sin的时候，就是将seq的部分切出来，原先设置的1024是最大pos编码，每次用的时候只取当下seq_len的即可.之前求得外积，是为了保证seq里面得每一个词都能有不同的1024个位置编码。
+
+e) 进行旋转嵌入。
+
+将 𝑞 视为复数，其中实部和虚部分别是 𝑞 向量的两个分量。 $𝑒^𝑖𝜃$ 是由 cos⁡(𝜃)+𝑖sin⁡(𝜃) 表示的单位复数
+
+复数乘法可以表示为两个复数相乘。如果你把一个复数 𝑎+𝑏𝑖 与另一个复数 𝑐+𝑑𝑖 相乘，结果是 𝑎𝑐−𝑏𝑑+(𝑎𝑑+𝑏𝑐)𝑖。
+
 ### 前馈网络层
 学习复杂的函数关系和特征
 
@@ -1760,7 +1798,7 @@ tips: 为什么要用expand之后再reshape而不能直接用tensor自带的repe
 - 循环神经网络（RNN）在处理序列信息上会有更好的效果，其依靠循环结构，将序列信息逐步传递，这其中就引入了单词的位置和顺序信息。但随着序列长度的增加，RNN 会慢慢忘记早前的信息，这就导致了长期依赖问题。除此之外，循环结构也使得 RNN 无法并行计算，这使得 RNN 的训练速度十分缓慢。
 - Transformer：由于 Transformer 不包含任何循环结构，各个单词在 Transformer 中都同时经过 Decoder-Encoder 的变换，这就导致了 Transformer 无法捕获单词的位置信息。
 
-Transformer采用的是静态的正弦和余弦波函数的组合，主要提供绝对位置信息:
+Transformer采用的是静态的正弦和余弦波函数的组合，主要提供绝对位置信息。
 
 <img width="533" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3ee73abe-a686-429e-8491-fa6dc46d9f5d">
 
@@ -2072,7 +2110,6 @@ class Qwen2RMSNorm(nn.Module):
         return self.weight * hidden_states.to(input_dtype)
 ```
 
-<img width="530" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/a3664578-23ad-46b8-9f6e-d0e43f04e9bb">
 
 
 
