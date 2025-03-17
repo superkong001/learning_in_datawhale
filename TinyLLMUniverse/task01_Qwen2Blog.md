@@ -1,4 +1,4 @@
-引用参考：
+<img width="163" alt="image" src="https://github.com/user-attachments/assets/83b4edc3-305c-4508-82e6-2ce25ace801c" />引用参考：
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 - [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
@@ -837,10 +837,14 @@ $$
 
 编码 “it” 这个词时，一个注意力头最关注 “the animal”，而另一个 attention 头关注 “tired” —— 从某种意义上说，模型对 “it” 这个词的表示在一些 “animal” 和 “tired” 的表示中融入了。
 
+<img width="842" alt="image" src="https://github.com/user-attachments/assets/e8014da9-4bb0-4a2f-8bdd-26cf63ad1836" />
+
 ### 位置编码
 添加位置编码向量，为了让模型了解单词的顺序。
 
 <img width="713" alt="image" src="https://github.com/user-attachments/assets/3a55b247-d618-4089-975a-539771952de6" />
+
+<img width="728" alt="image" src="https://github.com/user-attachments/assets/0c106ace-061a-4817-a85e-33ac2ebda0bb" />
 
 假设嵌入的维度为 4，则实际的位置编码将如下所示：
 
@@ -904,6 +908,37 @@ $$
 
 <img width="875" alt="image" src="https://github.com/user-attachments/assets/da550520-b1a6-4b44-bf19-2a14d24f609b" />
 
+RMSNorm代码实现：
+
+<img width="605" alt="image" src="https://github.com/user-attachments/assets/9313325f-249c-4e92-9a78-c5ac3ec98de1" />
+
+层一化模块位置：
+1. 层后归一化(Post-Layer Normalization,Post-Norm)
+
+   归一化模块放置于残差计算之后 $Post-Norm(x) = Norm(x +Sublayer(x))$ 。
+
+- 优点：加快训练收敛速度，防止梯度爆炸或梯度消失，降低神经网络对于超参数的敏感性。
+- 缺点：可能导致训练不稳定，目前较少单独使用
+
+<img width="162" alt="image" src="https://github.com/user-attachments/assets/8fa23d99-7c70-45e7-9d14-d13d98967c65" />
+
+2. 层前归一化(Pre-Layer Normalization,Pre-Norm)
+  
+   归一化模块应用在每个子层之前 $Pre-Norm(x) =x+ Sublayer(Norm(x))$ 。
+
+- 缺点：性能略有逊色
+- 优点：训练更加稳定，主流模型采用较多
+
+<img width="161" alt="image" src="https://github.com/user-attachments/assets/0838b6c2-9f59-480d-8560-294ff70b46f7" />
+
+3. 夹心归一化(Sandwich-Norm)
+
+    Pre-Norm和Post-Norm两种方法的组合， $Sandwich-Norm(x) = x + Norm(Sublayer(Norm(x)))$ 。
+
+- 理论上更优，但仍无法保证稳定训练
+
+<img width="159" alt="image" src="https://github.com/user-attachments/assets/b77e7270-3e74-4a22-89e0-98dcd9fedd90" />
+
 ### 解码（Decoder）端
 ![transformer_decoding_1](https://github.com/user-attachments/assets/159dde71-fee8-4cc8-a134-c84bfb64cf66)
 
@@ -934,6 +969,10 @@ $$
 <img width="461" alt="image" src="https://github.com/user-attachments/assets/a8113bc7-b384-40c2-ba10-a0adc9fbf501" />
 
 <img width="454" alt="image" src="https://github.com/user-attachments/assets/a890aacb-0164-4d50-84f2-c8da7d195f22" />
+
+### 激活函数
+
+<img width="762" alt="image" src="https://github.com/user-attachments/assets/c66c5bd2-2e94-446d-bdbf-b1303304da5d" />
 
 ### GPT
 GPT 系列模型成体系推进：
