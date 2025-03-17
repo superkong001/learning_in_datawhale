@@ -839,6 +839,20 @@ $$
 
 <img width="842" alt="image" src="https://github.com/user-attachments/assets/e8014da9-4bb0-4a2f-8bdd-26cf63ad1836" />
 
+- 多头隐式注意力(Multi-Head Latent Attention，MLA)：
+
+由DeepSeek-V2提出，主要目的是降低推理时KVCache的存储开销
+
+<img width="790" alt="image" src="https://github.com/user-attachments/assets/5e4b99ae-d41b-4955-9f7b-e7fce185c0a6" />
+
+<img width="827" alt="image" src="https://github.com/user-attachments/assets/bfeea177-bb4f-4c69-8a59-30138283738c" />
+
+- 硬件优化的注意力机制
+    - FlashAttention:通过矩阵分块计算以及减少内存读写次数提高了计算效率
+    - PagedAttention:针对解码阶段,对KV Cache进行分块存储并优化计算方式
+
+<img width="660" alt="image" src="https://github.com/user-attachments/assets/feed0de7-f0f5-4393-9535-6b6d0b04d075" />
+
 ### 位置编码
 添加位置编码向量，为了让模型了解单词的顺序。
 
