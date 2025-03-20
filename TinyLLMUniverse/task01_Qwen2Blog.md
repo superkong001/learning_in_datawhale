@@ -1024,7 +1024,7 @@ $$
 f(T'_ {max}, i)=T'_ {max} \cdot h(i) \leq T_{max} \cdot \theta_i
 $$
 
-- 方法一修改旋转基的底数 $b (\theta_i = b^{-2(i - 1)/H})$
+- 方法一修改旋转基的底数 $b (\theta_i = b^{-2(i - 1)/H})$ 
     - 增大底数以减小旋转基
 $$
 h(i)=(\alpha\cdot b)^{-(i - 1)/H}\ (\alpha\geq 1)
