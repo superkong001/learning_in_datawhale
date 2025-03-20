@@ -1030,17 +1030,9 @@ $$
 h(i)=(\alpha\cdot b)^{-(i - 1)/H}\ (\alpha\geq 1)
 $$
 
-        - NTK-RoPE
+        - NTK-RoPE $\alpha=(T_{\text{max}}'/T_{\text{max}})^{H/H - 2}$ 
 
-$$
-\alpha=(T_{\text{max}}'/T_{\text{max}})^{H/H - 2}
-$$
-
-        - Dynamic-NTK-RoPE
-
-$$
-\alpha=\text{max}(1, T/T_{\text{max}})
-$$
+        - Dynamic-NTK-RoPE $\alpha=\text{max}(1, T/T_{\text{max}})$ 
 
 <img width="439" alt="image" src="https://github.com/user-attachments/assets/d3321731-3411-4487-9d9c-05f58c54b18f" />
 
