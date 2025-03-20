@@ -1003,6 +1003,7 @@ $$
 <img width="677" alt="image" src="https://github.com/user-attachments/assets/1315eb1a-7ba8-45e0-8f5e-d4376a3ba5aa" />
 
     2) 位置截断：设置最大距离阈值 $w$ ，阈值内保留，阈值外截断或者插值
+
         - ReRoPE：将超过阈值的位置索引设为固定值
         - LeakyReRoPE：将超过阈值的位置索引线性内插到原始上下文窗口大小
 
@@ -1017,8 +1018,8 @@ $$
 
 可以直接应用于更长的上下文而无需重新训练，同时保持正常文本的建模能力，但需要对注意力矩阵做二次计算，增加计算开销
 
-2. 修改旋转基 $\theta_i$：$h(i)$
-    - 代表方法：NTK-RoPE和Dynamic-NTK-RoPE
+2. 修改旋转基 $\theta_i$：$h(i)$ 
+    - 代表方法：NTK-RoPE 和 Dynamic-NTK-RoPE 
 
 ### 前馈网络层
 学习复杂的函数关系和特征
