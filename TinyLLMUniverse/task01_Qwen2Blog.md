@@ -1042,9 +1042,9 @@ $$
 \alpha=\text{max}(1, T/T_{\text{max}})
 $$
 
-        <img width="439" alt="image" src="https://github.com/user-attachments/assets/d3321731-3411-4487-9d9c-05f58c54b18f" />
+<img width="439" alt="image" src="https://github.com/user-attachments/assets/d3321731-3411-4487-9d9c-05f58c54b18f" />
 
-    - 方法二旋转基截断
+- 方法二旋转基截断
 
 设置两个阈值 $a$ 和 $c$ ，将子空间的基分为三部分
 
