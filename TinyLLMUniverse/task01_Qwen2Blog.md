@@ -1026,7 +1026,6 @@ $$
 
 - 方法一修改旋转基的底数 $b (\theta_i = b^{-2(i - 1)/H})$
     - 增大底数以减小旋转基
-
 $$
 h(i)=(\alpha\cdot b)^{-(i - 1)/H}\ (\alpha\geq 1)
 $$
@@ -1043,11 +1042,11 @@ $$
 \alpha=\text{max}(1, T/T_{\text{max}})
 $$
 
-<img width="439" alt="image" src="https://github.com/user-attachments/assets/d3321731-3411-4487-9d9c-05f58c54b18f" />
+        <img width="439" alt="image" src="https://github.com/user-attachments/assets/d3321731-3411-4487-9d9c-05f58c54b18f" />
 
     - 方法二旋转基截断
 
-设置两个阈值$a$和$c$，将子空间的基分为三部分
+设置两个阈值 $a$ 和 $c$ ，将子空间的基分为三部分
 
 $$
 h(i)=
