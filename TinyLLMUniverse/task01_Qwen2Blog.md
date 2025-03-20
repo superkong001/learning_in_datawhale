@@ -995,9 +995,9 @@ $$
 
     - 方法一位置内插：将位置索引成比例缩放，保证旋转角度不超过最大值。所有位置索引乘以一个小于1的系数，即：
       
-      $$
-      g(t) = \frac{T_{max}} {T_{max}'} \cdot t 
-      $$
+$$
+g(t) = \frac{T_{max}} {T_{max}'} \cdot t 
+$$
         
       <img width="677" alt="image" src="https://github.com/user-attachments/assets/1315eb1a-7ba8-45e0-8f5e-d4376a3ba5aa" />
     
