@@ -977,7 +977,7 @@ $$
 
 #### 扩展上下文窗口方法（扩展位置编码）
 - 模型在一定长度的数据上训练,超过训练长度的位置编码没有得到充分训练
-- 目标：原始上下文窗口 $_{Tmax}$ 扩展为目标上下文窗口 $T^'_{max}$
+- 目标：原始上下文窗口 $T_{max}$ 扩展为目标上下文窗口 $T^'_{max}$ 
 
 <img width="495" alt="image" src="https://github.com/user-attachments/assets/3a58dbce-db5a-4d81-8423-679c2b5975c9" />
 
@@ -995,26 +995,26 @@ $$
 
     - 方法一位置内插：将位置索引成比例缩放，保证旋转角度不超过最大值。所有位置索引乘以一个小于1的系数，即：
 
-$$
-g(t)=\frac{T_{\text{max}}}{T_{\text{max}}'}\cdot t
-$$
+    $$
+    g(t)=\frac{T_{\text{max}}}{T_{\text{max}}'}\cdot t
+    $$
 
-<img width="677" alt="image" src="https://github.com/user-attachments/assets/1315eb1a-7ba8-45e0-8f5e-d4376a3ba5aa" />
+    <img width="677" alt="image" src="https://github.com/user-attachments/assets/1315eb1a-7ba8-45e0-8f5e-d4376a3ba5aa" />
 
     - 方法二位置截断：设置最大距离阈值 $w$ ，阈值内保留，阈值外截断或者插值
 
         代表方法：ReRoPE（将超过阈值的位置索引设为固定值）和LeakyReRoPE（将超过阈值的位置索引线性内插到原始上下文窗口大小）
 
-$$
-g(t)=
-\begin{cases}
-t, & t\leq w;\\
-w, & t > w且使用\ ReRoPE;\\
-w+\frac{(T_{\text{max}} - w)(t - w)}{T_{\text{max}}' - w}, & t > w且使用\ LeakyReRoPE.
-\end{cases}
-$$
-
-可以直接应用于更长的上下文而无需重新训练，同时保持正常文本的建模能力，但需要对注意力矩阵做二次计算，增加计算开销
+    $$
+    g(t)=
+    \begin{cases}
+    t, & t\leq w;\\
+    w, & t > w且使用\ ReRoPE;\\
+    w+\frac{(T_{\text{max}} - w)(t - w)}{T_{\text{max}}' - w}, & t > w且使用\ LeakyReRoPE.
+    \end{cases}
+    $$
+    
+    可以直接应用于更长的上下文而无需重新训练，同时保持正常文本的建模能力，但需要对注意力矩阵做二次计算，增加计算开销
 
 2. 修改旋转基 $\theta_i:h(i)$ 
     - 代表方法：NTK-RoPE 和 Dynamic-NTK-RoPE 
