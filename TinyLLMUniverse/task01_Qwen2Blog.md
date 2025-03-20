@@ -995,9 +995,9 @@ $$
 
     - 方法一位置内插：将位置索引成比例缩放，保证旋转角度不超过最大值。所有位置索引乘以一个小于1的系数，即：
 
-    $$
-    g(t)=\frac{T_{\text{max}}}{T_{\text{max}}'}\cdot t
-    $$
+$$
+g(t) = \frac{T_{max}} {T_{max}'} \cdot t 
+$$
 
     <img width="677" alt="image" src="https://github.com/user-attachments/assets/1315eb1a-7ba8-45e0-8f5e-d4376a3ba5aa" />
 
@@ -1005,14 +1005,14 @@ $$
 
         代表方法：ReRoPE（将超过阈值的位置索引设为固定值）和LeakyReRoPE（将超过阈值的位置索引线性内插到原始上下文窗口大小）
 
-    $$
-    g(t)=
-    \begin{cases}
-    t, & t\leq w;\\ 
-    w, & t > w且使用\ ReRoPE;\\ 
-    w+\frac{(T_{\text{max}} - w)(t - w)}{T_{\text{max}}' - w}, & t > w且使用\ LeakyReRoPE.
-    \end{cases}
-    $$
+$$
+g(t)=
+\begin{cases}
+t, & t \leq w;\\ 
+w, & t > w 且使用ReRoPE;\\ 
+w + \frac{(T_{max} - w)(t - w)}{T'_{max} - w}, & t > w且使用LeakyReRoPE.
+\end{cases}
+$$
     
     可以直接应用于更长的上下文而无需重新训练，同时保持正常文本的建模能力，但需要对注意力矩阵做二次计算，增加计算开销
 
