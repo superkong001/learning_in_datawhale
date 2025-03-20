@@ -1003,14 +1003,14 @@ $$
 
       代表方法：ReRoPE（将超过阈值的位置索引设为固定值）和LeakyReRoPE（将超过阈值的位置索引线性内插到原始上下文窗口大小）
       
-        $$
-        g(t)=
-        \begin{cases}
-        t, & t \leq w;\\ 
-        w, & t > w 且使用ReRoPE;\\ 
-        w + \frac{(T_{max} - w)(t - w)}{T'_{max} - w}, & t > w且使用LeakyReRoPE.
-        \end{cases}
-        $$
+      $$
+      g(t)=
+      \begin{cases}
+      t, & t \leq w;\\ 
+      w, & t > w 且使用ReRoPE;\\ 
+      w + \frac{(T_{max} - w)(t - w)}{T'_{max} - w}, & t > w且使用LeakyReRoPE.
+      \end{cases}
+      $$
     
       可以直接应用于更长的上下文而无需重新训练，同时保持正常文本的建模能力，但需要对注意力矩阵做二次计算，增加计算开销
 
