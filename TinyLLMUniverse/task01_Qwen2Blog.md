@@ -977,7 +977,7 @@ $$
 
 #### 扩展上下文窗口方法（扩展位置编码）
 - 模型在一定长度的数据上训练,超过训练长度的位置编码没有得到充分训练
-- 目标：原始上下文窗口 $T_{max}$ 扩展为目标上下文窗口 $T^'_{max}$ 
+- 目标：原始上下文窗口 $T_{max}$ 扩展为目标上下文窗口 $T'_{max}$ 
 
 <img width="495" alt="image" src="https://github.com/user-attachments/assets/3a58dbce-db5a-4d81-8423-679c2b5975c9" />
 
@@ -1008,8 +1008,8 @@ $$
     $$
     g(t)=
     \begin{cases}
-    t, & t\leq w;\\
-    w, & t > w且使用\ ReRoPE;\\
+    t, & t\leq w;\\ 
+    w, & t > w且使用\ ReRoPE;\\ 
     w+\frac{(T_{\text{max}} - w)(t - w)}{T_{\text{max}}' - w}, & t > w且使用\ LeakyReRoPE.
     \end{cases}
     $$
