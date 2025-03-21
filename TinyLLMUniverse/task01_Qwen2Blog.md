@@ -1054,12 +1054,12 @@ $$
 1. 并行上下文窗口
    
   <img width="202" alt="image" src="https://github.com/user-attachments/assets/027085db-332c-4282-8f83-b0244fe82251" />
+  
+  将文本分成若干片段，每个片段单独编码，生成时关注所有前序词元。代表方法：PCW
+  
+  <img width="697" alt="image" src="https://github.com/user-attachments/assets/bf1dc7f4-6162-4839-bfc4-7c6a94c91a62" />
 
-    将文本分成若干片段，每个片段单独编码，生成时关注所有前序词元。代表方法：PCW
-
-    <img width="697" alt="image" src="https://github.com/user-attachments/assets/bf1dc7f4-6162-4839-bfc4-7c6a94c91a62" />
-
-3.  $\Lambda$ 型上下文窗口
+2.  $\Lambda$ 型上下文窗口
 
 <img width="202" alt="image" src="https://github.com/user-attachments/assets/ac7b5c83-db0f-427a-afee-8a841e86ba00" />
 
