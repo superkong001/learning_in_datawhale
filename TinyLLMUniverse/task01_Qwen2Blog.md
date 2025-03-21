@@ -1063,10 +1063,21 @@ $$
 
 <img width="202" alt="image" src="https://github.com/user-attachments/assets/ac7b5c83-db0f-427a-afee-8a841e86ba00" />
 
+每个词元仅关注序列最开始和邻近的词元。代表方法：StreamingLLM，LM-infinite
+
+<img width="736" alt="image" src="https://github.com/user-attachments/assets/85cad687-4bbd-4049-935f-7c5534ef7c5e" />
+
 3.  词元选择
 
    <img width="215" alt="image" src="https://github.com/user-attachments/assets/51c4de68-e5c4-42e8-80a6-49c06157312f" />
 
+> 基于查询与词元相似度的选择
+    > 将词元按照距离分为近距离词元和远距离词元(存储于外部向量库)
+    > 可通过检索获得最相关的远距离词元,补充远程语义信息
+    > 代表方法:Focused Transformer
+> 基于查询与分块相似度的选择
+    > 对文本分块并压缩为向量表示,使用k近邻方法选择最相关的分块并重新排序词元
+    > 代表方法:LongHeads,InfLLM
 
 ### 前馈网络层
 学习复杂的函数关系和特征
