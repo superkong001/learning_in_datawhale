@@ -975,7 +975,7 @@ $$
 
 <img width="809" alt="image" src="https://github.com/user-attachments/assets/6444f90c-5d86-4d32-8497-1603ac447cf9" />
 
-#### 扩展上下文窗口方法（扩展位置编码）
+#### 扩展位置编码
 - 模型在一定长度的数据上训练,超过训练长度的位置编码没有得到充分训练
 - 目标：原始上下文窗口 $T_{max}$ 扩展为目标上下文窗口 $T'_{max}$ 
 
@@ -1044,9 +1044,29 @@ h(i)=
 \end{cases}
 $$
 
-    有效防止位置索引较大时超出预期分布的旋转角度，提升长度外推能力
+有效防止位置索引较大时超出预期分布的旋转角度，提升长度外推能力
 
-    削弱了子空间对不同位置索引的分区能力
+削弱了子空间对不同位置索引的分区能力
+
+#### 扩展上下文窗口
+采用受限注意力机制实现对长文本的建模
+
+1. 并行上下文窗口
+   
+  <img width="202" alt="image" src="https://github.com/user-attachments/assets/027085db-332c-4282-8f83-b0244fe82251" />
+
+    将文本分成若干片段，每个片段单独编码，生成时关注所有前序词元。代表方法：PCW
+
+    <img width="697" alt="image" src="https://github.com/user-attachments/assets/bf1dc7f4-6162-4839-bfc4-7c6a94c91a62" />
+
+3.  $\Lambda$ 型上下文窗口
+
+<img width="202" alt="image" src="https://github.com/user-attachments/assets/ac7b5c83-db0f-427a-afee-8a841e86ba00" />
+
+3.  词元选择
+
+   <img width="215" alt="image" src="https://github.com/user-attachments/assets/51c4de68-e5c4-42e8-80a6-49c06157312f" />
+
 
 ### 前馈网络层
 学习复杂的函数关系和特征
