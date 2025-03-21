@@ -1634,7 +1634,7 @@ HAI-LLM(High-Flyer）是一个由DeepSeek团队开发，高效且轻量级的分
 $$
 \begin{aligned}
 y_t& = C \otimes S_t = C \otimes A \otimes(A \otimes S_{t - 2} + B \otimes x_{t - }) + C \otimes B \otimes x_t \\
-& = C \otimes A^{t - 1} \otimes B x_1 + \cdots + C \otimes B \otimes x_t = \sum_{i = 1}^{t} {\colorbox{yellow!20}{$ C \otimes A^{t - i} \otimes B $}} x_i \quad \text{对每一时刻输入的卷积}\\
+& = C \otimes A^{t - 1} \otimes B x_1 + \cdots + C \otimes B \otimes x_t = \sum_{i = 1}^{t} {$ C \otimes A^{t - i} \otimes B $} x_i \quad \text{对每一时刻输入的卷积}
 \end{aligned}
 \]
 卷积核
