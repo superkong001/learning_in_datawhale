@@ -1631,22 +1631,44 @@ HAI-LLM(High-Flyer）是一个由DeepSeek团队开发，高效且轻量级的分
 
 - 递归分解当前时刻的输出
 
-$$
-\begin{aligned}
-y_t& = C \otimes S_t = C \otimes A \otimes(A \otimes S_{t - 2} + B \otimes x_{t - }) + C \otimes B \otimes x_t \\
-& = C \otimes A^{t - 1} \otimes B x_1 + \cdots + C \otimes B \otimes x_t = \sum_{i = 1}^{t} {$ C \otimes A^{t - i} \otimes B $}x_i \quad \text{对每一时刻输入的卷积}
-\end{aligned}
-$$
+<img width="738" alt="image" src="https://github.com/user-attachments/assets/f065b261-4cc6-4cc9-be5b-1dbf6d499593" />
 
-卷积核
+- 相关变种
+1. Mamba
+    - 引入基于当前输入的信息选择机制
+    - 矩阵 $A,B,C$ 表示成基于输入 $x_t$ 的非线性函数,对历史信息进行选择过滤
+  
+<img width="702" alt="image" src="https://github.com/user-attachments/assets/f08886ac-8ede-4565-8699-fb1515fd722c" />
 
-$$
-\begin{aligned}
-K&=(C \otimes B, C \otimes A \otimes B, \ldots, C \otimes A^{t - 1} \otimes B,\ldots)y&=x*K
-\end{aligned}
-$$
+2. RWKV
 
-    可以使用傅里叶变换实现高效卷积计算
+    - 词元偏移(Token Shift)：将当前词元和前一个词元线性插值代替当前词元作为输入。
+    
+    <img width="380" alt="image" src="https://github.com/user-attachments/assets/3456ed98-8379-43c2-8ba9-1091b7606117" />
+
+    - 时间混合模块(Time-Mixing)：代替Transformer中的注意力层；门控RNN，对词元偏移进行更新。
+
+    <img width="362" alt="image" src="https://github.com/user-attachments/assets/fe87e087-b8d0-450e-bf09-8d474bf1be51" />
+
+    - 频道混合模块(Channel-Mixing)：代替Transformer中的前馈网络层；对词元偏移进行映射。
+  
+    <img width="373" alt="image" src="https://github.com/user-attachments/assets/83e1bf56-acb5-4434-beb5-80fd2a3acd78" />
+
+3. RetNet
+使用多尺度保留模块(Multi-scale Retention,MSR)替换多头注意力。
+
+<img width="670" alt="image" src="https://github.com/user-attachments/assets/1fde803f-2b17-4e48-8722-d5749b3f36af" />
+
+4. Hyena
+长卷积模块(Long Convolution)替换多头注意力。
+
+- 每层包含 $N$ 个滤波器,每个相对位置索引设置对应的滤波器组成卷积核 $K=(h(1), ... ,h(T))$ 
+
+<img width="785" alt="image" src="https://github.com/user-attachments/assets/823d40b5-8275-40c7-bba9-6c7f9f624410" />
+
+- 对于每个卷积核的输出的中间表示 $z_t$ ，使用门控函数 $g(t)$ 进行加权:
+
+<img width="778" alt="image" src="https://github.com/user-attachments/assets/12d368c7-5cb4-454b-a4f1-28503db479b1" />
 
 # Qwen整体介绍
 
