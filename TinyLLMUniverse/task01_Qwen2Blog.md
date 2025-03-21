@@ -1,4 +1,4 @@
-引用参考：
+<img width="564" alt="image" src="https://github.com/user-attachments/assets/9a0a776d-52c9-4606-b09b-b4358e8557ef" />引用参考：
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 - [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
@@ -1079,28 +1079,8 @@ $$
     - 对文本分块并压缩为向量表示,使用k近邻方法选择最相关的分块并重新排序词元
     - 代表方法：LongHeads，InfLLM
 
-$$
-\begin{table}[htbp]
-    \centering
-    \caption{}
-    \begin{tabular}{|c|l|c|l|}
-        \hline
-        上下文窗口 & 思想 & 代表模型 & 优缺点 \\
-        \hline
-        并行上下文窗口 & 将文本分成若干片段，每个片段单独编码，生成时关注所有前序词元 & PCW & 该方法无法有效区分不同片段的顺序关系 \\
-        \hline
-        $\Lambda$型上下文窗口 & 将文本分成若干片段，每个片段单独编码，生成时关注所有前序词元 & StreamingLLM \\
-        &  & LM-infinite & 在有限资源下实现长度外推，忽略词元信息影响上下文能力 \\
-        \hline
-        词元选择 & 基于查询与词元相似度（按距离划分词元，选择最相关远距离词元） & Focused \\
-        &  & Transformer & 需要构建额外的向量库，存储远距离词元的向量表示 \\
-        \hline
-        词元选择 & 基于查询与分块相似度（选择最相关的文本块） & LongHeads \\
-        &  & InfLLM & 通常能够在保证性能的同时降低计算复杂度和内存需求 \\
-        \hline
-    \end{tabular}
-\end{table}
-$$
+<img width="841" alt="image" src="https://github.com/user-attachments/assets/820b79be-aa1f-425e-82b7-545456c23f6e" />
+
 
 ### 前馈网络层
 学习复杂的函数关系和特征
@@ -1639,6 +1619,33 @@ HAI-LLM(High-Flyer）是一个由DeepSeek团队开发，高效且轻量级的分
 - DeepSeek R1
 
 <img width="917" alt="image" src="https://github.com/user-attachments/assets/1508d34b-e746-4730-ab41-9bd596dd5c7f" />
+
+### 参数化状态空间模型(State Space Model，SSM)
+- RNN和CNN的结合体，利用卷积计算并行编码
+- 仅依赖于前一个状态循环推理
+- 相比于Transformer长文本建模效率得到极大改进
+
+<img width="813" alt="image" src="https://github.com/user-attachments/assets/ef63d2f3-cec0-41da-ae14-97f4fc77086b" />
+
+<img width="868" alt="image" src="https://github.com/user-attachments/assets/35cb3ca9-c5e4-47b2-914e-4a2d9ee3bdfc" />
+
+- 递归分解当前时刻的输出
+
+$$
+\begin{aligned}
+y_t& = C \otimes S_t = C \otimes A \otimes(A \otimes S_{t - 2} + B \otimes x_{t - }) + C \otimes B \otimes x_t \\
+& = C \otimes A^{t - 1} \otimes B x_1 + \cdots + C \otimes B \otimes x_t = \sum_{i = 1}^{t} {\colorbox{yellow!20}{$ C \otimes A^{t - i} \otimes B $}} x_i \quad \text{对每一时刻输入的卷积}\\
+\end{aligned}
+\]
+卷积核
+
+$$
+\begin{aligned}
+K&=(C \otimes B, C \otimes A \otimes B, \ldots, C \otimes A^{t - 1} \otimes B,\ldots)y&=x*K
+\end{aligned}
+$$
+
+    可以使用傅里叶变换实现高效卷积计算
 
 # Qwen整体介绍
 
