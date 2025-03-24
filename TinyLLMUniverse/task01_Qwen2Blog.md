@@ -1574,8 +1574,7 @@ $$
 
 $$
 \nabla_{\theta_e} (g_e(x) \cdot h_{\theta_e}(x)) \\ 
-= \nabla_{\theta_e} g_e(x) \cdot h_{\theta_e}(x) + g_e(x) \cdot \nabla_ {\theta_e}h_{\theta_e}(x) \\
-= 
+= \nabla_{\theta_e} g_e(x) \cdot h_{\theta_e}(x) + g_e(x) \cdot \nabla_ {\theta_e}h_{\theta_e}(x) 
 $$
 
 #### 平衡专家
