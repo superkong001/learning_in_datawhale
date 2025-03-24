@@ -1561,6 +1561,18 @@ $$
 
 简要来说，这个公式的意思是：通过反向传播计算梯度时，每个专家的贡献会根据其门控函数 $g_e(x)$ 和专家函数 $h_e(x)$ 的梯度进行调整。通过这种方式，反向传播可以更新每个专家的参数，使得最终模型的表现更好。 
 
+- Tips 推导过程：
+
+$$
+\nabla_{\theta_e}(g_e(x)\cdot h_{\theta_e}(x)) \\ 
+= \nabla_{\theta_e}g_e(x)\cdot h_{\theta_e}(x)+g_e(x)\cdot\nabla_{\theta_e}h_{\theta_e}(x) \\
+
+g_e(x)\cdot\frac{\nabla g_e(x)}{g_e(x)}=\nabla g_e(x) \\
+
+\nabla_{x} \log(g_e(x)) = \frac{\nabla_{x}g_e(x)}{g_e(x)} \\
+\Rightarrow g_e(x)\cdot\frac{\nabla g_e(x)}{g_e(x)}=\nabla g_e(x)
+$$
+
 #### 平衡专家
 - 设 $c_e = \sum_{i=1}^B \mathbf{1}[\tilde g_e(x_i) > 0]$ 是专家 $e$ 被选中的次数。
 - 注意，处理完一个batch后， $\sum_e c_e = B$ 。
