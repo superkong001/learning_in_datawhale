@@ -1486,7 +1486,7 @@ $$
   - $\text{topk}$ ：选择出得分最高的 $k$ 个专家进行激活
   - $\text{softmax}$ ：计算专家权重，未被选择的专家权重被置为0
 
-- 被选择专家的输出加权和，作为该混合专家网络层的最终输出$\boldsymbol{o}_t$
+- 被选择专家的输出加权和，作为该混合专家网络层的最终输出 $\boldsymbol{o}_t$ 
 
 $$
 o_t = \text{MoELayer}(x_t)=\sum_{i = 1}^{K}G(x_t)_i\cdot E_i(x_t)
