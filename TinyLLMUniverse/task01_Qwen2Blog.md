@@ -1527,7 +1527,7 @@ $$
 h_{\theta_e}(x) = W_2^e \cdot \max(W_1^e \cdot x,0)
 $$
 
-- 这相当于一个带有ReLU激活的线性变换，其中 $\max(W_e^1\cdot x,0)$ 表示如果 $W_e^1\cdot x$ 小于零，则输出为零，反之则输出 $W_1^e\cdot x$ 。
+- 这相当于一个带有ReLU激活的线性变换，其中 $\max(W_1^e\cdot x,0)$ 表示如果 $W_1^e\cdot x$ 小于零，则输出为零，反之则输出 $W_1^e\cdot x$ 。
 -  $ReLU$ 激活作用是 去除负值
 
 5. 最终混合模型
