@@ -1600,9 +1600,7 @@ $$
 - 定义 $m_e = \sum_{i = 1}^B g_e(x_i)$ （这是 $c_e$ 的软版本，即根据负载平衡要求调整专家的计算频率)。
 - 相反，我们在目标函数中添加 $\text{load-balancing-loss} = \sum_{e=1}^E m_e c_e$ 。这样，通过 $m_e$ 的梯度将为非零。
 
-负载均衡的目标是使得所有专家的 选择次数（即 $𝑐_𝑒$ ）趋于相同，即每个专家的负载应该尽量均衡。为此，模型使用了一个负载均衡损失函数：
-
-$\text{loss} = \text{negative-log-likelihood} + \lambda \text{load-balancing-loss}$ 
+负载均衡的目标是使得所有专家的 选择次数（即 $𝑐_𝑒$ ）趋于相同，即每个专家的负载应该尽量均衡。为此，模型使用了一个负载均衡损失函数： $\text{loss} = \text{negative-log-likelihood} + \lambda  \text{load-balancing-loss}$ 
 
 - negative-log-likelihood：是常规的损失函数，用于衡量模型预测与真实值之间的差异。
 - load-balancing-loss：是负载均衡的损失项，定义为：
