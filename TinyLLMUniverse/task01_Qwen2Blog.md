@@ -1564,16 +1564,20 @@ $$
 - Tips 推导过程：
 
 $$
-g_e(x) \cdot \frac {\nabla g_e(x)} {g_e(x)} = \nabla g_e(x) 
+\nabla_{x} \log(g_e(x)) = \frac{\nabla_{x}g_e(x)}{g_e(x)} 
 $$
 
 $$
-\nabla_{x} \log(g_e(x)) = \frac{\nabla_{x}g_e(x)}{g_e(x)} \\
-\Rightarrow {g_e(x)} \cdot \frac {\log(g_e(x))} = {\nabla_{x}g_e(x)} 
+f(x) = \sum_{e = 1}^{E} g_e(x) \cdot h_{\theta_e}(x)
 $$
 
 $$
-\nabla_{\theta_e} (g_e(x) \cdot h_{\theta_e}(x)) \\ 
+g_e(x) \cdot \frac {\nabla_{x} g_e(x)} {g_e(x)} = \nabla_{x} g_e(x) \\ 
+\Rightarrow {g_e(x)} \cdot \nabla_{x} \log(g_e(x)) = {\nabla_{x} g_e(x)} 
+$$
+
+$$
+\nabla_{\theta_e} f(x) = \nabla_{\theta_e} (g_e(x) \cdot h_{\theta_e}(x)) \\ 
 = \nabla_{\theta_e} g_e(x) \cdot h_{\theta_e}(x) + g_e(x) \cdot \nabla_ {\theta_e}h_{\theta_e}(x) 
 $$
 
