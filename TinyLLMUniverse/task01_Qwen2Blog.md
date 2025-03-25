@@ -1567,12 +1567,9 @@ $$
 \begin{aligned}
 \nabla_{x} \log(g_e(x)) = \frac{\nabla_{x}g_e(x)}{g_e(x)} \\
 g_e(x) \cdot \frac {\nabla_{x} g_e(x)} {g_e(x)} = \nabla_{x} g_e(x) \\ 
-\Rightarrow {g_e(x)} \cdot \nabla_{x} \log(g_e(x)) = {\nabla_{x} g_e(x)} 
-\end{aligned}
-$$
-
-$$
+\Rightarrow {g_e(x)} \cdot \nabla_{x} \log(g_e(x)) = {\nabla_{x} g_e(x)} \\
 f(x) = \sum_{e = 1}^{E} g_e(x) \cdot h_{\theta_e}(x)
+\end{aligned}
 $$
 
 $$
