@@ -1577,8 +1577,8 @@ $$
 
 $$
 \begin{aligned}
-\nabla_{\theta_e} f(x) = \nabla_{\theta_e} \sum_{e = 1}^{E} (g_e(x) \cdot h_{\theta_e}(x)) \\ 
- = \nabla_{\theta_e} \sum_{e = 1}^{E} (g_e(x) \cdot h_{\theta_e}(x) + g_e(x) \cdot \nabla_ {\theta_e}h_{\theta_e}(x)) \\
+\nabla_{\theta_e} f(x) = \sum_{e = 1}^{E} \nabla_{\theta_e} (g_e(x) \cdot h_{\theta_e}(x)) \\ 
+ = \sum_{e = 1}^{E} \nabla_{\theta_e} (g_e(x) \cdot h_{\theta_e}(x) + g_e(x) \cdot \nabla_ {\theta_e}h_{\theta_e}(x)) \\
  = \sum_{e = 1}^{E} {g_e(x)} \cdot \nabla_{\theta_e} \log(g_e(x)) \cdot h_{\theta_e}(x) + g_e(x) \cdot \nabla_ {\theta_e}h_{\theta_e}(x) \\
  = \sum_{e = 1}^{E} {g_e(x)} (\nabla_{\theta_e} \log(g_e(x)) \cdot h_{\theta_e}(x) + \nabla_ {\theta_e}h_{\theta_e}(x))
 \end{aligned}
