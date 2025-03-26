@@ -753,14 +753,6 @@ $$
     
 该模型的具有编码端，解码端两个架构的共同的优点，对于每个 $x_{i}$ ，上下文向量表征可以双向地依赖于左侧上下文  $x_{1:i−1}$ ) 和右侧上下文 ( $x_{i+1:L}$ )，可以自由的生成文本数据。缺点就说需要更多的特定训练目标。
 
-<img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
-
-<img width="608" alt="image" src="https://github.com/user-attachments/assets/6e364403-8703-4ef0-a5fb-b7893fc2970a" />
-
-<img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
-
-<img width="617" alt="image" src="https://github.com/user-attachments/assets/ddccf4ae-d353-4bc8-8087-a4cc62b92b05" />
-
 任务示例（表格生成文本）：
 
 $$
@@ -793,6 +785,14 @@ $$
 <img width="708" alt="image" src="https://github.com/user-attachments/assets/1570aa6b-2b0a-4d58-b29a-b5b9b792e686" />
 
 发现“i.i.d. noise, replace spans”效果最好。
+
+<img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
+
+<img width="608" alt="image" src="https://github.com/user-attachments/assets/6e364403-8703-4ef0-a5fb-b7893fc2970a" />
+
+<img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
+
+<img width="617" alt="image" src="https://github.com/user-attachments/assets/ddccf4ae-d353-4bc8-8087-a4cc62b92b05" />
 
 ### 递归神经网络（RNN）
 
