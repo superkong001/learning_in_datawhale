@@ -607,6 +607,30 @@ $$
 
 <img width="565" alt="image" src="https://github.com/user-attachments/assets/ccb91327-1cf0-4dea-8080-1d3b85995bd2" />
 
+如：[BERT](https://arxiv.org/pdf/1810.04805.pdf)
+
+包含以下两个部分：掩码语言模型（Masked language modeling） 和 下一句预测（Next sentence prediction）
+
+以自然语言推理（预测隐含、矛盾或中性）任务中的序列为例：
+
+$$
+x_{1:L} = [\text{[CLS]}, \text{all}, \text{animals}, \text{breathe}, \text{[SEP]}, \text{cats}, \text{breathe}].
+$$
+
+其中有两个特殊的token：
+1.  $\text{[CLS]}$ ：包含用于驱动分类任务的嵌入
+2.  $\text{[SEP]}$ ：用于告诉模型第一个序列（例如，前提）与第二个序列（例如，假设）的位置。
+
+BERT模型定义为：
+
+$$
+\text{BERT}(x_{1:L}) = \text{TransformerBlock}^{24}(\text{EmbedTokenWithPosition}(x_{1:L}) + \text{SentenceEmbedding}(x_{1:L})) \in \mathbb{R}^{d \times L},
+$$
+
+其中， $\text{SentenceEmbedding}(x_{1:L})$ 根据序列返回以下两个矢量之一；对于 $\text{[SEP]}$ 左边的，返回 $e_A \in \mathbb{R}^d$ ；对于 $\text{[SEP]}$ 右边的，返回 $e_B \in \mathbb{R}^d$
+
+BERT-large有 $n_\text{heads} = 16$ 个注意头，并且 $d_\text{model} = 1024$ ，总共355M个参数。
+
 - 解码端（Decoder-Only）
     计算单向上下文嵌入（contextual embeddings），一次生成一个token。如：GPT系列模型。这些是常见的自回归语言模型，给定一个提示  $x_{1:i}$ ，它们可以生成上下文向量表征，并对下一个词元 $x_{i+1}$ （以及递归地，整个完成 
  $x_{i+1:L}$） 生成一个概率分布。 $x_{1:i}⇒ϕ(x_{1:i}),p(x_{i+1}∣x_{1:i})$ 。以自动补全任务来说，输入与输出的形式为， $[[CLS], 他们, 移动, 而]⇒强大$ 。与编码端架构比，其优点为能够自然地生成完成文本，有简单的训练目标（最大似然）。缺点也很明显，对于每个  $xi$ ，上下文向量表征只能单向地依赖于左侧上下文  ($x_{1:i−1}$) 。
