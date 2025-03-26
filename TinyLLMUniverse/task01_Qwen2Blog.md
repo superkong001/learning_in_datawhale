@@ -669,6 +669,41 @@ $$
 - 在训练期间，输入到BERT的都是带 $\text{[MASK]}$ 的序列。
 - 而在测试时，我们会输入没有 $\text{[MASK]}$ 的句子，这将导致分布发生变化。一种启发式的解决方法是在20%的时间内(此处指训练的时间)用真实单词替换。
 
+**下一句预测**
+BERT是在拼接好的成对句子上训练的。下一句预测的目标是预测第二句是否跟随第一句。
+
+$$
+[\text{[CLS]}, \text{the}, \text{mouse}, \text{ate}, \text{the}, \text{cheese}, \text{[SEP]}, \text{it}, \text{was}, \text{full}] \Rightarrow 1.
+$$
+
+$$
+[\text{[CLS]}, \text{the}, \text{mouse}, \text{ate}, \text{the}, \text{cheese}, \text{[SEP]}, \text{hello}, \text{world}] \Rightarrow 0.
+$$
+
+然后使用 $\text{[CLS]}$ 的嵌入来做二分类。
+
+**数据集**
+$\mathcal{D}$ 是按如下方式构造的一组样本 $(x_{1:L}, c)$ ：
+- 令 $A$ 是语料库中的一个句子。
+- 以0.5的概率， $B$ 是下一句话。
+- 以0.5的概率， $B$ 是语料库中的一个随机句子。
+- 令 $x_{1:L} = [\text{[CLS]}, A, \text{[SEP]}, B]$ 
+- 令 $c$ 表示 $B$ 是否是下一句
+
+BERT的训练目标是：
+
+$$
+\mathcal{O}(\theta) = \sum_{(\boldsymbol{x}_ {1:L}c) \in \mathcal{D}} \underbrace{\mathbb{E}_ {I,\tilde{\boldsymbol{x}}_ {1:L} \sim A(\cdot | \boldsymbol{x}_ {1:L}I)} \left [\sum_ {i\in I} - \log p_{\theta} (\tilde{\boldsymbol{x}}_ {i} | \boldsymbol{x}_{1:L})\right]}_ {\text{masked language modeling}} + \underbrace{-\log p(c | \phi(\boldsymbol{x}_ {1:L})_ 1)}_{\text{next sentence prediction}}
+$$
+
+<!-- $$\mathcal{O}(\theta)=\sum_{\left(x_{1: L} c\right) \in \mathcal{D}} \underbrace{\mathbb{E}_{I, \tilde{x}_{1: L} \sim A\left(\cdot \mid x_{1: L} I\right)}\left[\sum_{i \in I}-\log p_\theta\left(\tilde{x}_i \mid x_{1: L}\right)\right]}_{\text {masked language modeling }}+\underbrace{-\log p\left(c \mid \phi\left(x_{1: L}\right)_1\right)}_{\text {next sentence prediction }} .$$ -->
+
+
+总结一下BERT：
+- BERT（以及ELMo和ULMFiT）表明，一个统一的体系结构（Transformer）可以用于多个分类任务。
+- BERT真正将NLP社区转变为预培训+微调的范式。
+- BERT显示了深度双向上下文嵌入的重要性，尽管通过模型大小和微调策略可能会弥补这一点（[p-tuning](https://arxiv.org/pdf/2103.10385.pdf)）。
+
 ### 解码端（Decoder-Only）
 计算单向上下文嵌入（contextual embeddings），一次生成一个token。如：GPT系列模型。这些是常见的自回归语言模型，给定一个提示  $x_{1:i}$ ，它们可以生成上下文向量表征，并对下一个词元 $x_{i+1}$ （以及递归地，整个完成 
  $x_{i+1:L}$） 生成一个概率分布。 $x_{1:i}⇒ϕ(x_{1:i}),p(x_{i+1}∣x_{1:i})$ 。以自动补全任务来说，输入与输出的形式为， $[[CLS], 他们, 移动, 而]⇒强大$ 。与编码端架构比，其优点为能够自然地生成完成文本，有简单的训练目标（最大似然）。缺点也很明显，对于每个  $xi$ ，上下文向量表征只能单向地依赖于左侧上下文  ($x_{1:i−1}$) 。
