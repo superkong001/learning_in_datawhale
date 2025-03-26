@@ -592,7 +592,7 @@ $$
 
 语言模型分为三个类型：编码端（Encoder-Only），解码端（Decoder-Only）和编码-解码端（Encoder-Decoder）。
 
-- 编码端（Encoder-Only）
+### 编码端（Encoder-Only）
     计算双向上下文嵌入。如：BERT、RoBERTa等。这些语言模型生成上下文向量表征，但不能直接用于生成文本。可以表示为， $x_{1:L}⇒ϕ(x_{1:L})$ 。这些上下文向量表征通常用于分类任务（也被称为自然语言理解任务）。任务形式比较简单，下面以情感分类/自然语言推理任务举例：
 
 $$
@@ -633,7 +633,41 @@ $$
 
 BERT-large有 $n_\text{heads} = 16$ 个注意头，并且 $d_\text{model} = 1024$ ，总共355M个参数。
 
-- 解码端（Decoder-Only）
+#### 掩码语言模型
+基本思想是通过加噪然后预测来进行训练：
+
+$$
+[\text{the}, \text{[MASK]}, \text{ate}, \text{[MASK]}, \text{cheese}] \Rightarrow [\text{the}, \text{mouse}, \text{ate}, \text{the}, \text{cheese}].
+$$
+
+可以将其视为类似于去噪自动编码器，其中映射有噪声/不完整版本 $\tilde x_{1:L}$ ，并尝试重建原始 $x_{1:L}$ 。
+
+$$
+\tilde x_{1:L} \Rightarrow x_{1:L}.
+$$
+
+**建模**：首先定义模型分布。给定输入 $\tilde x_{1:L}$ 及其上下文嵌入，模型独立地预测每个token：
+
+$$
+p(x_i \mid \tilde x_{1:L}) = \text{softmax}(E \phi(\tilde x_{1:L})_i).
+$$
+
+**掩码：** 定义了一个（随机）噪声函数 $A(\tilde x_{1:L} \mid x_{1:L})$ ：
+
+<!-- $$\underbrace{x_{1:L}}_\text{original} \stackrel{A}{\Rightarrow} \underbrace{\tilde x_{1:L}}_\text{noised}$$ -->
+
+以下是 $A$ 的定义：
+- 假设 $I \subset \{1, \dots, L\}$ 代表所有位置中随机的15%。
+- 对于每个 $i \in I$ ：
+    - 以0.8的概率， $\tilde x_i \leftarrow \text{[MASK]}$ 
+    - 以0.1的概率， $\tilde x_i \leftarrow x_i$
+    - 以0.1的概率， $\tilde x_i \leftarrow \text{random word from } \mathcal{V}$
+
+**减少分布偏移：** 如果我们总是使用 $\text{[MASK]}$ 来替换 $I$ 中选定的token，则：
+- 在训练期间，输入到BERT的都是带 $\text{[MASK]}$ 的序列。
+- 而在测试时，我们会输入没有 $\text{[MASK]}$ 的句子，这将导致分布发生变化。一种启发式的解决方法是在20%的时间内(此处指训练的时间)用真实单词替换。
+
+### 解码端（Decoder-Only）
     计算单向上下文嵌入（contextual embeddings），一次生成一个token。如：GPT系列模型。这些是常见的自回归语言模型，给定一个提示  $x_{1:i}$ ，它们可以生成上下文向量表征，并对下一个词元 $x_{i+1}$ （以及递归地，整个完成 
  $x_{i+1:L}$） 生成一个概率分布。 $x_{1:i}⇒ϕ(x_{1:i}),p(x_{i+1}∣x_{1:i})$ 。以自动补全任务来说，输入与输出的形式为， $[[CLS], 他们, 移动, 而]⇒强大$ 。与编码端架构比，其优点为能够自然地生成完成文本，有简单的训练目标（最大似然）。缺点也很明显，对于每个  $xi$ ，上下文向量表征只能单向地依赖于左侧上下文  ($x_{1:i−1}$) 。
 
@@ -660,7 +694,7 @@ $$
 O(\theta) = \sum_{x \in D} - \log p_\theta(x) = \sum_{x \in D} \sum_{i=1}^L -\log p_\theta(x_i \mid x_{1:i-1}).
 $$
 
-- 编码-解码端（Encoder-Decoder）
+### 编码-解码端（Encoder-Decoder）
     编码输入，解码输出。如：Transformer、BART、T5等模型。这些模型在某种程度上结合了两者的优点：它们可以使用双向上下文向量表征来处理输入 $x_{1:L}$ ，并且可以生成输出 $y_{1:L}$ 。可以公式化为：
     
 $$
