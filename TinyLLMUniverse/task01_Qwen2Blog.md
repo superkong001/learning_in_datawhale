@@ -1775,6 +1775,39 @@ $$
 
 例如，可以取 $\lambda = \frac{0.01}{B}$ 。
 
+#### 分布式训练（并行策略）
+因为[内存墙](https://oneflow.org/a/share/jishuboke/75.html)的存在，单一设备的算力及容量，受限于物理定律，持续提高芯片的集成越来越困难，难以跟上模型扩大的需求。为了解决算力增速不足的问题，人们考虑用多节点集群进行分布式训练，以提升算力，分布式训练势在必行。
+
+假设神经网络中某一层是做矩阵乘法，其中的输入 $x $的形状为 $4\times5$ ，模型参数 $w$ 的形状为 $5\times8$ ，那么，矩阵乘法输出形状为 $4\times8$ 。
+
+示意图如下：
+
+<img width="722" alt="image" src="https://github.com/user-attachments/assets/0d4cd556-ae8d-4675-8a64-7900790dd073" />
+
+单机单卡的训练中，以上矩阵乘法，先计算得到 $out$ ，并将 $out$ 传递给下一层，并最终计算得到 $loss$ ，然后在反向传播过程中，得到 $\frac{\partial loss}{\partial w}$ ，用于更新 $w$ 。
+
+- 数据并行
+  数据并行，就是将数据 $x$ 进行切分，而每个设备上的模型 $w$ 是相同的。
+
+  如下图所示， $x$ 被按照第0维度平均切分到2个设备上，两个设备上都有完整的 $w$ 。
+
+<img width="728" alt="image" src="https://github.com/user-attachments/assets/60ba1d12-7fc5-4ea9-a0da-c7112094f9db" />
+
+- 模型并行
+  ss
+
+<img width="725" alt="image" src="https://github.com/user-attachments/assets/a41c229c-22cd-42f5-906a-f5c71f767c43" />
+
+- 流水线并行
+  s
+
+![a8a5ca51a50d98238f1ad465fcfe1c6e_parallelism-4](https://github.com/user-attachments/assets/585f68fe-94b9-4b02-8bd6-3d0a07adb189)
+
+- 混合并行
+
+![28fdebe5a11b600b3765b31758ba89f7_parallelism-5](https://github.com/user-attachments/assets/dd7581be-d150-460d-ab50-cc2e29846b2a)
+
+
 ### 基于检索的模型
 有一个原始数据存储库，给定一个新的输入，检索存储库中和它相关的部分，并使用它们来预测输出。类似提问一个问题，然后进行网络搜索，并阅读搜索得到的文档以得出答案。
 
