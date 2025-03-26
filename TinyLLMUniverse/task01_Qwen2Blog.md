@@ -704,6 +704,13 @@ $$
 - BERT真正将NLP社区转变为预培训+微调的范式。
 - BERT显示了深度双向上下文嵌入的重要性，尽管通过模型大小和微调策略可能会弥补这一点（[p-tuning](https://arxiv.org/pdf/2103.10385.pdf)）。
 
+**[RoBERTa](https://arxiv.org/pdf/1907.11692.pdf)**
+它对BERT进行了以下改进：
+- 删除了下一句预测这一目标函数（发现它没有帮助）。
+- 使用更多数据训练（16GB文本  $\Rightarrow$ 160GB文本 ）。
+- 训练时间更长。
+- RoBERTa在各种基准上显著提高了BERT的准确性（例如，在SQuAD上由81.8到89.4）。
+
 ### 解码端（Decoder-Only）
 计算单向上下文嵌入（contextual embeddings），一次生成一个token。如：GPT系列模型。这些是常见的自回归语言模型，给定一个提示  $x_{1:i}$ ，它们可以生成上下文向量表征，并对下一个词元 $x_{i+1}$ （以及递归地，整个完成 
  $x_{i+1:L}$） 生成一个概率分布。 $x_{1:i}⇒ϕ(x_{1:i}),p(x_{i+1}∣x_{1:i})$ 。以自动补全任务来说，输入与输出的形式为， $[[CLS], 他们, 移动, 而]⇒强大$ 。与编码端架构比，其优点为能够自然地生成完成文本，有简单的训练目标（最大似然）。缺点也很明显，对于每个  $xi$ ，上下文向量表征只能单向地依赖于左侧上下文  ($x_{1:i−1}$) 。
@@ -753,6 +760,39 @@ $$
 <img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
 
 <img width="617" alt="image" src="https://github.com/user-attachments/assets/ddccf4ae-d353-4bc8-8087-a4cc62b92b05" />
+
+任务示例（表格生成文本）：
+
+$$
+[\text{name}, \text{:}, \text{Clowns}, \text{|}, \text{eatType}, \text{:}, \text{coffee}, \text{shop}] \mathbb{R}ightarrow [\text{Clowns}, \text{is}, \text{a}, \text{coffee}, \text{shop}].
+$$
+
+编码器-解码器模型：首先像BERT一样对输入进行双向编码；然后像GPT-2一样对输出进行自回归解码。
+
+BART (Bidirectional Auto-Regressive Transformers) ([Lewis et al. 2019](https://arxiv.org/pdf/1910.13461.pdf))是基于Transformer的编码器-解码器模型。
+
+- 使用与RoBERTa相同的编码器架构（12层，隐藏维度1024）。
+- 使用与RoBERTa相同的数据进行训练（160GB文本）。
+
+BART使用了以下变换 $A(\tilde x_{1:L} \mid x_{1:L})$ ：
+
+<img width="503" alt="image" src="https://github.com/user-attachments/assets/5c84ba3b-e277-4593-a9de-64f67b09d9c6" />
+
+基于BERT的实验，最终模型进行以下了变换：
+- 掩码文档中30%的token
+- 将所有子句打乱
+
+T5 ([Raffel et al., 2020](https://arxiv.org/pdf/1910.10683.pdf))是另一种基于Transformer的编码器-解码器模型。
+
+作为“Text-to-Text”任务，它预训练任务是给定一段文本，在随机位置将其分割为输入和输出：
+
+$$
+[\text{the}, \text{mouse}] \Rightarrow [\text{ate}, \text{the}, \text{cheese}].
+$$
+
+<img width="708" alt="image" src="https://github.com/user-attachments/assets/1570aa6b-2b0a-4d58-b29a-b5b9b792e686" />
+
+发现“i.i.d. noise, replace spans”效果最好。
 
 ### 递归神经网络（RNN）
 
