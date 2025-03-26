@@ -693,7 +693,7 @@ $\mathcal{D}$ 是按如下方式构造的一组样本 $(x_{1:L}, c)$ ：
 BERT的训练目标是：
 
 $$
-\mathcal{O}(\theta) = \sum_{(\boldsymbol{x}_ {1:L}c) \in \mathcal{D}} \underbrace{\mathbb{E}_ {I,\tilde{\boldsymbol{x}}_ {1:L} \sim A(\cdot | \boldsymbol{x}_ {1:L}I)} \left [\sum_ {i\in I} - \log p_{\theta} (\tilde{\boldsymbol{x}}_ {i} | \boldsymbol{x}_{1:L})\right]}_ {\text{masked language modeling}} + \underbrace{-\log p(c | \phi(\boldsymbol{x}_ {1:L})_ 1)}_{\text{next sentence prediction}}
+\mathcal{O}(\theta) = \sum_{(\boldsymbol{x}_ {1:L}c) \in \mathcal{D}} \underbrace{\mathbb{E}_ {I,\tilde{\boldsymbol{x}}_ {1:L} \sim A(\cdot | \boldsymbol{x}_ {1:L}I)} \left (\sum_ {i\in I} - \log p_{\theta} (\tilde{\boldsymbol{x}}_ {i} | \boldsymbol{x}_ {1:L})\right)}_ {\text{masked language modeling}} + \underbrace{-\log p(c | \phi(\boldsymbol{x}_ {1:L})_ 1)}_{\text{next sentence prediction}}
 $$
 
 <!-- $$\mathcal{O}(\theta)=\sum_{\left(x_{1: L} c\right) \in \mathcal{D}} \underbrace{\mathbb{E}_{I, \tilde{x}_{1: L} \sim A\left(\cdot \mid x_{1: L} I\right)}\left[\sum_{i \in I}-\log p_\theta\left(\tilde{x}_i \mid x_{1: L}\right)\right]}_{\text {masked language modeling }}+\underbrace{-\log p\left(c \mid \phi\left(x_{1: L}\right)_1\right)}_{\text {next sentence prediction }} .$$ -->
