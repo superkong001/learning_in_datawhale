@@ -568,6 +568,10 @@ def  $FeedForwardSequenceModel(x_{1:L}:ℝ^{d×L})→ℝ^{d×L}$ ：
 上下文向量表征 (Contextual Embedding): 作为模型处理的先决条件，其关键是将词元序列表示为响应的上下文的向量表征。
 
 $$
+\phi : V^L \to \mathbb{R}^{d \times L}. 
+$$
+
+$$
 [the, mouse, ate, the, cheese] \stackrel{\phi}{\Rightarrow}\left[\left(\begin{array}{c}
 1 \\
 0.1
@@ -613,6 +617,7 @@ $$
 p(x_i \mid x_{1:i-1}).
 $$
 
+- 其中：
     - 将 $x_{1:i-1}$ 映射到上下文嵌入 $\phi(x_{1:i-1})$ 。
     - 应用嵌入矩阵 $E \in \R^{V \times d}$ 来获得每个token的得分 $E \phi(x_{1:i-1})_{i-1}$ 。
     - 对其进行指数化和归一化，得到预测 $x_i$的 分布。
@@ -621,6 +626,14 @@ $$
 
 $$
 p(x_{i+1} \mid x_{1:i}) = softmax(E \phi(x_{1:i})_i).
+$$
+
+Tips：最大似然
+
+设 $\theta$ 是大语言模型的所有参数。设 $D$ 是由一组序列组成的训练数据。然后，可以遵循最大似然原理，定义以下负对数似然目标函数：
+
+$$
+O(\theta) = \sum_{x \in D} - \log p_\theta(x) = \sum_{x \in D} \sum_{i=1}^L -\log p_\theta(x_i \mid x_{1:i-1}).
 $$
 
 - 编码-解码端（Encoder-Decoder）
