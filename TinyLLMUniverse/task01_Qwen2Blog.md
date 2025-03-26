@@ -629,13 +629,13 @@ $$
 
 其中， $\text{SentenceEmbedding}(x_{1:L})$ 根据序列返回以下两个矢量之一；对于 $\text{[SEP]}$ 左边的，返回 $e_A \in \mathbb{R}^d$ ；对于 $\text{[SEP]}$ 右边的，返回 $e_B \in \mathbb{R}^d$
 
+<img width="516" alt="fab5c51fe66e2bf5afb397ef9123e8b5_bert" src="https://github.com/user-attachments/assets/23cfae97-cf0d-4713-bb6f-0e8ac9827292" />
+
 BERT-large有 $n_\text{heads} = 16$ 个注意头，并且 $d_\text{model} = 1024$ ，总共355M个参数。
 
 - 解码端（Decoder-Only）
     计算单向上下文嵌入（contextual embeddings），一次生成一个token。如：GPT系列模型。这些是常见的自回归语言模型，给定一个提示  $x_{1:i}$ ，它们可以生成上下文向量表征，并对下一个词元 $x_{i+1}$ （以及递归地，整个完成 
  $x_{i+1:L}$） 生成一个概率分布。 $x_{1:i}⇒ϕ(x_{1:i}),p(x_{i+1}∣x_{1:i})$ 。以自动补全任务来说，输入与输出的形式为， $[[CLS], 他们, 移动, 而]⇒强大$ 。与编码端架构比，其优点为能够自然地生成完成文本，有简单的训练目标（最大似然）。缺点也很明显，对于每个  $xi$ ，上下文向量表征只能单向地依赖于左侧上下文  ($x_{1:i−1}$) 。
-
-<img width="516" alt="fab5c51fe66e2bf5afb397ef9123e8b5_bert" src="https://github.com/user-attachments/assets/23cfae97-cf0d-4713-bb6f-0e8ac9827292" />
 
 $$
 p(x_i \mid x_{1:i-1}).
