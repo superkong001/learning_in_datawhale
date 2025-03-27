@@ -1,4 +1,4 @@
-引用参考：
+<img width="527" alt="image" src="https://github.com/user-attachments/assets/2a0a7961-837c-422d-b151-7792cc24d80a" /><img width="527" alt="image" src="https://github.com/user-attachments/assets/cc9f7ed9-4be4-4ba3-aba1-b6753da895e2" />引用参考：
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 - [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
@@ -1392,6 +1392,44 @@ $$
 ### 激活函数
 
 <img width="762" alt="image" src="https://github.com/user-attachments/assets/c66c5bd2-2e94-446d-bdbf-b1303304da5d" />
+
+-  $sigmoid$ 函数
+  函数将输入变换为(0,1)上的输出。它将范围(-inf,inf)中的任意输入压缩到区间(0,1)中的某个值：
+
+$$
+\mathrm{sigmoid}(x)=\frac{1}{1 + \exp(-x)}
+$$
+
+<img width="284" alt="image" src="https://github.com/user-attachments/assets/c507ae88-1a6e-4de1-b0ad-4c9dd4ac9ef9" />
+
+sigmoid函数的导数为下面的公式：
+
+$$
+\frac{d}{dx} \mathrm{sigmoid}(x)=\frac{\exp(-x)}{(1 + \exp(-x))^2}=\mathrm{sigmoid}(x)(1 - \mathrm{sigmoid}(x))
+$$
+
+sigmoid函数的导数图像如下所示。当输入值为0时，sigmoid函数的导数达到最大值0.25；而输入在任一方向上越远离0点时，导数越接近0。
+
+<img width="217" alt="image" src="https://github.com/user-attachments/assets/97d6c62d-db44-4205-b638-61efa8c88f5c" />
+
+-  $tanh$ 函数
+与sigmoid函数类似，tanh函数也能将其输入压缩转换到区间(-1,1)上，tanh函数的公式如下：
+
+$$
+\tanh(x)=\frac{1 - \exp(-2x)}{1 + \exp(-2x)}
+$$
+
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/5777d81d-62c5-4d3f-b501-4b5b8eac973a" />
+
+tanh函数的导数是：
+
+$$
+\frac{d}{dx}\tanh(x)=1 - \tanh^{2}(x)
+$$
+
+tanh函数的导数如下，当输入接近0时，tanh函数的导数接近最大值1。与sigmoid函数图像中看到的类似，输入在任一方向上远离0点，导数越接近0。
+
+<img width="281" alt="image" src="https://github.com/user-attachments/assets/292c0024-f39b-4e20-9671-cfbae269b3ca" />
 
 ### GPT
 GPT 系列模型成体系推进：
