@@ -1639,6 +1639,67 @@ $$
 \mathrm{softmax}(x_i)=\frac{\exp(x_i)}{\sum_{j} \exp(x_j)}
 $$
 
+### 优化算法
+#### 随机梯度下降（SGD）
+小批量进行随机梯度下降，该算法的步骤如下：
+- 初始化参数 $\theta_0$ 
+- 重复以下步骤：
+    - 采样小批量 $B_t \subset D$ 
+    - 根据梯度更新参数：
+    
+$$
+\theta_t \leftarrow \theta_{t-1} - \eta \frac{1}{|B_t|} \sum_{x \in B_t} \nabla_\theta (-\log p_\theta(x)).
+$$
+
+优化的关键点包括：
+1. 我们希望参数 $\theta$ 可以快速收敛
+2. 我们希望优化在数值上是稳定的
+3. 我们希望内存高效（尤其是对于大模型）
+
+这些点往往相互矛盾（例如，通过低精度训练，可以实现快速收敛、减少内存占用，但是会导致训练不稳定）
+
+因此，我们可以从几个层次来进行优化：
+1. 针对经典优化：二阶方法、约束优化等。
+2. 针对机器学习：随机方法、隐式正则化+早停法
+3. 针对深度学习：初始化、归一化（更改模型架构）
+4. 针对大语言模型：由于稳定性问题，学习率和一些直觉（例如，二阶方法）仍然有用，但要使大语言模型有效训练，还需要克服许多其他独特的挑战。不幸的是，其中大部分内容都是特别的，人们对此了解甚少。
+
+##### Adam (adaptive moment estimation)
+
+[Adam](https://arxiv.org/pdf/1412.6980.pdf)算法拥有以下两个创新：
+1. 引入动量（继续朝同一方向移动）。
+2. 参数 $\theta_0$ 的每个维度都有一个自适应（不同）的步长（受二阶方法启发）。
+
+它的步骤如下：
+- 初始化参数 $\theta_0$ 
+- 初始化动量 $m_0, v_0 \leftarrow 0$ 
+- 重复以下步骤：
+    - 采样小批量 $B_t \subset D$ 
+    - 按照如下步骤更新参数：
+         - 计算梯度
+        
+$g_t \leftarrow \frac{1}{|B_t|} \sum_{x \in B_t} \nabla_\theta (-\log p_\theta(x)).$
+
+        - 更新一阶、二阶动量
+        
+$m_t \leftarrow \beta_1 m_{t-1} + (1 - \beta_1) g_t$
+
+$v_t \leftarrow \beta_2 v_{t-1} + (1 - \beta_2) g_t^2$
+
+        - 对偏差进行修正
+
+$\hat m_t \leftarrow m_t / (1 - \beta_1^t)$
+
+$\hat v_t \leftarrow v_t / (1 - \beta_2^t)$
+
+        - 更新参数
+
+$\theta_t \leftarrow \theta_{t-1} - \eta \, \hat m_t / (\sqrt{\hat v_t} + \epsilon).$
+
+存储占用分析：
+
+Adam将存储从2倍的模型参数（ $\theta_t,g_t$ ）增加到了4倍（ $\theta_t,g_t,m_t,v_t$ ）。
+
 ### GPT
 GPT 系列模型成体系推进：
 - 2017年,谷歌提出Transformer
