@@ -1667,6 +1667,7 @@ $$
 ##### Adam (adaptive moment estimation)
 
 [Adam](https://arxiv.org/pdf/1412.6980.pdf)算法拥有以下两个创新：
+
 1. 引入动量（继续朝同一方向移动）。
 2. 参数 $\theta_0$ 的每个维度都有一个自适应（不同）的步长（受二阶方法启发）。
 
@@ -1677,24 +1678,24 @@ $$
     - 采样小批量 $B_t \subset D$ 
     - 按照如下步骤更新参数：
          - 计算梯度
-        
-$g_t \leftarrow \frac{1}{|B_t|} \sum_{x \in B_t} \nabla_\theta (-\log p_\theta(x)).$
+
+           $g_t \leftarrow \frac{1}{|B_t|} \sum_{x \in B_t} \nabla_\theta (-\log p_\theta(x)).$
 
         - 更新一阶、二阶动量
-        
-$m_t \leftarrow \beta_1 m_{t-1} + (1 - \beta_1) g_t$
 
-$v_t \leftarrow \beta_2 v_{t-1} + (1 - \beta_2) g_t^2$
+          $m_t \leftarrow \beta_1 m_{t-1} + (1 - \beta_1) g_t$
+
+          $v_t \leftarrow \beta_2 v_{t-1} + (1 - \beta_2) g_t^2$
 
         - 对偏差进行修正
 
-$\hat m_t \leftarrow m_t / (1 - \beta_1^t)$
+          $\hat m_t \leftarrow m_t / (1 - \beta_1^t)$
 
-$\hat v_t \leftarrow v_t / (1 - \beta_2^t)$
+          $\hat v_t \leftarrow v_t / (1 - \beta_2^t)$
 
         - 更新参数
 
-$\theta_t \leftarrow \theta_{t-1} - \eta \, \hat m_t / (\sqrt{\hat v_t} + \epsilon).$
+          $\theta_t \leftarrow \theta_{t-1} - \eta \, \hat m_t / (\sqrt{\hat v_t} + \epsilon).$
 
 存储占用分析：
 
