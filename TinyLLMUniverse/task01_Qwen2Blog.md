@@ -6,7 +6,9 @@
 # 基础概念
 ## 语言模型
 
-<img width="686" alt="image" src="https://github.com/user-attachments/assets/6271b41f-4a96-4d1f-9235-53daa515b94f" />
+<p align="center">
+    <img width="686" alt="image" src="https://github.com/user-attachments/assets/6271b41f-4a96-4d1f-9235-53daa515b94f" />
+</center>
 
 语言模型两类问题：
 
@@ -236,7 +238,9 @@ $$
 
 存在问题2：如果词没有出现过, $count = 0$ 
 
-<img width="581" alt="image" src="https://github.com/user-attachments/assets/b36cb30e-464c-46eb-a0b0-7f2388aa8f0c" />
+<p align="center">
+    <img width="581" alt="image" src="https://github.com/user-attachments/assets/b36cb30e-464c-46eb-a0b0-7f2388aa8f0c" />
+</center>
 
 采用方法：
 - 加一平滑 (又称为 Laplace smoothing )
@@ -279,7 +283,9 @@ $$
 - 不考虑窗口内单词的顺序：应用了简单的average pooling的策略
 - 充分考虑实践和效果：有很多的优化trick,速度快、效果稳定
 
-<img width="167" alt="image" src="https://github.com/user-attachments/assets/b4e632a0-cd2f-4ec1-854f-4034c9d57d43" />
+<p align="center">
+    <img width="167" alt="image" src="https://github.com/user-attachments/assets/b4e632a0-cd2f-4ec1-854f-4034c9d57d43" />
+</center>
 
 ### 大模型
 将语言模型转化为任务模型的过程：
@@ -294,9 +300,11 @@ $$
 
 Tips: 消融实验（Ablation Study）是一种常用于机器学习和深度学习研究中的实验方法，基本思想是构建一个完整的系统或模型，并通过逐步删除或修改系统的某些部分，观察性能变化，从而确定哪些部分对模型的性能至关重要。主要目的是通过逐步移除或“消融”系统的某些部分，来评估各个组件对整体性能的贡献。这种实验帮助研究人员理解不同模块、特性或算法设计在模型性能中的重要性。
 
-<img width="908" alt="image" src="https://github.com/user-attachments/assets/d075380a-443f-4190-9037-f137ca7bba31" />
+<p align="center">
+    <img width="908" alt="image" src="https://github.com/user-attachments/assets/d075380a-443f-4190-9037-f137ca7bba31" />
 
-<img width="793" alt="image" src="https://github.com/user-attachments/assets/68456354-1085-436d-9fa3-4e9fa9a72d7b" />
+    <img width="793" alt="image" src="https://github.com/user-attachments/assets/68456354-1085-436d-9fa3-4e9fa9a72d7b" />
+</center>
 
 - 预训练输出(Pre-training)：base model
 - 后训练输出(Post-training)：instruct model
@@ -304,23 +312,31 @@ Tips: 消融实验（Ablation Study）是一种常用于机器学习和深度学
         - 使用输入与输出配对的指令数据对于模型进行微调
         - 提升模型通过问答形式进行任务求解的能力
 
+        <p align="center">
           <img width="644" alt="image" src="https://github.com/user-attachments/assets/b30509ad-0e25-407d-94a9-f934c03b0c1c" />
-
+        </center>
+        
     - 人类对齐(Human Alignment)
         - 将大语言模型与人类的期望、需求以及价值观对齐
         - 基于人类反馈的强化学习对齐方法(RLHF)
-
-        <img width="654" alt="image" src="https://github.com/user-attachments/assets/03ffa5bf-718b-470c-8f78-7c2d58c19aa7" />
-
+ 
+        <p align="center">
+          <img width="654" alt="image" src="https://github.com/user-attachments/assets/03ffa5bf-718b-470c-8f78-7c2d58c19aa7" />
+        </center>
+        
 - 扩展定律：通过扩展参数规模、数据规模和计算算力，大语言模型的能力会出现显著提升。
     - KM 扩展定律：OpenAI团队建立的神经语言模型性能与参数规模(N)、数据规模(D)和计算算力(C)之间的幂律关系：
 
+    <p align="center">
       <img width="802" alt="image" src="https://github.com/user-attachments/assets/e48af5aa-fafb-4c9a-a79f-5dda3cb20440" />
-
+    </center>
+    
     - Chinchilla扩展定律：DeepMind团队于提出的旨在指导大语言模型充分利用给定的算力资源优化训练：
- 
-      <img width="702" alt="image" src="https://github.com/user-attachments/assets/9b25bcb6-de4f-4f2b-a42c-c47209e621a8" />
 
+    <p align="center">
+      <img width="702" alt="image" src="https://github.com/user-attachments/assets/9b25bcb6-de4f-4f2b-a42c-c47209e621a8" />
+    </center>
+    
 基于扩展定律可以使用小模型性能去预估大模型的性能，或帮助超参数选择；训练过程中使用模型早期性能来预估后续性能。
 
 问题：
@@ -337,17 +353,23 @@ $$
 
 - 涌现能力
     - 指令遵循(Instruction Following)：大语言模型能够按照自然语言指令来执行对应的任务。
- 
+
+    <p align="center">
       <img width="494" alt="image" src="https://github.com/user-attachments/assets/871aa02e-28f1-4880-9ee5-3ad4e7494b07" />
-
+    </center>
+    
     - 上下文学习(In-context Learning)：在提示中为语言模型提供自然语言指令和任务示例，无需显式梯度更新就能为测试样本生成预期输出。
- 
+
+    <p align="center">
       <img width="754" alt="image" src="https://github.com/user-attachments/assets/911e685e-a676-47f7-88e7-73662292a9bc" />
-
+    </center>
+    
     - 逐步推理(Step-by-step Reasoning)：在提示中引入任务相关的中间推理步骤来加强复杂任务的求解，从而获得更可靠的答案。
- 
-      <img width="584" alt="image" src="https://github.com/user-attachments/assets/7aef1498-4246-4aca-8c44-51726008ca10" />
 
+    <p align="center">
+      <img width="584" alt="image" src="https://github.com/user-attachments/assets/7aef1498-4246-4aca-8c44-51726008ca10" />
+    </center>
+    
 #### 语言模型
 语言模型的目标是给定一个序列 $𝑥_1,𝑥_2,…,𝑥_𝐿$ 来预测每个词的条件概率。公式表示为：
 
@@ -497,7 +519,9 @@ $$
 
 构建大模型需要考虑的因素：归一化方法、位置编码、激活函数、注意力计算（层数L、注意力头数N、特征维度H，根据模型规模大小确定)
 
-<img width="916" alt="image" src="https://github.com/user-attachments/assets/5a991683-b0b5-4940-a2cd-6e7270a288d9" />
+<p align="center">
+    <img width="916" alt="image" src="https://github.com/user-attachments/assets/5a991683-b0b5-4940-a2cd-6e7270a288d9" />
+</center>
 
 ### 分词
 分词（Tokenization）：即如何将一个字符串拆分成多个词元。分词方法：
@@ -605,7 +629,9 @@ $$
 
 该架构的优势是对于文本的上下文信息有更好的理解，因此该模型架构才会多用于理解任务。该架构的有点是对于每个 $x{i}$ ，上下文向量表征可以双向地依赖于左侧上下文 $(x_{1:i−1})$ 和右侧上下文  $(x_{i+1:L})$ 。但是缺点在于不能自然地生成完成文本，且需要更多的特定训练目标（如掩码语言建模）。
 
-<img width="565" alt="image" src="https://github.com/user-attachments/assets/ccb91327-1cf0-4dea-8080-1d3b85995bd2" />
+<p align="center">
+    <img width="565" alt="image" src="https://github.com/user-attachments/assets/ccb91327-1cf0-4dea-8080-1d3b85995bd2" />
+</center>
 
 如：[BERT](https://arxiv.org/pdf/1810.04805.pdf)
 
@@ -629,7 +655,9 @@ $$
 
 其中， $\text{SentenceEmbedding}(x_{1:L})$ 根据序列返回以下两个矢量之一；对于 $\text{[SEP]}$ 左边的，返回 $e_A \in \mathbb{R}^d$ ；对于 $\text{[SEP]}$ 右边的，返回 $e_B \in \mathbb{R}^d$
 
-<img width="516" alt="fab5c51fe66e2bf5afb397ef9123e8b5_bert" src="https://github.com/user-attachments/assets/23cfae97-cf0d-4713-bb6f-0e8ac9827292" />
+<p align="center">
+    <img width="516" alt="fab5c51fe66e2bf5afb397ef9123e8b5_bert" src="https://github.com/user-attachments/assets/23cfae97-cf0d-4713-bb6f-0e8ac9827292" />
+</center>
 
 BERT-large有 $n_\text{heads} = 16$ 个注意头，并且 $d_\text{model} = 1024$ ，总共355M个参数。
 
@@ -656,7 +684,9 @@ $$
 
 <!-- $$\underbrace{x_{1:L}}_\text{original} \stackrel{A}{\Rightarrow} \underbrace{\tilde x_{1:L}}_\text{noised}$$ -->
 
-<img width="141" alt="image" src="https://github.com/user-attachments/assets/f249e236-f419-4b13-b8e9-78cd812a0c32" />
+<p align="center">
+    <img width="141" alt="image" src="https://github.com/user-attachments/assets/f249e236-f419-4b13-b8e9-78cd812a0c32" />
+</center>
 
 以下是 $A$ 的定义：
 - 假设 $I \subset \{1, \dots, L\}$ 代表所有位置中随机的15%。
@@ -768,7 +798,9 @@ BART (Bidirectional Auto-Regressive Transformers) ([Lewis et al. 2019](https://a
 
 BART使用了以下变换 $A(\tilde x_{1:L} \mid x_{1:L})$ ：
 
-<img width="503" alt="image" src="https://github.com/user-attachments/assets/5c84ba3b-e277-4593-a9de-64f67b09d9c6" />
+<p align="center">
+    <img width="503" alt="image" src="https://github.com/user-attachments/assets/5c84ba3b-e277-4593-a9de-64f67b09d9c6" />
+</center>
 
 基于BERT的实验，最终模型进行以下了变换：
 - 掩码文档中30%的token
@@ -782,23 +814,29 @@ $$
 [\text{the}, \text{mouse}] \Rightarrow [\text{ate}, \text{the}, \text{cheese}].
 $$
 
-<img width="708" alt="image" src="https://github.com/user-attachments/assets/1570aa6b-2b0a-4d58-b29a-b5b9b792e686" />
+<p align="center">
+    <img width="708" alt="image" src="https://github.com/user-attachments/assets/1570aa6b-2b0a-4d58-b29a-b5b9b792e686" />
+</center>
 
 发现“i.i.d. noise, replace spans”效果最好。
 
-<img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
+<p align="center">
+    <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
 
-<img width="608" alt="image" src="https://github.com/user-attachments/assets/6e364403-8703-4ef0-a5fb-b7893fc2970a" />
+    <img width="608" alt="image" src="https://github.com/user-attachments/assets/6e364403-8703-4ef0-a5fb-b7893fc2970a" />
 
-<img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
+    <img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
 
-<img width="617" alt="image" src="https://github.com/user-attachments/assets/ddccf4ae-d353-4bc8-8087-a4cc62b92b05" />
+    <img width="617" alt="image" src="https://github.com/user-attachments/assets/ddccf4ae-d353-4bc8-8087-a4cc62b92b05" />
+</center>
 
 ### 递归神经网络（RNN）
 
 它是一类模型，包括简单的RNN、LSTM和GRU。基本形式的RNN通过递归地计算一系列隐藏状态来进行计算。
 
-<img width="691" alt="image" src="https://github.com/user-attachments/assets/c33104b8-3c8c-4628-965a-9372559370c9" />
+<p align="center">
+    <img width="691" alt="image" src="https://github.com/user-attachments/assets/c33104b8-3c8c-4628-965a-9372559370c9" />
+</center>
 
 def $SequenceRNN(x:ℝ^{d×L})→ℝ^{d×L}$ ：
 
@@ -873,8 +911,9 @@ $$
 \end{aligned}
 $$
 
-<img width="376" alt="image" src="https://github.com/user-attachments/assets/53aafcce-25e8-4926-81a4-e4a21986fd86" />
-
+<p align="center">
+    <img width="376" alt="image" src="https://github.com/user-attachments/assets/53aafcce-25e8-4926-81a4-e4a21986fd86" />
+</center>
 
 Transformer学习资源：
 
@@ -883,21 +922,29 @@ Transformer学习资源：
 
 - high level
 
+<p align="center">
   <img width="684" alt="image" src="https://github.com/user-attachments/assets/dba88382-20fb-40d8-ac9a-f6f6fe97a871" />
 
   <img width="478" alt="image" src="https://github.com/user-attachments/assets/028676ad-762e-47f2-932d-27424d99ab24" />
+</center>
 
 每个编解码组件是一堆编码器：
 
+<p align="center">
   <img width="647" alt="image" src="https://github.com/user-attachments/assets/33bab4b7-4cac-4d89-98be-758134be4e36" />
+</center>
 
 每个编码器又包含注意力层（self-attention）和前馈神经网络（Feed Forward Neural Network ）两个子层。而每个解码器中前面的两个子层之间加一个注意力层，可帮助解码器专注于输入句子的相关部分（类似于注意力在[seq2seq models](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/)).
 
-<img width="658" alt="image" src="https://github.com/user-attachments/assets/e184bf65-16f4-41de-b4ef-ce6dc5a1607e" />
+<p align="center">
+    <img width="658" alt="image" src="https://github.com/user-attachments/assets/e184bf65-16f4-41de-b4ef-ce6dc5a1607e" />
+</center>
 
 编码器接收向量列表作为输入。它通过将这些向量传递到“自注意力”层，然后传递到前馈神经网络，然后将输出向上发送到下一个编码器来处理此列表。
 
-<img width="687" alt="image" src="https://github.com/user-attachments/assets/605b12cf-2ea9-4aa8-813d-7b650ac6d039" />
+<p align="center">
+    <img width="687" alt="image" src="https://github.com/user-attachments/assets/605b12cf-2ea9-4aa8-813d-7b650ac6d039" />
+</center>
 
 ### 注意力机制
 假设以下句子是要翻译的输入句子：
@@ -906,11 +953,15 @@ Transformer学习资源：
 
 这句话中的“它”指的是什么？它指的是街道还是动物？这对人类来说是一个简单的问题，但对算法来说却没有那么简单。
 
-<img width="308" alt="image" src="https://github.com/user-attachments/assets/c8f83709-a4c9-4bc0-a3d7-ed2662302617" />
+<p align="center">
+    <img width="308" alt="image" src="https://github.com/user-attachments/assets/c8f83709-a4c9-4bc0-a3d7-ed2662302617" />
+</center>
 
 代码参考：[Tensor2Tensor notebook](https://colab.research.google.com/github/tensorflow/tensor2tensor/blob/master/tensor2tensor/notebooks/hello_t2t.ipynb) ，在其中加载 Transformer 模型，并使用此交互式可视化对其进行检查。
 
-<img width="713" alt="image" src="https://github.com/user-attachments/assets/655df108-72b8-4673-b8c3-c956a7b25990" />
+<p align="center">
+    <img width="713" alt="image" src="https://github.com/user-attachments/assets/655df108-72b8-4673-b8c3-c956a7b25990" />
+</center>
 
 #### 单头注意力
 $$
@@ -921,26 +972,34 @@ $$
 
 1. 从编码器的每个输入向量（如本例为每个单词的嵌入）创建Query、Key和Value三个向量。（新向量的维度小于嵌入向量。它们的维度为 64，而嵌入向量和编码器输入/输出向量的维度为 512）
 
-<img width="653" alt="image" src="https://github.com/user-attachments/assets/8c4baadf-27ef-4994-bc38-978979a459fa" />
+<p align="center">
+    <img width="653" alt="image" src="https://github.com/user-attachments/assets/8c4baadf-27ef-4994-bc38-978979a459fa" />
 
-<img width="395" alt="image" src="https://github.com/user-attachments/assets/178381db-630e-4753-ac40-cdd451590c93" />
+    <img width="395" alt="image" src="https://github.com/user-attachments/assets/178381db-630e-4753-ac40-cdd451590c93" />
+</center>
 
 2. 计算分数。如计算第一个单词 “Thinking” 的自我关注，需要根据这个单词对输入句子的每个单词进行评分，分数决定了在某个位置对单词进行编码时，将多少注意力放在输入句子的其他部分上。分数的计算方法是将查询向量的点积与正在评分的相应单词的关键向量。因此，如果处理位置 #1 中的单词的自我注意，第一个分数将是 q1 和 k1 的点积，第二个分数将是 q1 和 k2 的点积。
 
-<img width="487" alt="image" src="https://github.com/user-attachments/assets/c8707cdd-cd1e-4954-b228-dd358d8429cd" />
+<p align="center">
+    <img width="487" alt="image" src="https://github.com/user-attachments/assets/c8707cdd-cd1e-4954-b228-dd358d8429cd" />
+</center>
 
 3. 将分数除以 8（缩放维度scale，即除以 $\sqrt{D}$ ， $D$ 为隐藏层特征维度，论文中使用的关键向量维度的平方根 64）。（论文中猜测当隐藏层维度很大时，点积结果会指数增加，会导致softmax函数饱和，即梯度极小，所以缩放会导致更稳定的梯度）
    
 4. 通过 softmax。 对分数进行标准化，使其全部为正数，总和为 1。
 
-<img width="560" alt="image" src="https://github.com/user-attachments/assets/c3a70121-e616-4cbb-a615-1870fa83a3eb" />
+<p align="center">
+    <img width="560" alt="image" src="https://github.com/user-attachments/assets/c3a70121-e616-4cbb-a615-1870fa83a3eb" />
 
-<img width="496" alt="image" src="https://github.com/user-attachments/assets/4dd9ba41-83d5-49b5-8ff0-ed7d276a2c97" />
+    <img width="496" alt="image" src="https://github.com/user-attachments/assets/4dd9ba41-83d5-49b5-8ff0-ed7d276a2c97" />
+</center>
 
 5. 将每个值向量乘以 softmax 分数（准备对它们求和）。目的保持想要关注的单词的值完整，并淹没不相关的单词（例如，将它们乘以 0.001 等小数字）。
 6. 将加权值向量相加。在此位置（对于第一个单词）产生自我注意层的输出。
 
-<img width="531" alt="image" src="https://github.com/user-attachments/assets/2b185565-02b0-4176-8084-4c8eaa916952" />
+<p align="center">
+    <img width="531" alt="image" src="https://github.com/user-attachments/assets/2b185565-02b0-4176-8084-4c8eaa916952" />
+</center>
 
 $$
 score_i = x_i^{\top} W_{\text{key}}^{\top} W_{\text{query}} y
@@ -983,54 +1042,74 @@ $$
 \end{aligned}
 $$
 
-<img width="630" alt="image" src="https://github.com/user-attachments/assets/f1a556fd-465c-4765-a078-374a3e771dc8" />
+<p align="center">
+    <img width="630" alt="image" src="https://github.com/user-attachments/assets/f1a556fd-465c-4765-a078-374a3e771dc8" />
+</center>
 
 进行与上面概述的相同的自我注意计算，只需 8 次不同的权重矩阵，最终得到 8 个不同的 Z 矩阵：
 
-<img width="611" alt="image" src="https://github.com/user-attachments/assets/a6b601ef-bc4a-4aac-a316-ec16de9abd41" />
+<p align="center">
+    <img width="611" alt="image" src="https://github.com/user-attachments/assets/a6b601ef-bc4a-4aac-a316-ec16de9abd41" />
+</center>
 
 将这 8 个压缩成一个矩阵：连接矩阵，然后将它们乘以一个额外的权重矩阵 WO。
 
-<img width="683" alt="image" src="https://github.com/user-attachments/assets/999e32cb-1cc4-4840-a253-c490b3d1fac2" />
+<p align="center">
+    <img width="683" alt="image" src="https://github.com/user-attachments/assets/999e32cb-1cc4-4840-a253-c490b3d1fac2" />
+</center>
 
 完整来看就是：
 
-<img width="714" alt="image" src="https://github.com/user-attachments/assets/f41e5978-4720-4455-be72-152a87dbd086" />
+<p align="center">
+    <img width="714" alt="image" src="https://github.com/user-attachments/assets/f41e5978-4720-4455-be72-152a87dbd086" />
 
-<img width="307" alt="image" src="https://github.com/user-attachments/assets/4f0dd2da-8402-49ba-ab60-89044157d30c" />
+    <img width="307" alt="image" src="https://github.com/user-attachments/assets/4f0dd2da-8402-49ba-ab60-89044157d30c" />
+</center>
 
 编码 “it” 这个词时，一个注意力头最关注 “the animal”，而另一个 attention 头关注 “tired” —— 从某种意义上说，模型对 “it” 这个词的表示在一些 “animal” 和 “tired” 的表示中融入了。
 
-<img width="842" alt="image" src="https://github.com/user-attachments/assets/e8014da9-4bb0-4a2f-8bdd-26cf63ad1836" />
+<p align="center">
+    <img width="842" alt="image" src="https://github.com/user-attachments/assets/e8014da9-4bb0-4a2f-8bdd-26cf63ad1836" />
+</center>
 
 - 多头隐式注意力(Multi-Head Latent Attention，MLA)：
 
 由DeepSeek-V2提出，主要目的是降低推理时KVCache的存储开销
 
-<img width="790" alt="image" src="https://github.com/user-attachments/assets/5e4b99ae-d41b-4955-9f7b-e7fce185c0a6" />
+<p align="center">
+    <img width="790" alt="image" src="https://github.com/user-attachments/assets/5e4b99ae-d41b-4955-9f7b-e7fce185c0a6" />
 
-<img width="827" alt="image" src="https://github.com/user-attachments/assets/bfeea177-bb4f-4c69-8a59-30138283738c" />
+    <img width="827" alt="image" src="https://github.com/user-attachments/assets/bfeea177-bb4f-4c69-8a59-30138283738c" />
+</center>
 
 - 硬件优化的注意力机制
     - FlashAttention:通过矩阵分块计算以及减少内存读写次数提高了计算效率
     - PagedAttention:针对解码阶段,对KV Cache进行分块存储并优化计算方式
 
-<img width="660" alt="image" src="https://github.com/user-attachments/assets/feed0de7-f0f5-4393-9535-6b6d0b04d075" />
+<p align="center">
+    <img width="660" alt="image" src="https://github.com/user-attachments/assets/feed0de7-f0f5-4393-9535-6b6d0b04d075" />
+</center>
 
 ### 位置编码
 添加位置编码向量，为了让模型了解单词的顺序。
 
-<img width="713" alt="image" src="https://github.com/user-attachments/assets/3a55b247-d618-4089-975a-539771952de6" />
+<p align="center">
+    <img width="713" alt="image" src="https://github.com/user-attachments/assets/3a55b247-d618-4089-975a-539771952de6" />
 
-<img width="728" alt="image" src="https://github.com/user-attachments/assets/0c106ace-061a-4817-a85e-33ac2ebda0bb" />
+    <img width="728" alt="image" src="https://github.com/user-attachments/assets/0c106ace-061a-4817-a85e-33ac2ebda0bb" />
+</center>
 
 假设嵌入的维度为 4，则实际的位置编码将如下所示：
 
-<img width="678" alt="image" src="https://github.com/user-attachments/assets/0b7ede7a-070d-4587-a977-49365a9da04d" />
+<p align="center">
+    <img width="678" alt="image" src="https://github.com/user-attachments/assets/0b7ede7a-070d-4587-a977-49365a9da04d" />
+</center>
 
 嵌入大小为 512（列）的 20 个单词（行）的位置编码的真实示例（图中对它们进行了颜色编码，以便可以看到图案）：
 
-<img width="707" alt="image" src="https://github.com/user-attachments/assets/dc3afa37-fc05-48a2-8257-4453fc03e956" />
+<p align="center">
+    <img width="707" alt="image" src="https://github.com/user-attachments/assets/dc3afa37-fc05-48a2-8257-4453fc03e956" />
+</center>
 
 在图中，每行对应于向量的位置编码。因此，第一行将是将添加到输入序列中第一个单词的嵌入向量。每行包含 512 个值 – 每个值的值介于 1 和 -1 之间。可以看到似乎在中心一分为二。这是因为左半部分的值由一个函数（使用正弦）生成，而右半部分由另一个函数（使用余弦）生成，然后将它们连接起来形成每个位置编码向量。
 
@@ -1038,7 +1117,9 @@ $$
 
 两个信号交织在一起的话（[代码](https://github.com/jalammar/jalammar.github.io/blob/master/notebookes/transformer/transformer_positional_encoding_graph.ipynb)）：
 
-<img width="623" alt="image" src="https://github.com/user-attachments/assets/96c44f95-63b4-4338-b36f-64e907e7db40" />
+<p align="center">
+    <img width="623" alt="image" src="https://github.com/user-attachments/assets/96c44f95-63b4-4338-b36f-64e907e7db40" />
+</center>
 
 [Self-Attention with Relative Position Representations 使用相对位置表示的自我注意](https://arxiv.org/abs/1803.02155)
 
@@ -1055,7 +1136,9 @@ def $EmbedTokenWithPosition(x_{1:L}:ℝ^{d×L})$ ：
 
 上面的函数中， $pos$ 表示句子中词元的位置， $i$ 表示该词元的向量表示维度位置（索引）， $dmodel$ 是位置向量的维度（通常与模型的隐藏层维度相同，例如512）。公式中的 ${10000^{2i/dmodel}}$ 是一个缩放因子，它随 $i$ 的增大而增大，这样对于不同的 $i$ ，正弦和余弦函数的波长会随之增长。这种设计使得模型能够在每个维度捕捉到不同频率的位置信息。
 
-<img width="875" alt="image" src="https://github.com/user-attachments/assets/175108d7-ac1f-42e2-bc03-7b1827c19a7a" />
+<p align="center">
+    <img width="875" alt="image" src="https://github.com/user-attachments/assets/175108d7-ac1f-42e2-bc03-7b1827c19a7a" />
+</center>
 
 Tips：傅里叶变换用一组正弦和余弦函数作为框架，适合分析信号中的频率分量；小波变换使用一组小波函数作为框架，能够同时捕捉信号的频率和时间特性；主成分分析则用数据的多个主成分作为框架，适合降维和提取关键特征。
 
@@ -1069,7 +1152,9 @@ Tips：傅里叶变换用一组正弦和余弦函数作为框架，适合分析�
 - 既能以自注意力矩阵偏置的形式作用于，直接反映两个token的相对位置信息，又能拆解到向量和上，通过直接编码token的绝对位置实现。
 - 使用了基于绝对位置信息的旋转矩阵来表示注意力中的相对位置信息，为序列中每个绝对位置设置了特定的旋转矩阵 $\boldsymbol{R}_{\theta,t}$ (位置索引为 $t$ )
 
-<img width="850" alt="image" src="https://github.com/user-attachments/assets/1251d0d3-3988-4911-bc91-f5050e97b490" />
+<p align="center">
+    <img width="850" alt="image" src="https://github.com/user-attachments/assets/1251d0d3-3988-4911-bc91-f5050e97b490" />
+</center>
 
 - 在处理query和key向量时，将连续出现的两个元素视为一个子空间
 - 每一个子空间 $i$ 所对应的两个元素都会根据一个特定的旋转角度 $t\cdot\theta_i$ 进行旋转
@@ -1091,7 +1176,9 @@ $$
 
 代码实现：
 
-<img width="592" alt="image" src="https://github.com/user-attachments/assets/a1a720ef-1e8c-4cd3-97bb-91174eaaed87" />
+<p align="center">
+    <img width="592" alt="image" src="https://github.com/user-attachments/assets/a1a720ef-1e8c-4cd3-97bb-91174eaaed87" />
+</center>
 
   其定义为:
 
@@ -1131,17 +1218,23 @@ $$
 - $i - j$ ：查询和键之间的位置偏移量
 - $m$ ：每个注意力头独有的惩罚系数
 
-<img width="641" alt="image" src="https://github.com/user-attachments/assets/bfd5996b-66c0-419d-bcd7-b0474c54150d" />
+<p align="center">
+    <img width="641" alt="image" src="https://github.com/user-attachments/assets/bfd5996b-66c0-419d-bcd7-b0474c54150d" />
+</center>
 
 虽然能实现超过上下文长度情况下的外推扩展，但仍然无法保证在超出上下文窗口后对文本的理解能力：
 
-<img width="809" alt="image" src="https://github.com/user-attachments/assets/6444f90c-5d86-4d32-8497-1603ac447cf9" />
+<p align="center">
+    <img width="809" alt="image" src="https://github.com/user-attachments/assets/6444f90c-5d86-4d32-8497-1603ac447cf9" />
+</center>
 
 #### 扩展位置编码
 - 模型在一定长度的数据上训练,超过训练长度的位置编码没有得到充分训练
 - 目标：原始上下文窗口 $T_{max}$ 扩展为目标上下文窗口 $T'_{max}$ 
 
-<img width="495" alt="image" src="https://github.com/user-attachments/assets/3a58dbce-db5a-4d81-8423-679c2b5975c9" />
+<p align="center">
+    <img width="495" alt="image" src="https://github.com/user-attachments/assets/3a58dbce-db5a-4d81-8423-679c2b5975c9" />
+</center>
 
 - RoPE扩展
 
@@ -1158,9 +1251,10 @@ $$
     - 方法一位置内插：将位置索引成比例缩放，保证旋转角度不超过最大值。
 
       所有位置索引乘以一个小于1的系数，即： $$g(t) = \frac{T_{max}} {T_{max}'} \cdot t $$ 
-        
-      <img width="677" alt="image" src="https://github.com/user-attachments/assets/1315eb1a-7ba8-45e0-8f5e-d4376a3ba5aa" />
-    
+      <p align="center">   
+          <img width="677" alt="image" src="https://github.com/user-attachments/assets/1315eb1a-7ba8-45e0-8f5e-d4376a3ba5aa" />
+      </center>
+      
     - 方法二位置截断：设置最大距离阈值 $w$ ，阈值内保留，阈值外截断或者插值
 
       代表方法：ReRoPE（将超过阈值的位置索引设为固定值）和LeakyReRoPE（将超过阈值的位置索引线性内插到原始上下文窗口大小）
@@ -1191,7 +1285,9 @@ $$
     - NTK-RoPE $\alpha=(T_{\text{max}}'/T_{\text{max}})^{H/H - 2}$
     - Dynamic-NTK-RoPE $\alpha=\text{max}(1, T/T_{\text{max}})$ 
 
-<img width="439" alt="image" src="https://github.com/user-attachments/assets/d3321731-3411-4487-9d9c-05f58c54b18f" />
+<p align="center">
+    <img width="439" alt="image" src="https://github.com/user-attachments/assets/d3321731-3411-4487-9d9c-05f58c54b18f" />
+</center>
 
 - 方法二旋转基截断
 
@@ -1214,25 +1310,35 @@ $$
 采用受限注意力机制实现对长文本的建模
 
 1. 并行上下文窗口
-   
-  <img width="202" alt="image" src="https://github.com/user-attachments/assets/027085db-332c-4282-8f83-b0244fe82251" />
+
+  <p align="center">
+      <img width="202" alt="image" src="https://github.com/user-attachments/assets/027085db-332c-4282-8f83-b0244fe82251" />
+  </center>
   
   将文本分成若干片段，每个片段单独编码，生成时关注所有前序词元。代表方法：PCW
   
-  <img width="697" alt="image" src="https://github.com/user-attachments/assets/bf1dc7f4-6162-4839-bfc4-7c6a94c91a62" />
-
+  <p align="center">
+      <img width="697" alt="image" src="https://github.com/user-attachments/assets/bf1dc7f4-6162-4839-bfc4-7c6a94c91a62" />
+  </center>
+  
 2.  $\Lambda$ 型上下文窗口
 
-<img width="202" alt="image" src="https://github.com/user-attachments/assets/ac7b5c83-db0f-427a-afee-8a841e86ba00" />
+<p align="center">
+    <img width="202" alt="image" src="https://github.com/user-attachments/assets/ac7b5c83-db0f-427a-afee-8a841e86ba00" />
+</center>
 
 每个词元仅关注序列最开始和邻近的词元。代表方法：StreamingLLM，LM-infinite
 
-<img width="736" alt="image" src="https://github.com/user-attachments/assets/85cad687-4bbd-4049-935f-7c5534ef7c5e" />
+<p align="center">
+    <img width="736" alt="image" src="https://github.com/user-attachments/assets/85cad687-4bbd-4049-935f-7c5534ef7c5e" />
+</center>
 
 3.  词元选择
 
-   <img width="215" alt="image" src="https://github.com/user-attachments/assets/51c4de68-e5c4-42e8-80a6-49c06157312f" />
-
+   <p align="center">
+       <img width="215" alt="image" src="https://github.com/user-attachments/assets/51c4de68-e5c4-42e8-80a6-49c06157312f" />
+   </center>
+   
 - 基于查询与词元相似度的选择
     - 将词元按照距离分为近距离词元和远距离词元(存储于外部向量库)
     - 可通过检索获得最相关的远距离词元,补充远程语义信息
@@ -1241,8 +1347,9 @@ $$
     - 对文本分块并压缩为向量表示,使用k近邻方法选择最相关的分块并重新排序词元
     - 代表方法：LongHeads，InfLLM
 
-<img width="841" alt="image" src="https://github.com/user-attachments/assets/820b79be-aa1f-425e-82b7-545456c23f6e" />
-
+<p align="center">
+    <img width="841" alt="image" src="https://github.com/user-attachments/assets/820b79be-aa1f-425e-82b7-545456c23f6e" />
+</center>
 
 ### 前馈网络层
 学习复杂的函数关系和特征
@@ -1259,11 +1366,15 @@ $$
 
 每个 encoder 中的每个子层 （self-attention，ffnn） 周围都有一个残差连接，然后是[层归一化](https://arxiv.org/abs/1607.06450)步骤。
 
-<img width="518" alt="image" src="https://github.com/user-attachments/assets/04ce24e5-82f8-4019-9d14-9db672f0c403" />
+<p align="center">
+    <img width="518" alt="image" src="https://github.com/user-attachments/assets/04ce24e5-82f8-4019-9d14-9db672f0c403" />
+</center>
 
 同样适用于 decoder 的子层。如果考虑一个由 2 个堆叠编码器和解码器组成的 Transformer：
 
-<img width="691" alt="image" src="https://github.com/user-attachments/assets/1b43856e-b0ea-44e9-ac1b-a4613ce6d038" />
+<p align="center">
+    <img width="691" alt="image" src="https://github.com/user-attachments/assets/1b43856e-b0ea-44e9-ac1b-a4613ce6d038" />
+</center>
 
 ### 层归一化
 对数据进行重新放缩，实现以下目标：
@@ -1271,13 +1382,17 @@ $$
 - 不同特征在空间中的尺度不同,对损失优化的影响不一致
 - 提升训练稳定性,加速模型收敛
 
-<img width="598" alt="image" src="https://github.com/user-attachments/assets/e9e54851-5174-4fbd-8487-919df231fa82" />
+<p align="center">
+    <img width="598" alt="image" src="https://github.com/user-attachments/assets/e9e54851-5174-4fbd-8487-919df231fa82" />
 
-<img width="875" alt="image" src="https://github.com/user-attachments/assets/da550520-b1a6-4b44-bf19-2a14d24f609b" />
+    <img width="875" alt="image" src="https://github.com/user-attachments/assets/da550520-b1a6-4b44-bf19-2a14d24f609b" />
+</center>
 
 RMSNorm代码实现：
 
-<img width="605" alt="image" src="https://github.com/user-attachments/assets/9313325f-249c-4e92-9a78-c5ac3ec98de1" />
+<p align="center">
+    <img width="605" alt="image" src="https://github.com/user-attachments/assets/9313325f-249c-4e92-9a78-c5ac3ec98de1" />
+</center>
 
 Qwen2的RMSNormal：
 
@@ -1335,7 +1450,9 @@ $$
 - 优点：加快训练收敛速度，防止梯度爆炸或梯度消失，降低神经网络对于超参数的敏感性。
 - 缺点：可能导致训练不稳定，目前较少单独使用
 
-<img width="162" alt="image" src="https://github.com/user-attachments/assets/8fa23d99-7c70-45e7-9d14-d13d98967c65" />
+<p align="center">
+    <img width="162" alt="image" src="https://github.com/user-attachments/assets/8fa23d99-7c70-45e7-9d14-d13d98967c65" />
+</center>
 
 2. 层前归一化(Pre-Layer Normalization,Pre-Norm)
   
@@ -1344,7 +1461,9 @@ $$
 - 缺点：性能略有逊色
 - 优点：训练更加稳定，主流模型采用较多
 
-<img width="161" alt="image" src="https://github.com/user-attachments/assets/0838b6c2-9f59-480d-8560-294ff70b46f7" />
+<p align="center">
+    <img width="161" alt="image" src="https://github.com/user-attachments/assets/0838b6c2-9f59-480d-8560-294ff70b46f7" />
+</center>
 
 3. 夹心归一化(Sandwich-Norm)
 
@@ -1352,7 +1471,9 @@ $$
 
 - 理论上更优，但仍无法保证稳定训练
 
-<img width="159" alt="image" src="https://github.com/user-attachments/assets/b77e7270-3e74-4a22-89e0-98dcd9fedd90" />
+<p align="center">
+    <img width="159" alt="image" src="https://github.com/user-attachments/assets/b77e7270-3e74-4a22-89e0-98dcd9fedd90" />
+</center>
 
 ### 解码（Decoder）端
 ![transformer_decoding_1](https://github.com/user-attachments/assets/159dde71-fee8-4cc8-a134-c84bfb64cf66)
@@ -1385,14 +1506,16 @@ $$
 ### 损失函数
 将模型输出与实际输出进行比较，然后使用反向传播调整模型的所有权重，使输出更接近所需的输出。
 
-<img width="461" alt="image" src="https://github.com/user-attachments/assets/a8113bc7-b384-40c2-ba10-a0adc9fbf501" />
+<p align="center">
+    <img width="461" alt="image" src="https://github.com/user-attachments/assets/a8113bc7-b384-40c2-ba10-a0adc9fbf501" />
 
-<img width="454" alt="image" src="https://github.com/user-attachments/assets/a890aacb-0164-4d50-84f2-c8da7d195f22" />
+    <img width="454" alt="image" src="https://github.com/user-attachments/assets/a890aacb-0164-4d50-84f2-c8da7d195f22" />
+</center>
 
 ### 激活函数
-
-<img width="762" alt="image" src="https://github.com/user-attachments/assets/c66c5bd2-2e94-446d-bdbf-b1303304da5d" />
-
+<p align="center">
+    <img width="762" alt="image" src="https://github.com/user-attachments/assets/c66c5bd2-2e94-446d-bdbf-b1303304da5d" />
+</center>
 
 -  $sigmoid$ 函数
   函数将输入变换为(0,1)上的输出。它将范围(-inf,inf)中的任意输入压缩到区间(0,1)中的某个值：
@@ -1413,7 +1536,9 @@ $$
 
 sigmoid函数的导数图像如下所示。当输入值为0时，sigmoid函数的导数达到最大值0.25；而输入在任一方向上越远离0点时，导数越接近0。
 
-<img width="217" alt="image" src="https://github.com/user-attachments/assets/97d6c62d-db44-4205-b638-61efa8c88f5c" />
+<p align="center">
+    <img width="217" alt="image" src="https://github.com/user-attachments/assets/97d6c62d-db44-4205-b638-61efa8c88f5c" />
+</center>
 
 -  $tanh$ 函数
 与sigmoid函数类似，tanh函数也能将其输入压缩转换到区间(-1,1)上，tanh函数的公式如下：
@@ -1528,50 +1653,70 @@ $$
 ### 交叉熵
 假设：假设一个城市 75% 的时间都是晴天：
 
-<img width="84" alt="image" src="https://github.com/user-attachments/assets/5fa5db4e-14a6-4b98-b982-757521e84ff0" />
+<p align="center">
+    <img width="84" alt="image" src="https://github.com/user-attachments/assets/5fa5db4e-14a6-4b98-b982-757521e84ff0" />
+</center>
 
 某A有 38% 的时间穿着外套：
 
-<img width="76" alt="image" src="https://github.com/user-attachments/assets/f07b6fb8-97f3-4359-af94-2d68b8b010f9" />
+<p align="center">
+    <img width="76" alt="image" src="https://github.com/user-attachments/assets/f07b6fb8-97f3-4359-af94-2d68b8b010f9" />
+</center>
 
 如果这两件事情相对独立（互不影响）：
 
-<img width="274" alt="image" src="https://github.com/user-attachments/assets/054515dd-c08f-472a-91db-06f4bac90fe0" />
+<p align="center">
+    <img width="274" alt="image" src="https://github.com/user-attachments/assets/054515dd-c08f-472a-91db-06f4bac90fe0" />
+</center>
 
 图中直线、垂直线和水平线都贯穿始终。这就是独立，A穿着外套并且下周会下雨的概率就是A穿着外套的概率乘以下雨的概率。他们互不影响。
 
 如果相互影响的话；
 
-<img width="270" alt="image" src="https://github.com/user-attachments/assets/5de38dbe-5958-48c6-b7d1-2b972d04209c" />
+<p align="center">
+    <img width="270" alt="image" src="https://github.com/user-attachments/assets/5de38dbe-5958-48c6-b7d1-2b972d04209c" />
+</center>
 
 当关注一个变量，比如天气，知道晴天或下雨的可能性有多大。对于这两种情况，都可以查看条件概率：如果天气晴朗，A穿 T 恤的可能性有多大？如果下雨，A穿外套的可能性有多大？
 
-<img width="377" alt="image" src="https://github.com/user-attachments/assets/9e7b6501-2642-4bf7-bf7e-9ff2788e5e68" />
+<p align="center">
+    <img width="377" alt="image" src="https://github.com/user-attachments/assets/9e7b6501-2642-4bf7-bf7e-9ff2788e5e68" />
+</center>
 
 $p(rain,coat)=p(rain)⋅p(coat | rain)$ 即： $p(x,y)=p(x)⋅p(y|x)$ 
 
 反过来关注穿衣的话： $p(rain,coat)=p(coat)⋅p(rain | coat)$ 
 
-<img width="290" alt="image" src="https://github.com/user-attachments/assets/fa026e16-eda0-48a7-b307-9d7197e7d469" />
+<p align="center">
+    <img width="290" alt="image" src="https://github.com/user-attachments/assets/fa026e16-eda0-48a7-b307-9d7197e7d469" />
+</center>
 
 扩展：辛普森悖论（Simpson’s Paradox）
 
 - 编码
 
-<img width="239" alt="image" src="https://github.com/user-attachments/assets/615f5625-9879-48d5-b370-65b661e16991" />
+<p align="center">
+    <img width="239" alt="image" src="https://github.com/user-attachments/assets/615f5625-9879-48d5-b370-65b661e16991" />
+</center>
 
 将句子中每个单词替换为相应的码字，然后连接成编码字符串：
 
-<img width="241" alt="image" src="https://github.com/user-attachments/assets/40fd9570-e7db-469e-954c-39d381d5e4be" />
+<p align="center">
+    <img width="241" alt="image" src="https://github.com/user-attachments/assets/40fd9570-e7db-469e-954c-39d381d5e4be" />
+</center>
 
 根据频率：
 
-<img width="270" alt="image" src="https://github.com/user-attachments/assets/37963044-3d1d-43ad-b530-6a35aebf1f6b" />
-<img width="302" alt="image" src="https://github.com/user-attachments/assets/94242f13-2e9c-4bd6-96bd-a5d3ac03a470" />
+<p align="center">
+    <img width="270" alt="image" src="https://github.com/user-attachments/assets/37963044-3d1d-43ad-b530-6a35aebf1f6b" />
+    <img width="302" alt="image" src="https://github.com/user-attachments/assets/94242f13-2e9c-4bd6-96bd-a5d3ac03a470" />
+</center>
 
 短码字压缩后（目标常用的 codeword 简短）：
 
-<img width="233" alt="image" src="https://github.com/user-attachments/assets/bdf40eeb-07bb-4ead-9763-daac84e7683d" />
+<p align="center">
+    <img width="233" alt="image" src="https://github.com/user-attachments/assets/bdf40eeb-07bb-4ead-9763-daac84e7683d" />
+</center>
 
 $$
 \begin{aligned}
@@ -1581,43 +1726,61 @@ $$
 \end{aligned}
 $$
 
-<img width="415" alt="image" src="https://github.com/user-attachments/assets/5f3befac-5d54-47b4-90df-bcccc1ad3cca" />
+<p align="center">
+    <img width="415" alt="image" src="https://github.com/user-attachments/assets/5f3befac-5d54-47b4-90df-bcccc1ad3cca" />
+</center>
 
 $$
 L_{avg} = \sum_x {p(x)L(x)} = (\frac{1}{2} ⋅ 1) + (\frac{1}{4} ⋅ 2) + (\frac{1}{8} ⋅ 3) + (\frac{1}{8} ⋅ 3) = 1.75 bits 
 $$
 
-<img width="246" alt="image" src="https://github.com/user-attachments/assets/94e6d2cc-218d-4af1-b74a-5fa250c7e803" />
+<p align="center">
+    <img width="246" alt="image" src="https://github.com/user-attachments/assets/94e6d2cc-218d-4af1-b74a-5fa250c7e803" />
+</center>
 
 - 码字空间
 添加的每个位都会使可能的代码数量增加一倍：
 
-<img width="297" alt="image" src="https://github.com/user-attachments/assets/b9b366af-61b5-431a-b9f3-1f3c0d99da86" />
+<p align="center">
+    <img width="297" alt="image" src="https://github.com/user-attachments/assets/b9b366af-61b5-431a-b9f3-1f3c0d99da86" />
+</center>
 
 短码字后需要增加前缀（prefix codes，以免构成编码字符串的歧义）：
 
-<img width="356" alt="image" src="https://github.com/user-attachments/assets/3958497d-1f5f-419e-8e9c-72b37490981b" />
+<p align="center">
+    <img width="356" alt="image" src="https://github.com/user-attachments/assets/3958497d-1f5f-419e-8e9c-72b37490981b" />
+</center>
 
 花在获取短码字上的预算（通过牺牲一小部分可能的码字来支付一个码字的费用）是有限的。
 
-<img width="521" alt="image" src="https://github.com/user-attachments/assets/53fca0f8-b59c-4acb-8c3a-ac43b8bf6014" />
+<p align="center">
+    <img width="521" alt="image" src="https://github.com/user-attachments/assets/53fca0f8-b59c-4acb-8c3a-ac43b8bf6014" />
+</center>
 
 如果成本呈（自然）指数衰减，则它既是高度，也是面积。如果需要在 50% 的时间内发送一个 4 位长的码字，那么平均消息长度比不发送该码字时长 2 位。
 
-<img width="185" alt="image" src="https://github.com/user-attachments/assets/b553b506-f434-4718-87a4-2c6a0d213c08" />
+<p align="center">
+    <img width="185" alt="image" src="https://github.com/user-attachments/assets/b553b506-f434-4718-87a4-2c6a0d213c08" />
+</center>
 
 支付的金额决定了码字的长度。码字的长度控制它对平均消息长度的增加程度。
 
-<img width="410" alt="image" src="https://github.com/user-attachments/assets/1901e581-4d13-40b4-93ce-9679d03a4a4e" />
+<p align="center">
+    <img width="410" alt="image" src="https://github.com/user-attachments/assets/1901e581-4d13-40b4-93ce-9679d03a4a4e" />
+</center>
 
 短码字会缩短平均消息长度，但成本高昂，而长码字会增加平均消息长度，但成本低廉。
 
-<img width="485" alt="image" src="https://github.com/user-attachments/assets/18cbcc94-b6cb-463f-97fa-5956d470ffb5" />
+<p align="center">
+    <img width="485" alt="image" src="https://github.com/user-attachments/assets/18cbcc94-b6cb-463f-97fa-5956d470ffb5" />
+</center>
 
 - 信息熵
 长度 $L$ 的消息的开销为 $\frac{1}{2^L}$ 。反过来获得花费给定金额的消息的长度为 $L(x) = log_2 (\frac{1}{cost})$ ，由于希望符号 $𝑥$ 的出现概率越高，占用的资源就越大，因此 $cost = p(x)$ ， $L(x) = log_2 (\frac{1}{p(x)})=-log_2 {p(x)}$ 。
 
-<img width="421" alt="image" src="https://github.com/user-attachments/assets/a3d21097-d323-4079-a29a-7af868064555" />
+<p align="center">
+    <img width="421" alt="image" src="https://github.com/user-attachments/assets/a3d21097-d323-4079-a29a-7af868064555" />
+</center>
 
 信息熵：在信息论中，给定一个真实分布 $𝑝(𝑥)$ ，最佳编码方案应该使用熵 $𝐻(𝑝)$ 作为理论上的最优平均编码长度。
 
@@ -1625,7 +1788,9 @@ $H(p)=\sum_x {p(x)log_2(\frac{1}{p(x)})} = - \sum_x {p(x)log_2{p(x)}}$
 
 - Cross-Entropy  交叉熵：
 
-<img width="306" alt="image" src="https://github.com/user-attachments/assets/495cb124-777e-44fc-b846-627d89d36ee1" />
+<p align="center">
+    <img width="306" alt="image" src="https://github.com/user-attachments/assets/495cb124-777e-44fc-b846-627d89d36ee1" />
+</center>
 
 使用同一套编码时：
 
@@ -1642,15 +1807,21 @@ $$
 H_q(p)=- \sum_x {p(x)log_2{q(x)}}
 $$
 
-<img width="365" alt="image" src="https://github.com/user-attachments/assets/0561c05b-bee2-4abe-9a7d-91b7999a1ba3" />
+<p align="center">
+    <img width="365" alt="image" src="https://github.com/user-attachments/assets/0561c05b-bee2-4abe-9a7d-91b7999a1ba3" />
+</center>
 
 以下每个子图代表这 4 种可能性中的一种：
 
-<img width="483" alt="image" src="https://github.com/user-attachments/assets/6ee0f5e1-5633-457e-bd4d-4df118ae787f" />
+<p align="center">
+    <img width="483" alt="image" src="https://github.com/user-attachments/assets/6ee0f5e1-5633-457e-bd4d-4df118ae787f" />
+</center>
 
 可以看出交叉熵不是对称的。交叉熵提供了一种表达两种概率分布差异的方法：分布p和q的差异越大，p关于q的交叉熵就越大于p的熵。
 
-<img width="184" alt="image" src="https://github.com/user-attachments/assets/60327ece-4ad9-4817-926b-d07a8dd2086d" />
+<p align="center">
+    <img width="184" alt="image" src="https://github.com/user-attachments/assets/60327ece-4ad9-4817-926b-d07a8dd2086d" />
+</center>
 
 - Kullback-Leibler 散度
 KL 散度就是熵和交叉熵之间的差异。
@@ -1668,15 +1839,21 @@ $$
 
 例子：以穿衣为关注变量，T恤和外套现在是边际概率，即不考虑天气就穿着那件衣服的概率；另一方面，rain和sunny标签，它们的概率分别以穿T恤和穿外套为条件。
 
-<img width="460" alt="image" src="https://github.com/user-attachments/assets/9b98fd89-8175-437d-b326-672b3a1758ef" />
+<p align="center">
+    <img width="460" alt="image" src="https://github.com/user-attachments/assets/9b98fd89-8175-437d-b326-672b3a1758ef" />
+</center>
 
 这些概率事件的最佳码字，并计算平均消息长度：
 
-<img width="470" alt="image" src="https://github.com/user-attachments/assets/624322a4-d4ec-4c6d-8fff-4ef45d23f056" />
+<p align="center">
+    <img width="470" alt="image" src="https://github.com/user-attachments/assets/624322a4-d4ec-4c6d-8fff-4ef45d23f056" />
+</center>
 
 将代码长度视为第三个维度，现在熵就是体积：
 
-<img width="232" alt="image" src="https://github.com/user-attachments/assets/d7d7f258-80c4-41b5-8587-efe930026c89" />
+<p align="center">
+    <img width="232" alt="image" src="https://github.com/user-attachments/assets/d7d7f258-80c4-41b5-8587-efe930026c89" />
+</center>
 
 - 条件熵
 
@@ -1684,13 +1861,17 @@ $$
 H(X|Y)=- \sum_y p(y) \sum_x {p(x|y)log_2{p(x|y)}} = - \sum_{x,y} {p(x,y)log_2{p(x,y)}} 
 $$
 
-<img width="310" alt="image" src="https://github.com/user-attachments/assets/6f5ceda8-bc95-448d-8909-8184cb810c78" />
+<p align="center">
+    <img width="310" alt="image" src="https://github.com/user-attachments/assets/6f5ceda8-bc95-448d-8909-8184cb810c78" />
+</center>
 
 - 互信息
 
-<img width="314" alt="image" src="https://github.com/user-attachments/assets/aa38ba34-8aa4-4e9d-8462-e1c6b909b607" />
+<p align="center">
+    <img width="314" alt="image" src="https://github.com/user-attachments/assets/aa38ba34-8aa4-4e9d-8462-e1c6b909b607" />
 
-<img width="460" alt="image" src="https://github.com/user-attachments/assets/9fb7bf91-f3b2-4da5-9e33-556af4f986f4" />
+    <img width="460" alt="image" src="https://github.com/user-attachments/assets/9fb7bf91-f3b2-4da5-9e33-556af4f986f4" />
+</center>
 
 $H(X,Y)=H(Y)+H(X|Y)$
 
@@ -1702,7 +1883,9 @@ $I(X,Y)=H(X)+H(Y)−H(X,Y)$
 
 $V(X,Y)=H(X,Y)−I(X,Y)$
 
-<img width="295" alt="image" src="https://github.com/user-attachments/assets/d004f96e-7fa2-42f6-a299-e3eeed4fe8fb" />
+<p align="center">
+    <img width="295" alt="image" src="https://github.com/user-attachments/assets/d004f96e-7fa2-42f6-a299-e3eeed4fe8fb" />
+</center>
 
 #### 理想编码长度
 $L(x) = -log_2 {p(x)}$
@@ -1723,20 +1906,26 @@ MoE（Mixture of Experts，混合专家）架构是一种先进的深度学习�
 - 门控网络：负责根据输入数据动态选择激活哪些专家网络。它通过路由机制决定每个token或输入数据被发送到哪个专家网络，从而实现稀疏激活。
 - 专家网络：每个专家网络是一个独立的神经网络，专门处理特定类型的输入数据。它们可以是小型神经网络或特定任务的优化模型
 
-<img width="440" alt="image" src="https://github.com/user-attachments/assets/af99b5c2-6596-45c4-a067-86a0dd24f5d6" />
+<p align="center">
+    <img width="440" alt="image" src="https://github.com/user-attachments/assets/af99b5c2-6596-45c4-a067-86a0dd24f5d6" />
+</center>
 
 MoE架构的工作流程：
 - 输入分配：输入数据被分配给不同的专家网络。
 - 专家处理：每个专家网络独立处理其负责的任务。
 - 结果汇总：所有专家网络的输出结果被加权汇总，形成最终输出
 
-<img width="673" alt="image" src="https://github.com/user-attachments/assets/92641eee-c509-46a3-be57-d5d93b3f8a6f" />
+<p align="center">
+    <img width="673" alt="image" src="https://github.com/user-attachments/assets/92641eee-c509-46a3-be57-d5d93b3f8a6f" />
 
-<img width="761" alt="image" src="https://github.com/user-attachments/assets/43246051-c5b8-49d1-b517-8b3eafe7473f" />
+    <img width="761" alt="image" src="https://github.com/user-attachments/assets/43246051-c5b8-49d1-b517-8b3eafe7473f" />
+</center>
 
 NLP：
 
-<img width="580" alt="image" src="https://github.com/user-attachments/assets/bb3e6ea1-7d80-4791-8c64-09fa72eab088" />
+<p align="center">
+    <img width="580" alt="image" src="https://github.com/user-attachments/assets/bb3e6ea1-7d80-4791-8c64-09fa72eab088" />
+</center>
 
 混合专家架构：
 
@@ -1757,7 +1946,9 @@ $$
 o_t = \text{MoELayer}(x_t)=\sum_{i = 1}^{K}G(x_t)_i\cdot E_i(x_t)
 $$
 
-<img width="463" alt="image" src="https://github.com/user-attachments/assets/92068ef2-25b9-433e-bf1e-910158919a8e" />
+<p align="center">
+    <img width="463" alt="image" src="https://github.com/user-attachments/assets/92068ef2-25b9-433e-bf1e-910158919a8e" />
+</center>
 
 步骤：模型通过多个专家来做决策，然后根据输入数据决定哪个专家的输出最应该被采纳。
 
@@ -1885,7 +2076,9 @@ $$
 
 示意图如下：
 
-<img width="722" alt="image" src="https://github.com/user-attachments/assets/0d4cd556-ae8d-4675-8a64-7900790dd073" />
+<p align="center">
+    <img width="722" alt="image" src="https://github.com/user-attachments/assets/0d4cd556-ae8d-4675-8a64-7900790dd073" />
+</center>
 
 单机单卡的训练中，以上矩阵乘法，先计算得到 $out$ ，并将 $out$ 传递给下一层，并最终计算得到 $loss$ ，然后在反向传播过程中，得到 $\frac{\partial loss}{\partial w}$ ，用于更新 $w$ 。
 
@@ -1897,7 +2090,9 @@ $$
 
 如下图所示， $x$ 被按照第0维度平均切分到2个设备上，两个设备上都有完整的 $w$ 。
 
-<img width="728" alt="image" src="https://github.com/user-attachments/assets/60ba1d12-7fc5-4ea9-a0da-c7112094f9db" />
+<p align="center">
+    <img width="728" alt="image" src="https://github.com/user-attachments/assets/60ba1d12-7fc5-4ea9-a0da-c7112094f9db" />
+</center>
 
 这样，在两台设备上，分别得到的输出，都只是逻辑上输出的一半（形状为 $2\times8$ ），将两个设备上的输出拼接到一起，才能得到逻辑上完整的输出。
 
@@ -1912,7 +2107,9 @@ $$
 所谓的模型并行，就是每个设备上的数据是完整的、一致的，而模型$w$被切分到了各个设备上，每个设备只拥有模型的一部分，所有计算设备上的模型拼在一起，才是完整的模型。
 如下图所示， $w$ 被按照第1维度平均切分到2个设备上，两个设备上都有完整的 $x$ 。两个设备上的输出也需要通过拼接才能得到逻辑上的输出。
 
-<img width="725" alt="image" src="https://github.com/user-attachments/assets/a41c229c-22cd-42f5-906a-f5c71f767c43" />
+<p align="center">
+    <img width="725" alt="image" src="https://github.com/user-attachments/assets/a41c229c-22cd-42f5-906a-f5c71f767c43" />
+</center>
 
 模型并行的好处是，省去了多个设备之间的梯度 AllReduce；但是，由于每个设备都需要完整的数据输入，因此，数据会在多个设备之间进行广播，产生通信代价（这里指数据不会复制多份而是通过广播来传递输入数据）。比如，上图中的最终得到的 $out~(4\times8)$ ，如果它作为下一层网络的输入，那么它就需要被广播发送到两个设备上。
 语言模型，如 BERT，常采用模型并行。
@@ -1948,17 +2145,21 @@ $$
 - 多模态大模型：DeepSeek-VL
 - 推理大模型：DeepSeek-R1
 
-<img width="909" alt="image" src="https://github.com/user-attachments/assets/491fabaf-e3bc-4256-b564-8ce7c980dc24" />
+<p align="center">
+    <img width="909" alt="image" src="https://github.com/user-attachments/assets/491fabaf-e3bc-4256-b564-8ce7c980dc24" />
+</center>
 
 #### HAI-LLM
 HAI-LLM(High-Flyer）是一个由DeepSeek团队开发，高效且轻量级的分布式训练框架，主要用于训练和评估大型语言模型（LLM）。具有以下特点和优势：
 1. 并行策略：集成了多种并行策略，包括数据并行（Data Parallel）、张量并行（Tensor Parallel）、流水线并行（Pipeline Parallel）以及1F1B流水线并行（1F1B Pipeline Parallel）；数据并行通过ZeRO-1技术优化了激活参数的存储，减少了内存占用。
-   
-   <img width="716" alt="image" src="https://github.com/user-attachments/assets/ed12fd97-ab35-454a-920d-d4c35fd06ede" />
 
-2. 硬件利用率优化：利用FlashAttention等加速算子提高硬件利用率；通过自研的高性能算子haiscale，显著提升了显存和计算效率。
-3. 训练效率：通过优化计算和通信的排程，HAI-LLM有效减少了分布式训练过程中的通信开销，从而提升了训练效率。
-4. 灵活性与扩展性：支持数万亿参数规模的超大模型训练，并可扩展至数千个GPU。
+   <p align="center">
+       <img width="716" alt="image" src="https://github.com/user-attachments/assets/ed12fd97-ab35-454a-920d-d4c35fd06ede" />
+   </center>
+   
+1. 硬件利用率优化：利用FlashAttention等加速算子提高硬件利用率；通过自研的高性能算子haiscale，显著提升了显存和计算效率。
+2. 训练效率：通过优化计算和通信的排程，HAI-LLM有效减少了分布式训练过程中的通信开销，从而提升了训练效率。
+3. 灵活性与扩展性：支持数万亿参数规模的超大模型训练，并可扩展至数千个GPU。
 
 - DeepSeek进行了重要的网络架构、训练算法、性能优化探索
     - V1探索了scaling law分析(考虑了数据质量影响),用于预估超参数性能
@@ -1973,61 +2174,83 @@ HAI-LLM(High-Flyer）是一个由DeepSeek团队开发，高效且轻量级的分
     - 基于V2的MoE架构,引入了MTP和新的复杂均衡损失
     - 对于训练效率进行了极致优化,共使用2.788M H800 GPU时
 
-<img width="724" alt="image" src="https://github.com/user-attachments/assets/612f1a72-6156-4bff-9789-d442384d979a" />
+<p align="center">
+    <img width="724" alt="image" src="https://github.com/user-attachments/assets/612f1a72-6156-4bff-9789-d442384d979a" />
+</center>
 
 - DeepSeek R1
 
-<img width="917" alt="image" src="https://github.com/user-attachments/assets/1508d34b-e746-4730-ab41-9bd596dd5c7f" />
+<p align="center">
+    <img width="917" alt="image" src="https://github.com/user-attachments/assets/1508d34b-e746-4730-ab41-9bd596dd5c7f" />
+</center>
 
 ### 参数化状态空间模型(State Space Model，SSM)
 - RNN和CNN的结合体，利用卷积计算并行编码
 - 仅依赖于前一个状态循环推理
 - 相比于Transformer长文本建模效率得到极大改进
 
-<img width="813" alt="image" src="https://github.com/user-attachments/assets/ef63d2f3-cec0-41da-ae14-97f4fc77086b" />
+<p align="center">
+    <img width="813" alt="image" src="https://github.com/user-attachments/assets/ef63d2f3-cec0-41da-ae14-97f4fc77086b" />
 
-<img width="868" alt="image" src="https://github.com/user-attachments/assets/35cb3ca9-c5e4-47b2-914e-4a2d9ee3bdfc" />
+    <img width="868" alt="image" src="https://github.com/user-attachments/assets/35cb3ca9-c5e4-47b2-914e-4a2d9ee3bdfc" />
+</center>
 
 - 递归分解当前时刻的输出
 
-<img width="738" alt="image" src="https://github.com/user-attachments/assets/f065b261-4cc6-4cc9-be5b-1dbf6d499593" />
+<p align="center">
+    <img width="738" alt="image" src="https://github.com/user-attachments/assets/f065b261-4cc6-4cc9-be5b-1dbf6d499593" />
+</center>
 
 - 相关变种
 1. Mamba
     - 引入基于当前输入的信息选择机制
     - 矩阵 $A,B,C$ 表示成基于输入 $x_t$ 的非线性函数,对历史信息进行选择过滤
-  
-<img width="702" alt="image" src="https://github.com/user-attachments/assets/f08886ac-8ede-4565-8699-fb1515fd722c" />
+
+<p align="center">
+    <img width="702" alt="image" src="https://github.com/user-attachments/assets/f08886ac-8ede-4565-8699-fb1515fd722c" />
+</center>
 
 2. RWKV
 
     - 词元偏移(Token Shift)：将当前词元和前一个词元线性插值代替当前词元作为输入。
-    
-    <img width="380" alt="image" src="https://github.com/user-attachments/assets/3456ed98-8379-43c2-8ba9-1091b7606117" />
 
+    <p align="center">
+        <img width="380" alt="image" src="https://github.com/user-attachments/assets/3456ed98-8379-43c2-8ba9-1091b7606117" />
+    </center>
+    
     - 时间混合模块(Time-Mixing)：代替Transformer中的注意力层；门控RNN，对词元偏移进行更新。
 
-    <img width="362" alt="image" src="https://github.com/user-attachments/assets/fe87e087-b8d0-450e-bf09-8d474bf1be51" />
-
+    <p align="center">
+        <img width="362" alt="image" src="https://github.com/user-attachments/assets/fe87e087-b8d0-450e-bf09-8d474bf1be51" />
+    </center>
+    
     - 频道混合模块(Channel-Mixing)：代替Transformer中的前馈网络层；对词元偏移进行映射。
-  
-    <img width="373" alt="image" src="https://github.com/user-attachments/assets/83e1bf56-acb5-4434-beb5-80fd2a3acd78" />
 
-3. RetNet
+    <p align="center">
+        <img width="373" alt="image" src="https://github.com/user-attachments/assets/83e1bf56-acb5-4434-beb5-80fd2a3acd78" />
+    </center>
+    
+2. RetNet
 使用多尺度保留模块(Multi-scale Retention,MSR)替换多头注意力。
 
-<img width="670" alt="image" src="https://github.com/user-attachments/assets/1fde803f-2b17-4e48-8722-d5749b3f36af" />
+<p align="center">
+    <img width="670" alt="image" src="https://github.com/user-attachments/assets/1fde803f-2b17-4e48-8722-d5749b3f36af" />
+</center>
 
 4. Hyena
 长卷积模块(Long Convolution)替换多头注意力。
 
 - 每层包含 $N$ 个滤波器,每个相对位置索引设置对应的滤波器组成卷积核 $K=(h(1), ... ,h(T))$ 
 
-<img width="785" alt="image" src="https://github.com/user-attachments/assets/823d40b5-8275-40c7-bba9-6c7f9f624410" />
+<p align="center">
+    <img width="785" alt="image" src="https://github.com/user-attachments/assets/823d40b5-8275-40c7-bba9-6c7f9f624410" />
+</center>
 
 - 对于每个卷积核的输出的中间表示 $z_t$ ，使用门控函数 $g(t)$ 进行加权:
 
-<img width="778" alt="image" src="https://github.com/user-attachments/assets/12d368c7-5cb4-454b-a4f1-28503db479b1" />
+<p align="center">
+    <img width="778" alt="image" src="https://github.com/user-attachments/assets/12d368c7-5cb4-454b-a4f1-28503db479b1" />
+</center>
 
 # Qwen整体介绍
 
@@ -2323,12 +2546,13 @@ def __init__(self, config: Qwen2Config, layer_idx: Optional[int] = None):
 
 ## forward, q&k&v proj(nn.Linear) + reshape + rotary_pos_emb  +k&v expand(GQA) + q*kT/hd_d^0.5 + attn_weights加上attention_mask + (softmax + dropout + values_states相乘) + reshape + o_proj
 
-<img width="672" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c05cdca1-aed1-43b8-ada4-7801fb135bc1">
+<p align="center">
+    <img width="672" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c05cdca1-aed1-43b8-ada4-7801fb135bc1">
 
-<img width="661" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3078c3d0-97da-42bb-a19e-7324b23c9ebd">
+    <img width="661" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3078c3d0-97da-42bb-a19e-7324b23c9ebd">
 
-<img width="667" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2061d0a9-fbe5-414e-bbd5-19602a2bbe57">
-
+    <img width="667" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2061d0a9-fbe5-414e-bbd5-19602a2bbe57">
+</center>
 - 首先将hidden_states送入Linear中得到query、key与value。
 - 使用旋转位置嵌入操作rotary_emb，使用了旋转位置嵌入的余弦和正弦部分，将他们与query和key相乘，并将结果相加，从而实现旋转位置嵌入的效果。
 - 将key_states和value_states重复group次，再执行dot attn操作。
@@ -2397,7 +2621,9 @@ tips: 为什么要用expand之后再reshape而不能直接用tensor自带的repe
 
 Transformer采用的是静态的正弦和余弦波函数的组合，主要提供绝对位置信息。
 
-<img width="533" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3ee73abe-a686-429e-8491-fa6dc46d9f5d">
+<p align="center">
+    <img width="533" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3ee73abe-a686-429e-8491-fa6dc46d9f5d">
+</center>
 
 这里 𝑝𝑜𝑠 是词在序列中的位置，𝑖 是位置向量中的维度索引，𝑑 是位置向量的维度（通常与模型的隐藏层维度相同，例如512）。这个公式中的 ${10000^{2n/d}}$ 是一个缩放因子，它随 𝑖 的增大而增大，这样对于不同的 𝑖，正弦和余弦函数的波长会随之增长。这种设计使得模型能够在每个维度捕捉到不同频率的位置信息。
 
