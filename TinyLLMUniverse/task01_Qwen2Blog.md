@@ -1391,7 +1391,9 @@ $$
 
 ### 激活函数
 
+<center>
 <img width="762" alt="image" src="https://github.com/user-attachments/assets/c66c5bd2-2e94-446d-bdbf-b1303304da5d" />
+</center>
 
 -  $sigmoid$ 函数
   函数将输入变换为(0,1)上的输出。它将范围(-inf,inf)中的任意输入压缩到区间(0,1)中的某个值：
