@@ -1390,9 +1390,9 @@ $$
 <img width="454" alt="image" src="https://github.com/user-attachments/assets/a890aacb-0164-4d50-84f2-c8da7d195f22" />
 
 ### 激活函数
-<center>
+
 <img width="762" alt="image" src="https://github.com/user-attachments/assets/c66c5bd2-2e94-446d-bdbf-b1303304da5d" />
-</center>
+
 
 -  $sigmoid$ 函数
   函数将输入变换为(0,1)上的输出。它将范围(-inf,inf)中的任意输入压缩到区间(0,1)中的某个值：
@@ -1401,8 +1401,8 @@ $$
 \mathrm{sigmoid}(x)=\frac{1}{1 + \exp(-x)}
 $$
 
-<center>
-<img width="284" alt="image" src="https://github.com/user-attachments/assets/c507ae88-1a6e-4de1-b0ad-4c9dd4ac9ef9" />
+<p align="center">
+    <img width="284" alt="image" src="https://github.com/user-attachments/assets/c507ae88-1a6e-4de1-b0ad-4c9dd4ac9ef9" />
 </center>
 
 sigmoid函数的导数为下面的公式：
