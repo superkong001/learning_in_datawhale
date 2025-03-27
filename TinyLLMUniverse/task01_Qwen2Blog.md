@@ -2442,7 +2442,7 @@ if output_hidden_states:
 # Qwen2DecoderLayer, attn+MLP+norm
 
 <p align="center">
-    ![1725eb39a3bb2bc6b1908c4d6f585a89_decoderlayer](https://github.com/superkong001/learning_in_datawhale/assets/37318654/708fc8ae-d732-4064-9c24-adcff8b5f9ed)
+![1725eb39a3bb2bc6b1908c4d6f585a89_decoderlayer](https://github.com/superkong001/learning_in_datawhale/assets/37318654/708fc8ae-d732-4064-9c24-adcff8b5f9ed)
 </center>
 
 ## 初始化
@@ -2529,7 +2529,7 @@ def forward(
 # Qwen2Attention
 
 <p align="center">
-    ![eb0bcb521d1c092d05a30351a3a3b641_Qwen2Attention](https://github.com/superkong001/learning_in_datawhale/assets/37318654/b2e66e42-8c5a-4da8-8c12-c90223976145)
+![eb0bcb521d1c092d05a30351a3a3b641_Qwen2Attention](https://github.com/superkong001/learning_in_datawhale/assets/37318654/b2e66e42-8c5a-4da8-8c12-c90223976145)
 </center>
 
 - num_key_value_heads:表示键值对的头数
@@ -2600,7 +2600,7 @@ def __init__(self, config: Qwen2Config, layer_idx: Optional[int] = None):
 - 再将上述的attn_output进行reshape操作，送入o_proj，得到最终的输出。
 
 <p align="center">
-    ![b6fceb434fbc46d94b0cf3683ff4ea4a_GQA](https://github.com/superkong001/learning_in_datawhale/assets/37318654/43f9acf2-389a-439c-afcf-103567b03389)
+![b6fceb434fbc46d94b0cf3683ff4ea4a_GQA](https://github.com/superkong001/learning_in_datawhale/assets/37318654/43f9acf2-389a-439c-afcf-103567b03389)
 </center>
 
 主旨:GQA和MQA不需要在推理的过程存储那么多的kv cache, 那么kv cache占用的显存就变小，那么我们LLM serving可以处理的请求数量就更多
@@ -2672,7 +2672,7 @@ Transformer采用的是静态的正弦和余弦波函数的组合，主要提供
 旋转位置编码（RoPE）：引入旋转矩阵的位置编码，位置编码的含义是对每一个token的每一个dim赋予不同的位置信息。 公式定义:
 
 <p align="center">
-    ![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/58f0f9f6-4d7b-4762-b4b5-826af5259975)
+![image](https://github.com/superkong001/learning_in_datawhale/assets/37318654/58f0f9f6-4d7b-4762-b4b5-826af5259975)
 </center>
 
 概念：通过旋转编码，使得每个token既有相对位置信息，又有绝对位置信息。
@@ -2681,14 +2681,14 @@ Transformer采用的是静态的正弦和余弦波函数的组合，主要提供
 - RoPE本质是实现对特征向量的旋转操作，如果以二维特征向量举例，对于相邻两个token来说，其对应同一个,其定义为:
 
 <p align="center">
-    ![bcfcb5136238da2cca5641a70169cc23_ROPE2](https://github.com/superkong001/learning_in_datawhale/assets/37318654/3e698be4-2a31-43cf-af96-6e50a8b859cd)
+![bcfcb5136238da2cca5641a70169cc23_ROPE2](https://github.com/superkong001/learning_in_datawhale/assets/37318654/3e698be4-2a31-43cf-af96-6e50a8b859cd)
 </center>
 
 可得，其本质就是: $q_{t}$, $k_{s}$ 旋转后的结果，就是 $q_{t}$, $k_{s}$乘上cos再加上 $q_{t}$, $k_{s}$翻转维度并取反一维后乘上sin。
 - 对于高纬向量，由于奇、偶数维度两两交错实现较为复杂，则现在可简化为将特征维度一切二，如下图所示，在实现过程中对前后各半进行的操作即为rotate_half操作：
 
 <p align="center">
-    ![b9732c2d7d6e7e265bfd933fb481cc9b_ROPE3](https://github.com/superkong001/learning_in_datawhale/assets/37318654/2204dd5d-2fae-4455-9fb0-600c17c3aa11)
+![b9732c2d7d6e7e265bfd933fb481cc9b_ROPE3](https://github.com/superkong001/learning_in_datawhale/assets/37318654/2204dd5d-2fae-4455-9fb0-600c17c3aa11)
 </center>
 
 ```bash
@@ -2936,7 +2936,7 @@ out = out.transpose(1, 2)
 # Qwen2 MLP
 
 <p align="center">
-    ![38d5a025fe702e2d3b1aa624355d90c4_MLP1](https://github.com/superkong001/learning_in_datawhale/assets/37318654/d236cc58-f3bd-4b2b-a591-e5757f211fa7)
+![38d5a025fe702e2d3b1aa624355d90c4_MLP1](https://github.com/superkong001/learning_in_datawhale/assets/37318654/d236cc58-f3bd-4b2b-a591-e5757f211fa7)
 </center>
 
 输入hidden_state并行送入两个Linear层，其中一个激活一下，再与另一个相乘，最终再经过一个Linear，输出最终结果。
@@ -2961,7 +2961,7 @@ class Qwen2MLP(nn.Module):
 # Qwen2RMSNorm, 根均方归一化
 
 <p align="center">
-    ![7d54bafe8e22779a9b9b169b66fe2cea_RMSNorm_formulation](https://github.com/superkong001/learning_in_datawhale/assets/37318654/42f21607-de36-407c-a8d7-75adbacedf3c)
+![7d54bafe8e22779a9b9b169b66fe2cea_RMSNorm_formulation](https://github.com/superkong001/learning_in_datawhale/assets/37318654/42f21607-de36-407c-a8d7-75adbacedf3c)
 </center>
 
 ```bash
