@@ -1376,6 +1376,10 @@ $$
 
 然后，softmax 层将这些分数转换为概率（均为正数，加起来均为 1.0）。
 
+$$
+\mathrm{softmax}(x_i)=\frac{\exp(x_i)}{\sum_{j} \exp(x_j)}
+$$
+
 ![image](https://github.com/user-attachments/assets/0130867f-6579-4764-8ba9-0b1238ed4922)
 
 ### 损失函数
