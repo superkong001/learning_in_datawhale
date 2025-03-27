@@ -822,11 +822,17 @@ $$
 
 <p align="center">
     <img width="665" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/fc17f20b-726c-4943-966e-df9dc419f54f">
+</center>
 
+<p align="center">
     <img width="608" alt="image" src="https://github.com/user-attachments/assets/6e364403-8703-4ef0-a5fb-b7893fc2970a" />
+</center>
 
+<p align="center">
     <img width="405" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/d291e84d-3431-45b8-a786-fe5c95c439d5">
+</center>
 
+<p align="center">
     <img width="617" alt="image" src="https://github.com/user-attachments/assets/ddccf4ae-d353-4bc8-8087-a4cc62b92b05" />
 </center>
 
@@ -924,7 +930,9 @@ Transformer学习资源：
 
 <p align="center">
   <img width="684" alt="image" src="https://github.com/user-attachments/assets/dba88382-20fb-40d8-ac9a-f6f6fe97a871" />
+</center>
 
+<p align="center">
   <img width="478" alt="image" src="https://github.com/user-attachments/assets/028676ad-762e-47f2-932d-27424d99ab24" />
 </center>
 
@@ -974,7 +982,9 @@ $$
 
 <p align="center">
     <img width="653" alt="image" src="https://github.com/user-attachments/assets/8c4baadf-27ef-4994-bc38-978979a459fa" />
+</center>
 
+<p align="center">
     <img width="395" alt="image" src="https://github.com/user-attachments/assets/178381db-630e-4753-ac40-cdd451590c93" />
 </center>
 
@@ -990,7 +1000,9 @@ $$
 
 <p align="center">
     <img width="560" alt="image" src="https://github.com/user-attachments/assets/c3a70121-e616-4cbb-a615-1870fa83a3eb" />
+</center>
 
+<p align="center">
     <img width="496" alt="image" src="https://github.com/user-attachments/assets/4dd9ba41-83d5-49b5-8ff0-ed7d276a2c97" />
 </center>
 
@@ -1062,7 +1074,9 @@ $$
 
 <p align="center">
     <img width="714" alt="image" src="https://github.com/user-attachments/assets/f41e5978-4720-4455-be72-152a87dbd086" />
+</center>
 
+<p align="center">
     <img width="307" alt="image" src="https://github.com/user-attachments/assets/4f0dd2da-8402-49ba-ab60-89044157d30c" />
 </center>
 
@@ -1078,7 +1092,9 @@ $$
 
 <p align="center">
     <img width="790" alt="image" src="https://github.com/user-attachments/assets/5e4b99ae-d41b-4955-9f7b-e7fce185c0a6" />
+</center>
 
+<p align="center">
     <img width="827" alt="image" src="https://github.com/user-attachments/assets/bfeea177-bb4f-4c69-8a59-30138283738c" />
 </center>
 
@@ -1095,7 +1111,9 @@ $$
 
 <p align="center">
     <img width="713" alt="image" src="https://github.com/user-attachments/assets/3a55b247-d618-4089-975a-539771952de6" />
+</center>
 
+<p align="center">
     <img width="728" alt="image" src="https://github.com/user-attachments/assets/0c106ace-061a-4817-a85e-33ac2ebda0bb" />
 </center>
 
@@ -1384,7 +1402,9 @@ $$
 
 <p align="center">
     <img width="598" alt="image" src="https://github.com/user-attachments/assets/e9e54851-5174-4fbd-8487-919df231fa82" />
+</center>
 
+<p align="center">
     <img width="875" alt="image" src="https://github.com/user-attachments/assets/da550520-b1a6-4b44-bf19-2a14d24f609b" />
 </center>
 
@@ -1508,7 +1528,9 @@ $$
 
 <p align="center">
     <img width="461" alt="image" src="https://github.com/user-attachments/assets/a8113bc7-b384-40c2-ba10-a0adc9fbf501" />
+</center>
 
+<p align="center">
     <img width="454" alt="image" src="https://github.com/user-attachments/assets/a890aacb-0164-4d50-84f2-c8da7d195f22" />
 </center>
 
@@ -1869,7 +1891,9 @@ $$
 
 <p align="center">
     <img width="314" alt="image" src="https://github.com/user-attachments/assets/aa38ba34-8aa4-4e9d-8462-e1c6b909b607" />
+</center>
 
+<p align="center">
     <img width="460" alt="image" src="https://github.com/user-attachments/assets/9fb7bf91-f3b2-4da5-9e33-556af4f986f4" />
 </center>
 
@@ -1917,7 +1941,9 @@ MoE架构的工作流程：
 
 <p align="center">
     <img width="673" alt="image" src="https://github.com/user-attachments/assets/92641eee-c509-46a3-be57-d5d93b3f8a6f" />
+</center>
 
+<p align="center">
     <img width="761" alt="image" src="https://github.com/user-attachments/assets/43246051-c5b8-49d1-b517-8b3eafe7473f" />
 </center>
 
@@ -2191,7 +2217,9 @@ HAI-LLM(High-Flyer）是一个由DeepSeek团队开发，高效且轻量级的分
 
 <p align="center">
     <img width="813" alt="image" src="https://github.com/user-attachments/assets/ef63d2f3-cec0-41da-ae14-97f4fc77086b" />
+</center>
 
+<p align="center">
     <img width="868" alt="image" src="https://github.com/user-attachments/assets/35cb3ca9-c5e4-47b2-914e-4a2d9ee3bdfc" />
 </center>
 
@@ -2548,11 +2576,16 @@ def __init__(self, config: Qwen2Config, layer_idx: Optional[int] = None):
 
 <p align="center">
     <img width="672" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/c05cdca1-aed1-43b8-ada4-7801fb135bc1">
+</center>
 
+<p align="center">
     <img width="661" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/3078c3d0-97da-42bb-a19e-7324b23c9ebd">
+</center>
 
+<p align="center">
     <img width="667" alt="image" src="https://github.com/superkong001/learning_in_datawhale/assets/37318654/2061d0a9-fbe5-414e-bbd5-19602a2bbe57">
 </center>
+
 - 首先将hidden_states送入Linear中得到query、key与value。
 - 使用旋转位置嵌入操作rotary_emb，使用了旋转位置嵌入的余弦和正弦部分，将他们与query和key相乘，并将结果相加，从而实现旋转位置嵌入的效果。
 - 将key_states和value_states重复group次，再执行dot attn操作。
