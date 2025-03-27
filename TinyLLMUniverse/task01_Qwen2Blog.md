@@ -2284,7 +2284,7 @@ HAI-LLM(High-Flyer）是一个由DeepSeek团队开发，高效且轻量级的分
 
 Qwen的架构：
 
-    ![2bd108a0a25f60fd7baad3a6ae0d4148_framework](https://github.com/superkong001/learning_in_datawhale/assets/37318654/5cadb050-43c8-48be-b87a-b895db72c411)
+![2bd108a0a25f60fd7baad3a6ae0d4148_framework](https://github.com/superkong001/learning_in_datawhale/assets/37318654/5cadb050-43c8-48be-b87a-b895db72c411)
 
 其中:
 - tokenizer将文本转为词表里面的数值。
