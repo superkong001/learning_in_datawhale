@@ -1422,7 +1422,9 @@ $$
 \tanh(x)=\frac{1 - \exp(-2x)}{1 + \exp(-2x)}
 $$
 
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/5777d81d-62c5-4d3f-b501-4b5b8eac973a" />
+<p align="center">
+    <img width="300" alt="image" src="https://github.com/user-attachments/assets/5777d81d-62c5-4d3f-b501-4b5b8eac973a" />
+</center>
 
 tanh函数的导数是：
 
@@ -1432,7 +1434,63 @@ $$
 
 tanh函数的导数如下，当输入接近0时，tanh函数的导数接近最大值1。与sigmoid函数图像中看到的类似，输入在任一方向上远离0点，导数越接近0。
 
-<img width="281" alt="image" src="https://github.com/user-attachments/assets/292c0024-f39b-4e20-9671-cfbae269b3ca" />
+<p align="center">
+    <img width="281" alt="image" src="https://github.com/user-attachments/assets/292c0024-f39b-4e20-9671-cfbae269b3ca" />
+</center>
+
+-  $ReLU$ 函数
+线性整流单元（ReLU），ReLU提供了一种非常简单的非线性变换。给定元素x xx，ReLU函数被定义为该元素与0的最大值。
+
+$$
+\mathrm{ReLU}(x)=\max(x,0)
+$$
+
+<p align="center">
+    <img width="268" alt="image" src="https://github.com/user-attachments/assets/02aff382-1281-4d58-9dba-da334d434f78" />
+</center>
+
+当输入为负时，reLU函数的导数为0，而当输入为正时，ReLU函数的导数为1。当输入值等于0时，ReLU函数不可导。如下为ReLU函数的导数：
+
+$$
+f^{\prime}(x)=
+\begin{cases}
+1, & x\geq0 \\
+0, & x<0
+\end{cases}
+$$
+
+<p align="center">
+    <img width="273" alt="image" src="https://github.com/user-attachments/assets/189b0685-1647-4d67-99f4-842bf1c93fea" />
+</center>
+
+ReLU函数的求导表现的很好：要么让参数消失，要么让参数通过。ReLU减轻了神经网络的梯度消失问题。ReLU函数有很多变体，如LeakyReLU，pReLU等。
+
+-  $softmax$ 函数
+在二分类任务时，经常使用 $sigmoid$ 激活函数。而在处理多分类问题的时候，需要使用 $softmax$ 函数。它的输出有两条规则。
+1. 每一项的区间范围的(0,1)
+2. 所有项相加的和为1
+
+假设有一个数组 $V$，$V_i$ 代表 $V$ 中的第 $i$ 个元素，那么这个元素的softmax值的计算公式为：
+
+$$
+S_i=\frac{e^{i}}{\sum_{j} e^{j}}
+$$
+
+<p align="center">
+    <img width="318" alt="image" src="https://github.com/user-attachments/assets/acaf5fd5-872f-499c-9aad-766f9271f5c3" />
+</center>
+
+如图所示，输入的数组为 $[3, 1, -3]$ 。那么每项的计算过程为：
+
+当输入为3时，计算公式为 $\frac{e^{3}}{e^{3}+e^{1}+e^{-3}}\approx 0.88$ 
+
+当输入为1时，计算公式为 $\frac{e^{1}}{e^{3}+e^{1}+e^{-3}}\approx 0.12$
+
+当输入为-3时，计算公式为 $\frac{e^{-3}}{e^{3}+e^{1}+e^{-3}}\approx 0$ 
+
+$$
+\mathrm{softmax}(x_i)=\frac{\exp(x_i)}{\sum_{j} \exp(x_j)}
+$$
 
 ### GPT
 GPT 系列模型成体系推进：
