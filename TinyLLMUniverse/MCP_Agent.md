@@ -5,6 +5,20 @@
 
 代码地址：https://github.com/ditingdapeng/ollama_baseline
 
+# 环境部署
+
+参考：https://www.bilibili.com/opus/1075899615621939205?spm_id_from=333.1387.0.0
+
+## 安装 uv （Windows为例）
+
+UV是一个用 Rust 编写的极速 Python 包和项目管理工具，可替代pip、poetry、pyenv等多款工具，来实现python包的依赖管理。
+
+'''
+> powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+> set Path=C:\Users\kong_\.local\bin;%Path% 
+> uv python list
+'''
+
 olloma
 常用命令：
 ollama list                    # 列出所有已下载模型
