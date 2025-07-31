@@ -301,7 +301,7 @@ Claude Desktop配置文件(claude_desktop_config.json)
 
 https://www.modelscope.cn/studios/minmin1023/luner_info1
 
-<img width="320" height="240" alt="52839406be84031e13ffa88555e80198_image" src="https://github.com/user-attachments/assets/50fddf24-ea4a-482e-9795-57fbcaf52936" />
+<img width="640" height="480" alt="52839406be84031e13ffa88555e80198_image" src="https://github.com/user-attachments/assets/50fddf24-ea4a-482e-9795-57fbcaf52936" />
 
 <img width="640" height="480" alt="237103ef901ef33a424a92f2f279c5d6_image" src="https://github.com/user-attachments/assets/a5bd4dea-5315-4cc8-8573-02576b6eb66e" />
 
