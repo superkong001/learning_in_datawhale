@@ -285,15 +285,15 @@ Claude Desktop配置文件(claude_desktop_config.json)
 
 配置客户端（以Cherry Studio为例）
 
-<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/2b45f4a4-156b-4336-b734-8bf06bb976c1" />
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/2b45f4a4-156b-4336-b734-8bf06bb976c1" />
 
 - stdio:
 
-<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/2a69bc5c-ded8-4fde-a858-77ded4f113bd" />
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/2a69bc5c-ded8-4fde-a858-77ded4f113bd" />
 
 - SSE:
 
-<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/a5c647c3-0820-4ec6-bcc9-d4a8baa2da32" />
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/a5c647c3-0820-4ec6-bcc9-d4a8baa2da32" />
 
 ## 基于魔搭搭建MCP
 
@@ -301,7 +301,7 @@ Claude Desktop配置文件(claude_desktop_config.json)
 
 https://www.modelscope.cn/studios/minmin1023/luner_info1
 
-<img width="640" height="480" alt="52839406be84031e13ffa88555e80198_image" src="https://github.com/user-attachments/assets/50fddf24-ea4a-482e-9795-57fbcaf52936" />
+<img width="320" height="240" alt="52839406be84031e13ffa88555e80198_image" src="https://github.com/user-attachments/assets/50fddf24-ea4a-482e-9795-57fbcaf52936" />
 
 <img width="640" height="480" alt="237103ef901ef33a424a92f2f279c5d6_image" src="https://github.com/user-attachments/assets/a5bd4dea-5315-4cc8-8573-02576b6eb66e" />
 
