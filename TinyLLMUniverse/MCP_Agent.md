@@ -295,6 +295,50 @@ Claude Desktop配置文件(claude_desktop_config.json)
 
 <img width="833" height="529" alt="image" src="https://github.com/user-attachments/assets/a5c647c3-0820-4ec6-bcc9-d4a8baa2da32" />
 
+## 基于魔搭搭建MCP
+
+1. 复制魔搭创空间
+
+https://www.modelscope.cn/studios/minmin1023/luner_info1
+
+<img width="1172" height="756" alt="52839406be84031e13ffa88555e80198_image" src="https://github.com/user-attachments/assets/50fddf24-ea4a-482e-9795-57fbcaf52936" />
+
+<img width="1172" height="750" alt="237103ef901ef33a424a92f2f279c5d6_image" src="https://github.com/user-attachments/assets/a5bd4dea-5315-4cc8-8573-02576b6eb66e" />
+
+2. 复制 MCP Server 配置
+
+点击【通过API使用】，获取【MCP】页的 MCP Server 安装命令
+
+<img width="1230" height="751" alt="e644d370e1f4f534fa5cdd73620c4d8c_image" src="https://github.com/user-attachments/assets/5b40b28e-bea2-4f88-a744-49629b32e5ce" />
+
+<img width="1234" height="766" alt="75ede2d7d70625fc9a0c7c4d42817bef_image" src="https://github.com/user-attachments/assets/49cb7820-efba-4ce5-b96a-2657a20184ce" />
+
+3. 使用魔搭社区官方提供的 [mcp-inspector](https://modelscope.cn/studios/modelscope/mcp-inspector) 进行测试。
+
+<img width="2272" height="1558" alt="44a6cc751dbac09e7f1ad1c86be3fb21_image" src="https://github.com/user-attachments/assets/5442d7f1-080c-4fbb-bf72-65504a8babf3" />
+
+<img width="1642" height="988" alt="76a820c6532d078eb6a87c000680b2e6_image" src="https://github.com/user-attachments/assets/78db549c-bece-4395-a9c2-9f684b6fd382" />
+
+<img width="2180" height="1774" alt="826bbe19993e233ea3f06e27176a0e87_image" src="https://github.com/user-attachments/assets/8c12493e-d92f-4bd9-a5aa-fbaa30212dfa" />
+
+4. 发布MCP Server
+
+https://www.modelscope.cn/mcp/servers/create
+
+- 填写MCP Server信息
+
+<img width="1234" height="758" alt="3d1cf93bc51cd17aba78f25e193db9f2_image" src="https://github.com/user-attachments/assets/7a686e81-dac6-44dd-a4c0-3d8d8170bbd5" />
+
+- 粘贴创空间链接
+
+<img width="1324" height="823" alt="c549fe38d0d144f894d745f4a3bcfa4e_image" src="https://github.com/user-attachments/assets/caae0231-1f2a-4eef-9227-d516f9bbd9b2" />
+
+<img width="1323" height="735" alt="c94cf1c8f54e36c92e99659c9116226e_image" src="https://github.com/user-attachments/assets/6536b003-6c98-4aa7-99cf-13addd1a9103" />
+
+- 填写其他基本信息
+
+<img width="1323" height="737" alt="1ee6107c3d2ff0e787c7b6e74553a025_image" src="https://github.com/user-attachments/assets/3724e271-1716-44eb-8e83-b38facdedb51" />
+
 ## Gradio (Gradio能将普通的Python函数“变身”为可被大模型调用的MCP工具)
 
 Gradio 是一个非常适合快速搭建MCP Server的工具。它能将Python函数轻松转化为Web界面，并支持MCP Server模式，代码量少且易于上手。
