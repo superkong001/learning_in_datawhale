@@ -1,7 +1,7 @@
 
 <img width="451" height="570" alt="34a2752f5f5de7b5b85476fd64de6ac8_05782c31-bfdb-426f-ba93-0c74f345b358" src="https://github.com/user-attachments/assets/be71c648-fb2e-4ad3-af1d-0a7d8e418e02" />
 
-参考：基于《甄嬛传》角色数据，构建了一个完整的端侧智能体解决方案。
+[参考](https://www.datawhale.cn/activity/354/learn/200/4430/51/43)：基于《甄嬛传》角色数据，构建了一个完整的端侧智能体解决方案。
 
 代码地址：https://github.com/ditingdapeng/ollama_baseline
 
@@ -13,11 +13,23 @@
 
 UV是一个用 Rust 编写的极速 Python 包和项目管理工具，可替代pip、poetry、pyenv等多款工具，来实现python包的依赖管理。
 
-'''
+```
+# 1. 安装uv（如果未安装）
+pip install uv
+
 > powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 > set Path=C:\Users\kong_\.local\bin;%Path% 
 > uv python list
-'''
+
+# 2. 创建虚拟环境
+uv venv huanhuan_env
+
+# 3. 激活环境
+conda activate huanhuan_env
+
+# 4. 使用uv安装依赖（比pip快10-100倍）
+uv pip install -r requirements.txt
+```
 
 olloma
 常用命令：
@@ -31,6 +43,19 @@ ollama run <model> --verbose  # 显示性能信息
 ollama serve                  # 启动服务
 ollama create <name> -f <file> # 创建自定义模型
 
+系统要求：
+
+磁盘空间：至少预留10GB空间（用于后续模型下载）
+
+内存要求：根据模型大小而定
+
+7B模型：至少8GB内存
+
+13B模型：至少16GB内存
+
+33B模型：至少32GB内存
+
+```
 # 检查现有模型
 ollama list
 
@@ -74,27 +99,34 @@ ollama run huanhuan-qwen --verbose "介绍一下你自己"
 # - eval count: 响应token数量
 # - eval duration: 响应生成时间
 
-
 > curl http://127.0.0.1:11434
 # 预期返回：Ollama is running
+```
 
-sudo apt update && sudo apt install nginx -y
-sudo systemctl enable --now nginx
+## 创建一个uv-managed 的 mcp-server-demo项目工程
 
-参考：https://www.bilibili.com/opus/1075899615621939205?spm_id_from=333.1387.0.0
-安装 uv （Windows为例）,UV是一个用 Rust 编写的极速 Python 包和项目管理工具，可替代pip、poetry、pyenv等多款工具，来实现python包的依赖管理。
-> powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-> set Path=C:\Users\kong_\.local\bin;%Path% 
-> uv python list
-
-created a uv-managed project
+```
+> mkdir mcp-server-demo & cd mcp-server-demo
 > uv init mcp-server-demo
 
-MCP 依赖添加
+# MCP 依赖添加
 > cd mcp-server-demo
 > uv add "mcp[cli]"
+```
 
-修改main.py写MCP服务器
+修改main.py写MCP Server
+
+配置客户端（以Cherry Studio为例）
+
+<img width="1068" height="678" alt="image" src="https://github.com/user-attachments/assets/2b45f4a4-156b-4336-b734-8bf06bb976c1" />
+
+- stdio:
+
+<img width="814" height="558" alt="image" src="https://github.com/user-attachments/assets/2a69bc5c-ded8-4fde-a858-77ded4f113bd" />
+
+- SSE:
+
+<img width="833" height="529" alt="image" src="https://github.com/user-attachments/assets/a5c647c3-0820-4ec6-bcc9-d4a8baa2da32" />
 
 <img width="641" height="427" alt="ef752730a6a14c0b16691618955487aa_image" src="https://github.com/user-attachments/assets/25d2d3af-f2ce-412f-8ba8-e9c57818af31" />
 
