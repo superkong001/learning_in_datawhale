@@ -285,15 +285,15 @@ Claude Desktop配置文件(claude_desktop_config.json)
 
 配置客户端（以Cherry Studio为例）
 
-<img width="1068" height="678" alt="image" src="https://github.com/user-attachments/assets/2b45f4a4-156b-4336-b734-8bf06bb976c1" />
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/2b45f4a4-156b-4336-b734-8bf06bb976c1" />
 
 - stdio:
 
-<img width="814" height="558" alt="image" src="https://github.com/user-attachments/assets/2a69bc5c-ded8-4fde-a858-77ded4f113bd" />
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/2a69bc5c-ded8-4fde-a858-77ded4f113bd" />
 
 - SSE:
 
-<img width="833" height="529" alt="image" src="https://github.com/user-attachments/assets/a5c647c3-0820-4ec6-bcc9-d4a8baa2da32" />
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/a5c647c3-0820-4ec6-bcc9-d4a8baa2da32" />
 
 ## 基于魔搭搭建MCP
 
@@ -338,6 +338,21 @@ https://www.modelscope.cn/mcp/servers/create
 - 填写其他基本信息
 
 <img width="1323" height="737" alt="1ee6107c3d2ff0e787c7b6e74553a025_image" src="https://github.com/user-attachments/assets/3724e271-1716-44eb-8e83-b38facdedb51" />
+
+- 填写README信息，创建！
+
+```
+# luner_info每日黄历
+这是一个可以获取某天黄历情况的MCP，你可以输入空或日期获取当日或某日的黄历。日期格式形如：1991年1月1日或1991-01-01。
+获取得到的回答如下：
+日期 : 2025-07-01 00:00:00 农历 : 二零二五 乙巳[蛇]年 六月大初七 星期 : 星期二 八字 : 乙巳 壬午 辛未 戊子 今日节气: 无 下一节气: ('小暑', (7, 7), 2025) 季节 : 仲夏 生肖冲煞: 羊日冲牛 星座 : 巨蟹座 吉神方位: ['喜神西南', '财神正东', '福神西北', '阳贵东北', '阴贵正南'] 宜 : ['祭祀', '出行', '宴会', '沐浴', '剃头', '修造', '上表章', '上官', '进人口', '竖柱上梁', '经络', '纳财', '扫舍宇', '栽种', '牧养', '破土', '安葬', '祈福', '恤孤茕', '举正直', '裁制', '纳采', '搬移', '招贤', '宣政事', '覃恩', '施恩', '安抚边境', '解除', '求嗣', '整手足甲', '庆赐', '修仓库', '立券交易', '选将', '营建', '上册', '出师', '临政', '纳畜', '缮城郭', '整容', '颁诏', '雪冤'] 忌 : ['畋猎', '取鱼']
+```
+
+<img width="1250" height="768" alt="51ed46ae0ec5e9a2f68cbf3bd44847bf_image" src="https://github.com/user-attachments/assets/9224a429-4868-474f-b2ee-10326a4dd15e" />
+
+- MCP Server 发布
+
+<img width="1242" height="759" alt="a73c1f82726cd8e7eadcc6b3ad6baeaa_image" src="https://github.com/user-attachments/assets/fee05322-da7a-41dc-8cfc-1144cdab6736" />
 
 ## Gradio (Gradio能将普通的Python函数“变身”为可被大模型调用的MCP工具)
 
