@@ -295,5 +295,101 @@ Claude Desktop配置文件(claude_desktop_config.json)
 
 <img width="833" height="529" alt="image" src="https://github.com/user-attachments/assets/a5c647c3-0820-4ec6-bcc9-d4a8baa2da32" />
 
+## Gradio (Gradio能将普通的Python函数“变身”为可被大模型调用的MCP工具)
+
+Gradio 是一个非常适合快速搭建MCP Server的工具。它能将Python函数轻松转化为Web界面，并支持MCP Server模式，代码量少且易于上手。
+
+目前搭建mcp server的方法有很多，可以直接使用Python的mcp库或者fastmcp库，搭建mcp服务后本地调用。
+
+如果需要部署到云，目前可以部署到pipy平台或者云服务器上。但是在pipy平台由于网络问题，不方便国内用户直接使用。
+
+部署在云上可以在自有云或托管云平台，自有云上会面临网络配置等问题，对于新手也不太友好。
+
+有些小伙伴甚至没有自己的云服务器。所以我们推荐把目标放在托管云平台。
+
+使用gradio快速搭建MCP服务，结合魔搭创空间和gradio的奇妙组合，既解决了MCP云服务平台的问题，整体的搭建也不是很复杂。
+
+代码量少而且很好玩，可以在20分钟快速搞定一个自己的mcp。
+
+### 其核心技术栈如下：
+
+- Python： 作为主要的编程语言。
+
+- Gradio： 用于快速构建Web界面和MCP Server。
+
+- MCP相关库： Gradio内置了对MCP协议的支持，你无需额外安装复杂的MCP库。
+
+### Gradio 有 输入输出组件、控制组件、布局组件 几个基础模块
+
+- 输入输出组件 输入组件（如 Textbox 、 Slider 等）用于接收用户输入，输出组件（如 Label 、 Image 等）用于显示函数的输出结果。
+
+  输入输出组件 都有以下三个参数：
+
+  - fn ：绑定的函数，输入参数需与 inputs 列表类型对应
+  
+  - inputs ：输入组件变量名列表，（例如： [msg, chatbot] ）
+  
+  - ouputs ：输出组件变量名列表，（例如： [msg, chatbot] ）
+
+  另外不同的 输入输出组件、控制组件 有不同动作可响应（对应一些.方法，如下面的 msg.submit() ）
+
+- 布局组件 用于组织和排列这些输入和输出组件，以创建结构化的用户界面。如： Column （把组件放成一列）、 Row （把组件放成一行）
+
+    推荐使用 gradio.Blocks() 做更多丰富交互的界面， gradio.Interface() 只支持单个函数交互
+
+- 控制组件 用于直接调用函数，无法作为输入输出使用，如： Button （按钮）、 ClearButton （清除按钮）
+
+### 使用Gradio进行MCP Server开发主要有以下要点：
+
+- 明确输入输出： 这是MCP Server设计的核心。你的函数需要清晰地定义接受什么参数（输入）和返回什么结果（输出）。例如，黄历查询的输入是一个日期字符串，输出是黄历信息字符串。
+
+- 准确的MCP声明（Docstring）： 函数的Docstring必须准确、完整地描述其功能、参数类型、描述和返回值。大模型会依赖这些信息来理解和调用你的工具，如果声明不准确，大模型可能无法正确调用。
+
+- 功能实现： 编写实际的Python代码来实现MCP Server的核心逻辑。这可能涉及调用第三方API（使用requests库）、进行数据处理（使用pandas库）、或执行特定计算。
+
+- 异常处理： 考虑各种可能出现的异常情况（如无效输入、网络请求失败、API调用错误），并使用try-except块进行适当的错误处理，以提高MCP Server的稳定性和鲁棒性。
+
+- 依赖管理： 确保你的requirements.txt文件包含了所有必要的Python库（例如gradio, requests, cnlunar等），以便在魔搭创空间部署时能够正确安装。
+
+### 将函数快速变为MCP工具过程主要包括以下几步：
+
+1. 函数定义： 编写一个普通的Python函数，实现你MCP Server的核心功能。
+
+2. MCP声明（Docstring）： 这是最关键的一步！在你的Python函数的Docstring（文档字符串）中，按照特定的格式清晰地描述函数的用途、接受的参数以及返回的结果。大模型会“阅读”这些Docstring来理解你的工具，并决定何时以及如何调用它。
+
+  示例 Docstring 结构：
+
+  ```
+  [函数的功能描述]
+  
+  Args:
+      [参数名1]: [参数类型] [参数描述]
+      [参数名2]: [参数类型] [参数描述]
+      ...
+  
+  Returns:
+      [返回值类型] [返回值描述]
+  ```
+
+3. Gradio接口封装： 使用gradio.Interface将你的Python函数封装成一个Gradio应用。它会自动根据你的函数签名和Docstring生成用户界面。
+
+  ```
+  import gradio as gr
+  # ... 你的函数定义 ...
+  demo = gr.Interface(
+      fn=你的函数名,
+      inputs=["text"], # 根据你的函数输入类型调整
+      outputs="text",  # 根据你的函数输出类型调整
+      title="你的MCP Server名称",
+      description="你的MCP Server描述"
+  )
+  ```
+
+4. 启动MCP Server模式： 在启动Gradio应用时，设置mcp_server=True，Gradio就会自动暴露符合MCP协议的接口。
+
+  ```
+  demo.launch(mcp_server=True)
+  ```
+
 
 
