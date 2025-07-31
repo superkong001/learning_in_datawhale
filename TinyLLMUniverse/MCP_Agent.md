@@ -2,7 +2,12 @@
 
 <img width="451" height="570" alt="34a2752f5f5de7b5b85476fd64de6ac8_05782c31-bfdb-426f-ba93-0c74f345b358" src="https://github.com/user-attachments/assets/be71c648-fb2e-4ad3-af1d-0a7d8e418e02" />
 
-[参考](https://www.datawhale.cn/activity/354/learn/200/4430/51/43)：基于《甄嬛传》角色数据，构建了一个完整的端侧智能体解决方案。
+参考:
+
+> https://www.datawhale.cn/activity/354/learn/200/4430/51/43
+> https://www.datawhale.cn/learn/content/192/4320
+
+基于《甄嬛传》角色数据，构建了一个完整的端侧智能体解决方案。
 
 代码地址：https://github.com/ditingdapeng/ollama_baseline
 
