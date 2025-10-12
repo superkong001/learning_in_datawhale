@@ -35,6 +35,13 @@ Tips:
 P=10,I=0.001,D=0.01,采样周期T=200,matlab的simulink仿真图：
 <img width="1583" height="543" alt="db3397bba587cabf0a4d05482ef85d55_image-1" src="https://github.com/user-attachments/assets/822ba17b-bf8a-46ed-bdd2-a454bc9dc4ea" />
 
+### 应用场景
+- 电机速度/位置控制
+- 机器人关节控制
+- 平衡车稳定控制
+- 无人机姿态控制
+- 温度控制系统
+
 ### 实现步骤
 1. 计算误差：计算当前输出与期望输出之间的误差。
 2. 比例项：根据比例系数和误差计算比例项。
@@ -51,6 +58,7 @@ P=10,I=0.001,D=0.01,采样周期T=200,matlab的simulink仿真图：
 class PID:
     # pid的初始化赋值
     def __init__(self, Kp, Ki, Kd, setpoint=0, sample_time=0.01):
+		# 初始化PID控制器
         self.Kp = Kp
         self.Ki = Ki
         self.Kd = Kd
@@ -62,6 +70,7 @@ class PID:
 
     # pid的cal_process
     def update(self, measured_value):
+        # 计算控制输出
         error = self.setpoint - measured_value # 计算误差
         self.integral += error * self.sample_time # 积分
         derivative = (error - self.prev_error) / self. sample_time # 微分
