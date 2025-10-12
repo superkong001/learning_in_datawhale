@@ -16,7 +16,7 @@
 
 <img width="1888" height="916" alt="ddbf7d18f6d3df7830c625707af72af7_introduction2" src="https://github.com/user-attachments/assets/72213697-2c7a-4c44-a67d-3db2b75b9067" />
 
-不适用模型后训练场景：
+并非所有用例都需要进行适用模型后训练：
 
 - 若仅需模型遵循少量指令（如回避敏感话题或禁止公司间比较），通过提示工程即可实现，但该方法虽简单却不够稳定
 
