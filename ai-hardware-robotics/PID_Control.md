@@ -10,10 +10,155 @@ PID控制器通过以下三个基本组件来计算控制输入：
 - K_p 是比例系数。
 - K_i 是积分系数。
 - K_d 是微分系数。
-- 实现步骤
+
+### 实现步骤：
 1. 计算误差：计算当前输出与期望输出之间的误差。
 2. 比例项：根据比例系数和误差计算比例项。
 3. 积分项：对误差进行积分，并根据积分系数计算积分项。
 4. 微分项：计算误差的导数，并根据微分系数计算微分项。
 5. 计算控制输入：将比例项、积分项和微分项相加，得到控制输入。
 6. 应用控制输入：将控制输入应用于被控系统。
+
+<img width="585" height="99" alt="3c4d261fc6f192a60196215e5c2dd992_image" src="https://github.com/user-attachments/assets/f560dd8b-34f5-4f4f-8b11-fcc891171ff6" />
+
+### 示例代码（Python）
+
+``` 
+class PID:
+    # pid的初始化赋值
+    def __init__(self, Kp, Ki, Kd, setpoint=0, sample_time=0.01):
+        self.Kp = Kp
+        self.Ki = Ki
+        self.Kd = Kd
+        self.setpoint = setpoint
+        self.sample_time = sample_time
+ 
+        self.prev_error = 0
+        self.integral = 0
+
+    # pid的cal_process
+    def update(self, measured_value):
+        error = self.setpoint - measured_value # 计算误差
+        self.integral += error * self.sample_time # 积分
+        derivative = (error - self.prev_error) / self. sample_time # 微分
+ 
+        output = self.Kp * error + self.Ki * self.integral + self.Kd * derivative # 计算控制输入
+        self.prev_error = error # 保存误差
+ 
+        return output
+ 
+
+pid = PID(Kp=1.0, Ki=0.1, Kd=0.01, setpoint=100)
+measured_value = 90  # 假设的当前测量值
+control_input = pid.update(measured_value)
+ 
+print(f"Control Input: {control_input}")
+```
+
+### 示例代码（C语言）
+
+```
+void pid_init(pid_type_def *pid,uint8_t mode,float max_output,float max_iout,const float PID[3])
+{
+
+	pid->mode=mode;
+	pid->max_output=max_output;
+	pid->max_ioutput=max_iout;
+	pid->Dbuf[0]=pid->Dbuf[1]=pid->Dbuf[2];
+	pid->error[0]=pid->error[1]=pid->error[2]=pid->pout=pid->iout=pid->dout=0.0f;
+}
+
+float PID_calc(pid_type_def *pid,float ref,float set,float PID[3])
+{
+	pid->kp=PID[0];
+	pid->ki=PID[1];
+	pid->kd=PID[2];
+	
+	pid->error[2]=pid->error[1];
+	pid->error[1]=pid->error[0];
+	
+	pid->set=set;
+	pid->cur=ref;
+	
+	pid->error[0]=set-ref;
+	
+	if (pid->mode ==PID_POSITION)
+	{
+		pid->pout=pid->kp*pid->error[0];
+		pid->iout+=pid->ki*pid->error[0];
+		pid->Dbuf[2]=pid->Dbuf[1];
+		pid->Dbuf[1]=pid->Dbuf[0];
+		pid->Dbuf[0]=pid->error[0]-pid->error[1];
+		if (pid->iout>pid->max_ioutput)
+		{
+			pid->iout=pid->max_ioutput;
+		}
+		else if (pid->iout<-pid->max_ioutput)
+		{
+			pid->iout=-pid->max_ioutput;
+		}
+		if (pid->iout*pid->error[0]<0)
+		{
+			pid->iout=0;
+		}
+		if (pid->cur>0.707*pid->set || pid->cur<0.707*pid->set)
+		{
+				pid->dout=pid->kd*pid->Dbuf[0];
+		}
+		else
+		{
+					pid->dout=0;
+		}
+		pid->output=pid->pout+pid->iout+pid->dout;
+		if (pid->output>pid->max_output)
+		{
+			pid->output=pid->max_output;
+		}
+	}
+	
+	else if (pid->mode==PID_DELTA)
+	{
+		pid->pout=pid->kp*(pid->error[0]-pid->error[1]);
+		pid->iout=pid->ki*pid->error[0];
+		if (pid->iout>pid->max_ioutput)
+		{
+			pid->iout=pid->max_ioutput;
+		}		
+		else if (pid->iout<-pid->max_ioutput)
+		{
+			pid->iout=-pid->max_ioutput;
+		}
+		if (pid->iout*pid->error[0]<0)
+		{
+			pid->iout=0;
+		}
+		pid->Dbuf[2]=pid->Dbuf[1];
+		pid->Dbuf[1]=pid->Dbuf[0];
+		pid->Dbuf[0]=pid->error[0]-2.0f*pid->error[1]+pid->error[2];
+		
+		if (pid->cur>0.707*pid->set || pid->cur<0.707*pid->set)
+		{
+				pid->dout=pid->kd*pid->Dbuf[0];
+		}
+		else
+		{
+					pid->dout=0;
+		}
+				
+		pid->output+=pid->pout+pid->iout+pid->dout;
+
+		if (pid->output>pid->max_output)
+		{
+			pid->output=pid->max_output;
+		}
+
+
+	}
+	
+	return pid->output;
+}
+```
+
+
+
+
