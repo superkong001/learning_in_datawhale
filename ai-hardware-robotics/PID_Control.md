@@ -32,6 +32,9 @@ Tips:
             一看二调多分析， 调节质量不会低。
 ```
 
+P=10,I=0.001,D=0.01,采样周期T=200,matlab的simulink仿真图：
+<img width="1583" height="543" alt="db3397bba587cabf0a4d05482ef85d55_image-1" src="https://github.com/user-attachments/assets/822ba17b-bf8a-46ed-bdd2-a454bc9dc4ea" />
+
 ### 实现步骤
 1. 计算误差：计算当前输出与期望输出之间的误差。
 2. 比例项：根据比例系数和误差计算比例项。
