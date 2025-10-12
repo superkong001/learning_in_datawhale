@@ -180,6 +180,18 @@ float PID_calc(pid_type_def *pid,float ref,float set,float PID[3])
 }
 ```
 
+### 不同的优化算法
 
+1. 积分分离PID
+
+<img width="927" height="153" alt="560e55a00c9371867d3b1cdfe16a46b0_image-5" src="https://github.com/user-attachments/assets/5c19cf71-9b44-4332-bf37-7d349be022b0" />
+
+2. 变速积分的PID控制
+
+<img width="908" height="152" alt="2be6aab0dbc2c2cf81db0e554d565eb3_image-6" src="https://github.com/user-attachments/assets/04ec3894-803a-49fb-9861-9148b77fad19" />
+
+3. 不完全微分PID控制
+
+<img width="842" height="96" alt="c45b0dd2fd4fc84672d94d070760fdcb_image-7" src="https://github.com/user-attachments/assets/c73cc532-eb00-416b-b9ec-7903f7f3bec3" />
 
 
