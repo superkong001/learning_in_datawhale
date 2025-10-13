@@ -1,3 +1,5 @@
+参考：[datawhalechina的Post-training-of-LLMs](https://github.com/datawhalechina/Post-training-of-LLMs)
+
 ## 大模型训练
 
 <img width="1880" height="935" alt="8b0213d5fe10863367023c88087e2396_introduction1" src="https://github.com/user-attachments/assets/31434930-54ad-4540-91b4-ce1c681fce3a" />
