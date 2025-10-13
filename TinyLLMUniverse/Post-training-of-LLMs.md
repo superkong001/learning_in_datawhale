@@ -1,6 +1,6 @@
 参考：
-[datawhalechina的Post-training-of-LLMs](https://github.com/datawhalechina/Post-training-of-LLMs)
-[Agentic AI](https://www.deeplearning.ai/courses/agentic-ai/)
+- [datawhalechina的Post-training-of-LLMs](https://github.com/datawhalechina/Post-training-of-LLMs)
+- [Agentic AI](https://www.deeplearning.ai/courses/agentic-ai/)
 
 ## 大模型训练
 
