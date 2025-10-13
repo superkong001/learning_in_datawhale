@@ -26,7 +26,7 @@ $F_t$: **标定目标坐标系**（Calibration Target Frame）：固定在标定
 
 坐标系之间的关系通常用齐次变换矩阵（刚体变换）T表示：
 
-$T^i_j=\left[\begin{array}{cc}R^i_j & t^i_j 0 & 1\end{array}\right]$
+$T^i_j=[{array}{cc}R^i_j & t^i_j 0 & 1{array}]$
 
 其中 $R ∈ SO(3)$ , $t ∈ \R^{3}$ ,分别对应旋转变换与平移变换。T的上下标表示变换是对于哪两个坐标系，例如:
 
