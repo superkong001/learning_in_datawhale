@@ -60,71 +60,73 @@ T的上下标表示变换是对于哪两个坐标系，例如：
 
 在手眼标定中，我们希望求解相机与机械臂末端之间的固定关系矩阵 $H = T^{e}_{c}$，使得在两次不同姿态下满足以下几何约束关系。
 
-$$
-\subsection{1. 基本几何关系}
+1. 基本几何关系
 
 在任意时刻 $k$，系统满足：
 
+$$
 \begin{equation}
 T^{b}_{t} = T^{b}_{e} \, T^{e}_{c} \, T^{c}_{t}
 \label{eq:base}
 \end{equation}
+$$
 
 其中：
+$$
 \begin{itemize}
   \item $T^{b}_{e}$：基座到末端的变换；
   \item $T^{e}_{c}$：末端到相机的固定变换（待标定）；
   \item $T^{c}_{t}$：相机到标定板的变换（由相机标定得到）。
 \end{itemize}
+$$
 
----
-
-\subsection{2. 两次姿态的约束}
+2. 两次姿态的约束
 
 对于两次不同的姿态（编号 $1$ 和 $2$），有：
 
+$$
 \begin{equation}
 T^{b}_{e1} \, T^{e}_{c} \, T^{c1}_{t} = T^{b}_{e2} \, T^{e}_{c} \, T^{c2}_{t}
 \label{eq:pose12}
 \end{equation}
+$$
 
----
+3. 左乘逆矩阵并整理
 
-\subsection{3. 左乘逆矩阵并整理}
+对式 $\eqref{eq:pose12}$ 两边左乘 $(T^{b}_{e2})^{-1}$，得：
 
-对式 \eqref{eq:pose12} 两边左乘 $(T^{b}_{e2})^{-1}$，得：
-
+$$
 \begin{equation}
 (T^{b}_{e2})^{-1} T^{b}_{e1} \, T^{e}_{c} = T^{e}_{c} \, (T^{c2}_{t} (T^{c1}_{t})^{-1})
 \label{eq:intermediate}
 \end{equation}
+$$
 
----
-
-\subsection{4. 定义相对变换}
+4. 定义相对变换
 
 定义：
+$$
 \begin{align}
 A &= (T^{b}_{e2})^{-1} T^{b}_{e1}, \\
 B &= T^{c2}_{t} (T^{c1}_{t})^{-1}, \\
 H &= T^{e}_{c}.
 \end{align}
+$$
 
----
+5. 得到手眼标定的标准形式
 
-\subsection{5. 得到手眼标定的标准形式}
+将上式代入 $\eqref{eq:intermediate}$ ，即可得到手眼标定的核心方程：
 
-将上式代入 \eqref{eq:intermediate}，即可得到手眼标定的核心方程：
-
+$$
 \begin{equation}
 A \, H = H \, B
 \label{eq:handeye}
 \end{equation}
+$$
 
----
+6. 展开式推导过程（完整步骤）
 
-\subsection{6. 展开式推导过程（完整步骤）}
-
+$$
 \begin{align*}
 (T^b_{e2})^{-1}T^b_{e1}T^{e1}_{c1}T^{c1}_{t} 
 &= T^{e2}_{c2}T^{c2}_{t} (T^b_{e2})^{-1}T^b_{e1}T^{e1}_{c1} \\
@@ -133,24 +135,24 @@ A \, H = H \, B
 &= T^{e}_{c}T^{c2}_{c1} \\
 \Rightarrow \quad A H &= H B
 \end{align*}
+$$
 
----
+7. 含义说明
 
-\subsection{7. 含义说明}
-
+$$
 \begin{itemize}
   \item $A$：机械臂末端在两次运动之间的相对变换；
   \item $B$：标定板在相机视角下的相对变换；
   \item $H$：相机与末端之间的固定关系。
 \end{itemize}
+$$
 
-方程 \eqref{eq:handeye} 表示：
+方程 $\eqref{eq:handeye}$ 表示：
 
+$$
 \[
 \text{末端运动 } A \text{ 与相机视角变化 } B \text{ 之间，通过一个固定变换 } H \text{ 联系。}
 \]
-
----
 $$
 
 ### Eye In Hand
