@@ -134,7 +134,7 @@ $T^e_t = T^{e1}bT^{b}{c}T^{c}{t1} = T^{e2}bT^{b}{c}T^{c}{t2}$
 
 $$ 
 \begin{align*}
-T^{e1}bT^{b}{c}T^{c}{t1} \\
+T^{e1}bT^{b}{c}T^{c}{t1} 
 &= T^{e2}bT^{b}{c}T^{c}{t2} \ (T^{e2}b)^{-1}T^{e1}bT^{b}{c}T^{c}{t1} \\
 &= T^{b}{c}T^{c}{t2} \ (T^{e2}b)^{-1}T^{e1}bT^{b}{c} \\
 &= T^{b}{c}T^{c}{t2}(T^{c}{t1})^{-1} \ (T^b_{e2}T^{e1}b)T^{b}{c} \\
