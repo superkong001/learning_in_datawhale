@@ -67,6 +67,8 @@ $T^b_t = T^b_{e1}T^{e1}{c1}T^{c1}{t} = T^b_{e2}T^{e2}{c2}T^{c2}{t}$
 
 对上述等式进行变换
 
+<div align="left">
+
 $$ 
 \begin{align*} 
 (T^b_{e2})^{-1}T^b_{e1}T^{e1}{c1}T^{c1}{t}\\ 
