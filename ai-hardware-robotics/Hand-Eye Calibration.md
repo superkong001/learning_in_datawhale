@@ -68,14 +68,14 @@ $T^b_t = T^b_{e1}T^{e1}{c1}T^{c1}{t} = T^b_{e2}T^{e2}{c2}T^{c2}{t}$
 对上述等式进行变换
 
 $$
-\begin{align}
+\begin{align*}
 (T^b_{e2})^{-1}T^b_{e1}T^{e1}{c1}T^{c1}{t}\\
 =T^{e2}{c2}T^{c2}{t} \ (T^b_{e2})^{-1}T^b_{e1}T^{e1}{c1}\\
 =T^{e2}{c2}T^{c2}{t}(T^{c1}{t})^{-1} \ T^{e2}{e1}T^{e1}{c1}\\
 =T^{e2}{c2}T^{c2}{c1} \ T^{e2}{e1}T^{e}{c}\\
-=T^{e}{c}T^{c2}{c1} \ AH 
-= HB
-\end{align}
+=T^{e}{c}T^{c2}{c1}\\
+AH = HB
+\end{align*}
 $$
 
 其中 $T^e_c$ 就是最终需要求解的 $H$ 。
