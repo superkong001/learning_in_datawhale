@@ -1,5 +1,3 @@
-![28709e322392c29e0bfb9374a0ff7a97](https://github.com/user-attachments/assets/0955e59f-19e5-4397-ae9a-f193f5c9f000)## 手眼标定理论
-
 ### 手眼标定的定义
 
 手眼标定（Hand-Eye Calibration）是机器人视觉应用中的一个基础且关键的问题，主要用于统一视觉系统与机器人的坐标系，具体来说，就是确定摄像头与机器人的相对姿态关系。
