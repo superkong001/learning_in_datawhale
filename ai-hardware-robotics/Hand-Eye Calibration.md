@@ -58,104 +58,34 @@ T的上下标表示变换是对于哪两个坐标系，例如：
 
 ### 推导核心方程（Derivation of the Core Equation）
 
-在手眼标定中，我们希望求解相机与机械臂末端之间的固定关系矩阵 $H = T^{e}_{c}$，使得在两次不同姿态下满足以下几何约束关系。
+## 四、推导核心方程
 
-1. 基本几何关系
-
-在任意时刻 $k$，系统满足：
+当机械臂从姿态 1 移动到姿态 2 时，我们分别记录两次的位姿：
 
 $$
-\begin{equation}
-T^{b}_{t} = T^{b}_{e} \, T^{e}_{c} \, T^{c}_{t}
-\label{eq:base}
-\end{equation}
+(T^b_{e1}, T^{c1}_t)
+(T^b_{e2}, T^{c2}_t)
 $$
 
-其中：
+由几何关系：
 
-$$
-\begin{itemize}
-  \item $T^{b}_{e}$：基座到末端的变换；
-  \item $T^{e}_{c}$：末端到相机的固定变换（待标定）；
-  \item $T^{c}_{t}$：相机到标定板的变换（由相机标定得到）。
-\end{itemize}
-$$
+$T^b_{e1} T^{e1}_c T^{c1}_t = T^b_{e2} T^{e2}_c T^{c2}_t$
 
-2. 两次姿态的约束
+由于 $T^e_c$ 是固定的（相机固定安装在末端），即 $T^{e1}_c = T^{e2}_c = T^e_c$ ，因此：
 
-对于两次不同的姿态（编号 $1$ 和 $2$ ），有：
-
-$$
-\begin{equation}
-T^{b}_{e1} \, T^{e}_{c} \, T^{c1}_{t} = T^{b}_{e2} \, T^{e}_{c} \, T^{c2}_{t}
-\label{eq:pose12}
-\end{equation}
-$$
-
-3. 左乘逆矩阵并整理
-
-对式 $\eqref{eq:pose12}$ 两边左乘 $(T^{b}_{e2})^{-1}$，得：
-
-$$
-\begin{equation}
-(T^{b}_{e2})^{-1} T^{b}_{e1} \, T^{e}_{c} = T^{e}_{c} \, (T^{c2}_{t} (T^{c1}_{t})^{-1})
-\label{eq:intermediate}
-\end{equation}
-$$
-
-4. 定义相对变换
+$(T^b_{e2})^{-1} T^b_{e1} T^{e}_c = T^{e}_c (T^{c2}_t (T^{c1}_t)^{-1})$
 
 定义：
 
 $$
-\begin{align}
-A &= (T^{b}_{e2})^{-1} T^{b}_{e1}, \\
-B &= T^{c2}_{t} (T^{c1}_{t})^{-1}, \\
-H &= T^{e}_{c}.
-\end{align}
+A = (T^b_{e2})^{-1} T^b_{e1}
+B = T^{c2}_t (T^{c1}_t)^{-1}
+H = T^e_c
 $$
 
-5. 得到手眼标定的标准形式
+于是得到手眼标定的标准形式：
 
-将上式代入 $\eqref{eq:intermediate}$ ，即可得到手眼标定的核心方程：
-
-$$
-\begin{equation}
-A \, H = H \, B
-\label{eq:handeye}
-\end{equation}
-$$
-
-6. 展开式推导过程（完整步骤）
-
-$$
-\begin{align*}
-(T^b_{e2})^{-1}T^b_{e1}T^{e1}_{c1}T^{c1}_{t} 
-&= T^{e2}_{c2}T^{c2}_{t} (T^b_{e2})^{-1}T^b_{e1}T^{e1}_{c1} \\
-&= T^{e2}_{c2}T^{c2}_{t}(T^{c1}_{t})^{-1} \, T^{e2}_{e1}T^{e1}_{c1} \\
-&= T^{e2}_{c2}T^{c2}_{c1} \, T^{e2}_{e1}T^{e}_{c} \\
-&= T^{e}_{c}T^{c2}_{c1} \\
-\Rightarrow \quad A H &= H B
-\end{align*}
-$$
-
-7. 含义说明
-
-$$
-\begin{itemize}
-  \item $A$：机械臂末端在两次运动之间的相对变换；
-  \item $B$：标定板在相机视角下的相对变换；
-  \item $H$：相机与末端之间的固定关系。
-\end{itemize}
-$$
-
-方程 $\eqref{eq:handeye}$ 表示：
-
-$$
-\[
-\text{末端运动 } A \text{ 与相机视角变化 } B \text{ 之间，通过一个固定变换 } H \text{ 联系。}
-\]
-$$
+$A H = H B$
 
 ### Eye In Hand
 
