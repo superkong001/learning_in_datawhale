@@ -115,8 +115,10 @@ $$A H = H T^{c2}_t (T^{c1}_t)^{-1}   $$
 5. 记 $B = T^{c2}_t (T^{c1}_t)^{-1}$ ,于是得到手眼标定的标准形式：
 
 $$
-A H = H B  
-&(T^b_{e2})^{-1} T^b_{e1} T^{e}_c = T^{e}_c (T^{c2}_t (T^{c1}_t)^{-1})
+\begin{align*}
+(T^b_{e2})^{-1} T^b_{e1} T^{e}_c = T^{e}_c (T^{c2}_t (T^{c1}_t)^{-1})
+\Rightarrow \quad A H &= H B
+\end{align*}
 $$
 
 其中 $T^e_c$ 就是最终需要求解的 $H$ 。
