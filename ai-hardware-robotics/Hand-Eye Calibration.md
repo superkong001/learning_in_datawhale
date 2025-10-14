@@ -28,6 +28,8 @@ $F_c$: **相机坐标系**（Camera Frame），固定在相机光心处，用于
 
 $F_t$: **标定目标坐标系**（Calibration Target Frame），固定在标定目标（如棋盘格、圆点板）上。
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1d954057-b442-4488-b5ff-053b509b7fbd" />
+
 坐标系之间的关系通常用齐次变换矩阵（刚体变换）T表示：
 
 $$
