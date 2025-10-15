@@ -133,14 +133,14 @@ $$T^e_t = T^{e1}_ bT^{b}_ {c}T^{c}_ {t} = T^{e2}_ bT^{b}_ {c}T^{c}_ {t}$$
 
 $$ 
 \begin{align*}
-T^{e1}_ bT^{b}_ {c}T^{c}_ {t} 
-&= T^{e2}_ bT^{b}_ {c}T^{c}_ {t} \\
-(T^{e2}_ b)^{-1}T^{e1}_ bT^{b}_ {c}T^{c}_ {t} 
-&= T^{b}_ {c}T^{c}_ {t} \\
+T^{e1}_ bT^{b}_ {c}T^{c}_ {t1} 
+&= T^{e2}_ bT^{b}_ {c}T^{c}_ {t2} \\
+(T^{e2}_ b)^{-1}T^{e1}_ bT^{b}_ {c}T^{c}_ {t1} 
+&= T^{b}_ {c}T^{c}_ {t2} \\
 (T^{e2}_ b)^{-1}T^{e1}_ bT^{b}_ {c} 
-&= T^{b}_ {c}T^{c}_ {t}(T^{c}_ {t})^{-1} \\
+&= T^{b}_ {c}T^{c}_ {t2}(T^{c}_ {t1})^{-1} \\
 (T^b_ {e2}T^{e1}_ b)T^{b}_ {c} 
-&= T^{b}_ {c}(T^{c}_ {t}T^{t}_ c) \\
+&= T^{b}_ {c}(T^{c}_ {t2}T^{t1}_ c) \\
 \Rightarrow \quad A X &= X B
 \end{align*}
 $$
