@@ -225,7 +225,7 @@ R_X & t_X\\
 \begin{bmatrix}
 R_B & t_B\\
 0 & 1
-\end{bmatrix} \\[8pt]
+\end{bmatrix} \\
 \Rightarrow \quad
 \begin{bmatrix}
 R_A R_X & R_A t_X + t_A\\
