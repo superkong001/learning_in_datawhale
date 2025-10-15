@@ -248,6 +248,136 @@ R_A t_X + t_A &= R_X t_B + t_X \quad &(\text{平移部分})
 \end{align*}
 $$
 
+3. 旋转部分的共轭关系
+
+对旋转矩阵部分进行整理：
+
+$$
+\begin{align*}
+R_A R_X &= R_X R_B \\
+\Rightarrow \quad R_A &= R_X R_B R_X^{-1}
+\end{align*}
+$$
+
+说明 \(R_A\) 与 \(R_B\) 为相似变换（共轭关系），
+即它们共享同一旋转轴，但角度不同。
+
+4. 李群与李代数表示
+
+旋转矩阵属于李群 \(SO(3)\)，
+其李代数 \(so(3)\) 是一个三维欧式空间，
+旋转矩阵与旋转向量的关系为：
+
+$$
+R = \exp(\phi^\wedge)
+$$
+
+其中 \(\phi^\wedge\) 表示反对称矩阵：
+
+$$
+\phi^\wedge =
+\begin{bmatrix}
+0 & -\phi_3 & \phi_2\\
+\phi_3 & 0 & -\phi_1\\
+-\phi_2 & \phi_1 & 0
+\end{bmatrix}.
+$$
+
+因此，旋转矩阵与旋转向量通过指数映射与对数映射互相转换。
+
+5. 变换到李代数空间
+
+将旋转方程 \(R_A R_X = R_X R_B\) 写成指数形式：
+
+$$
+\exp(\alpha^\wedge)\exp(x^\wedge)
+= \exp(x^\wedge)\exp(\beta^\wedge)
+$$
+
+根据李群的共轭性质：
+
+$$
+\exp(\alpha^\wedge)
+= \exp(x^\wedge)\exp(\beta^\wedge)\exp(-x^\wedge)
+= \exp((R_X \beta)^\wedge)
+$$
+
+因此可得：
+
+$$
+\boxed{\alpha = R_X \beta}
+$$
+
+即在旋转向量空间中，
+\(A\) 的李代数向量等于 \(R_X\) 作用于 \(B\) 的李代数向量。
+
+6. 多组姿态下的最小二乘估计
+
+对于多组观测 \((A_i, B_i)\)，有：
+
+$$
+\alpha_i = R_X \beta_i
+$$
+
+目标是最小化误差：
+
+$$
+\min_{R_X} \sum_{i=1}^k \| R_X \beta_i - \alpha_i \|^2
+$$
+
+这是一个三维点云刚体对齐问题。
+
+定义矩阵：
+
+$$
+M = \sum_{i=1}^k \beta_i \alpha_i^T
+$$
+
+其最优解为：
+
+$$
+R_X = U V^T,
+\quad \text{其中 } M = U \Sigma V^T
+$$
+
+等价写法：
+
+$$
+R_X = (M^T M)^{-\frac{1}{2}} M^T
+$$
+
+7. 平移部分的解
+
+回到平移方程：
+
+$$
+R_A t_X + t_A = R_X t_B + t_X
+$$
+
+化简为：
+
+$$
+(R_A - I)t_X = R_X t_B - t_A
+$$
+
+当存在多组姿态时，利用最小二乘法求解：
+
+$$
+t_X =
+\left(\sum_i (R_{Ai}-I)^T(R_{Ai}-I)\right)^{-1}
+\left(\sum_i (R_{Ai}-I)^T(R_X t_{Bi}-t_{Ai})\right)
+$$
+
+8. 最终结果
+
+$$
+X =
+\begin{bmatrix}
+R_X & t_X\\
+0 & 1
+\end{bmatrix}
+$$
+
 原方程进行变换：
 
 $$
