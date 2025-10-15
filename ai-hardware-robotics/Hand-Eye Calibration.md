@@ -150,16 +150,16 @@ $$
 \begin{align*}
 T^{e1}_ bT^{b}_ {c}T^{c}_ {t1} 
 &= T^{e2}_ bT^{b}_ {c}T^{c}_ {t2} \\
-(T^{e1}_ bT^{b}_ {c}T^{c}_ {t1})^{-1}
-&= (T^{e2}_ bT^{b}_ {c}T^{c}_ {t2})^{-1} \\
-T^{t1}_ {c}T^{c}_ {b}T^b_ {e1}
-&= T^{t2}_ {c}T^{c}_ {b}T^b_ {e2} \\
 (T^{e2}_ b)^{-1}T^{e1}_ bT^{b}_ {c}T^{c}_ {t1} 
 &= T^{b}_ {c}T^{c}_ {t2} \\
 (T^{e2}_ b)^{-1}T^{e1}_ bT^{b}_ {c} 
 &= T^{b}_ {c}T^{c}_ {t2}(T^{c}_ {t1})^{-1} \\
 (T^b_ {e2}T^{e1}_ b)T^{b}_ {c} 
 &= T^{b}_ {c}(T^{c}_ {t2}T^{t1}_ c) \\
+((T^b_ {e2}T^{e1}_ b)T^{b}_ {c})^{-1} 
+&= (T^{b}_ {c}(T^{c}_ {t2}T^{t1}_ c))^{-1} \\
+T^{c}_ {b}T^b_ {e1}T^{e2}_ b
+&= T^c_ {t1}T^{t2}_ {c}T^{c}_ {b}
 \Rightarrow \quad A X &= X B
 \end{align*}
 $$
