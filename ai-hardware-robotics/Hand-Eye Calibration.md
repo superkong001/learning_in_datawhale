@@ -133,12 +133,13 @@ $$T^e_t = T^{e1}_ bT^{b}_ {c}T^{c}_ {t1} = T^{e2}_ bT^{b}_ {c}T^{c}_ {t2}$$
 
 $$ 
 \begin{align*}
-T^c_ {ti} 
-&= T^c_ b · T^b_ {ei} · T^{ei}_ t  \\
-T^c_ {t2} (T^c_ {t1})^{-1}
-&= T^c_ b · T^b_ {e2} · T^{e2}_ t · (T^{e1}_ t)^{-1} · (T^b_ {e1})^{-1} · (T^c_ b)^{-1} \\
-&= T^c_ b · [ T^b_ {e2} (T^b_ {e1})^{-1} ] · (T^c_ b)^{-1} \\
-B = X · A · X^{-1}   \\
+T^{e1}bT^{b}{c}T^{c}{t1} 
+&= T^{e2}bT^{b}{c}T^{c}{t2} \\ 
+(T^{e2}b)^{-1}T^{e1}bT^{b}{c}T^{c}{t1} 
+&= T^{b}{c}T^{c}{t2} \\
+(T^{e2}b)^{-1}T^{e1}bT^{b}{c} 
+&= T^{b}{c}T^{c}{t2}(T^{c}{t1})^{-1} \\ 
+(T^b_{e2}T^{e1}b)T^{b}{c} = T^{b}{c}(T^{c}{t2}T^{t1}_c) \\
 \Rightarrow \quad A X &= X B
 \end{align*}
 $$
