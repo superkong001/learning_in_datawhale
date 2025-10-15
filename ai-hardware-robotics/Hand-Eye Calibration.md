@@ -162,12 +162,14 @@ $AH = HB$ 求解方法，目前比较常用的是分步解法，即将方程组�
 
 原方程三个变量均为齐次变换矩阵（homogeneous transformation：将旋转和平移变换写在一个4x4的矩阵中），表示两个坐标系之间的变换，其基本结构为：
 
-$H=\left[\begin{array}{cc}
+$$
+H=\left[\begin{array}{cc}
 R & t \\
 0 & 1
-\end{array}\right]$
+\end{array}\right]
+$$
 
-其中$R ∈ SO(3)$,$t ∈ \R^{3}$,分别对应旋转变换与平移变换。
+其中 $R ∈ SO(3)$ , $t ∈ \R^{3}$ ,分别对应旋转变换与平移变换。
 
 原方程进行变换：
 
@@ -201,10 +203,12 @@ $$
 
 首先求解第一个只包含旋转矩阵的方程。
 
-$\begin{aligned}
+$$
+\begin{aligned}
 \theta_{A} \theta_{X}  =\theta_{X} \theta_{B} \\
 \theta_{A}  =\theta_{X} \theta_{B} \theta_{X}^T 
-\end{aligned}$
+\end{aligned}
+$$
 
 旋转矩阵为SO3群，SO3群为李群，每一个李群都有对应的李代数，其李代数处于低维的欧式空间（线性空间），是李群局部开域的切空间表示，李群与李代数可以通过指数映射与对数映射相互转换：
 
