@@ -133,11 +133,11 @@ $$T^e_t = T^{e1}_ bT^{b}_ {c}T^{c}_ {t1} = T^{e2}_ bT^{b}_ {c}T^{c}_ {t2}$$
 
 $$ 
 \begin{align*}
-T^{e1}bT^{b}{c}T^{c}{t1} 
-&= T^{e2}bT^{b}{c}T^{c}{t2} \ (T^{e2}b)^{-1}T^{e1}bT^{b}{c}T^{c}{t1} \\
-&= T^{b}{c}T^{c}{t2} \ (T^{e2}b)^{-1}T^{e1}bT^{b}{c} \\
-&= T^{b}{c}T^{c}{t2}(T^{c}{t1})^{-1} \ (T^b_{e2}T^{e1}b)T^{b}{c} \\
-&= T^{b}{c}(T^{c}{t2}T^{t1}_c) \\
+T^{e1}_ bT^{b}_ {c}T^{c}_ {t1} 
+&= T^{e2}_ bT^{b}_ {c}T^{c}_ {t2} \ (T^{e2}_ b)^{-1}T^{e1}_ bT^{b}_ {c}T^{c}_ {t1} \\
+&= T^{b}_ {c}T^{c}_ {t2} \ (T^{e2}_ b)^{-1}T^{e1}_ bT^{b}_ {c} \\
+&= T^{b}_ {c}T^{c}_ {t2}(T^{c}_ {t1})^{-1} \ (T^b_ {e2}T^{e1}_ b)T^{b}_ {c} \\
+&= T^{b}_ {c}(T^{c}_ {t2}T^{t1}_ c) \\
 \Rightarrow \quad A H &= H B
 \end{align*}
 $$
