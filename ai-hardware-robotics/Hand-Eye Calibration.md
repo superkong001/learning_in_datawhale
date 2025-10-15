@@ -174,8 +174,8 @@ $$
 原方程进行变换：
 
 $$
-AH  = HB 
-\begin{array}{l}
+AH  = HB \\
+&\begin{array}{l}
 \left[\begin{array}{cc}
 \theta_{A} & b_{A} \\
 0 & 1
