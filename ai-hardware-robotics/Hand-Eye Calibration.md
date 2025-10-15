@@ -122,6 +122,11 @@ $$
 
 $$T^e_t = T^{e1}_ bT^{b}_ {c}T^{c}_ {t1} = T^{e2}_ bT^{b}_ {c}T^{c}_ {t2}$$
 
+定义：
+- $A = (T^{c2}_ t)^{-1} T^{c1}_ t$    （相机视角下目标的相对运动）
+- $B = (T^b_ {e2})^{-1} T^b_ {e1}$    （末端相对于基座的相对运动）
+- $X = T^c_ b$                        （相机与基座之间的固定关系）
+
 $$ 
 \begin{align*}
 T^{e1}_ bT^{b}_ {c}T^{c}_ {t1} 
@@ -132,7 +137,7 @@ T^{e1}_ bT^{b}_ {c}T^{c}_ {t1}
 &= T^{b}_ {c}T^{c}_ {t2}(T^{c}_ {t1})^{-1} \\
 (T^b_ {e2}T^{e1}_ b)T^{b}_ {c} 
 &= T^{b}_ {c}(T^{c}_ {t2}T^{t1}_ c) \\
-\Rightarrow \quad A H &= H B
+\Rightarrow \quad A X &= X B
 \end{align*}
 $$
 
