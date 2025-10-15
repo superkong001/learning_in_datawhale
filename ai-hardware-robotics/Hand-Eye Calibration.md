@@ -175,7 +175,7 @@ $$
 
 $$
 AH  = HB \\
-&\begin{array}{l}
+\begin{array}{l}
 \left[\begin{array}{cc}
 \theta_{A} & b_{A} \\
 0 & 1
