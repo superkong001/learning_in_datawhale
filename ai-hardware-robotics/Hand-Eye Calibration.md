@@ -143,6 +143,8 @@ T^{e1}_ b T^b_ c T^c_ {t1}
 \end{align*}
 $$
 
+$(T^{e2}_ b)^{-1} T^{e1}_ b = T^b_ {e2}(T^b_ {e1})^{-1} = (T^{e2}_ {e1})^{-1}$
+
 $$ 
 \begin{align*}
 T^{e1}_ bT^{b}_ {c}T^{c}_ {t1} 
