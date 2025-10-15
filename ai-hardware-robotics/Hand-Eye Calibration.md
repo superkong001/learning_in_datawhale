@@ -1,4 +1,4 @@
-### 手眼标定的定义
+## 手眼标定的定义
 
 手眼标定（Hand-Eye Calibration）是机器人视觉应用中的一个基础且关键的问题，主要用于统一视觉系统与机器人的坐标系，具体来说，就是确定摄像头与机器人的相对姿态关系。
 
@@ -14,7 +14,9 @@
 1. 摄像头安装在机械手末端，称之为眼在手上（Eye in hand）
 2. 摄像头安装在机械臂外的机器人底座上，则称之为眼在手外（Eye to hand）
 
-### 手眼标定的数学模型
+![1990c1350e8a97d48b571af7b48c04b0_6_image_0_raw=true](https://github.com/user-attachments/assets/1ae6a904-31c0-4207-84c3-91291fb19d98)
+
+## 手眼标定的数学模型
 
 不管是眼在手上还是眼在手外，它们求解的数学方程是一样的，手眼标定的核心方程都为 $AH = HB$ 。
 
@@ -64,7 +66,10 @@ T的上下标表示变换是对于哪两个坐标系，例如：
 ### Eye In Hand 推导核心方程（Derivation of the Core Equation）
 
 当相机固定在机械臂末端时，相机与末端执行器之间的变换是固定的进行该类手眼标定时，会将标定板固定在一处，然后控制机械臂移动到不同位置，使用机械臂上固定的相机，在不同位置对标定板拍照，拍摄多组不同位置下标定板的照片。
-当机械臂从姿态 1 移动到姿态 2 时，我们分别记录两次的位姿：
+
+![09ccdf1018bf828fa6cb4f57816131b9_6_image_1_raw=true](https://github.com/user-attachments/assets/c19e3d68-2856-4cf8-9bf1-f3eb051ae72c)
+
+当机械臂从姿态 1 移动到姿态 2 时，分别记录两次的位姿：
 
 $$
 (T^b_{e1}, T^{c1}_t)
@@ -122,6 +127,8 @@ $$
 
 当相机固定在机械臂以外时，相机与末端执行器的相对位置会随着机械臂的运动而改变。进行该类手眼标定时，会将标定板固定在机械臂末端，然后控制机械臂拿着标定板，围绕着固定的相机拍照。为了求解的准确性，一般需要拍摄多于10组的照片。
 
+![3e06961ddbc9c5469e4361deab822e8f_6_image_2_raw=true](https://github.com/user-attachments/assets/4ef59887-b71e-49f0-a9a1-31c053fa91b5)
+
 由于此时标定板是固定在机械臂末端的，二者相对位置在拍摄不同照片时值不变，所以有：
 
 $$T^e_t = T^{e1}_ bT^{b}_ {c}T^{c}_ {t} = T^{e2}_ bT^{b}_ {c}T^{c}_ {t}$$
@@ -145,11 +152,135 @@ T^{e1}_ bT^{b}_ {c}T^{c}_ {t1}
 \end{align*}
 $$
 
-### 求解 $AH = HB$ 
+## 求解 $AH = HB$ 
 
 $AH = HB$ 求解方法，目前比较常用的是分步解法，即将方程组进行分解，然后利用旋转矩阵的性质，先求解出旋转，然后将旋转的解代入平移求解中，再求出平移部分。
 
 常见的两步经典算法有将旋转矩阵转为旋转向量求解的Tsai-Lenz方法，基于旋转矩阵李群性质（李群的伴随性质）进行求解的Park方法等。
 
+### Park方法求解旋转
 
+原方程三个变量均为齐次变换矩阵（homogeneous transformation：将旋转和平移变换写在一个4x4的矩阵中），表示两个坐标系之间的变换，其基本结构为：
 
+$H=\left[\begin{array}{cc}
+R & t \\
+0 & 1
+\end{array}\right]$
+
+其中$R ∈ SO(3)$,$t ∈ \R^{3}$,分别对应旋转变换与平移变换。
+
+原方程进行变换：
+
+$$
+AH  = HB \\
+\begin{array}{l}
+\left[\begin{array}{cc}
+\theta_{A} & b_{A} \\
+0 & 1
+\end{array}\right]\left[\begin{array}{cc}
+\theta_{X} & b_{X} \\
+0 & 1
+\end{array}\right]  =\left[\begin{array}{cc}
+\theta_{X} & b_{X} \\
+0 & 1
+\end{array}\right]\left[\begin{array}{cc}
+\theta_{B} & b_{B} \\
+0 & 1
+\end{array}\right]\\
+\end{array}
+$$
+
+所以有（乘积结果旋转与平移部分对应位置相等）：
+
+$$
+\begin{aligned}
+\theta_{A} \theta_{X} & =\theta_{X} \theta_{B} \\
+\theta_{A} b_{X}+b_{A} & =\theta_{X} b_{B}+b_{X}
+\end{aligned}
+$$
+
+首先求解第一个只包含旋转矩阵的方程。
+
+$\begin{aligned}
+\theta_{A} \theta_{X}  =\theta_{X} \theta_{B} \\
+\theta_{A}  =\theta_{X} \theta_{B} \theta_{X}^T 
+\end{aligned}$
+
+旋转矩阵为SO3群，SO3群为李群，每一个李群都有对应的李代数，其李代数处于低维的欧式空间（线性空间），是李群局部开域的切空间表示，李群与李代数可以通过指数映射与对数映射相互转换：
+
+![4e3bb1be12b047a43c05806404948432_6_image_3_raw=true](https://github.com/user-attachments/assets/fcdc720c-b9ea-4717-a4b8-7a63b1ff386a)
+
+对于旋转矩阵R，与对应的李代数**Φ **变换关系可以如下表示：
+
+$R = \exp(Φ^{\wedge}) = \exp [Φ]$
+
+其中[]符号表示^操作，及转为反对称矩阵，或者说叉积。
+
+对于SO(3)，其伴随性质为：
+
+![3838c668f5e8bc2d24ce96ecd1045fda_6_image_3_1_raw=true](https://github.com/user-attachments/assets/6b51b4bc-e957-40aa-9f61-de6d9ee117e2)
+
+$$
+\begin{aligned}
+\theta_{A}  & =\theta_{X} \theta_{B} \theta_{X}^T \\
+\exp [\alpha] & = \theta_{X}\exp [\beta]\theta_{X}^T  \\
+\exp [\alpha] & = \exp [\theta_{X}\beta]  \\
+\alpha &= \theta_{X}\beta
+\end{aligned}
+$$
+
+当存在多组观测时，上述问题可以转化为如下最小二乘问题：
+
+![b840125b35f6bc12306073bd6093816a_6_image_3_2_raw=true](https://github.com/user-attachments/assets/93d853bf-287f-4399-b718-cb9dfb5bd2d8)
+
+α与β为对应旋转的李代数，它们都是三维向量，可以看作一个三维点，那么上述问题等同于一个点云配准问题：  
+
+![13ad8648ce9f2aadffc13c6012c95a09_6_image_3_4_1_raw=true](https://github.com/user-attachments/assets/03b0ba18-c12d-4955-aa09-9de4d2bce250)
+
+该问题有最小二乘解为：  
+
+![b88b4acfd1f4c64dba3e125dae837974_6_image_3_3_raw=true](https://github.com/user-attachments/assets/6f23ac30-f952-417f-8152-0854bd094b5b)
+
+其中：  
+
+![84f507ddb5f10f0c5d99ad7f28cf8054_6_image_3_4_raw=true](https://github.com/user-attachments/assets/8d22a27d-2729-496f-94cb-a67300dccd2d)
+
+### Park方法求解平移
+
+    在求解得到旋转矩阵后，将旋转矩阵值代入第二个方程：
+
+$$
+\begin{aligned}
+\theta_{A} b_{X}+b_{A} & =\theta_{X} b_{B}+b_{X} \\
+\theta_{A} b_{X} - b_{X} & =\theta_{X} b_{B}- b_{A} \\
+(\theta_{A} - I)b_{X}  & =\theta_{X} b_{B}- b_{A} \\
+Cb_{X} &= D
+\end{aligned}
+$$
+
+其中C与D均为已知值，由于C不一定可逆，原方程做如下变换：  
+
+$$
+\begin{aligned}
+Cb_{X} &= D \\
+C^TCb_{X} &= C^TD \\
+b_{X} &= (C^TCX)^{-1}C^TD
+\end{aligned}
+$$
+
+即可求得平移部分。
+
+当有多组观测值时  
+
+<img width="616" height="68" alt="f2f1e0b9be6bf7d205df0c915c6aa785_6_image_3_5_raw=true" src="https://github.com/user-attachments/assets/1cac07e0-9d34-4c02-b13c-e5eeca849c3b" />
+
+最终的解为： 
+
+$$
+\begin{aligned}
+H = \left[\begin{array}{cc}
+\theta_{X} & b_{X} \\
+0 & 1
+\end{array}\right]
+\end{aligned}
+$$
