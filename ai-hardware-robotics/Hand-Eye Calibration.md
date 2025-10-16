@@ -1,3 +1,17 @@
+## 参考
+
+[1.手眼标定算法---Sai-Lenz(A New Technique for Fully Autonomous and Efficient 3D Robotics Hand/Eye Calibrati)](https://blog.csdn.net/u010368556/article/details/81585385)
+
+[2.机器人手眼标定使用指南](https://docs.mech-mind.net/1.5/zh-CN/SoftwareSuite/MechVision/CalibrationGuide/CalibrationGuide.html)
+
+[3.标定学习笔记（四）-- 手眼标定详解](https://blog.csdn.net/qq_45006390/article/details/121670412)
+
+[4.Camera Calibration and 3D Reconstruction](https://docs.opencv.org/4.10.0/d9/d0c/group__calib3d.html#gad10a5ef12ee3499a0774c7904a801b99)
+
+[5.3D视觉工坊-手眼标定（附opencv实现代码）](https://blog.csdn.net/z504727099/article/details/115494147)
+
+[6.Hand-Eye Calibration](https://github.com/datawhalechina/ai-hardware-robotics/blob/main/02-%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80%E5%92%8C%E6%8E%A7%E5%88%B6%E3%80%81%E6%89%8B%E7%9C%BC%E5%8D%8F%E8%B0%83/Hand-Eye%20Calibration.md)
+
 ## 手眼标定的定义
 
 手眼标定（Hand-Eye Calibration）是机器人视觉应用中的一个基础且关键的问题，主要用于统一视觉系统与机器人的坐标系，具体来说，就是确定摄像头与机器人的相对姿态关系。
@@ -541,3 +555,49 @@ H = \left[\begin{array}{cc}
 \end{array}\right]
 \end{aligned}
 $$
+
+## OpenCV中的手眼标定方法及标定注意事项
+
+手眼标定算法按照实现原理可以将所有方法分为三类：独立闭式解，同时闭式解，迭代方法 
+
+> a.独立闭式解 **（seperable closed-form solutions）**: 与位移分量分开求解旋转分量。
+> 
+> 缺点: 旋转分量Rx的计算误差会被带入位移分量tx的计算中。
+> 
+> b.同时闭式解 **（simultaneous closed-form solutions）**： 同时求解位移分量和旋转分量
+> 
+> 缺点: 由于噪声的影响，旋转分量Rx的求解可能不一定是正交矩阵。因此，必须对旋转分量采取正交化步骤。然而，相应的位移分量没有被重新计算，这会导致求解错误。
+> 
+> c.迭代方法 **（iterative solutions）**： 使用优化技术迭代求解旋转分量和平移分量。
+> 
+> 缺点: 这种方式计算量可能很大，因为这些方法通常包含复杂的优化程序。此外，随着方程数量(n)变大，迭代解与封闭式解之间的差异通常会变小。因此，使用此方法前必须决定迭代解决方案的准确性是否值得计算成本。
+
+### OpenCV中的手眼标定接口
+
+![13d5bcd32e242de6e47a911a51c483cb_6_image_4_raw=true](https://github.com/user-attachments/assets/7911e478-417e-45d6-a286-af82ed122af7)
+
+OpenCV主要实现了前两类方法，其中默认方法为TSAI。PARK，HORAUD也是独立解方法。ANDREFF，DANIILIDIS是同时闭式解，（从同一组数据实验中得到结论，认为独立解中TSAI方法求得解的误差较大）。
+
+采集多组标定数据，传入相应的机械臂数据与摄像头标定板定位数据，就可以获得标定结果。
+
+### 标定注意事项
+
+当新手进行第一次标定时，需要注意如下事项：
+
+一：用calibrateCamera求标定板到相机的R,t，跟抓取用的内参不同，造成误差
+
+二：标定板角点方向反了。默认从左到右，有时会出现从右到左，导致不在统一坐标系。
+
+三：标定板面积过小，而且只在中心移动。会导致边缘不准。
+
+四：标定时要旋转
+
+五：图片太少。要10张以上
+
+六。某些相机有问题，rgbd的变换矩阵要注意
+
+## 评价手眼标定效果
+
+![9c26512effc6f7e5069b0b67f7b6083b_6_image_6_raw=true](https://github.com/user-attachments/assets/ea34da23-4dc4-4415-9ab9-51b9f4849373)
+
+
