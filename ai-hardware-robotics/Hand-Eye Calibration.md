@@ -598,6 +598,25 @@ OpenCV主要实现了前两类方法，其中默认方法为TSAI。PARK，HORAUD
 
 ## 评价手眼标定效果
 
-![9c26512effc6f7e5069b0b67f7b6083b_6_image_6_raw=true](https://github.com/user-attachments/assets/ea34da23-4dc4-4415-9ab9-51b9f4849373)
+通过测量几组不同位置的目标点，我们可以比较：
 
+测量值：
+
+$$
+P_{measure}
+$$
+
+和预测值：
+
+$$
+P_{predict} = T^{robot}_{camera} \, P_{camera}
+$$
+
+之间的距离误差：
+
+$$
+err = P_{measure} - T^{robot}_{camera} \, P_{camera}
+$$
+
+通过计算各个点的误差的**均值**和**标准差**，最终我们可以计算出标定结果的系统误差（均值）和随机误差（标准差）。
 
