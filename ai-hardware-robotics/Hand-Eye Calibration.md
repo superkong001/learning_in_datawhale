@@ -306,8 +306,7 @@ $$
 指数映射：
 
 $$
-R = \exp(\phi^\wedge)
-= 
+R = \exp(\phi^\wedge) = 
 \begin{bmatrix}
 \cos\theta & -\sin\theta & 0\\
 \sin\theta & \cos\theta & 0\\
