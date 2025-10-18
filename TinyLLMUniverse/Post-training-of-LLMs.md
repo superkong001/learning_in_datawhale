@@ -343,6 +343,8 @@ GRPO 由 DeepSeek 提出，用于优化大型语言模型的推理能力。
   
   <img width="1783" height="925" alt="95314eed344dbbcd8afa1d61fa9b8293_introduction8" src="https://github.com/user-attachments/assets/8a57e6d8-407a-49dc-a37a-41540d0398f7" />
 
+<img width="740" height="389" alt="image" src="https://github.com/user-attachments/assets/5f380454-7140-46f0-aa43-58a6e8b1aa8e" />
+
 ### 大语言模型训练后优化方法比较
 
 | 方法                     | 原理                                       | 优势                                         | 劣势                                                  |
