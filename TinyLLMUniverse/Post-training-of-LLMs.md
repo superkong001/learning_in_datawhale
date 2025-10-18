@@ -192,7 +192,7 @@ $$
 
 #### 两种主流的在线强化学习算法
 
-1. **PPO（Proximal Policy Optimization）**
+1. **近端策略优化（PPO，Proximal Policy Optimization）**
 
 PPO 是第一代 ChatGPT 所使用的在线强化学习算法。
 
@@ -274,7 +274,7 @@ KL 散度提供一种“软约束”：
 | **SFT + KL 正则化** | 防止监督微调导致语义崩塌 |
 | **知识蒸馏 / 模型蒸馏** | 衡量教师分布与学生分布的差距 |
 
-2. **GRPO（Group Relative Policy Optimization）**
+2. **群体相对策略优化（GRPO，Group Relative Policy Optimization）**
 
 GRPO 由 DeepSeek 提出，用于优化大型语言模型的推理能力。
 
