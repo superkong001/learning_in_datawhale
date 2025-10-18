@@ -303,6 +303,19 @@ GRPO 由 DeepSeek 提出，用于优化大型语言模型的推理能力。
 | 奖励适配 | 适合连续或模型化奖励                 | 适合二元/可验证奖励                   |
 | 应用场景 | 聊天、对齐、安全优化                 | 数学、代码、推理任务                   |
 
+#### GRPO - Online RL 实践
+
+针对分组相对策略优化（GRPO）——一种主流的在线强化学习方法。在线强化学习旨在让模型自主探索更优回复。
+
+在本实验中，将首先策划一组数学题目，（GSM8K数据集，下图）将其输入当前语言模型，并让模型生成多条回复；随后设计一个可验证奖励函数，用于检验回复是否与标准答案一致；由此获得〈提示，回复，奖励〉三元组，并利用 GRPO 更新语言模型。
+
+<img width="1915" height="1130" alt="7614db0c240dde4b31c4f3d3a643ac9b_GSM8K%E6%95%B0%E6%8D%AE%E9%9B%86" src="https://github.com/user-attachments/assets/aef7ccf5-e205-41f1-bad8-5c94271f27e6" />
+
+- **helper.py**：实验用工具函数集合，供本文与 Notebook 直接引用，包含：
+  - `generate_responses(model, tokenizer, ...)`：使用分词器的 chat template 组织对话并生成模型回复；支持传入完整 `messages`。
+  - `test_model_with_questions(model, tokenizer, questions, ...)`：批量测试若干题目，打印输入与输出，便于快速检查模型行为。
+  - `load_model_and_tokenizer(model_name, use_gpu=False)`：加载 Causal LM 与分词器，必要时补充 `chat_template` 与 `pad_token`，并根据是否使用 GPU 将模型放置到对应设备。
+  - `display_dataset(dataset)`：将含 `messages` 结构的数据集的前若干条以表格形式展示，便于快速浏览样例。
 
 ### 成功的后训练需要确保三个关键要素
 
