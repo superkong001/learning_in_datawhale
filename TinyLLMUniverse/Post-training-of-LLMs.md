@@ -33,6 +33,10 @@
 
 ## 后训练方法
 
+<img width="740" height="368" alt="image" src="https://github.com/user-attachments/assets/7f2ae926-9038-4d6f-beb1-812757dad466" />
+
+<img width="731" height="296" alt="image" src="https://github.com/user-attachments/assets/dce76d95-f9e2-43e1-b6a6-6fa296f82dd9" />
+
 ### 监督微调（Supervised Fine‑Tuning,SFT）
 
 它是一种把通用语言模型转换成任务型助手的方法，使其学会遵循指令或使用工具。通过训练提示与理想回应的成对数据（带标注的提示-响应对），模型学会模仿示例中的回答，从而能够按照指令行事、展示期望的行为并正确调用工具，核心在于让模型模仿输入提示与输出响应间的映射关系。该技术特别适用于引入新行为或对模型进行重大调整。此过程仅需1,000至10亿个标记，远少于预训练规模。其训练损失的关键区别在于：仅对响应标记进行训练，而不涉及提示标记。如：对一个千问小模型进行指令遵循微调。
