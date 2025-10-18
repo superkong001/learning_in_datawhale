@@ -215,6 +215,7 @@ $$\mathcal{J}_{PPO}(\theta) = \mathbb{E}_{q \sim P(Q), o \sim \pi_{\theta_{\text
 - 反馈粒度更细；
 - 但需额外训练价值模型 → 占用更多 GPU 内存。
 
+
 - **Tip-1：KL 散度（Kullback–Leibler Divergence）**
 
 KL散度是一种衡量两个概率分布差异的指标。KL 散度越小，说明微调后的模型分布越接近原始模型分布。
