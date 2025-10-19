@@ -230,11 +230,11 @@ PPO 是第一代 ChatGPT 所使用的在线强化学习算法。
 1. 输入一组查询（queries） ( $q$ )；
 2. 通过 **策略模型（Policy Model）**（即语言模型本身）生成响应；
 3. 响应被送入以下模块：
-- **参考模型（Reference Model）**：计算 KL 散度，限制模型不偏离原始分布；
-- **奖励模型（Reward Model）**：计算奖励；
-- **价值模型（Value Model）** 或 **评论者模型（Critic Model）**：为每个 Token 分配价值。
+- **参考模型（Reference Model）**：计算 KL 散度，限制模型不偏离原始分布（即：保证原始权重不更新太多）；
+- **奖励模型（Reward Model）**：计算奖励，即根据query和response计算reward；
+- **价值模型（Value Model）** 或 **评论者模型（Critic Model）**：为每个 Token 分配价值，可以将响应级奖励分解为令牌级奖励。
 4. 使用 **广义优势估计（Generalized Advantage Estimation, GAE）**
-- 来计算每个 Token 的 **优势函数（Advantage）**，反映该 Token 的贡献。
+- 来计算每个 Token 的 **优势函数（Advantage）**，反映该 Token 的贡献，即每个单独令牌的积分或每个单独令牌对整个响应的贡献。
 
 PPO 的目标函数：
 
