@@ -218,6 +218,8 @@ $$
 
 #### 两种主流的在线强化学习算法
 
+<img width="419" height="231" alt="image" src="https://github.com/user-attachments/assets/22313100-12aa-4770-9a6f-e77b4151de83" />
+
 1. **近端策略优化（PPO，Proximal Policy Optimization）**
 
 PPO 是第一代 ChatGPT 所使用的在线强化学习算法。
