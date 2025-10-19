@@ -201,7 +201,7 @@ $$
 - 可应用于开放式任务，如聊天能力、安全性提升等；
 - 但在“正确性导向”的任务（如代码、数学、函数调用）中可能不够精确。
 
-<img width="635" height="346" alt="image" src="https://github.com/user-attachments/assets/c868c7a8-13c7-40fa-9e53-bf3df1b690ba" />
+<img width="1818" height="968" alt="image" src="https://github.com/user-attachments/assets/6e525205-fe9c-4d13-af3f-d56347d499d2" />
 
 2. **可验证奖励（Verifiable Reward）**
 
@@ -214,7 +214,7 @@ $$
 - 准备成本较高，但奖励信号更精确可靠；
 - 更适合训练**推理类模型**（Reasoning Models），如代码、数学领域。
 
-<img width="615" height="325" alt="image" src="https://github.com/user-attachments/assets/3efa3062-7bb1-4737-9098-060c902bfb37" />
+<img width="1780" height="904" alt="image" src="https://github.com/user-attachments/assets/28486a31-3295-453c-8ebb-45a8b05bcf88" />
 
 #### 两种主流的在线强化学习算法
 
