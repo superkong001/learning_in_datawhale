@@ -324,6 +324,8 @@ GRPO 由 DeepSeek 提出，用于优化大型语言模型的推理能力。
 
 **PPO 与 GRPO 的比较总结**
 
+<img width="402" height="260" alt="image" src="https://github.com/user-attachments/assets/b0a31fee-d100-4705-a070-7908cacc8f07" />
+
 | 特征   | PPO                        | GRPO                         |
 | ---- | -------------------------- | ---------------------------- |
 | 优势估计 | 基于价值模型 (Value Model) 的精细估计 | 基于响应组的相对奖励 (Relative Reward) |
