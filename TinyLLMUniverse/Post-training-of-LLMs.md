@@ -182,8 +182,6 @@ dpo_trainer.train()
 
 #### 奖励函数（Reward Function）的选择
 
-<img width="635" height="346" alt="image" src="https://github.com/user-attachments/assets/c868c7a8-13c7-40fa-9e53-bf3df1b690ba" />
-
 在在线强化学习中，奖励函数的设计至关重要。常见有两种类型：
 
 1. **训练好的奖励模型（Reward Model）**
@@ -203,6 +201,8 @@ $$
 - 可应用于开放式任务，如聊天能力、安全性提升等；
 - 但在“正确性导向”的任务（如代码、数学、函数调用）中可能不够精确。
 
+<img width="635" height="346" alt="image" src="https://github.com/user-attachments/assets/c868c7a8-13c7-40fa-9e53-bf3df1b690ba" />
+
 2. **可验证奖励（Verifiable Reward）**
 
 在“正确性导向”场景中，更推荐使用**可验证奖励**：
@@ -213,6 +213,8 @@ $$
 - 需提前准备真值（Ground Truth）或测试集；
 - 准备成本较高，但奖励信号更精确可靠；
 - 更适合训练**推理类模型**（Reasoning Models），如代码、数学领域。
+
+<img width="615" height="325" alt="image" src="https://github.com/user-attachments/assets/3efa3062-7bb1-4737-9098-060c902bfb37" />
 
 #### 两种主流的在线强化学习算法
 
