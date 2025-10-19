@@ -220,6 +220,8 @@ $$
 
 <img width="1179" height="687" alt="image" src="https://github.com/user-attachments/assets/4fde56f0-8583-411d-8f26-350e4b4c5ce7" />
 
+- 图中：黄色框内模型会更新；蓝色框内模型不更新；
+
 1. **近端策略优化（PPO，Proximal Policy Optimization）**
 
 PPO 是第一代 ChatGPT 所使用的在线强化学习算法。
