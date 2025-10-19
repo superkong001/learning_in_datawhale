@@ -133,7 +133,7 @@ DPO（直接偏好优化）是一种对比学习方法，它同时从正样本�
 
 <img width="886" height="767" alt="21f132019f93e7899bec5e8025781f28_DPO%20in%20Practice" src="https://github.com/user-attachments/assets/eb157d7a-277c-410b-8ac2-27a153165d29" />
 
-'''
+```bash
 from trl import DPOTrainer, DPOConfig 
 #创建DPO训练器
 dpo_trainer = DPOTrainer(
@@ -146,7 +146,7 @@ dpo_trainer = DPOTrainer(
 )
 #训练DPO模型
 dpo_trainer.train()
-'''
+```
 
 ### 在线强化学习(Online RL，Online Reinforcement Learning）
 
