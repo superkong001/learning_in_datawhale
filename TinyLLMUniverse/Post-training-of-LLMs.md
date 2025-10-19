@@ -178,6 +178,8 @@ dpo_trainer.train()
 6. 获得 (prompt, response, reward) 三元组；
 7. 使用这些数据来更新语言模型。
 
+<img width="578" height="337" alt="image" src="https://github.com/user-attachments/assets/957dd768-d417-469e-8066-18e4ca99e2a4" />
+
 #### 奖励函数（Reward Function）的选择
 
 在在线强化学习中，奖励函数的设计至关重要。常见有两种类型：
