@@ -138,7 +138,8 @@ from trl import DPOTrainer, DPOConfig
 #创建DPO训练器
 dpo_trainer = DPOTrainer(
     model=model,# 模型
-    ref_model=None,# 参考模型（如果有的话），设置 ref_model=None，trl.DPOTrainer 会默认把 ref_model 复制为当前 model 的初始状态副本
+    # 参考模型（如果有的话），设置 ref_model=None，trl.DPOTrainer 会默认把 ref_model 复制为当前 model 的初始状态副本
+    ref_model=None,
     args=config,    # 训练参数配置
     # 分词器，用于指定：如何把字符串样本转换成模型输入（input_ids, attention_mask 等）以及如何从模型输出中解析文本
     processing_class=tokenizer,  
