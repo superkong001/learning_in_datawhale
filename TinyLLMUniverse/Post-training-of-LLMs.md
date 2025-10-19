@@ -125,6 +125,21 @@ Tip：直接偏好优化（DPO）过程中需要避免过拟合。因为直接�
 
 <img width="775" height="436" alt="53f3e1ae06f86463ab8fba561cc7f535_DPO4" src="https://github.com/user-attachments/assets/a1e83c0e-b70b-4b74-a722-ab04c2078883" />
 
+'''
+from trl import DPOTrainer, DPOConfig 
+#创建DPO训练器
+dpo_trainer = DPOTrainer(
+    model=model,# 模型
+    ref_model=None,# 参考模型（如果有的话），设置 ref_model=None，trl.DPOTrainer 会默认把 ref_model 复制为当前 model 的初始状态副本
+    args=config,    # 训练参数配置
+    # 分词器，用于指定：如何把字符串样本转换成模型输入（input_ids, attention_mask 等）以及如何从模型输出中解析文本
+    processing_class=tokenizer,  
+    train_dataset=dpo_ds# 训练数据集
+)
+#训练DPO模型
+dpo_trainer.train()
+'''
+
 #### 直接偏好优化实践(DPO in Practice)
 
 DPO（直接偏好优化）是一种对比学习方法，它同时从正样本（优选）和负样本（劣选）中学习。
