@@ -182,6 +182,8 @@ dpo_trainer.train()
 
 #### 奖励函数（Reward Function）的选择
 
+<img width="635" height="346" alt="image" src="https://github.com/user-attachments/assets/c868c7a8-13c7-40fa-9e53-bf3df1b690ba" />
+
 在在线强化学习中，奖励函数的设计至关重要。常见有两种类型：
 
 1. **训练好的奖励模型（Reward Model）**
