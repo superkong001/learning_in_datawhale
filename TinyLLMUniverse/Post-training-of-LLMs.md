@@ -125,6 +125,14 @@ Tip：直接偏好优化（DPO）过程中需要避免过拟合。因为直接�
 
 <img width="775" height="436" alt="53f3e1ae06f86463ab8fba561cc7f535_DPO4" src="https://github.com/user-attachments/assets/a1e83c0e-b70b-4b74-a722-ab04c2078883" />
 
+#### 直接偏好优化实践(DPO in Practice)
+
+DPO（直接偏好优化）是一种对比学习方法，它同时从正样本（优选）和负样本（劣选）中学习。
+
+实验（DPO in practice.ipynb）：将从一个小的 Qwen instruct 模型开始。这个模型有自己的身份标识“Qwen”。当用户问“你是谁？”时，它会回答“我是 Qwen”。然后，创建一些对比数据。具体来说，当询问身份时，将身份名称从“Qwen”改为“Deep Qwen”，并使用“Deep Qwen”作为正样本（优选回答），“Qwen”作为负样本（劣选回答）。使用了一个大规模（数量）的对比数据集，并在现有的 instruct 模型之上进行 DPO 排序训练。之后，将得到一个微调后的 Qwen 模型，它拥有了新的身份。当用户问“你是谁？”时，希望模型会回答“我是 Deep Qwen”。
+
+<img width="886" height="767" alt="21f132019f93e7899bec5e8025781f28_DPO%20in%20Practice" src="https://github.com/user-attachments/assets/eb157d7a-277c-410b-8ac2-27a153165d29" />
+
 '''
 from trl import DPOTrainer, DPOConfig 
 #创建DPO训练器
@@ -139,14 +147,6 @@ dpo_trainer = DPOTrainer(
 #训练DPO模型
 dpo_trainer.train()
 '''
-
-#### 直接偏好优化实践(DPO in Practice)
-
-DPO（直接偏好优化）是一种对比学习方法，它同时从正样本（优选）和负样本（劣选）中学习。
-
-实验（DPO in practice.ipynb）：将从一个小的 Qwen instruct 模型开始。这个模型有自己的身份标识“Qwen”。当用户问“你是谁？”时，它会回答“我是 Qwen”。然后，创建一些对比数据。具体来说，当询问身份时，将身份名称从“Qwen”改为“Deep Qwen”，并使用“Deep Qwen”作为正样本（优选回答），“Qwen”作为负样本（劣选回答）。使用了一个大规模（数量）的对比数据集，并在现有的 instruct 模型之上进行 DPO 排序训练。之后，将得到一个微调后的 Qwen 模型，它拥有了新的身份。当用户问“你是谁？”时，希望模型会回答“我是 Deep Qwen”。
-
-<img width="886" height="767" alt="21f132019f93e7899bec5e8025781f28_DPO%20in%20Practice" src="https://github.com/user-attachments/assets/eb157d7a-277c-410b-8ac2-27a153165d29" />
 
 ### 在线强化学习(Online RL，Online Reinforcement Learning）
 
