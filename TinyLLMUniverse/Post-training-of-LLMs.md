@@ -109,8 +109,6 @@ $$
 \mathcal{L}\_{\text{DPO}} = -\log \sigma \left( \beta \left( \log \frac{\pi_\theta(y_{\text{pos}} \mid x)}{\pi_{\text{ref}}(y_{\text{pos}} \mid x)} - \log \frac{\pi_\theta(y_{\text{neg}} \mid x)}{\pi_{\text{ref}}(y_{\text{neg}} \mid x)} \right) \right)
 $$
 
-<img width="508" height="188" alt="image" src="https://github.com/user-attachments/assets/0c42a39d-8e65-4442-9c44-dfd57faf2272" />
-
 DPO损失是某个对数差值的sigmoid函数的负对数，其中 $$\sigma$$ 实际上就是sigmoid函数，而 $$\beta$$ 是一个非常重要的超参数，可以在DPO的训练过程中对其进行调整。 $$\beta$$ 值越高，这个对数差值就越重要。在这个大括号内，有两个对数差值，分别关注正样本和负样本。
 
 上面部分，首先，有两个概率比值的对数。分子即 $$\pi_\theta$$ ，是一个微调后的模型。这里关注的是，对于微调后的模型，在给定提示的情况下，产生正面回复的概率是多少。分母是一个参考模型，它是原始模型的副本，权重固定，不可调整。我们只关注原始模型在给定提示的情况下，产生那些正面回复的概率。同样，对于负样本，也有对数比值，其中 $$\pi_\theta$$ 是微调后的模型， $$\theta$$ 是在这里想要调整的参数。而 $$\pi$$ 是一个固定的参考模型，可以是原始模型的副本。
