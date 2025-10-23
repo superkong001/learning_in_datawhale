@@ -2,6 +2,7 @@
 - https://github.com/datawhalechina/tiny-universe
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 - [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
+- https://github.com/superkong001/NLP_diffusion/blob/main/Transformers_LLM_practice.md
 
 # 基础概念
 ## 语言模型
