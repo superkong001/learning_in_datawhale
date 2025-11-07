@@ -1,6 +1,9 @@
 
 # 政策与合规
 
+![9ea0c6f76d097dc67df27e57f5f2515b](https://github.com/user-attachments/assets/dd0e3566-4ba8-441a-bb44-c57ac5339b87)
+
+## 隐私计算
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/2123433c-94af-49b8-93ec-160eca489d31" />
 
 <img width="647" height="305" alt="image" src="https://github.com/user-attachments/assets/7052631b-8deb-47e3-a42d-f858393e185a" />
@@ -19,5 +22,6 @@
 
 # 可信数据空间
 
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/6be0b74d-f7b7-4991-8b84-615772a0fcf6" />
 
 
