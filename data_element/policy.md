@@ -22,6 +22,8 @@
 
 # 可信数据空间
 
+定义：可信数据空间是基于共识规则，联接多方主体，实现数据资源共享共用的一种数据流通利用基础设施，是数据要素价值共创的应用生态,是支撑构建全国一体化数据市场的重要载体。
+
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/6be0b74d-f7b7-4991-8b84-615772a0fcf6" />
 
 
