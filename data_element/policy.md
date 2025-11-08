@@ -1,6 +1,5 @@
 参考： [隐语社区secretflow](https://www.secretflow.org.cn/community/bootcamp/2narwgw4ub8rabq/overview)
 
-<img width="614" height="263" alt="image" src="https://github.com/user-attachments/assets/3e0bef54-10b5-4b44-b128-83066a838423" />
 # 政策与合规
 
 ![9ea0c6f76d097dc67df27e57f5f2515b](https://github.com/user-attachments/assets/dd0e3566-4ba8-441a-bb44-c57ac5339b87)
