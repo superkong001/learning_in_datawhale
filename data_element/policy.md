@@ -28,7 +28,7 @@
 
 <img width="557" height="223" alt="image" src="https://github.com/user-attachments/assets/8e90d6d2-f910-4f3f-a693-8a7fad9b2784" />
 
-<img width="295" height="224" alt="image" src="https://github.com/user-attachments/assets/b7840c59-0686-4bde-aa26-ce667bb01d03" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/b7840c59-0686-4bde-aa26-ce667bb01d03" />
 
 - 可信数据空间服务平台应具备身份管理、接入连接器管理、目录管理、数字合约管理、可信数据空间管理、数据使用控制、国际空间互通网关7个功能,其中身份管理、接入连接器管理、目录管理可复用区域/行业功能节点相关能力,并可在此基础上结合可信数据空间业务需求进行扩展。国际空间互通网关为可选功能,由服务平台按需建设。
-- 
+- 接入连接器是用户接入可信数据空间服务平台、访问和使用可信数据空间资源的入口。接入连接器加入可信数据空间时应遵循NDI-TR-2025-05,并采取扩展模式的接入连接器。其中需扩展的功能包括:数据交付、数据资源管理、数据产品管理、数字合约管理、数据使用控制5项功能。
