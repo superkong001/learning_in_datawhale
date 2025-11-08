@@ -24,9 +24,11 @@
 
 定义：可信数据空间是基于共识规则，联接多方主体，实现数据资源共享共用的一种数据流通利用基础设施，是数据要素价值共创的应用生态,是支撑构建全国一体化数据市场的重要载体。
 
-<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/6be0b74d-f7b7-4991-8b84-615772a0fcf6" />
+<img width="496" height="306" alt="image" src="https://github.com/user-attachments/assets/158ac4ed-bdf7-4b4d-93f5-a104d4522024" />
 
-<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/d0206162-4c08-4a00-ac89-d27df84c4a4c" />
+<img width="557" height="223" alt="image" src="https://github.com/user-attachments/assets/8e90d6d2-f910-4f3f-a693-8a7fad9b2784" />
 
-<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/14792bd8-2f61-4eee-91ab-c0ad942ef709" />
+<img width="295" height="224" alt="image" src="https://github.com/user-attachments/assets/b7840c59-0686-4bde-aa26-ce667bb01d03" />
 
+- 可信数据空间服务平台应具备身份管理、接入连接器管理、目录管理、数字合约管理、可信数据空间管理、数据使用控制、国际空间互通网关7个功能,其中身份管理、接入连接器管理、目录管理可复用区域/行业功能节点相关能力,并可在此基础上结合可信数据空间业务需求进行扩展。国际空间互通网关为可选功能,由服务平台按需建设。
+- 
