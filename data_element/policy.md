@@ -70,7 +70,10 @@ Tips：密态通用计算成本已降至明文分布式计算成本的1.5倍以�
 <img width="386" height="290" alt="image" src="https://github.com/user-attachments/assets/acdf109d-dd10-4aa9-80b7-102c4993b633" />
 
 - 与MPC、FL的区别：MPC（安全多方计算）、FL（联邦学习）是基于分布式协议，多个参与方共同计算一个目标函数。在实际使用过程中，为了加速计算过程，往往会将部分中间结果以明文的形式交给某些参与方，而且一些协议的最终结果也是明文的，导致这些协议无法用于组成更大的密态计算过程。此外，分布式的网络交互也导致性能受到限制。
-- 与TEE（Trusted Execution Environment，可信执行环境）的区别：TEE 只是CPU 的一个原子能力，仅提供了最基础的隔离认证能力，缺乏构建产业化应用的其他很多核心能力。这好比是，在金库、运钞车之上构建银行系统，在汽车、火车之上构建运输系统，还需要很多体系化构建能力。（蚂蚁密算采用安全编程语言Rust实现。）
+- 与TEE（Trusted Execution Environment，可信执行环境；相对的称REE）的区别：TEE 只是CPU 的一个原子能力，仅提供了最基础的隔离认证能力，缺乏构建产业化应用的其他很多核心能力。这好比是，在金库、运钞车之上构建银行系统，在汽车、火车之上构建运输系统，还需要很多体系化构建能力。（蚂蚁密算采用安全编程语言Rust实现。）
+
+  <img width="677" height="280" alt="image" src="https://github.com/user-attachments/assets/40615e49-4a7e-4d8b-a8b1-d76341cc1c83" />
+
 - 与沙箱的区别：沙箱是防止恶意程序逃逸，即防止程序攻击主机，不保护程序。运维人员仍能窥探应用程序。
 - 与区块链的区别：区块链的控制能力，是通过拒绝异常结果达到的，无法防止滥用。
 
@@ -140,13 +143,12 @@ Tips：密态通用计算成本已降至明文分布式计算成本的1.5倍以�
     <img width="614" height="263" alt="image" src="https://github.com/user-attachments/assets/86420e95-f0ad-46de-853d-688a12d19395" />
 
   - 密态数据库：数据库管理员不再拥有“特权”，由数据提供方决定谁能使用数据。
-  - 密态大模型（基于TrustFlow的CCTF框架）
     
     <img width="612" height="226" alt="image" src="https://github.com/user-attachments/assets/5eca953e-b06d-4181-92f9-6afb5387b9b6" />
 
-
      <img width="612" height="226" alt="image" src="https://github.com/user-attachments/assets/5eca953e-b06d-4181-92f9-6afb5387b9b6" />
 
+  - 密态大模型（基于TrustFlow的CCTF框架）
     - 大模型全链路密态流转
  
       <img width="602" height="344" alt="image" src="https://github.com/user-attachments/assets/de9d9b70-aa97-4b18-8fda-dacbd0339e3c" />
