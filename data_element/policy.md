@@ -85,7 +85,7 @@ Tips：密态通用计算成本已降至明文分布式计算成本的1.5倍以�
 
   可信执行环境：
   
-  <img width="182" height="185" alt="image" src="https://github.com/user-attachments/assets/d68633d2-62d3-4c48-8156-eb3253342f24" />
+  <img width="382" height="385" alt="image" src="https://github.com/user-attachments/assets/d68633d2-62d3-4c48-8156-eb3253342f24" />
 
   - 可信应用身份：基于可信执行环境等，可以实现不受运维人员操纵的应用，叫做“可信应用”。
   - 可信集群、可信执行网络：多个可信应用相互协作，每个可信应用需要判断其他可信应用提供的服务是否能够满足其安全目标。
