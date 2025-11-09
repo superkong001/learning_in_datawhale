@@ -146,8 +146,6 @@ Tips：密态通用计算成本已降至明文分布式计算成本的1.5倍以�
     
     <img width="612" height="226" alt="image" src="https://github.com/user-attachments/assets/5eca953e-b06d-4181-92f9-6afb5387b9b6" />
 
-     <img width="612" height="226" alt="image" src="https://github.com/user-attachments/assets/5eca953e-b06d-4181-92f9-6afb5387b9b6" />
-
   - 密态大模型（基于TrustFlow的CCTF框架）
     - 大模型全链路密态流转
  
