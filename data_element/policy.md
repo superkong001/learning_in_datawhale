@@ -140,8 +140,25 @@ Tips：密态通用计算成本已降至明文分布式计算成本的1.5倍以�
     <img width="614" height="263" alt="image" src="https://github.com/user-attachments/assets/86420e95-f0ad-46de-853d-688a12d19395" />
 
   - 密态数据库：数据库管理员不再拥有“特权”，由数据提供方决定谁能使用数据。
+  - 密态大模型（基于TrustFlow的CCTF框架）
     
     <img width="612" height="226" alt="image" src="https://github.com/user-attachments/assets/5eca953e-b06d-4181-92f9-6afb5387b9b6" />
 
 
+     <img width="612" height="226" alt="image" src="https://github.com/user-attachments/assets/5eca953e-b06d-4181-92f9-6afb5387b9b6" />
+
+    - 大模型全链路密态流转
+ 
+      <img width="602" height="344" alt="image" src="https://github.com/user-attachments/assets/de9d9b70-aa97-4b18-8fda-dacbd0339e3c" />
+
+    - Query保护
+ 
+      <img width="560" height="372" alt="image" src="https://github.com/user-attachments/assets/b7f7c231-c549-4890-bd68-77f578935eb1" />
+
+    - 后训练数据和模型保护
+   
+      <img width="620" height="419" alt="image" src="https://github.com/user-attachments/assets/57dee0b8-d626-4ab6-ac52-fc11a9a0b36e" />
+
+    - 
+    
 
