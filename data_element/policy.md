@@ -111,9 +111,9 @@ Tips：密态通用计算成本已降至明文分布式计算成本的1.5倍以�
     - 特色1：基于数据血缘的使用控制：构建完整的数据血缘图，追踪数据从采集、处理、共享到销毁的全过程；保证数据提供方在数据流转过程中的持续控制，支持“数据三权”（数据资源持有权、数据加工使用权和数据产品经营权）的实现。
     - 特色2：跨空间的互联互通：支持在不同计算域、存储域、安全域之间安全流转；实现“数据不动，计算动”、“策略随行”的跨域协同能力。
 
-    <img width="650" height="236" alt="image" src="https://github.com/user-attachments/assets/b560c521-d577-4d31-9d87-5e9d1f48eb29" />
+    <img width="650" height="336" alt="image" src="https://github.com/user-attachments/assets/b560c521-d577-4d31-9d87-5e9d1f48eb29" />
  
-    <img width="624" height="200" alt="image" src="https://github.com/user-attachments/assets/b27af432-f12f-4b56-85d3-f3705346efab" />
+    <img width="624" height="400" alt="image" src="https://github.com/user-attachments/assets/b27af432-f12f-4b56-85d3-f3705346efab" />
 
     <img width="875" height="338" alt="image" src="https://github.com/user-attachments/assets/a4109a20-3eaa-47b5-a470-3169cc21c5f2" />
 
