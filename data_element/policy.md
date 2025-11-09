@@ -147,6 +147,13 @@ Tips：密态通用计算成本已降至明文分布式计算成本的1.5倍以�
     <img width="612" height="226" alt="image" src="https://github.com/user-attachments/assets/5eca953e-b06d-4181-92f9-6afb5387b9b6" />
 
   - 密态大模型（基于TrustFlow的CCTF框架）
+    - TrustFlow是一套基于可信硬件的隐私计算框架，它提供受保护和隔离的环境，提供数据安全存储和计算能力。TrustFlow提供了一套灵活的授权策略、TEE应用改造（对应用进行远程认证、数据读写、通信改造）。
+    - CCTF（Confidential Computing Transparency Framework）
+
+      <img width="671" height="374" alt="image" src="https://github.com/user-attachments/assets/392e337d-e759-41bb-8905-0e51f136fd47" />
+   
+      <img width="593" height="349" alt="image" src="https://github.com/user-attachments/assets/81888a1c-2a53-4743-a918-c3bf6cac3167" />
+
     - 大模型全链路密态流转
  
       <img width="602" height="344" alt="image" src="https://github.com/user-attachments/assets/de9d9b70-aa97-4b18-8fda-dacbd0339e3c" />
@@ -158,6 +165,15 @@ Tips：密态通用计算成本已降至明文分布式计算成本的1.5倍以�
     - 后训练数据和模型保护
    
       <img width="620" height="419" alt="image" src="https://github.com/user-attachments/assets/57dee0b8-d626-4ab6-ac52-fc11a9a0b36e" />
+    
+    - 部署推理：
+      - 开源地址：https://github.com/secretflow/trustflow
+      - 硬件（一台配备GPU的x86机器。如果是arm或者其他架构，请参考vllm官网，或者换成其他大模型推理引擎）、网络（可以访问公网用于下载模型）、软件环境（python >= 3.10、docker 19.03+）
+      - 部署推理服务：示例代码地址（https://github.com/secretflow/trustflow/blob/main/examples/llm-inference）
+      - git clone https://github.com/secretflow/trustflow; cd examples/llm-inference; docker compose up
+      - 加密Query，访问大模型:pip install –r requirements.txt; python jwe_client.py
+     
+        <img width="649" height="356" alt="image" src="https://github.com/user-attachments/assets/fb5d84db-ba2b-4d2f-8ef8-73f922b53414" />
 
     - 
     
