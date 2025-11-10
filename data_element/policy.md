@@ -107,7 +107,9 @@ Tips：密态通用计算成本已降至明文分布式计算成本的1.5倍以�
   - 密态胶囊：数据与使用策略（数字合约）绑定胶囊；用户通过加密确保只有指定可信应用能接收到；用户通过检查代码，确认可信应用会严格检查策略。
  
     - 定义：密态胶囊是一种面向数据治理的封装机制，通过将数据内容与其数据使用控制策略紧密绑定，形成一个不可分割、自包含的治理单元。该机制支持数据在不同系统或管理域之间安全流转，并确保在各目标环境中能够被正确解析和执行，从而保障数据在全生命周期内的可控访问与合规使用。
-    
+ 
+    <img width="591" height="170" alt="image" src="https://github.com/user-attachments/assets/02b14232-1874-42d4-904b-83446018ddff" />
+
     <img width="447" height="281" alt="image" src="https://github.com/user-attachments/assets/e75417f7-9985-4486-b05b-f5cfd5676b10" />
     
     - 组成：密态胶囊由元数据、数据密文、安全信息、使用控制策略组成，并携带数字签名。
@@ -174,6 +176,25 @@ Tips：密态通用计算成本已降至明文分布式计算成本的1.5倍以�
       - 加密Query，访问大模型:pip install –r requirements.txt; python jwe_client.py
      
         <img width="649" height="356" alt="image" src="https://github.com/user-attachments/assets/fb5d84db-ba2b-4d2f-8ef8-73f922b53414" />
+
+  - 密态大数据
+    - 系统架构
+
+      <img width="479" height="304" alt="image" src="https://github.com/user-attachments/assets/7ae344d9-9e11-42b5-96d4-cc73e16652d2" />
+ 
+      <img width="532" height="382" alt="image" src="https://github.com/user-attachments/assets/ef8c0f37-74e0-4738-b3b3-12c773ddc17e" />
+
+      - 密态离线计算引擎
+
+        <img width="642" height="299" alt="image" src="https://github.com/user-attachments/assets/380f5141-be19-45f3-9a4c-9e810a0d4b75" />
+
+      - 密态在线计算引擎
+
+        <img width="644" height="207" alt="image" src="https://github.com/user-attachments/assets/c420d103-8b3e-47f1-ba5c-68c480b19357" />
+
+      - 数据跨域计算
+
+        <img width="566" height="281" alt="image" src="https://github.com/user-attachments/assets/e7aaf387-3a80-4e39-9840-6a3a80bd6273" />
 
     - 
     
