@@ -2,9 +2,36 @@
 
 # 政策与合规
 
+“1”条主线 ———— 供得出、流得动、用得好、保安全 相关法律制度：
+
+<img width="574" height="263" alt="image" src="https://github.com/user-attachments/assets/b47e778f-eff1-4bbb-a6c8-470e3840d816" />
+
+- 法律文件：《政务数据共享条例》
+
+  <img width="435" height="278" alt="image" src="https://github.com/user-attachments/assets/8af71bdc-81ea-4c83-9ead-9f345e99a959" />
+
+  首先，能直接共享开放的公共数据原则上应免费共享开放，以降低全社会用数成本；其次，不能直接开放的公共数据应鼓励采用授权运营方式，以开放出更大规模和更高质量的数据。最后，公共数据授权运营不能挤占共享和开放的空间。
+  
+- 政策文件：《关于加快公共数据资源开发利用的意见》
+- 政策文件：《公共数据资源授权运营实施规范（试行）》
+- 政策文件：《公共数据资源登记管理暂行办法》
+- 政策文件：《关于建立公共数据资源授权运营价格形成机制的通知》
+
+  <img width="556" height="251" alt="image" src="https://github.com/user-attachments/assets/92c6c51c-c977-4718-926a-a89501e94f6b" />
+
+  <img width="560" height="270" alt="image" src="https://github.com/user-attachments/assets/08efb752-d527-4ed0-8282-e5b8fcd7ea18" />
+
+- 
+
+<img width="821" height="390" alt="image" src="https://github.com/user-attachments/assets/7e1a9636-ae53-4e31-90f2-2f3e096d4b8b" />
+
+
 ![9ea0c6f76d097dc67df27e57f5f2515b](https://github.com/user-attachments/assets/dd0e3566-4ba8-441a-bb44-c57ac5339b87)
 
 ## 隐私计算
+
+<img width="725" height="408" alt="image" src="https://github.com/user-attachments/assets/a5496856-9139-496a-b23a-c80005ba48bc" />
+
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/2123433c-94af-49b8-93ec-160eca489d31" />
 
 <img width="647" height="305" alt="image" src="https://github.com/user-attachments/assets/7052631b-8deb-47e3-a42d-f858393e185a" />
@@ -24,6 +51,8 @@
 # 可信数据空间
 
 定义：可信数据空间是基于共识规则，联接多方主体，实现数据资源共享共用的一种数据流通利用基础设施，是数据要素价值共创的应用生态,是支撑构建全国一体化数据市场的重要载体。
+
+<img width="760" height="383" alt="image" src="https://github.com/user-attachments/assets/15c60837-7f12-4d1d-8c77-0c17135b0b39" />
 
 <img width="496" height="306" alt="image" src="https://github.com/user-attachments/assets/158ac4ed-bdf7-4b4d-93f5-a104d4522024" />
 
@@ -198,4 +227,15 @@ Tips：密态通用计算成本已降至明文分布式计算成本的1.5倍以�
 
     - 
     
+# 区块链
+
+<img width="725" height="408" alt="image" src="https://github.com/user-attachments/assets/500a698b-f812-4a90-8ebe-779da19426c5" />
+
+# 数联网
+
+<img width="809" height="395" alt="image" src="https://github.com/user-attachments/assets/21ff1cf4-e674-4c85-8529-98a4c73e8bd5" />
+
+# 数据元件
+
+<img width="665" height="382" alt="image" src="https://github.com/user-attachments/assets/c6f1b1d6-7435-445c-a9a3-962b72a85eae" />
 
