@@ -279,6 +279,9 @@ $$
     - 但仍然不能从根本解决数据稀疏性问题
 
 ### 神经语言模型
+
+<img width="673" height="339" alt="image" src="https://github.com/user-attachments/assets/219d17cd-57c4-49ba-a1f6-90c0b0a3a939" />
+
 神经语言模型，其中 $p(x_{i}∣x_{i−(n−1):i−1})$ 由神经网络给出：
 
 $$
