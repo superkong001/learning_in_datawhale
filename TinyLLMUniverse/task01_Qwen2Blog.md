@@ -280,7 +280,20 @@ $$
 
 ### 神经语言模型
 
-<img width="673" height="339" alt="image" src="https://github.com/user-attachments/assets/219d17cd-57c4-49ba-a1f6-90c0b0a3a939" />
+<div align="center">
+    <img width="673" height="339" alt="image" src="https://github.com/user-attachments/assets/219d17cd-57c4-49ba-a1f6-90c0b0a3a939" />
+    <p>神经网络语言模型架构示意图</p>
+</div>
+
+其中用数学工具来度量向量之间的关系。最常用的方法是 **余弦相似度 (Cosine Similarity)** ，它通过计算两个向量夹角的余弦值来衡量它们的相似性。
+
+$$\text{similarity}(\vec{a}, \vec{b}) = \cos(\theta) = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}| |\vec{b}|}$$
+
+这个公式的含义是：
+
+- 如果两个向量方向完全相同，夹角为0°，余弦值为1，表示完全相关。
+- 如果两个向量方向正交，夹角为90°，余弦值为0，表示毫无关系。
+- 如果两个向量方向完全相反，夹角为180°，余弦值为-1，表示完全负相关。
 
 神经语言模型，其中 $p(x_{i}∣x_{i−(n−1):i−1})$ 由神经网络给出：
 
