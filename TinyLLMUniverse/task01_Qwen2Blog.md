@@ -220,6 +220,9 @@ $$P(w_i∣w_{i−1})=\frac{Count(w_{i−1},w_i)}{Count(w_{i−1})}$$
 
 这里的 `Count()` 函数就代表“计数”：
 
+- $Count(w_i−1,w_i)$：表示词对 $(w_{i−1},w_i)$ 在语料库中连续出现的总次数。
+- $Count(w_{i−1})$：表示单个词 $w_{i−1}$ 在语料库中出现的总次数。
+
 $$
 P(\boldsymbol{w}|students\ opened\ their)=\frac{count(students\ opened\ their\ \boldsymbol{w})}{count(students\ opened\ their)}
 $$  
