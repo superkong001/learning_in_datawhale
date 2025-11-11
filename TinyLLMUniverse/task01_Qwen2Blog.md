@@ -875,7 +875,7 @@ $$
 
 RNN其核心思想非常直观：为网络增加“记忆”能力。其设计引入了一个隐藏状态 (hidden state) 向量，可以将其理解为网络的短期记忆。在处理序列的每一步，网络都会读取当前的输入词，并结合它上一刻的记忆（即上一个时间步的隐藏状态），然后生成一个新的记忆（即当前时间步的隐藏状态）传递给下一刻。这个循环往复的过程，使得信息可以在序列中不断向后传递。
 
-<p align="center">
+<div align="center">
     <img width="663" height="206" alt="image" src="https://github.com/user-attachments/assets/0e55b2da-4a27-484a-a0d8-d499454ec628" />
     <p>RNN 结构示意图</p>
 </div>
