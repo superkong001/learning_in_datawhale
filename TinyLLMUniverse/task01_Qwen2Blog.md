@@ -216,6 +216,10 @@ $$
 
 最大似然估计：其思想是最可能出现的，就是在数据中看到次数最多的。
 
+$$P(w_i∣w_{i−1})=\frac{Count(w_{i−1},w_i)}{Count(w_{i−1})}$$
+
+这里的 `Count()` 函数就代表“计数”：
+
 $$
 P(\boldsymbol{w}|students\ opened\ their)=\frac{count(students\ opened\ their\ \boldsymbol{w})}{count(students\ opened\ their)}
 $$  
