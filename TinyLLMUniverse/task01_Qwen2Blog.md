@@ -223,6 +223,8 @@ $$P(w_i∣w_{i−1})=\frac{Count(w_{i−1},w_i)}{Count(w_{i−1})}$$
 - $Count(w_i−1,w_i)$：表示词对 $(w_{i−1},w_i)$ 在语料库中连续出现的总次数。
 - $Count(w_{i−1})$：表示单个词 $w_{i−1}$ 在语料库中出现的总次数。
 
+公式的含义就是：用“词对 $Count(w_i−1,w_i)$ 出现的次数”除以“词 $Count(w_{i−1})$ 出现的总次数”，来作为 $P(w_i∣w_{i−1})$ 的一个近似估计。
+
 $$
 P(\boldsymbol{w}|students\ opened\ their)=\frac{count(students\ opened\ their\ \boldsymbol{w})}{count(students\ opened\ their)}
 $$  
