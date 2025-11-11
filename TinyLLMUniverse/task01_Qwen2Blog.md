@@ -171,8 +171,10 @@ KL散度是一个非对称的度量，它表示的是如果用 $𝑞(𝑥)$ 代�
 - 统计语言模型（SLM）
     - 主要建立在统计学习理论框架，通常使用链式法则建模句子序列
       - 例如： $p(I, am, fine) = p(I \mid START) * p(am\mid I) * p(fine\mid I, am)$ 
-    -  $n$ -gram 语言模型：基于马尔科夫假设，当前词概率仅与前 $n - 1$ 个词有关
+    -  $n$ -gram 语言模型：基于马尔科夫假设，当前词概率仅与前 $n - 1$ 个词有关，"N" 代表我们考虑的上下文窗口大小。
 
+Tips：马尔可夫假设 (Markov Assumption) 。其核心思想是：我们不必回溯一个词的全部历史，可以近似地认为，一个词的出现概率只与它前面有限的 $n−1$ 个词有关。
+ 
 $$
 \begin{align*}
 p(s) &= p(w_1)p(w_2\mid w_1) \cdots p(w_m\mid w_{m - n + 1}, \cdots, w_{m - 1})\\
@@ -184,7 +186,7 @@ $$
 以前解决语音识别、机器翻译任务的主要模型是噪声信道模型。以语音识别为例：
 - 假设有一些从某个分布p中抽取的文本
 - 这些文本被转换为语音（声音信号）
-- 然后给定语音，我们希望恢复（最有可能的）文本。这可以通过贝叶斯定理实现：
+- 然后给定语音，希望恢复（最有可能的）文本。这可以通过贝叶斯定理实现：
 
 $$
 p(\text{text} \mid \text{speech}) \propto \underbrace{p(\text{text})}_\text{language model} \underbrace{p(\text{speech} \mid \text{text})} _ \text{acoustic model}  
@@ -195,7 +197,6 @@ $$
 $$
 p(x_i \mid x_{1:i-1}) = p(x_i \mid x_{i-(n-1):i-1}).
 $$
-
 
 如: 
 
@@ -211,7 +212,9 @@ $$
 
 概率是基于各种 $\text{n-gram}$（例如，𝖺𝗍𝖾 𝗍𝗁𝖾 𝗆𝗈𝗎𝗌𝖾和𝖺𝗍𝖾 𝗍𝗁𝖾 𝖼𝗁𝖾𝖾𝗌𝖾）在大量文本中出现的次数计算的，并且适当地平滑以避免过拟合（例如，Kneser-Ney平滑）。
 
-- 四元语言模型估计示例（最大似然估计）：
+- 四元语言模型估计示例（最大似然估计 Maximum Likelihood Estimation，MLE）：
+
+最大似然估计：其思想是最可能出现的，就是在数据中看到次数最多的。
 
 $$
 P(\boldsymbol{w}|students\ opened\ their)=\frac{count(students\ opened\ their\ \boldsymbol{w})}{count(students\ opened\ their)}
