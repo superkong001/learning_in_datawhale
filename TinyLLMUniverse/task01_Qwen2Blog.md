@@ -1095,6 +1095,19 @@ Transformer学习资源：
 
 代码参考：[Tensor2Tensor notebook](https://colab.research.google.com/github/tensorflow/tensor2tensor/blob/master/tensor2tensor/notebooks/hello_t2t.ipynb) ，在其中加载 Transformer 模型，并使用此交互式可视化对其进行检查。
 
+自注意力机制为每个输入的词元向量引入了三个可学习的角色：
+
+- 查询 (Query, Q)：代表当前词元，它正在主动地“查询”其他词元以获取信息。
+- 键 (Key, K)：代表句子中可被查询的词元“标签”或“索引”。
+- 值 (Value, V)：代表词元本身所携带的“内容”或“信息”。
+
+可以把它想象成一次高效的开卷考试：
+
+- 准备“考题”和“资料”：对于句子中的每个词，都通过权重矩阵生成其 $Q,K,V$ 向量。
+- 计算相关性得分：要计算词 $A$ 的新表示，就用词 $A$ 的 $Q$ 向量，去和句子中所有词（包括 $A$ 自己）的 $K$ 向量进行点积运算。这个得分反映了其他词对于理解词 $A$ 的重要性。
+- 稳定化与归一化：将得到的所有分数除以一个缩放因子 $\sqrt{d_{k}}$ （ $d_{k}$ 是 $K$ 向量的维度），以防止梯度过小，然后用Softmax函数将分数转换成总和为1的权重，也就是归一化的过程。
+- 加权求和：将上一步得到的权重分别乘以每个词对应的 $V$ 向量，然后将所有结果相加。最终得到的向量，就是词 $A$ 融合了全局上下文信息后的新表示。
+
 <p align="center">
     <img width="713" alt="image" src="https://github.com/user-attachments/assets/655df108-72b8-4673-b8c3-c956a7b25990" />
 </center>
