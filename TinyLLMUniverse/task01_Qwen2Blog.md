@@ -1109,8 +1109,9 @@ Transformer学习资源：
 - 加权求和：将上一步得到的权重分别乘以每个词对应的 $V$ 向量，然后将所有结果相加。最终得到的向量，就是词 $A$ 融合了全局上下文信息后的新表示。
 
 这个过程可以用一个简洁的公式来概括：
-
-$$\text{Attention}(Q,K,V)=\text{softmax}\left(\frac{QK^{T}}{\sqrt{d_{k}}}\right)V$$
+$$
+\text{Attention}(Q, K, V)=\text{softmax}\left(\frac{QK^{\mathrm{T}}}{\sqrt{D}}\right)V
+$$
 
 如果只进行一次上述的注意力计算（即单头），模型可能会只学会关注一种类型的关联。比如，在处理 "it" 时，可能只学会了关注主语。但语言中的关系是复杂的，我们希望模型能同时关注多种关系（如指代关系、时态关系、从属关系等）。多头注意力机制应运而生。它的思想很简单：把一次做完变成分成几组，分开做，再合并。
 
@@ -1121,7 +1122,7 @@ $$\text{Attention}(Q,K,V)=\text{softmax}\left(\frac{QK^{T}}{\sqrt{d_{k}}}\right)
 </center>
 
 <p align="center">
-    <img width="834" height="1056" alt="image" src="https://github.com/user-attachments/assets/96ad73ab-5887-46f9-b695-b6a1c828b8b2" />
+    <img width="634" height="556" alt="image" src="https://github.com/user-attachments/assets/96ad73ab-5887-46f9-b695-b6a1c828b8b2" />
 </center>
 
 多头注意力的简单实现参考：
@@ -1188,10 +1189,6 @@ class MultiHeadAttention(nn.Module):
 ```
 
 #### 单头注意力
-$$
-\text{Attention}(Q, K, V)=\text{softmax}\left(\frac{QK^{\mathrm{T}}}{\sqrt{D}}\right)V
-$$
-
 步骤：
 
 1. 从编码器的每个输入向量（如本例为每个单词的嵌入）创建Query、Key和Value三个向量。（新向量的维度小于嵌入向量。它们的维度为 64，而嵌入向量和编码器输入/输出向量的维度为 512）
