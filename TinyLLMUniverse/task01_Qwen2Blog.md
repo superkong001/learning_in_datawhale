@@ -1441,12 +1441,41 @@ def $EmbedTokenWithPosition(x_{1:L}:ℝ^{d×L})$ ：
   - 偶数维度索引，使用正弦函数： $$P_{(pos,2i)}=\sin\left(\frac{pos}{10000^{2i/d_{\text{model}}}}\right)，$$  
   - 奇数维度索引，使用余弦函数： $$P_{(pos,2i+1)}=\cos\left(\frac{pos}{10000^{2i/d_{\text{model}}}}\right)$$
     其中：
-    - $pos$ 是词元在序列中的位置（例如， $0$ ， $1$ ， $2$ ，...）
-    - $i$ 是位置向量中的维度索引（从 $0$ 到 $d_{\text{model}}/2$ ）
-    - $d_{\text{model}}$ 是词嵌入向量的维度（与我们模型中定义的一致）
+    - $pos$ 是词元在句子序列中的位置（例如， $0$ ， $1$ ， $2$ ，...）
+    - $i$ 表示该词元的向量表示维度位置（索引）（从 $0$ 到 $d_{\text{model}}/2$ ）
+    - $d_{\text{model}}$ 是词嵌入向量的维度（通常与模型的隐藏层维度相同，例如512）
+    - ${10000^{2i/dmodel}}$ 是一个缩放因子，它随 $i$ 的增大而增大，这样对于不同的 $i$ ，正弦和余弦函数的波长会随之增长。这种设计使得模型能够在每个维度捕捉到不同频率的位置信息。
 - 返回 $[x_1+P_1,…,x_L+P_L]$ 。
 
-上面的函数中， $pos$ 表示句子中词元的位置， $i$ 表示该词元的向量表示维度位置（索引）， $dmodel$ 是位置向量的维度（通常与模型的隐藏层维度相同，例如512）。公式中的 ${10000^{2i/dmodel}}$ 是一个缩放因子，它随 $i$ 的增大而增大，这样对于不同的 $i$ ，正弦和余弦函数的波长会随之增长。这种设计使得模型能够在每个维度捕捉到不同频率的位置信息。
+```Python
+class PositionalEncoding(nn.Module):
+    """
+    为输入序列的词嵌入向量添加位置编码。
+    """
+    def __init__(self, d_model: int, dropout: float = 0.1, max_len: int = 5000):
+        super().__init__()
+        self.dropout = nn.Dropout(p=dropout)
+
+        # 创建一个足够长的位置编码矩阵
+        position = torch.arange(max_len).unsqueeze(1)
+        div_term = torch.exp(torch.arange(0, d_model, 2) * (-math.log(10000.0) / d_model))
+
+        # pe (positional encoding) 的大小为 (max_len, d_model)
+        pe = torch.zeros(max_len, d_model)
+
+        # 偶数维度使用 sin, 奇数维度使用 cos
+        pe[:, 0::2] = torch.sin(position * div_term)
+        pe[:, 1::2] = torch.cos(position * div_term)
+
+        # 将 pe 注册为 buffer，这样它就不会被视为模型参数，但会随模型移动（例如 to(device)）
+        self.register_buffer('pe', pe.unsqueeze(0))
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # x.size(1) 是当前输入的序列长度
+        # 将位置编码加到输入向量上
+        x = x + self.pe[:, :x.size(1)]
+        return self.dropout(x)
+```
 
 <p align="center">
     <img width="875" alt="image" src="https://github.com/user-attachments/assets/175108d7-ac1f-42e2-bc03-7b1827c19a7a" />
