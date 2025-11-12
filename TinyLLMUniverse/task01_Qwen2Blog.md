@@ -1109,6 +1109,7 @@ Transformer学习资源：
 - 加权求和：将上一步得到的权重分别乘以每个词对应的 $V$ 向量，然后将所有结果相加。最终得到的向量，就是词 $A$ 融合了全局上下文信息后的新表示。
 
 这个过程可以用一个简洁的公式来概括：
+
 $$
 \text{Attention}(Q, K, V)=\text{softmax}\left(\frac{QK^{\mathrm{T}}}{\sqrt{D}}\right)V
 $$
@@ -1122,7 +1123,7 @@ $$
 </center>
 
 <p align="center">
-    <img width="634" height="556" alt="image" src="https://github.com/user-attachments/assets/96ad73ab-5887-46f9-b695-b6a1c828b8b2" />
+    <img width="534" height="556" alt="image" src="https://github.com/user-attachments/assets/96ad73ab-5887-46f9-b695-b6a1c828b8b2" />
 </center>
 
 多头注意力的简单实现参考：
