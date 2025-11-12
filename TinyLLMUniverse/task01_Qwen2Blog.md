@@ -2322,7 +2322,7 @@ $L(x) = -log_2 {p(x)}$
 
 - 高温度（0.7 $\leqslant$ Temperature $\lt$ 2）：输出 “创新、发散”。适用场景： 创意性任务：如诗歌创作、科幻故事构思、广告 slogan brainstorm、艺术灵感启发； 发散性思考。
 
-`Top-k `：其原理是将所有 token 按概率从高到低排序，取排名前 k 个的 token 组成 “候选集”，随后对筛选出的 k 个 token 的概率进行 “归一化”： $ \hat{p}_ i = \frac{p_ i}{\sum_ {j \in \text{候选集}} p_j}$
+`Top-k `：其原理是将所有 token 按概率从高到低排序，取排名前 k 个的 token 组成 “候选集”，随后对筛选出的 k 个 token 的概率进行 “归一化”： $\hat{p}_ i = \frac{p_ i}{\sum_ {j \in \text{候选集}} p_ j}$ 
 
 - 与温度采样的区别与联系：温度采样通过温度 T 调整所有 token 的概率分布（平滑或陡峭），不改变候选 token 的数量（仍考虑全部 N 个）。Top-k 采样通过 k 值限制候选 token 的数量（只保留前 k 个高概率 token），再从其中采样。当k=1时输出完全确定，退化为 “贪心采样”。
 
