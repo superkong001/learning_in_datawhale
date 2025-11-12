@@ -1080,7 +1080,9 @@ Transformer学习资源：
     <img width="687" alt="image" src="https://github.com/user-attachments/assets/605b12cf-2ea9-4aa8-813d-7b650ac6d039" />
 </center>
 
-### 注意力机制
+### 注意力机制 (Self-Attention) 
+自注意力 (Self-Attention) 允许模型在处理序列中的每一个词时，都能兼顾句子中的所有其他词，并为这些词分配不同的“注意力权重”。权重越高的词，代表其与当前词的关联性越强，其信息也应该在当前词的表示中占据更大的比重。
+
 假设以下句子是要翻译的输入句子：
 
 ”The animal didn't cross the street because it was too tired”  “ The animal didn't cross the street because it was too tired ”
