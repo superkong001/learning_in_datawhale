@@ -3,6 +3,7 @@
 - https://github.com/huggingface/transformers/tree/v4.39.3/src/transformers/models/qwen2
 - [https://github.com/datawhalechina/so-large-lm/blob/main/docs/content/ch0](https://github.com/datawhalechina/so-large-lm/tree/main)
 - https://github.com/superkong001/NLP_diffusion/blob/main/Transformers_LLM_practice.md
+- https://github.com/datawhalechina/hello-agents/blob/main/docs/chapter3/第三章 大语言模型基础.md
 
 # 基础概念
 ## 语言模型
@@ -2305,6 +2306,33 @@ $L(x) = -log_2 {p(x)}$
 
 可以向上取整（Ceil），确保每个符号可以被唯一编码并正确解码。也可以用四舍五入（Round），更贴近真实平均编码长度，但编码实现时仍需调整。
 
+## 与大语言模型交互
+### **模型采样参数**
+在使用大模型时，你会经常看到类似 $Temperature$ 这类的可配置参数，其本质是通过调整模型对 “概率分布” 的采样策略，让输出匹配具体场景需求，配置合适的参数可以提升Agent在特定场景的性能。
+
+传统的概率分布使由 Softmax 公式计算得到的：$p_i = \frac{e^{z_i}}{\sum_{j=1}^k e^{z_j}}$ ，采样参数的本质就是在此基础上，根据不同策略“重新调整”或“截断”分布，从而改变大模型输出的下一个token。
+
+`Temperature`：温度是控制模型输出 “随机性” 与 “确定性” 的关键参数。其原理是引入温度系数$T\gt0$,将 Softmax 改写为 $p_i^{(T)} = \frac{e^{z_i / T}}{\sum_{j=1}^k e^{z_j / T}}$ 。
+
+当T变小时，分布“更加陡峭”，高概率项权重进一步放大，生成更“保守”且重复率更高的文本。当T变大时，分布“更加平坦”，低概率项权重提升，生成更“多样”但可能出现不连贯的内容。
+
+- 低温度（0 $\leqslant$ Temperature $\lt$ 0.3）时输出更 “精准、确定”。适用场景： 事实性任务：如问答、数据计算、代码生成； 严谨性场景：法律条文解读、技术文档撰写、学术概念解释等场景。
+
+- 中温度（0.3 $\leqslant$ Temperature $\lt$ 0.7）：输出 “平衡、自然”。适用场景： 日常对话：如客服交互、聊天机器人； 常规创作：如邮件撰写、产品文案、简单故事创作。
+
+- 高温度（0.7 $\leqslant$ Temperature $\lt$ 2）：输出 “创新、发散”。适用场景： 创意性任务：如诗歌创作、科幻故事构思、广告 slogan brainstorm、艺术灵感启发； 发散性思考。
+
+`Top-k `：其原理是将所有 token 按概率从高到低排序，取排名前 k 个的 token 组成 “候选集”，随后对筛选出的 k 个 token 的概率进行 “归一化”： $ \hat{p}_ i = \frac{p_ i}{\sum_ {j \in \text{候选集}} p_j}$
+
+- 与温度采样的区别与联系：温度采样通过温度 T 调整所有 token 的概率分布（平滑或陡峭），不改变候选 token 的数量（仍考虑全部 N 个）。Top-k 采样通过 k 值限制候选 token 的数量（只保留前 k 个高概率 token），再从其中采样。当k=1时输出完全确定，退化为 “贪心采样”。
+
+`Top-p `：其原理是将所有 token 按概率从高到低排序，从排序后的第一个 token 开始，逐步累加概率，直到累积和首次达到或超过阈值 p： $\sum_{i \in S} p_{(i)} \geq p$，此时累加过程中包含的所有 token 组成 “核集合”，最后对核集合进行归一化。
+
+- 与Top-k的区别与联系：相对于固定截断大小的 Top-k，Top-p 能动态适应不同分布的“长尾”特性，对概率分布不均匀的极端情况的适应性更好。
+
+在文本生成中，当同时设置 Top-p、Top-k 和温度系数时，这些参数会按照分层过滤的方式协同工作，其优先级顺序为：温度调整→Top-k→Top-p。温度调整整体分布的陡峭程度，Top-k 会先保留概率最高的 k 个候选，然后 Top-p 会从 Top-k 的结果中选取累积概率≥p 的最小集合作为最终的候选集。不过，通常 Top-k 和 Top-p 二选一即可，若同时设置，实际候选集为两者的交集。
+需要注意的是，如果将温度设置为 0，则 Top-k 和 Top-p 将变得无关紧要，因为最有可能的 Token 将成为下一个预测的 Token；如果将 Top-k 设置为 1，温度和 Top-p 也将变得无关紧要，因为只有一个 Token 通过 Top-k 标准，它将是下一个预测的 Token。
+
 ## 新的模型架构
 ### 混合专家模型 (MoE)
 创建一组专家，每个输入只激活一小部分专家。类似一个由专家组成的咨询委员会，每个人都有不同的背景（如历史、数学、科学等）。
@@ -3355,7 +3383,6 @@ class Qwen2RMSNorm(nn.Module):
         hidden_states = hidden_states * torch.rsqrt(variance + self.variance_epsilon)
         return self.weight * hidden_states.to(input_dtype)
 ```
-
 
 
 
