@@ -1227,7 +1227,7 @@ $$
 - 多次注意力计算综合的结果类比CNN中同时使用多个卷积核的作用。
 
 <p align="center">
-    <img width="534" height="556" alt="image" src="https://github.com/user-attachments/assets/96ad73ab-5887-46f9-b695-b6a1c828b8b2" />
+    <img width="334" height="356" alt="image" src="https://github.com/user-attachments/assets/96ad73ab-5887-46f9-b695-b6a1c828b8b2" />
 </center>
 
 多头注意力的简单实现参考：
