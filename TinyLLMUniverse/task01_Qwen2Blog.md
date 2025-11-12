@@ -1352,46 +1352,6 @@ $$
     <img width="660" alt="image" src="https://github.com/user-attachments/assets/feed0de7-f0f5-4393-9535-6b6d0b04d075" />
 </center>
 
-### 前馈神经网络
-在每个 Encoder 和 Decoder 层中，多头注意力子层之后都跟着一个逐位置前馈网络(Position-wise Feed-Forward Network, FFN) 。注意力层的作用是从整个序列中“动态地聚合”相关信息，而前馈网络的作用从这些聚合后的信息中提取更高阶的特征。
-
-“逐位置”意味着这个前馈网络会独立地作用于序列中的每一个词元向量。换句话说，对于一个长度为 `seq_len` 的序列，这个 FFN 实际上会被调用 `seq_len` 次，每次处理一个词元。重要的是，所有位置共享的是同一组网络权重。这种设计既保持了对每个位置进行独立加工的能力，又大大减少了模型的参数量。这个网络的结构非常简单，由两个线性变换和一个 ReLU 激活函数组成：
-
-$$\mathrm{FFN}(x)=\max\left(0, xW_{1}+b_{1}\right) W_{2}+b_{2}$$
-
-其中， $x$ 是注意力子层的输出。 $W_1,b_1,W_2,b_2$ 是可学习的参数。通常，第一个线性层的输出维度 `d_ff` 会远大于输入的维度 `d_model`（例如 `d_ff = 4 * d_model`），经过 ReLU 激活后再通过第二个线性层映射回 `d_model` 维度。这种“先扩大再缩小”的模式，被认为有助于模型学习更丰富的特征表示。
-
-样例代码：
-
-```Python
-class PositionWiseFeedForward(nn.Module):
-    """
-    位置前馈网络模块
-    """
-    def __init__(self, d_model, d_ff, dropout=0.1):
-        super(PositionWiseFeedForward, self).__init__()
-        self.linear1 = nn.Linear(d_model, d_ff)
-        self.dropout = nn.Dropout(dropout)
-        self.linear2 = nn.Linear(d_ff, d_model)
-        self.relu = nn.ReLU()
-
-    def forward(self, x):
-        # x 形状: (batch_size, seq_len, d_model)
-        x = self.linear1(x)
-        x = self.relu(x)
-        x = self.dropout(x)
-        x = self.linear2(x)
-        # 最终输出形状: (batch_size, seq_len, d_model)
-        return x
-```
-### 残差连接与层归一化
-在 Transformer 的每个编码器和解码器层中，所有子模块（如多头注意力和前馈网络）都被一个 `Add & Norm` 操作包裹。这个组合是为了保证 Transformer 能够稳定训练。
-
-这个操作由两个部分组成：
-
-- **残差连接 (Add)** ：该操作将子模块的输入 $x$ 直接加到该子模块的输出 $Sublayer(x)$ 上。这一结构解决了深度神经网络中的 **梯度消失 (Vanishing Gradients)** 问题。在反向传播时，梯度可以绕过子模块直接向前传播，从而保证了即使网络层数很深，模型也能得到有效的训练。其公式可以表示为： $\text{Output} = x + \text{Sublayer}(x)$ 。
-- **层归一化 (Norm)** ：该操作对单个样本的所有特征进行归一化，使其均值为0，方差为1。这解决了模型训练过程中的 **内部协变量偏移 (Internal Covariate Shift)** 问题，使每一层的输入分布保持稳定，从而加速模型收敛并提高训练的稳定性。
-
 ### 位置编码
 添加位置编码向量，为了让模型了解单词的顺序。Transformer 的核心是自注意力机制，它通过计算序列中任意两个词元之间的关系来捕捉依赖。然而，这种计算方式有一个固有的问题：它本身不包含任何关于词元顺序或位置的信息。对于自注意力来说，“agent learns” 和 “learns agent” 这两个序列是完全等价的，因为它只关心词元之间的关系，而忽略了它们的排列。为了解决这个问题，Transformer 引入了 **位置编码 (Positional Encoding)** 。
 
@@ -1693,16 +1653,54 @@ $$
 </center>
 
 ### 前馈网络层
-学习复杂的函数关系和特征
+在每个 Encoder 和 Decoder 层中，多头注意力子层之后都跟着一个逐位置前馈网络(Position-wise Feed-Forward Network, FFN) 。注意力层的作用是从整个序列中“动态地聚合”相关信息，而前馈网络的作用从这些聚合后的信息中提取更高阶的特征。（用于学习复杂的函数关系和特征）
+
+“逐位置”意味着这个前馈网络会独立地作用于序列中的每一个词元向量。换句话说，对于一个长度为 `seq_len` 的序列，这个 FFN 实际上会被调用 `seq_len` 次，每次处理一个词元。重要的是，所有位置共享的是同一组网络权重。这种设计既保持了对每个位置进行独立加工的能力，又大大减少了模型的参数量。这个网络的结构非常简单，由两个线性变换和一个 ReLU 激活函数组成：
+
+- 线性变换：先升维、后降维
+- 非线性激活函数 $\sigma$ ：ReLU 或 GELU 等
+
+$$\mathrm{FFN}(x)=\max\left(0, xW_{1}+b_{1}\right) W_{2}+b_{2}$$
 
 $$
 \text{FFN}(\boldsymbol{X}) = \sigma(\boldsymbol{X}\boldsymbol{W}^U + \boldsymbol{b}_1)\boldsymbol{W}^D+\boldsymbol{b}_2
 $$
 
-- 线性变换：先升维、后降维
-- 非线性激活函数 $\sigma$ ：ReLU 或 GELU 等
+其中， $x$ 是注意力子层的输出。 $W_1,b_1,W_2,b_2$ 是可学习的参数。通常，第一个线性层的输出维度 `d_ff` 会远大于输入的维度 `d_model`（例如 `d_ff = 4 * d_model`），经过 ReLU 激活后再通过第二个线性层映射回 `d_model` 维度。这种“先扩大再缩小”的模式，被认为有助于模型学习更丰富的特征表示。
 
-### 残差
+样例代码：
+
+```Python
+class PositionWiseFeedForward(nn.Module):
+    """
+    位置前馈网络模块
+    """
+    def __init__(self, d_model, d_ff, dropout=0.1):
+        super(PositionWiseFeedForward, self).__init__()
+        self.linear1 = nn.Linear(d_model, d_ff)
+        self.dropout = nn.Dropout(dropout)
+        self.linear2 = nn.Linear(d_ff, d_model)
+        self.relu = nn.ReLU()
+
+    def forward(self, x):
+        # x 形状: (batch_size, seq_len, d_model)
+        x = self.linear1(x)
+        x = self.relu(x)
+        x = self.dropout(x)
+        x = self.linear2(x)
+        # 最终输出形状: (batch_size, seq_len, d_model)
+        return x
+```
+
+### 残差连接与层归一化
+在 Transformer 的每个编码器和解码器层中，所有子模块（如多头注意力和前馈网络）都被一个 `Add & Norm` 操作包裹。这个组合是为了保证 Transformer 能够稳定训练。
+
+这个操作由两个部分组成：
+
+- **残差连接 (Add)** ：该操作将子模块的输入 $x$ 直接加到该子模块的输出 $Sublayer(x)$ 上。这一结构解决了深度神经网络中的 **梯度消失 (Vanishing Gradients)** 问题。在反向传播时，梯度可以绕过子模块直接向前传播，从而保证了即使网络层数很深，模型也能得到有效的训练。其公式可以表示为： $\text{Output} = x + \text{Sublayer}(x)$ 。
+- **层归一化 (Norm)** ：该操作对单个样本的所有特征进行归一化，使其均值为0，方差为1。这解决了模型训练过程中的 **内部协变量偏移 (Internal Covariate Shift)** 问题，使每一层的输入分布保持稳定，从而加速模型收敛并提高训练的稳定性。
+
+#### 残差
 通过将输入与输出相加，缓解梯度爆炸和消失。如果训练中某一层训练效果不好，不用剔除某一层，因为由于输入与输出相加，保留了输入的效果。
 
 每个 encoder 中的每个子层 （self-attention，ffnn） 周围都有一个残差连接，然后是[层归一化](https://arxiv.org/abs/1607.06450)步骤。
@@ -1717,7 +1715,7 @@ $$
     <img width="691" alt="image" src="https://github.com/user-attachments/assets/1b43856e-b0ea-44e9-ac1b-a4613ce6d038" />
 </center>
 
-### 层归一化
+#### 层归一化
 对数据进行重新放缩，实现以下目标：
 
 - 不同特征在空间中的尺度不同,对损失优化的影响不一致
