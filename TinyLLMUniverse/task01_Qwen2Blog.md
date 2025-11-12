@@ -332,7 +332,9 @@ Tips: 消融实验（Ablation Study）是一种常用于机器学习和深度学
 
 <p align="center">
     <img width="908" alt="image" src="https://github.com/user-attachments/assets/d075380a-443f-4190-9037-f137ca7bba31" />
+</center>
 
+<p align="center">
     <img width="793" alt="image" src="https://github.com/user-attachments/assets/68456354-1085-436d-9fa3-4e9fa9a72d7b" />
 </center>
 
