@@ -556,12 +556,17 @@ $$
 </center>
 
 ### 分词
-分词（Tokenization）：即如何将一个字符串拆分成多个词元。分词方法：
+分词（Tokenization）：就是定义一套规则，将原始文本切分成一个个最小的单元， 即如何将一个字符串拆分成多个词元(Token)。分词方法：
 
-1. 基于空格的分词。如：`text.split(' ')`
+1. 按词分词 (Word-based) ：基于空格或标点符号将句子切分成单词。如：`text.split(' ')`
    [可视化的词编码](https://observablehq.com/@simonw/gpt-tokenizer)
 
-2. 字节对编码（BPE, Byte pair encoding）算法。
+   问题1 词表爆炸与未登录词：语言的词汇量巨大；模型将无法处理任何未在词表中出现过的词，这种现象我们称为“未登录词” (Out-Of-Vocabulary, OOV)。
+   问题2 语义关联的缺失：模型难以捕捉词形相近的词之间的语义关系。
+2. 按字符分词 (Character-based) ：将文本切分成单个字符。这种方法词表很小（例如英文字母、数字和标点），不存在 OOV 问题。缺点是，单个字符大多不具备独立的语义，模型需要花费更多的精力去学习如何将字符组合成有意义的词，导致学习效率低下。
+3. 子词分词 (Subword Tokenization) 算法：
+   核心思想是：将常见的词（如 "agent"）保留为完整的词元，同时将不常见的词（如 "Tokenization"）拆分成多个有意义的子词片段（如 "Token" 和 "ization"）。这样既控制了词表的大小，又能让模型通过组合子词来理解和生成新词。
+   主流子词分词算法————字节对编码（Byte-Pair Encoding, BPE)）算法：
    先将每个字符作为自己的词元，并组合那些经常共同出现的词元。整个过程可以表示为：
 
     - Input(输入)：训练语料库（字符序列）。
@@ -573,7 +578,60 @@ $$
     - Step4. 将 $xx'$ 添加到V中。
 
     存在训练数据中不可能见到所有的字符的问题。可以对字节而不是Unicode（统一码）字符运行BPE算法
-3. Unigram model (SentencePiece工具)
+   
+    ```Python
+    import re, collections
+    
+    def get_stats(vocab):
+        """统计词元对频率"""
+        pairs = collections.defaultdict(int)
+        for word, freq in vocab.items():
+            symbols = word.split()
+            for i in range(len(symbols)-1):
+                pairs[symbols[i],symbols[i+1]] += freq
+        return pairs
+    
+    def merge_vocab(pair, v_in):
+        """合并词元对"""
+        v_out = {}
+        bigram = re.escape(' '.join(pair))
+        p = re.compile(r'(?<!\S)' + bigram + r'(?!\S)')
+        for word in v_in:
+            w_out = p.sub(''.join(pair), word)
+            v_out[w_out] = v_in[word]
+        return v_out
+    
+    # 准备语料库，每个词末尾加上</w>表示结束，并切分好字符
+    vocab = {'h u g </w>': 1, 'p u g </w>': 1, 'p u n </w>': 1, 'b u n </w>': 1}
+    num_merges = 4 # 设置合并次数
+    
+    for i in range(num_merges):
+        pairs = get_stats(vocab)
+        if not pairs:
+            break
+        best = max(pairs, key=pairs.get)
+        vocab = merge_vocab(best, vocab)
+        print(f"第{i+1}次合并: {best} -> {''.join(best)}")
+        print(f"新词表（部分）: {list(vocab.keys())}")
+        print("-" * 20)
+    
+    >>>
+    第1次合并: ('u', 'g') -> ug
+    新词表（部分）: ['h ug </w>', 'p ug </w>', 'p u n </w>', 'b u n </w>']
+    --------------------
+    第2次合并: ('ug', '</w>') -> ug</w>
+    新词表（部分）: ['h ug</w>', 'p ug</w>', 'p u n </w>', 'b u n </w>']
+    --------------------
+    第3次合并: ('u', 'n') -> un
+    新词表（部分）: ['h ug</w>', 'p ug</w>', 'p un </w>', 'b un </w>']
+    --------------------
+    第4次合并: ('un', '</w>') -> un</w>
+    新词表（部分）: ['h ug</w>', 'p ug</w>', 'p un</w>', 'b un</w>']
+    --------------------
+    ```
+
+    在BPE的基础上优化算法：Google 开发的 WordPiece （合并词元的标准是“能最大化提升语料库的语言模型概率”） 和 SentencePiece （将空格也视作一个普通字符，通常用下划线 _ 表示）是影响力最大的两种。
+4. Unigram model (SentencePiece工具)
     Unigram（一元模型）模型是一种基于统计的语言模型，用于为给定的文本选择最佳的词划分。其目标是通过给定一个文本序列，使用一种合适的分词策略，尽可能优化整个分词的质量。这个分词模型通过目标函数进行优化，能够找到一种最优的分词方式。
 
     SentencePiece 工具进行分词：
