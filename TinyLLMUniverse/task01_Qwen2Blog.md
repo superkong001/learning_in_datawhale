@@ -967,7 +967,7 @@ $$
 
 - Transformer 完整的代码框架:
 
-$$
+```bash
 import torch
 import torch.nn as nn
 import math
@@ -1045,7 +1045,7 @@ class DecoderLayer(nn.Module):
         x = self.norm3(x + self.dropout(ff_output))
 
         return x
-$$
+```
 
 Transformer学习资源：
 
