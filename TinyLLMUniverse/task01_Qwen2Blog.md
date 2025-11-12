@@ -1352,6 +1352,39 @@ $$
     <img width="660" alt="image" src="https://github.com/user-attachments/assets/feed0de7-f0f5-4393-9535-6b6d0b04d075" />
 </center>
 
+### 前馈神经网络
+在每个 Encoder 和 Decoder 层中，多头注意力子层之后都跟着一个逐位置前馈网络(Position-wise Feed-Forward Network, FFN) 。注意力层的作用是从整个序列中“动态地聚合”相关信息，而前馈网络的作用从这些聚合后的信息中提取更高阶的特征。
+
+“逐位置”意味着这个前馈网络会独立地作用于序列中的每一个词元向量。换句话说，对于一个长度为 `seq_len` 的序列，这个 FFN 实际上会被调用 `seq_len` 次，每次处理一个词元。重要的是，所有位置共享的是同一组网络权重。这种设计既保持了对每个位置进行独立加工的能力，又大大减少了模型的参数量。这个网络的结构非常简单，由两个线性变换和一个 ReLU 激活函数组成：
+
+$$\mathrm{FFN}(x)=\max\left(0, xW_{1}+b_{1}\right) W_{2}+b_{2}$$
+
+其中， $x$ 是注意力子层的输出。 $W_1,b_1,W_2,b_2$ 是可学习的参数。通常，第一个线性层的输出维度 `d_ff` 会远大于输入的维度 `d_model`（例如 `d_ff = 4 * d_model`），经过 ReLU 激活后再通过第二个线性层映射回 `d_model` 维度。这种“先扩大再缩小”的模式，被认为有助于模型学习更丰富的特征表示。
+
+样例代码：
+
+```Python
+class PositionWiseFeedForward(nn.Module):
+    """
+    位置前馈网络模块
+    """
+    def __init__(self, d_model, d_ff, dropout=0.1):
+        super(PositionWiseFeedForward, self).__init__()
+        self.linear1 = nn.Linear(d_model, d_ff)
+        self.dropout = nn.Dropout(dropout)
+        self.linear2 = nn.Linear(d_ff, d_model)
+        self.relu = nn.ReLU()
+
+    def forward(self, x):
+        # x 形状: (batch_size, seq_len, d_model)
+        x = self.linear1(x)
+        x = self.relu(x)
+        x = self.dropout(x)
+        x = self.linear2(x)
+        # 最终输出形状: (batch_size, seq_len, d_model)
+        return x
+```
+
 ### 位置编码
 添加位置编码向量，为了让模型了解单词的顺序。
 
