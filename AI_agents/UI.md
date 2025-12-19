@@ -19,8 +19,8 @@ Streamlit中没有gradio的输入和输出概念，也没有布局组件的概�
 
 Gradio和Streamlit中的【文件组件】对比如下图：
 
-<img width="693" height="346" alt="d2c6d7ed0d253943bb09e9a8e652d7b4_62d8505a-3a42-47e1-b327-fc4aae0f2b4b" src="https://github.com/user-attachments/assets/c3969f83-b2dc-4993-850a-7c08cc5a3cd5" />
-<img width="1083" height="364" alt="f89b90f0c50dbf2347f7a8141c7a397e_fa54dc19-1739-47c1-b141-e0635ae2a4d3" src="https://github.com/user-attachments/assets/1c5495b9-2c4c-4ee4-b704-3fa151cf5bc1" />
+<img width="300" height="300" alt="d2c6d7ed0d253943bb09e9a8e652d7b4_62d8505a-3a42-47e1-b327-fc4aae0f2b4b" src="https://github.com/user-attachments/assets/c3969f83-b2dc-4993-850a-7c08cc5a3cd5" />
+<img width="300" height="300" alt="f89b90f0c50dbf2347f7a8141c7a397e_fa54dc19-1739-47c1-b141-e0635ae2a4d3" src="https://github.com/user-attachments/assets/1c5495b9-2c4c-4ee4-b704-3fa151cf5bc1" />
 
 Streamlit每个组件都是独立的，需要用什么直接查看官方文档即可，大致有如下几种组件：
 
