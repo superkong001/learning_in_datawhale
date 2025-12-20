@@ -73,6 +73,32 @@ RAG的基本结构：
 
 至此，离线计算就完成了。
 
+### 向量模型
+
+向量模型通常采用BERT架构，它是一个Transformer Encoder。
+
+输入向量模型前，首先会在文本的最前面额外加一个 [CLS] token，然后将该token最后一层的隐藏层向量作为文本的表示。如下图所示：
+
+<img width="437" height="265" alt="image" src="https://github.com/user-attachments/assets/b423c333-8e95-46e3-b3fc-e5c149ad90d2" />
+
+（在基于BERT的文本分类中，这个表示会送入分类器，得到标签。）
+
+目前，开源的基于BERT架构的向量模型有如下：
+
+[BGE Embedding](https://github.com/FlagOpen/FlagEmbedding/tree/master/research/baai_general_embedding)：智源通用embedding（BAAI general embedding, BGE）、
+[BCEmbedding](https://github.com/netease-youdao/BCEmbedding)：网易有道训练的Bilingual and Crosslingual Embedding 、
+[jina-embeddings](https://huggingface.co/jinaai/jina-embeddings-v2-base-zh)：Jina AI训练的text embedding 、
+[M3E](https://huggingface.co/moka-ai/m3e-large)：MokaAI训练的 Massive Mixed Embedding 、···
+
+除了BERT架构之外，还有基于LLM的向量模型有如下：
+
+[LLM-Embedder](https://github.com/FlagOpen/FlagEmbedding/tree/master/research/llm_embedder)：智源LLM-Embedder 、···
+
+其次，还有API: 
+[OpenAI API](https://platform.openai.com/docs/guides/embeddings)  、
+[Jina AI API](https://jina.ai/embeddings/) 、
+[ZhipuAI API](https://open.bigmodel.cn/dev/api/normal-model/glm-4) 、···
+
 ## 2 在线计算
 
 在实际使用RAG系统时，当给定一条用户 查询 （Query），需要先从知识库中找到所需的知识，这一步称为 检索 （Retrieval）。
