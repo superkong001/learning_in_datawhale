@@ -61,7 +61,7 @@ RAG的基本结构：
 
 向量化 需要事先构建一个 向量模型 （Embedding Model），它的作用就是将一段 Chunk 转成 向量 （Embedding）。如下图所示：
 
-<img width="600" height="300" alt="fe061e34cf319003e23d12c91e6eb113_9447d99a-dd80-4e51-bd36-3b294f510d0c" src="https://github.com/user-attachments/assets/6dabec9e-fa95-4606-b672-1d9443331d36" />
+<img width="400" height="200" alt="fe061e34cf319003e23d12c91e6eb113_9447d99a-dd80-4e51-bd36-3b294f510d0c" src="https://github.com/user-attachments/assets/6dabec9e-fa95-4606-b672-1d9443331d36" />
 
 一个好的向量模型，会使得具有相同语义的文本的向量表示在语义空间中的距离会比较近，而语义不同的文本在语义空间中的距离会比较远。
 
@@ -89,7 +89,7 @@ RAG的基本结构：
 
 另一方面，人们发现，随着知识库的增大，除了检索的速度变慢外，检索的效果也会出现退化，如下图中绿线所示：
 
-![6ff98fafee50cdd718b9f3ee50b3b4a6_7d9df0e1-cce2-4de9-b2f0-fc684bc08f3c](https://github.com/user-attachments/assets/37cd89f9-3078-405a-a6dd-34fca6ead5d2)
+<img width="422" height="263" alt="image" src="https://github.com/user-attachments/assets/d036cd87-a4f5-4e14-a63f-771480000bbf" />
 
 （图片来源：https://github.com/netease-youdao/QAnything）
 
