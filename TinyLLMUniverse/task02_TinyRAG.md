@@ -113,15 +113,15 @@ RAG的基本结构：
 
 目前，开源社区中已经涌现出了众多RAG框架，例如：
 
-TinyRAG：DataWhale成员宋志学精心打造的纯手工搭建RAG框架。
+[TinyRAG](https://github.com/KMnO4-zx/TinyRAG)：DataWhale成员宋志学精心打造的纯手工搭建RAG框架。
 
-LlamaIndex：一个用于构建大语言模型应用程序的数据框架，包括数据摄取、数据索引和查询引擎等功能。
+[LlamaIndex](https://github.com/run-llama/llama_index)：一个用于构建大语言模型应用程序的数据框架，包括数据摄取、数据索引和查询引擎等功能。
 
-LangChain：一个专为开发大语言模型应用程序而设计的框架，提供了构建所需的模块和工具。
+[LangChain](https://github.com/langchain-ai/langchain)：一个专为开发大语言模型应用程序而设计的框架，提供了构建所需的模块和工具。
 
-QAnything：网易有道开发的本地知识库问答系统，支持任意格式文件或数据库。
+[QAnything](https://github.com/netease-youdao/QAnything)：网易有道开发的本地知识库问答系统，支持任意格式文件或数据库。
 
-RAGFlow：InfiniFlow开发的基于深度文档理解的RAG引擎。
+[RAGFlow](https://github.com/infiniflow/ragflow)：InfiniFlow开发的基于深度文档理解的RAG引擎。
 
 ```python
 # 获取源代码
