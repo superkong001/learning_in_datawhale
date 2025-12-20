@@ -61,7 +61,7 @@ RAG的基本结构：
 
 向量化 需要事先构建一个 向量模型 （Embedding Model），它的作用就是将一段 Chunk 转成 向量 （Embedding）。如下图所示：
 
-<img width="400" height="200" alt="fe061e34cf319003e23d12c91e6eb113_9447d99a-dd80-4e51-bd36-3b294f510d0c" src="https://github.com/user-attachments/assets/6dabec9e-fa95-4606-b672-1d9443331d36" />
+<img width="600" height="300" alt="fe061e34cf319003e23d12c91e6eb113_9447d99a-dd80-4e51-bd36-3b294f510d0c" src="https://github.com/user-attachments/assets/6dabec9e-fa95-4606-b672-1d9443331d36" />
 
 一个好的向量模型，会使得具有相同语义的文本的向量表示在语义空间中的距离会比较近，而语义不同的文本在语义空间中的距离会比较远。
 
@@ -108,6 +108,20 @@ RAG的基本结构：
 最后，大型模型就能够依据所提供的知识来生成回复，从而更有效地解答用户的问题。
 
 至此，一个完整的RAG链路就构建完毕了。
+
+## 3 开源RAG框架
+
+目前，开源社区中已经涌现出了众多RAG框架，例如：
+
+TinyRAG：DataWhale成员宋志学精心打造的纯手工搭建RAG框架。
+
+LlamaIndex：一个用于构建大语言模型应用程序的数据框架，包括数据摄取、数据索引和查询引擎等功能。
+
+LangChain：一个专为开发大语言模型应用程序而设计的框架，提供了构建所需的模块和工具。
+
+QAnything：网易有道开发的本地知识库问答系统，支持任意格式文件或数据库。
+
+RAGFlow：InfiniFlow开发的基于深度文档理解的RAG引擎。
 
 ```python
 # 获取源代码
