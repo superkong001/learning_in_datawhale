@@ -151,6 +151,12 @@ RAG的基本结构：
 
 [RAGFlow](https://github.com/infiniflow/ragflow)：InfiniFlow开发的基于深度文档理解的RAG引擎。
 
+RAG框架的使用方法：
+
+langchain：https://github.com/datawhalechina/llm-cookbook
+
+llamaIndex：https://github.com/datawhalechina/llm-universe
+
 ```python
 # 获取源代码
 git clone https://github.com/datawhalechina/tiny-universe.git
