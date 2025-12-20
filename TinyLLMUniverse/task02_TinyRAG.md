@@ -89,7 +89,7 @@ RAG的基本结构：
 
 另一方面，人们发现，随着知识库的增大，除了检索的速度变慢外，检索的效果也会出现退化，如下图中绿线所示：
 
-![6ff98fafee50cdd718b9f3ee50b3b4a6_7d9df0e1-cce2-4de9-b2f0-fc684bc08f3c](https://github.com/user-attachments/assets/54b9c319-78d2-4b00-abf9-345a7a71be0b)
+![6ff98fafee50cdd718b9f3ee50b3b4a6_7d9df0e1-cce2-4de9-b2f0-fc684bc08f3c](https://github.com/user-attachments/assets/37cd89f9-3078-405a-a6dd-34fca6ead5d2)
 
 （图片来源：https://github.com/netease-youdao/QAnything）
 
