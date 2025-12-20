@@ -85,14 +85,16 @@ RAG的基本结构：
 
 目前，开源的基于BERT架构的向量模型有如下：
 
-[BGE Embedding](https://github.com/FlagOpen/FlagEmbedding/tree/master/research/baai_general_embedding)：智源通用embedding（BAAI general embedding, BGE）、
-[BCEmbedding](https://github.com/netease-youdao/BCEmbedding)：网易有道训练的Bilingual and Crosslingual Embedding 、
-[jina-embeddings](https://huggingface.co/jinaai/jina-embeddings-v2-base-zh)：Jina AI训练的text embedding 、
-[M3E](https://huggingface.co/moka-ai/m3e-large)：MokaAI训练的 Massive Mixed Embedding 、···
+- [BGE Embedding](https://github.com/FlagOpen/FlagEmbedding/tree/master/research/baai_general_embedding)：智源通用embedding（BAAI general embedding, BGE）
+- [BCEmbedding](https://github.com/netease-youdao/BCEmbedding)：网易有道训练的Bilingual and Crosslingual Embedding 
+- [jina-embeddings](https://huggingface.co/jinaai/jina-embeddings-v2-base-zh)：Jina AI训练的text embedding 
+- [M3E](https://huggingface.co/moka-ai/m3e-large)：MokaAI训练的 Massive Mixed Embedding
+- ···
 
 除了BERT架构之外，还有基于LLM的向量模型有如下：
 
-[LLM-Embedder](https://github.com/FlagOpen/FlagEmbedding/tree/master/research/llm_embedder)：智源LLM-Embedder 、···
+- [LLM-Embedder](https://github.com/FlagOpen/FlagEmbedding/tree/master/research/llm_embedder)：智源LLM-Embedder
+- ···
 
 其次，还有API: 
 [OpenAI API](https://platform.openai.com/docs/guides/embeddings)  、
