@@ -49,6 +49,64 @@ RAG的基本结构：
 
 ![16d74b949a9268e765ebe7b2810a1461_RAG](https://github.com/superkong001/learning_in_datawhale/assets/37318654/cc4ad35c-4963-47b8-88e2-b584e3232899)
 
+<img width="500" height="600" alt="abc7c8c9b40068e5ca54c7f1ff9e70a2_52b3dc6a-fb4b-4f98-95bd-9f265d7b399c" src="https://github.com/user-attachments/assets/4d7c4d84-1869-4b9b-a9ce-dfcf178732da" />
+
+1 离线计算
+首先，知识库中包含了多种类型的文件，如pdf、word、ppt等，这些 文档 （Documents）需要提前被解析，然后切割成若干个较短的 Chunk ，并且进行清洗和去重。
+
+由于知识库中知识的数量和质量决定了RAG的效果，因此这是非常关键且必不可少的环节。
+
+然后，我们会将知识库中的所有 Chunk 都转成向量，这一步也称为 向量化 （Vectorization）或者 索引 （Indexing）。
+
+向量化 需要事先构建一个 向量模型 （Embedding Model），它的作用就是将一段 Chunk 转成 向量 （Embedding）。如下图所示：
+
+<img width="600" height="300" alt="fe061e34cf319003e23d12c91e6eb113_9447d99a-dd80-4e51-bd36-3b294f510d0c" src="https://github.com/user-attachments/assets/6dabec9e-fa95-4606-b672-1d9443331d36" />
+
+一个好的向量模型，会使得具有相同语义的文本的向量表示在语义空间中的距离会比较近，而语义不同的文本在语义空间中的距离会比较远。
+
+<img width="400" height="400" alt="628dc14b8c3fe3ff8ded20777780dd6d_667a4729-6fcf-4e48-ae43-77e5f4f915fc" src="https://github.com/user-attachments/assets/b826957c-00b4-4bce-afda-1e4551393087" />
+
+由于知识库中的所有 Chunk 都需要进行 向量化 ，这会使得计算量非常大，因此这一过程通常是离线完成的。
+
+随着新知识的不断存储，向量的数量也会不断增加。这就需要将这些向量存储到 数据库 （DataBase）中进行管理，例如Milvus中。
+
+至此，离线计算就完成了。
+
+2 在线计算
+在实际使用RAG系统时，当给定一条用户 查询 （Query），需要先从知识库中找到所需的知识，这一步称为 检索 （Retrieval）。
+
+在 检索 过程中，用户查询首先会经过向量模型得到相应的向量，然后与 数据库 中所有 Chunk 的向量计算相似度，最简单的例如 余弦相似度 ，然后得到最相近的一系列 Chunk 。
+
+由于向量相似度的计算过程需要一定的时间，尤其是 数据库 非常大的时候。
+
+这时，可以在检索之前进行 召回 （Recall），即从 数据库 中快速获得大量大概率相关的 Chunk ，然后只有这些 Chunk 会参与计算向量相似度。这样，计算的复杂度就从整个知识库降到了非常低。
+
+召回 步骤不要求非常高的准确性，因此通常采用简单的基于字符串的匹配算法。由于这些算法不需要任何模型，速度会非常快，常用的算法有 TF-IDF ， BM25 等。
+
+另外，也有很多工作致力于实现更快的 向量检索 ，例如faiss，annoy。
+
+另一方面，人们发现，随着知识库的增大，除了检索的速度变慢外，检索的效果也会出现退化，如下图中绿线所示：
+
+![6ff98fafee50cdd718b9f3ee50b3b4a6_7d9df0e1-cce2-4de9-b2f0-fc684bc08f3c](https://github.com/user-attachments/assets/54b9c319-78d2-4b00-abf9-345a7a71be0b)
+
+（图片来源：https://github.com/netease-youdao/QAnything）
+
+这是由于 向量模型 能力有限，而随着知识库的增大，已经超出了其容量，因此准确性就会下降。在这种情况下，相似度最高的结果可能并不是最优的。
+
+为了解决这一问题，提升RAG效果，研究者提出增加一个二阶段检索—— 重排 (Rerank)，即利用 重排模型 （Reranker），使得越相似的结果排名更靠前。这样就能实现准确率稳定增长，即数据越多，效果越好（如上图中紫线所示）。
+
+通常，为了与 重排 进行区分，一阶段检索有时也被称为 精排 。而在一些更复杂的系统中，在 召回 和 精排 之间还会添加一个 粗排 步骤，这里不再展开，感兴趣的同学可以自行搜索。1
+
+综上所述，在整个 检索 过程中，计算量的顺序是 召回 > 精排 > 重排 ，而检索效果的顺序则是 召回 < 精排 < 重排 。
+
+当这一复杂的 检索 过程完成后，我们就会得到排好序的一系列 检索文档 （Retrieval Documents）。
+
+然后我们会从其中挑选最相似的 k 个结果，将它们和用户查询拼接成prompt的形式，输入到大模型。
+
+最后，大型模型就能够依据所提供的知识来生成回复，从而更有效地解答用户的问题。
+
+至此，一个完整的RAG链路就构建完毕了。
+
 ```python
 # 获取源代码
 git clone https://github.com/datawhalechina/tiny-universe.git
