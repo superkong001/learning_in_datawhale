@@ -64,6 +64,7 @@
 - [LoRA paper](https://arxiv.org/pdf/2106.09685)
 - [大模型轻量级微调（LoRA）：训练速度、显存占用分析](https://zhuanlan.zhihu.com/p/666000885)
 - [【深度学习】混合精度训练与显存分析](https://zhuanlan.zhihu.com/p/608634079)
+  
   <img width="455" height="329" alt="image" src="https://github.com/user-attachments/assets/4d724c69-0a1e-4ee9-bdd4-78d8ec771279" />
   假设有一个参数量为 Ψ 的模型，并使用Aadm作为优化器。首先，由于模型的参数和梯度使用float16，那么显存的消耗分别是 2Ψ 和 2Ψ 。Aadm会维护一个float32的模型副本，则会消耗 4Ψ 。此外，根据上面介绍的Aadm优化器，Adam需要为每个参数维护两个状态变量 𝑣 和 𝑟 。由于 𝑣 和 𝑟 均是float32，所以显存占用则为 4Ψ+4Ψ 。总的来说，模型会消耗 
 2Ψ+2Ψ=4Ψ 的显存，Aadm优化器则消耗 4Ψ+4Ψ+4Ψ=12Ψ 的显存。最终，总的显存消耗为 4Ψ+12Ψ=16Ψ 。对于GPT-2这样1.5B参数的模型，显存消耗至少24GB。
