@@ -5,13 +5,13 @@
 
 ## 大模型训练
 
-<img width="1880" height="935" alt="8b0213d5fe10863367023c88087e2396_introduction1" src="https://github.com/user-attachments/assets/31434930-54ad-4540-91b4-ce1c681fce3a" />
+<img width="600" height="300" alt="8b0213d5fe10863367023c88087e2396_introduction1" src="https://github.com/user-attachments/assets/31434930-54ad-4540-91b4-ce1c681fce3a" />
 
 大语言模型的训练分为两个阶段：
 
 - **预训练阶段**：模型学习预测下一个词或标记。预训练通常被视为无监督学习，其起点是大规模无标注文本语料（如维基百科、`Common Crawl`或`GitHub`等）。通常可从这些语料中提取超过2万亿个标记进行训练。从计算和成本角度看，这是训练的主体部分，通常需要在数万亿甚至数十万亿文本标记上进行训练。对于超大规模模型，这一过程可能耗时数月。
 
-<img width="748" height="807" alt="10d8c17d580106c52dd16053e24eb9e0_introduction3" src="https://github.com/user-attachments/assets/94ea9ffb-a16e-4f58-a528-d60739174327" />
+<img width="600" height="500" alt="10d8c17d580106c52dd16053e24eb9e0_introduction3" src="https://github.com/user-attachments/assets/94ea9ffb-a16e-4f58-a528-d60739174327" />
 
 当输入"我喜欢猫"这样的句子时，模型会基于前面所有标记来最小化每个标记的负对数概率：首先最小化"我"的负对数概率，然后是给定"我"时"喜欢"的负对数似然，最后是给定"我喜欢"时"猫"的概率。通过这种方式，模型被训练成能根据已见标记预测下一个标记。
 
@@ -19,7 +19,7 @@
 
 **大模型后训练场景**:
 
-<img width="1888" height="916" alt="ddbf7d18f6d3df7830c625707af72af7_introduction2" src="https://github.com/user-attachments/assets/72213697-2c7a-4c44-a67d-3db2b75b9067" />
+<img width="600" height="300" alt="ddbf7d18f6d3df7830c625707af72af7_introduction2" src="https://github.com/user-attachments/assets/72213697-2c7a-4c44-a67d-3db2b75b9067" />
 
 并非所有用例都需要进行适用模型后训练：
 
@@ -33,15 +33,15 @@
 
 ## 后训练方法
 
-<img width="740" height="368" alt="image" src="https://github.com/user-attachments/assets/7f2ae926-9038-4d6f-beb1-812757dad466" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/7f2ae926-9038-4d6f-beb1-812757dad466" />
 
-<img width="731" height="296" alt="image" src="https://github.com/user-attachments/assets/dce76d95-f9e2-43e1-b6a6-6fa296f82dd9" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/dce76d95-f9e2-43e1-b6a6-6fa296f82dd9" />
 
 ### 监督微调（Supervised Fine‑Tuning,SFT）
 
 它是一种把通用语言模型转换成任务型助手的方法，使其学会遵循指令或使用工具。通过训练提示与理想回应的成对数据（带标注的提示-响应对），模型学会模仿示例中的回答，从而能够按照指令行事、展示期望的行为并正确调用工具，核心在于让模型模仿输入提示与输出响应间的映射关系。该技术特别适用于引入新行为或对模型进行重大调整。此过程仅需1,000至10亿个标记，远少于预训练规模。其训练损失的关键区别在于：仅对响应标记进行训练，而不涉及提示标记。如：对一个千问小模型进行指令遵循微调。
 
-<img width="835" height="818" alt="image" src="https://github.com/user-attachments/assets/e089267d-0af8-4448-90c7-40296ba29109" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/e089267d-0af8-4448-90c7-40296ba29109" />
 
  SFT 的核心是让基础模型（只根据提示预测下一个 token）学会生成预期的回答，流程如下：
  
@@ -55,7 +55,7 @@
  
  - **微调后的模型**：完成训练后，模型可以针对新的查询给出合适的回复（例如向用户问好，而不是简单重复问题）。
 
- <img width="2560" height="1361" alt="3b4f0112f4961463d95af14d8f02b14f_SFT1" src="https://github.com/user-attachments/assets/74c266b4-9e56-43f3-8893-9a3e6ba453ec" />
+ <img width="600" height="500" alt="3b4f0112f4961463d95af14d8f02b14f_SFT1" src="https://github.com/user-attachments/assets/74c266b4-9e56-43f3-8893-9a3e6ba453ec" />
 
  上面的公式也可以理解为最大化在提示条件下回应中所有 token 的联合概率。交叉熵损失会惩罚偏离标签回应的输出，因此 SFT 本质上是在教模型“模仿”。
 
@@ -93,7 +93,7 @@ SFT 的效果高度依赖于数据质量。优质且多样的样本能让模型�
 
 在执行 SFT（或其他对齐方法）时，需要决定如何更新模型权重：
 
-<img width="2560" height="1363" alt="5de62dc8c10cab0354ac94f8397a7a78_SFT4" src="https://github.com/user-attachments/assets/c71c4030-9dc2-45a5-823a-b1f5b78ec383" />
+<img width="600" height="500" alt="5de62dc8c10cab0354ac94f8397a7a78_SFT4" src="https://github.com/user-attachments/assets/c71c4030-9dc2-45a5-823a-b1f5b78ec383" />
 
 - **全参数微调**：对每一层加入一个完整的权重更新矩阵  $\Delta W$ ，即修改所有参数。这可以显著提升性能，但需要大量存储和计算资源。
 - **参数高效微调**：例如 LoRA（低秩适配）通过在每层引入小的低秩矩阵 A 和 B 来调整模型参数。这减少了可训练参数的数量，节省显存，缺点是学习和遗忘都更有限，因为更新的参数更少。
@@ -106,13 +106,13 @@ SFT_in_practice.ipynb
 
 通过向模型展示同一提示下的“优质”与“劣质”答案，驱动模型学习。`DPO`通过构造性损失函数，使模型趋近优质响应而远离劣质响应。例如，若模型当前回复“我是你的助手”，而您希望其回答“我是你的AI助手”，则可将前者标记为劣质响应，后者标记为优质响应。训练目标是使模型远离劣质响应并学习优质响应。该方法同样仅需1,000至10亿个标记，并采用更复杂的损失函数。如：使用`DPO`调整一个`Qwen`指令模型的“身份认知”。
 
-<img width="981" height="832" alt="5d03449402b7a286eb8052b435108381_introduction5" src="https://github.com/user-attachments/assets/c3be54e9-a1a6-430f-98c1-51ca91f1466e" />
+<img width="600" height="500" alt="5d03449402b7a286eb8052b435108381_introduction5" src="https://github.com/user-attachments/assets/c3be54e9-a1a6-430f-98c1-51ca91f1466e" />
 
 #### 直接偏好优化基础理论(Basics of DPO)
 
 在大语言模型上执行直接偏好优化（DPO）后，将得到一个经过微调的大语言模型（LLM），希望它能从正向和负向样本中学习，它会尝试模仿偏好的样本，如果用户进一步询问“你是谁？”，希望助手回答“我是Athene”而不是“我是Llama”，（准备一个回答说“我是Athene”，另一个回答说“我是大语言模型”。其中“我是Athene”被标记为首选回答，而“我是大语言模型”被标记为次选回答。）这样可以使用这种直接偏好优化方法改变模型的身份。
 
-<img width="1489" height="838" alt="dfd143af41b7b80f7b2c10710b25e7ba_DPO1" src="https://github.com/user-attachments/assets/e670f698-84c1-49be-b8c2-65cc8b15ad43" />
+<img width="600" height="500" alt="dfd143af41b7b80f7b2c10710b25e7ba_DPO1" src="https://github.com/user-attachments/assets/e670f698-84c1-49be-b8c2-65cc8b15ad43" />
 
 DPO旨在最小化对比损失，该损失对负面回复进行惩罚，并鼓励正面回复。DPO损失实际上是对重新参数化奖励模型的奖励差异的交叉熵损失。
 
@@ -126,7 +126,7 @@ DPO损失是某个对数差值的sigmoid函数的负对数，其中 $$\sigma$$ �
 
 本质上，这个对数比值项可以被看作是奖励模型的重新参数化。如果你将其视为奖励模型，那么这个DPO损失实际上就是正样本和负样本之间奖励差异的sigmoid函数。本质上，DPO试图最大化正样本的奖励，并最小化负样本的奖励。关于为什么这样的对数比值可以被视为这种奖励模型的重新参数化的详细信息，可以阅读原始DPO论文，在那里找到详细内容。 
 
-<img width="813" height="457" alt="b0c8cef582fa8570295571712070707e_DPO2" src="https://github.com/user-attachments/assets/6a6ea08c-489f-44e3-8429-0b0d7bb2e34c" />
+<img width="600" height="300" alt="b0c8cef582fa8570295571712070707e_DPO2" src="https://github.com/user-attachments/assets/6a6ea08c-489f-44e3-8429-0b0d7bb2e34c" />
 
 直接偏好优化（DPO）也有一些 *最佳用例* ：
 1. **改变模型行为**。通常，当想对模型响应进行小的修改时，直接偏好优化（DPO）非常有效。这包括改变模型特性，或使模型在多语言响应、指令遵循能力方面表现更好，或者改变模型一些与安全相关的响应。
@@ -142,7 +142,7 @@ DPO（直接偏好优化）是一种对比学习方法，它同时从正样本�
 
 实验（DPO in practice.ipynb）：将从一个小的 Qwen instruct 模型开始。这个模型有自己的身份标识“Qwen”。当用户问“你是谁？”时，它会回答“我是 Qwen”。然后，创建一些对比数据。具体来说，当询问身份时，将身份名称从“Qwen”改为“Deep Qwen”，并使用“Deep Qwen”作为正样本（优选回答），“Qwen”作为负样本（劣选回答）。使用了一个大规模（数量）的对比数据集，并在现有的 instruct 模型之上进行 DPO 排序训练。之后，将得到一个微调后的 Qwen 模型，它拥有了新的身份。当用户问“你是谁？”时，希望模型会回答“我是 Deep Qwen”。
 
-<img width="886" height="767" alt="21f132019f93e7899bec5e8025781f28_DPO%20in%20Practice" src="https://github.com/user-attachments/assets/eb157d7a-277c-410b-8ac2-27a153165d29" />
+<img width="600" height="500" alt="21f132019f93e7899bec5e8025781f28_DPO%20in%20Practice" src="https://github.com/user-attachments/assets/eb157d7a-277c-410b-8ac2-27a153165d29" />
 
 ```bash
 from trl import DPOTrainer, DPOConfig 
@@ -164,7 +164,7 @@ dpo_trainer.train()
 
 作为第三种技术，该方只需准备提示集和奖励函数。从提示开始，让模型接收提示并生成响应，随后由奖励函数对回答质量进行评分，模型根据这些奖励分数进行更新。获取奖励函数的一种方式是基于人类对响应质量的评判，训练出一个与人类判断一致的评分函数。最常用的算法可能是近端策略优化。另一种方法是利用可验证奖励，适用于数学或编程等具有客观正确性标准的任务——例如使用数学验证器或单元测试来判定生成的解题步骤或代码是否正确。这种正确性度量即可作为奖励函数。针对此类奖励函数，DeepSeek团队提出的 `GRPO` 算法是一种高效实现方案。通常需要1,000至1,000万（或更多）个提示，目标是通过模型自身生成的响应来最大化奖励值。如：使用 `GRPO`训练一个`Qwen`小模型解决数学问题。
 
-<img width="798" height="805" alt="image" src="https://github.com/user-attachments/assets/5518001c-3cd4-497a-8c1a-5f921047f9a3" />
+<img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/5518001c-3cd4-497a-8c1a-5f921047f9a3" />
 
 #### 语言模型中的强化学习：在线 vs 离线
 
@@ -189,7 +189,7 @@ dpo_trainer.train()
 6. 获得 (prompt, response, reward) 三元组；
 7. 使用这些数据来更新语言模型。
 
-<img width="578" height="337" alt="image" src="https://github.com/user-attachments/assets/957dd768-d417-469e-8066-18e4ca99e2a4" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/957dd768-d417-469e-8066-18e4ca99e2a4" />
 
 #### 奖励函数（Reward Function）的选择
 
@@ -212,7 +212,7 @@ $$
 - 可应用于开放式任务，如聊天能力、安全性提升等；
 - 但在“正确性导向”的任务（如代码、数学、函数调用）中可能不够精确。
 
-<img width="1818" height="968" alt="image" src="https://github.com/user-attachments/assets/6e525205-fe9c-4d13-af3f-d56347d499d2" />
+<img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/6e525205-fe9c-4d13-af3f-d56347d499d2" />
 
 2. **可验证奖励（Verifiable Reward）**
 
@@ -225,11 +225,11 @@ $$
 - 准备成本较高，但奖励信号更精确可靠；
 - 更适合训练**推理类模型**（Reasoning Models），如代码、数学领域。
 
-<img width="1780" height="904" alt="image" src="https://github.com/user-attachments/assets/28486a31-3295-453c-8ebb-45a8b05bcf88" />
+<img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/28486a31-3295-453c-8ebb-45a8b05bcf88" />
 
 #### 两种主流的在线强化学习算法
 
-<img width="1179" height="687" alt="image" src="https://github.com/user-attachments/assets/4fde56f0-8583-411d-8f26-350e4b4c5ce7" />
+<img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/4fde56f0-8583-411d-8f26-350e4b4c5ce7" />
 
 - 图中：黄色框内模型会更新；蓝色框内模型不更新；
 
@@ -352,7 +352,7 @@ GRPO 由 DeepSeek 提出，用于优化大型语言模型的推理能力。
 
 在本实验中，将首先策划一组数学题目，（GSM8K数据集，下图）将其输入当前语言模型，并让模型生成多条回复；随后设计一个可验证奖励函数，用于检验回复是否与标准答案一致；由此获得〈提示，回复，奖励〉三元组，并利用 GRPO 更新语言模型。
 
-<img width="1915" height="1130" alt="7614db0c240dde4b31c4f3d3a643ac9b_GSM8K%E6%95%B0%E6%8D%AE%E9%9B%86" src="https://github.com/user-attachments/assets/aef7ccf5-e205-41f1-bad8-5c94271f27e6" />
+<img width="600" height="500" alt="7614db0c240dde4b31c4f3d3a643ac9b_GSM8K%E6%95%B0%E6%8D%AE%E9%9B%86" src="https://github.com/user-attachments/assets/aef7ccf5-e205-41f1-bad8-5c94271f27e6" />
 
 - **helper.py**：实验用工具函数集合，供本文与 Notebook 直接引用，包含：
   - `generate_responses(model, tokenizer, ...)`：使用分词器的 chat template 组织对话并生成模型回复；支持传入完整 `messages`。
@@ -380,9 +380,9 @@ GRPO 由 DeepSeek 提出，用于优化大型语言模型的推理能力。
         
     - 函数调用与智能体评估：`BFCL`、`NexusBench`、`TauBench`、`ToolSandbox`（后两者专注多工具使用场景）
   
-  <img width="1783" height="925" alt="95314eed344dbbcd8afa1d61fa9b8293_introduction8" src="https://github.com/user-attachments/assets/8a57e6d8-407a-49dc-a37a-41540d0398f7" />
+  <img width="600" height="500" alt="95314eed344dbbcd8afa1d61fa9b8293_introduction8" src="https://github.com/user-attachments/assets/8a57e6d8-407a-49dc-a37a-41540d0398f7" />
 
-<img width="737" height="384" alt="image" src="https://github.com/user-attachments/assets/262f60a0-f29f-4e7d-a73d-a186c4034b88" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/262f60a0-f29f-4e7d-a73d-a186c4034b88" />
 
 ### 大语言模型训练后优化方法比较
 
@@ -406,7 +406,7 @@ GRPO 由 DeepSeek 提出，用于优化大型语言模型的推理能力。
 
 - **监督微调（SFT）**：
 
-<img width="790" height="544" alt="f4dc3d19dd51da56e326f6afed9b4c9d_summary2" src="https://github.com/user-attachments/assets/8bbb644c-1371-43d6-81fc-cf3a70991888" />
+<img width="600" height="500" alt="f4dc3d19dd51da56e326f6afed9b4c9d_summary2" src="https://github.com/user-attachments/assets/8bbb644c-1371-43d6-81fc-cf3a70991888" />
 
 - 要求模仿的示例答案可能与模型*自然生成分布**存在根本差异→ 强制模型偏离原始能力空间→权重发生非必要改变
 
