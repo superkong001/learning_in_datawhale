@@ -93,7 +93,7 @@ SFT 的效果高度依赖于数据质量。优质且多样的样本能让模型�
 
 在执行 SFT（或其他对齐方法）时，需要决定如何更新模型权重：
 
-<img width="622" height="542" alt="423583efedde4b8ed37d14ce3728c4bf_c5442766-f6a0-4db9-9e43-fc57afac1c3e" src="https://github.com/user-attachments/assets/6bdce585-6604-4bc0-9b07-b69c4d734d3f" />
+<img width="300" height="300" alt="423583efedde4b8ed37d14ce3728c4bf_c5442766-f6a0-4db9-9e43-fc57afac1c3e" src="https://github.com/user-attachments/assets/6bdce585-6604-4bc0-9b07-b69c4d734d3f" />
 
 <img width="600" height="500" alt="5de62dc8c10cab0354ac94f8397a7a78_SFT4" src="https://github.com/user-attachments/assets/c71c4030-9dc2-45a5-823a-b1f5b78ec383" />
 
