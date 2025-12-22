@@ -11,7 +11,7 @@
 
 - **预训练阶段**：模型学习预测下一个词或标记。预训练通常被视为无监督学习，其起点是大规模无标注文本语料（如维基百科、`Common Crawl`或`GitHub`等）。通常可从这些语料中提取超过2万亿个标记进行训练。从计算和成本角度看，这是训练的主体部分，通常需要在数万亿甚至数十万亿文本标记上进行训练。对于超大规模模型，这一过程可能耗时数月。
 
-<img width="600" height="500" alt="10d8c17d580106c52dd16053e24eb9e0_introduction3" src="https://github.com/user-attachments/assets/94ea9ffb-a16e-4f58-a528-d60739174327" />
+<img width="400" height="400" alt="10d8c17d580106c52dd16053e24eb9e0_introduction3" src="https://github.com/user-attachments/assets/94ea9ffb-a16e-4f58-a528-d60739174327" />
 
 当输入"我喜欢猫"这样的句子时，模型会基于前面所有标记来最小化每个标记的负对数概率：首先最小化"我"的负对数概率，然后是给定"我"时"喜欢"的负对数似然，最后是给定"我喜欢"时"猫"的概率。通过这种方式，模型被训练成能根据已见标记预测下一个标记。
 
@@ -92,6 +92,8 @@ SFT 的效果高度依赖于数据质量。优质且多样的样本能让模型�
 #### 全参数微调 vs 参数高效微调
 
 在执行 SFT（或其他对齐方法）时，需要决定如何更新模型权重：
+
+<img width="622" height="542" alt="423583efedde4b8ed37d14ce3728c4bf_c5442766-f6a0-4db9-9e43-fc57afac1c3e" src="https://github.com/user-attachments/assets/6bdce585-6604-4bc0-9b07-b69c4d734d3f" />
 
 <img width="600" height="500" alt="5de62dc8c10cab0354ac94f8397a7a78_SFT4" src="https://github.com/user-attachments/assets/c71c4030-9dc2-45a5-823a-b1f5b78ec383" />
 
@@ -380,9 +382,9 @@ GRPO 由 DeepSeek 提出，用于优化大型语言模型的推理能力。
         
     - 函数调用与智能体评估：`BFCL`、`NexusBench`、`TauBench`、`ToolSandbox`（后两者专注多工具使用场景）
   
-  <img width="600" height="500" alt="95314eed344dbbcd8afa1d61fa9b8293_introduction8" src="https://github.com/user-attachments/assets/8a57e6d8-407a-49dc-a37a-41540d0398f7" />
+  <img width="400" height="300" alt="95314eed344dbbcd8afa1d61fa9b8293_introduction8" src="https://github.com/user-attachments/assets/8a57e6d8-407a-49dc-a37a-41540d0398f7" />
 
-<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/262f60a0-f29f-4e7d-a73d-a186c4034b88" />
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/262f60a0-f29f-4e7d-a73d-a186c4034b88" />
 
 ### 大语言模型训练后优化方法比较
 
